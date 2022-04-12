@@ -8,5 +8,6 @@ Created on Thu Apr  7 15:24:26 2022
 
 print("Hola mundo")
 
+print("estamos en lucy")
 
 
