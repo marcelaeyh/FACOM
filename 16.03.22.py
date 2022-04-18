@@ -3,6 +3,8 @@
 Created on Tue Mar  8 16:18:36 2022
 
 @author: Luisa
+
+Apartir del archivo original de csv se extrae la información para
 """
 
 #------------------------------------------------------------------------------
@@ -14,6 +16,7 @@ from datetime import datetime
 #2. LECTURAS DE DATOS
 m="/home/luisab/Documents/FACOM/Datos_Hidrometeorol_gicos_Crudos_-_Red_de_Estaciones_IDEAM___Temperatura.csv" 
 n="/home/luisab/Documents/FACOM/Precipitaci_n.csv"
+
 #-----------------------------------------------------------------------------
 #3. FUNCIONES
 #3.1 fUNCIÓN PARA ENCONTRAR LOS TIPO DE DATOS QUE HAY EN UN VECTOR
@@ -77,8 +80,6 @@ print("Se cargaron las librerias y las funciones")
 print(" Comienza el analisis del archivo HD")
 
 #HIDROMETROROLOGIA
-
-
 
 #------------------------------------------------------------------------------
 #EXTRAER EL TIPO DE DATO QUE HAY EN CADA COLUMNA
