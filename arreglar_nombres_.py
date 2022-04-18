@@ -43,6 +43,8 @@ def normalizar(df):
                 
                 # Reemplaza el string viejo por el nuevo en todo el df
                 df = df.replace(vs,df[i])
+            
+    print("Terminó corrección de tildes y caractéres especiales")
         
 # Función para corregir casos especiales
 def casos_especiales(df):
@@ -53,8 +55,13 @@ def casos_especiales(df):
             df[i] = 'bogota'
     # Corregir san andres
     for i in range(len(df)):
-        x = re.search('san and',df[i])
+        x = re.search('san andres',df[i])
         if x != None:
             df[i] = 'san andres'
+        
+    print("Terminó corrección de casos especiales")
 
+normalizar(bd_depl)
+casos_especiales(bd_depl)
 
+bd_depl.head()
