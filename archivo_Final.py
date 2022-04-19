@@ -19,6 +19,7 @@ from tqdm import tqdm              # libreria para saber el tiempo de ejecución
 from sqlalchemy import create_engine
 import os
 import math
+import matplotlib.pyplot as plt #Para graficar
 #------------------------#----------------------------#-----------------------#
 #  2. leer las bases de datos
 #Si la base de datos ya esta creada por favor agregar # para comentar las 
@@ -52,7 +53,7 @@ n=len(k)                        #longitud de la columna de prueba
 k.head()
 del k
 
-data_base_name = "DATA.db"    # se asigna un nombre al db
+data_base_name = "DATA2.db"    # se asigna un nombre al db
 engine = create_engine('sqlite:///'+data_base_name)     # se crea el motor 
 sqlite_connection = engine.connect()                    # se enciende la conexión
 step=math.ceil(n*0.01)             # el número es el porcentaje que se va a tomar "dx"
@@ -73,7 +74,7 @@ sqlite_connection.close()
 
 
 #  2.3 información de la base de datos
-eng = 'sqlite:///DATA.db'
+eng = 'sqlite:///repaired_DATA2.db'
 
 #------------------------#----------------------------#-----------------------#
 #3. funciones
@@ -90,7 +91,7 @@ def SQL_PD(table_or_sql,eng):
 #  4. se genera el archivo con la informaición por estación
 my_query1='''
 SELECT CodigoEstacion FROM temperatura
-WHERE 
+WHERE (CodigoEstacion='25025380')
 '''
 codigo = SQL_PD(my_query1,eng)
 
@@ -119,16 +120,82 @@ for i in tqdm(range(3)):
     shape = df_est.shape
     #Obtener el nombre de las columnas
     columns_names = df_est.columns.values
+    #latitud y longitud
+    lat=df_est.Latitud.unique()
+    lon=df_est.Longitud.unique()
+    #Municipio y departamento
+    mu=df_est.Municipio.unique()
+    dep=df_est.Departamento.unique()
+    #Zona hidrografica y nombre de la estación
+    zh=df_est.ZonaHidrografica.unique()
+    ne=df_est.NombreEstacion.unique()
+    #descrición del sensor y unidades
+    desS=df_est.DescripcionSensor.unique()
+    unidades=df_est.UnidadMedida.unique()
+    
     
     print("Estación",cod)
+    print("")
+    print("INFORMACIÓN INICIAL")
+    print("")
     print("1. La fecha inicial =",df_est["fecha"][0] )
     print("2. La fecha final =",df_est["fecha"][n-1] )
     print("3. La cantidad de filas y columnas =",shape )
     print("4. El nombre de las columnas es=",columns_names)
-    print("5", df.head())
+    print("5. Las primeras filas son= ")
+    print(df_est.head())
+    print("6. Las últimas filas= ")
+    print(df_est.tail())
+    print("")
+    print("LATITUD Y LONGITUD")
+    print("")
+    print("7. latitud=", lat)
+    print("8. longitud=", lon)
+    print("")
+    print("MUNICIPIO, DEPARTAMENTO, ZONA HIDROGRAFICA Y NOMBRE DE LA ESTACIÓN")
+    print("")
+    print("9. Municipio= ", mu)
+    print("10. Departamento= ", dep)
+    print("11. Zona Hidrografica= ", zh)
+    print("12. Nombre de la estación= ", ne)
+    print("")
+    print("UNIDADES Y OTRAS DESCRIPCIONES")
+    print("")
+    print("13. Unidades de la variable de estudio= ", unidades)
+    print("14. Descripción del sensor= ", desS)
+    print("")
         
-    del df_est
-
+    #CALCULOS
+    #max, min, promedio
+    #Valor máximo
+    maxi=df_est.ValorObservado.max()
+    mini=df_est.ValorObservado.min()
+    media=df_est.ValorObservado.mean()
+    desviacion=df_est.ValorObservado
+    mediana=df_est.ValorObservado
+    
+    print("")
+    print("ESTADISTICOS")
+    print("")
+    print("15. Valor máximo= ", maxi)
+    print("16. Valor mínimo= ", mini)
+    print("17. Valor medio= ", media)
+    print("18. Desviación estandar", desviacion)
+    print("19. Mediana= ", mediana)
+    
+    print("")
+    print("GRAFICOS")
+    print("")
+    plt.figure(figsize=(10,5))
+    plt.title("Estación "+ i)
+    plt.plot(df_est["FechaObservacion"],df_est["ValorObservado"])
+    plt.xlabel("fecha observación (min)")
+    plt.ylabel(unidades)
+    plt.grid()
+    
+    
+    
+    
 
 
 
