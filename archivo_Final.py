@@ -64,6 +64,11 @@ while tqdm(cont <= (n-1)):
     #La siguiente fila de codigo lo que carga es el dx, se toma una porción y solo se carga
     #el porcentaje que se desea cargar que inicialmente se asigno en cada paso. 
     v=pd.read_csv(p,nrows=int(step),skiprows=range(1,int(cont)))
+    ###################################################
+    #corregir nombres#
+    ###################################################
+    #organizar los datos nulos y definirlos#
+    ###################################################
     print("ingresando paso",cont)
     v.to_sql(name='temperatura',con=sqlite_connection,index=False,if_exists='append') 
     cont=cont+step
@@ -74,7 +79,7 @@ sqlite_connection.close()
 
 
 #  2.3 información de la base de datos
-eng = 'sqlite:///repaired_DATA2.db'
+eng = 'sqlite:////media/luisa/Datos/documentos/FACOM/gits/FACOM/DATA.db'
 
 #------------------------#----------------------------#-----------------------#
 #3. funciones
@@ -90,10 +95,10 @@ def SQL_PD(table_or_sql,eng):
 #------------------------#----------------------------#-----------------------#
 #  4. se genera el archivo con la informaición por estación
 my_query1='''
-SELECT CodigoEstacion FROM temperatura
-WHERE (CodigoEstacion='25025380')
+SELECT  DISTINCT CodigoEstacion FROM precipitacion 
 '''
 codigo = SQL_PD(my_query1,eng)
+print(codigo)
 
 print(" se empieza a leer por columna")
 for i in tqdm(range(3)):
@@ -102,13 +107,12 @@ for i in tqdm(range(3)):
     
     my_query2='''
     SELECT CodigoEstacion,FechaObservacion,ValorObservado,NombreEstacion,Departamento,
-    Municipio,ZonaHidrografica,Latitud,Longitud 
+    Municipio,ZonaHidrografica,Latitud,Longitud,DescripcionSensor,UnidadMedida 
     FROM precipitacion
     WHERE (codigoestacion = {})
     '''.format(int(cod))
-    
     df_est = SQL_PD(my_query2,eng)
-    
+
     df_est["fecha"]=pd.to_datetime(df_est['FechaObservacion']).dt.strftime("%d/%m/%Y %X")
     #organizar las filas de mayor a menor con respecto a la fecha
     df_est = df_est.sort_values(by='fecha')
@@ -132,8 +136,8 @@ for i in tqdm(range(3)):
     #descrición del sensor y unidades
     desS=df_est.DescripcionSensor.unique()
     unidades=df_est.UnidadMedida.unique()
-    
-    
+
+
     print("Estación",cod)
     print("")
     print("INFORMACIÓN INICIAL")
@@ -149,20 +153,20 @@ for i in tqdm(range(3)):
     print("")
     print("LATITUD Y LONGITUD")
     print("")
-    print("7. latitud=", lat)
-    print("8. longitud=", lon)
+    print("7. latitud=", lat[0])
+    print("8. longitud=", lon[0])
     print("")
     print("MUNICIPIO, DEPARTAMENTO, ZONA HIDROGRAFICA Y NOMBRE DE LA ESTACIÓN")
     print("")
-    print("9. Municipio= ", mu)
-    print("10. Departamento= ", dep)
-    print("11. Zona Hidrografica= ", zh)
-    print("12. Nombre de la estación= ", ne)
+    print("9. Municipio= ", mu[0])
+    print("10. Departamento= ", dep[0])
+    print("11. Zona Hidrografica= ", zh[0])
+    print("12. Nombre de la estación= ", ne[0])
     print("")
     print("UNIDADES Y OTRAS DESCRIPCIONES")
     print("")
-    print("13. Unidades de la variable de estudio= ", unidades)
-    print("14. Descripción del sensor= ", desS)
+    print("13. Unidades de la variable de estudio= ", unidades[0])
+    print("14. Descripción del sensor= ", desS[0])
     print("")
         
     #CALCULOS
@@ -171,9 +175,10 @@ for i in tqdm(range(3)):
     maxi=df_est.ValorObservado.max()
     mini=df_est.ValorObservado.min()
     media=df_est.ValorObservado.mean()
-    desviacion=df_est.ValorObservado
-    mediana=df_est.ValorObservado
-    
+    desviacion=np.std(df_est.ValorObservado)
+    mediana=np.median(df_est.ValorObservado)
+
+
     print("")
     print("ESTADISTICOS")
     print("")
@@ -182,22 +187,36 @@ for i in tqdm(range(3)):
     print("17. Valor medio= ", media)
     print("18. Desviación estandar", desviacion)
     print("19. Mediana= ", mediana)
-    
+
+
+
+    df_est.head(20)
+
+    df_est["year"]=pd.to_datetime(df_est['fecha']).dt.year 
+    df_est["month"]=pd.to_datetime(df_est['fecha']).dt.month
+    df_est["day"]=pd.to_datetime(df_est['fecha']).dt.day  
+    df_est["hour"]=pd.to_datetime(df_est['fecha']).dt.hour
+    month=list(df_est["month"].unique())
+    month.sort() 
+    Ma_mes=[]
+    for i in tqdm(month):
+        mes=df_est[df_est.month==i]
+        mean_m=mes.ValorObservado.mean(skipna=True)
+        Ma_mes.append(mean_m)
+        print("Ingresa el promedio del mes",i)
+    meses=np.array(["Ene","Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", 
+                    "Sep","Oct", "Nov", "Dic"])
     print("")
     print("GRAFICOS")
     print("")
     plt.figure(figsize=(10,5))
-    plt.title("Estación "+ i)
-    plt.plot(df_est["FechaObservacion"],df_est["ValorObservado"])
-    plt.xlabel("fecha observación (min)")
-    plt.ylabel(unidades)
+    plt.title("Ciclo medio anual \n Estación" )
+    plt.plot(meses,Ma_mes)
+    plt.xlabel("tiempo (meses)")
+    plt.ylabel("precipitación "+unidades)
     plt.grid()
     
     
-    
-    
-
-
 
 #------------------------#----------------------------#-----------------------#
 #------------------------#----------------------------#-----------------------#
