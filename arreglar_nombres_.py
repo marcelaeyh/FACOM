@@ -11,19 +11,23 @@ import pandas as pd
 import re
 from tqdm import tqdm
 
-bd = "/Volumes/DiscoMarcela/facom/Datos_Hidrometeorol_gicos_Crudos_-_Red_de_Estaciones_IDEAM___Temperatura.csv"
-d = "/Users/mac/Desktop/facom/Departamentos.csv"
+bd = "/home/marcelae/Documents/Datos_Hidrometeorol_gicos_Crudos_-_Red_de_Estaciones_IDEAM___Temperatura.csv"
+#d = "/Users/mac/Desktop/facom/Departamentos.csv"
 
-# Lee los archivos
+# Lee las columnas 4,5,6 y 7
+
+#4. NombreEstacion
+bd_ne = pd.read_csv(bd, usecols = [4])
+#5. Departamentos
 bd_dep = pd.read_csv(bd, usecols = [5])
-dep = pd.read_csv(d,sep=";")
-dep.columns = ["Departamento"]
+#6. Municipios
+bd_mun = pd.read_csv(bd, usecols = [6])
+#7. ZonaHidrografica
+bd_zh = pd.read_csv(bd, usecols = [7])
 
-# Pone todo en minuscula
-bd_depl = bd_dep["Departamento"].str.lower()
-depl = dep["Departamento"].str.lower()
+# FUNCIONES 
 
-# Función para corregir tildes, comas y ñ 
+# CORREGIR TILDES, COMAS Y Ñ
 def normalizar(df):
     
     # Diccionario con las correcciones
@@ -43,25 +47,110 @@ def normalizar(df):
                 
                 # Reemplaza el string viejo por el nuevo en todo el df
                 df = df.replace(vs,df[i])
-            
-    print("Terminó corrección de tildes y caractéres especiales")
-        
-# Función para corregir casos especiales
-def casos_especiales(df):
-    # Corregir bogotá
-    for i in range(len(df)):
-        x = re.search('bog',df[i])
-        if x != None:
-            df[i] = 'bogota'
-    # Corregir san andres
-    for i in range(len(df)):
-        x = re.search('san andres',df[i])
-        if x != None:
-            df[i] = 'san andres'
-        
-    print("Terminó corrección de casos especiales")
+    return df        
 
-normalizar(bd_depl)
-casos_especiales(bd_depl)
+# CORRECCIÓN NOMBRE ESTACIONES
+        
+def corregir_nombre_estaciones(df):
+    # Pone todo en minuscula
+    df = df["NombreEstacion"].str.lower()
+    # Cambia tildes, comas y ñ
+    df = normalizar(df)
+    '''
+    # Casos especiales nombre estaciones
+    def casos_especiales_ne(df):
+        # Corregir bogotá
+        for i in tqdm(range(len(df))):
+            x = re.search('bog',df[i])
+            if x != None:
+                df[i] = 'bogota'
 
-bd_depl.head()
+        return df       
+    
+    casos_especiales_ne(df)
+    '''
+    df = pd.DataFrame(df)
+    return df
+    
+# CORRECCIÓN DEPARTAMENTOS
+        
+def corregir_departamentos(df):
+    # Pone todo en minuscula
+    df = df["Departamento"].str.lower()
+    # Cambia tildes, comas y ñ
+    df = normalizar(df)
+    
+    # Casos especiales departamentos
+    def casos_especiales_dep(df):
+        # Corregir bogotá
+        for i in tqdm(range(len(df))):
+            x = re.search('bog',df[i])
+            if x != None:
+                df[i] = 'bogota'
+                
+        # Corregir san andres
+        for i in tqdm(range(len(df))):
+            x = re.search('san and',df[i])
+            if x != None:
+                df[i] = 'san andres'
+                
+        return df   
+    
+    casos_especiales_dep(df)
+    df = pd.DataFrame(df)
+    return df
+
+# CORRECCIÓN MUNICIPIOS
+        
+def corregir_municipios(df):
+    # Pone todo en minuscula
+    df = df["Municipio"].str.lower()
+    # Cambia tildes, comas y ñ
+    df = normalizar(df)
+    '''
+    # Casos especiales municipios
+    def casos_especiales_mun(df):
+        # Corregir bogotá
+        for i in tqdm(range(len(df))):
+            x = re.search('bog',df[i])
+            if x != None:
+                df[i] = 'bogota'
+                
+        return df       
+    
+    casos_especiales_mun(df)
+    '''
+    df = pd.DataFrame(df)
+    return df
+
+# CORRECCIÓN ZONA HIDROGRÁFICA
+        
+def corregir_zona_hidrografica(df):
+    # Pone todo en minuscula
+    df = df["ZonaHidrografica"].str.lower()
+    # Cambia tildes, comas y ñ
+    df = normalizar(df)
+    
+    '''
+    # Casos especiales zona hidrográfica
+    def casos_especiales_zh(df):
+        # Corregir bogotá
+        for i in tqdm(range(len(df))):
+            x = re.search('bog',df[i])
+            if x != None:
+                df[i] = 'bogota'
+              
+        return df   
+    
+    casos_especiales_zh(df)
+    '''
+    df = pd.DataFrame(df)
+    return df
+
+
+# IMPLEMENTACIÓN DE LAS FUNCIONES 
+        
+bd_ne_c = corregir_nombre_estaciones(bd_ne)
+bd_dep_c = corregir_departamentos(bd_dep)
+bd_mun_c = corregir_municipios(bd_mun)
+bd_zn_c = corregir_zona_hidrografica(bd_zh)
