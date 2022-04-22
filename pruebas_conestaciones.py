@@ -17,7 +17,7 @@ import math
 import matplotlib.pyplot as plt #Para graficar
 
 #  2.3 información de la base de datos
-eng = 'sqlite:////media/luisa/Datos/documentos/FACOM/gits/FACOM/DATA.db'
+eng = 'sqlite:////home/luisab/Documents/FACOM/DATA.db'
 
 #------------------------#----------------------------#-----------------------#
 #3. funciones
@@ -39,6 +39,7 @@ Municipio,ZonaHidrografica,Latitud,Longitud,DescripcionSensor,UnidadMedida
 FROM precipitacion
 WHERE (codigoestacion = {})
 '''.format(int(cod))
+
 df_est = SQL_PD(my_query2,eng)
 
 df_est["fecha"]=pd.to_datetime(df_est['FechaObservacion']).dt.strftime("%d/%m/%Y %X")
@@ -145,6 +146,10 @@ plt.ylabel("precipitación "+unidades)
 plt.grid()
 
 
+titulos=["Codigo Estacion","Nombre de estacion","Municipio","Departamento", "Zona Hidrográfica","Latitud"
+         ,"Longitud","Fecha Inicial","Fecha Final","Numerofilas","Numero de columnas",
+         "Máximo","Mínimo","Promedio","Desviación Estándar","Mediana"]
+c=[cod,ne,mu,dep,zh,lat,lon,df_est["fecha"][0],df_est["fecha"][n-1],n,shape,maxi,mini,media,desviacion,mediana]
 
 
 
