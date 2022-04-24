@@ -74,7 +74,7 @@ while tqdm(cont <= (n-1)):
     cont=cont+step
     del v
     #print(cont,"_",step)
-    
+sqlite_connection.commit()     
 sqlite_connection.close()   
 
 
@@ -95,7 +95,7 @@ def SQL_PD(table_or_sql,eng):
 #------------------------#----------------------------#-----------------------#
 #  4. se genera el archivo con la informaición por estación
 my_query1='''
-SELECT  DISTINCT CodigoEstacion FROM precipitacion 
+SELECT  DISTINCT CodigoEstacion FROM temperatura LIMIT 550
 '''
 codigo = SQL_PD(my_query1,eng)
 print(codigo)
