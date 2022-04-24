@@ -98,6 +98,7 @@ my_query1='''
 SELECT  DISTINCT CodigoEstacion FROM temperatura LIMIT 550
 '''
 codigo = SQL_PD(my_query1,eng)
+
 print(codigo)
 
 print(" se empieza a leer por columna")
