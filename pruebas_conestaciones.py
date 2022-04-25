@@ -34,13 +34,8 @@ def SQL_PD(table_or_sql,eng):
 # 3.2 CORREGIR TILDES, COMAS Y Ñ
 def normalizar(df):
     
-    df.lower()
-    
     # Diccionario con las correcciones
     dic = {'á':'a', 'é':'e','í':'i','ó':'o','ú':'u',",":"",'ñ':'n'}
-    
-    # guarda el string viejo
-    vs = df
     
     # Busca en el diccionario el caracter especial
     for key in dic:
@@ -49,9 +44,7 @@ def normalizar(df):
         # Si lo encuentra, lo reemplaza 
         if x != None:
             df = df.replace(key,dic[key])
-            
-            # Reemplaza el string viejo por el nuevo en todo el df
-            df = df.replace(vs,df)
+
     return df  
 
      
@@ -66,19 +59,21 @@ WHERE (codigoestacion = {})
 '''.format(int(cod))
 
 df_est = SQL_PD(my_query2,eng)
-for index, row in df_est.iterrows():
-    print(row["ValorObservado"])
 
-x=p
+
+x=1
 #Datos reemplazados
 columnas=["CodigoEstacion","FechaObservacion","ValorObservado"]
 T_null=[columnas]
 P_null=[columnas]
 
-if (x==p):
+if (x==1):
+    df_est["Departamento"] = pd.DataFrame(df_est["Departamento"].str.lower())
+    df_est["Municipio"] = pd.DataFrame(df_est["Municipio"].str.lower())
+    df_est["ZonaHidrografica"] = pd.DataFrame(df_est["ZonaHidrografica"].str.lower())
     
-    for index, row in df_est.iterrows():
-            
+    for index, row in tqdm(df_est.iterrows()):
+          
         if (row["ValorObservado"]<0):
             row["ValorObservado"]="<nil>"
             t_vec=[row["CodigoEstacion"],row["ValorObservado"],row["fechaObservación"]]
@@ -86,23 +81,27 @@ if (x==p):
             print("Se encontro un valor menor a cero de= ",
                   row["ValorObservado"], ", en la fecha= ", row["FechaObservacion"])   
             
-    # Corrección de nombres
-    
-    normalizar(row["Departamento"])
-    normalizar(row["Municipio"])
-    normalizar(row["ZonaHidrografica"])
-    
-    x_dep_bog = re.search('bog',row["Departamento"])
-    x_dep_sa = re.search('san and',row["Departamento"])
-    x_mun = re.search('bog',row["Municipio"])
-    
-    if x_dep_bog != None:
-        row["Departamento"] = "bogota"
-    if x_mun != None:
-        row["Municipio"] = "bogota"
-    if x_dep_sa != None:
-        row["Departamento"] = "san andres"
+        # Corrección de nombres
+        
+        row["Departamento"] = normalizar(row["Departamento"])
+        row["Municipio"] = normalizar(row["Municipio"])
+        row["ZonaHidrografica"] = normalizar(row["ZonaHidrografica"])
+        
+        x_dep_bog = re.search('bog',row["Departamento"])
+        x_dep_sa = re.search('san and',row["Departamento"])
+        x_mun = re.search('bog',row["Municipio"])
+        
+        if x_dep_bog != None:
+            row["Departamento"] = "bogota"
+        if x_mun != None:
+            row["Municipio"] = "bogota"
+        if x_dep_sa != None:
+            row["Departamento"] = "san andres"
             
+        df_est["Departamento"][index] = row["Departamento"]
+        print(df_est["Departamento"][index])
+df_est.Departamento.head(40)  
+        
 if (x==t):
     
     for index, row in df_est.iterrows():
@@ -120,9 +119,9 @@ if (x==t):
             print("Se encontro un valor menor a cero de= ",
                   row["ValorObservado"], ", en la fecha= ", row["FechaObservacion"])
             
-    normalizar(row["Departamento"])
-    normalizar(row["Municipio"])
-    normalizar(row["ZonaHidrografica"])
+    row["Departamento"] = normalizar(row["Departamento"])
+    row["Municipio"] = normalizar(row["Municipio"])
+    row["ZonaHidrografica"] = normalizar(row["ZonaHidrografica"])
     
     x_dep_bog = re.search('bog',row["Departamento"])
     x_dep_sa = re.search('san and',row["Departamento"])
@@ -261,5 +260,5 @@ SELECT COUNT(CodigoEstacion) FROM temperatura
 df_est = SQL_PD(my_query2,eng)
 df_est
 
-m = "HOLA"
-m.lower()
+m = "HOLá"
+normalizar(m)
