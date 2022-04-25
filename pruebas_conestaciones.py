@@ -17,8 +17,7 @@ import math
 import matplotlib.pyplot as plt #Para graficar
 
 #  2.3 información de la base de datos
-eng = 'sqlite:////home/luisab/Documents/FACOM/DATA.db'
-
+eng = 'sqlite:////media/luisa/Datos/documentos/FACOM/gits/FACOM/DATA2.db'
 #------------------------#----------------------------#-----------------------#
 #3. funciones
 
@@ -31,12 +30,12 @@ def SQL_PD(table_or_sql,eng):
        return generator_object 
    
     
-cod = 25025380
+cod = 26135502
 
 my_query2='''
 SELECT CodigoEstacion,FechaObservacion,ValorObservado,NombreEstacion,Departamento,
 Municipio,ZonaHidrografica,Latitud,Longitud,DescripcionSensor,UnidadMedida 
-FROM precipitacion
+FROM temperatura
 WHERE (codigoestacion = {})
 '''.format(int(cod))
 
@@ -119,8 +118,6 @@ print("19. Mediana= ", mediana)
 
 
 
-df_est.head(20)
-
 df_est["year"]=pd.to_datetime(df_est['fecha']).dt.year 
 df_est["month"]=pd.to_datetime(df_est['fecha']).dt.month
 df_est["day"]=pd.to_datetime(df_est['fecha']).dt.day  
@@ -149,8 +146,16 @@ plt.grid()
 titulos=["Codigo Estacion","Nombre de estacion","Municipio","Departamento", "Zona Hidrográfica","Latitud"
          ,"Longitud","Fecha Inicial","Fecha Final","Numerofilas","Numero de columnas",
          "Máximo","Mínimo","Promedio","Desviación Estándar","Mediana"]
-c=[cod,ne,mu,dep,zh,lat,lon,df_est["fecha"][0],df_est["fecha"][n-1],n,shape,maxi,mini,media,desviacion,mediana]
+c1=[cod,ne,mu,dep,zh,lat,lon,df_est["fecha"][0],df_est["fecha"][n-1],n,shape,maxi,mini,media,desviacion,mediana]
 
+print(c)
 
+m=[m,c]
+m=[titulos]
+
+m.append(c1)
+m1=pd.DataFrame(m)
+m1.head()
+print( titulos) 
 
 

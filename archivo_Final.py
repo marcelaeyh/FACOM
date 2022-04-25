@@ -25,8 +25,8 @@ import matplotlib.pyplot as plt #Para graficar
 #Si la base de datos ya esta creada por favor agregar # para comentar las 
 #lineas ya que no se usaran.
 
-p="/home/luisab/Documents/FACOM/Datos_Hidrometeorol_gicos_Crudos_-_Red_de_Estaciones_IDEAM___Temperatura.csv" 
-t="/home/luisab/Documents/FACOM/Precipitaci_n.csv"
+t="/media/luisa/Datos/documentos/FACOM/Datos_Hidrometeorol_gicos_Crudos_-_Red_de_Estaciones_IDEAM___Temperatura.csv" 
+p="/media/luisa/Datos/documentos/FACOM/P.csv"
 
 #2.1 información de las columnas 
 # 0-CodigoEstacion
@@ -48,12 +48,12 @@ t="/home/luisab/Documents/FACOM/Precipitaci_n.csv"
 # 2.2 Crear la base de datos
 
 #cambiar por "p" o por "t" según la información que se desee cargar
-k=pd.read_csv(p,usecols=[0])    #Se crea una variable que contenga la longitud del archivo original
+k=pd.read_csv(t,usecols=[0])    #Se crea una variable que contenga la longitud del archivo original
 n=len(k)                        #longitud de la columna de prueba
 k.head()
 del k
 
-data_base_name = "DATA2.db"    # se asigna un nombre al db
+data_base_name = "/media/luisa/Datos/documentos/FACOM/gits/FACOM/DATA2.db"    # se asigna un nombre al db
 engine = create_engine('sqlite:///'+data_base_name)     # se crea el motor 
 sqlite_connection = engine.connect()                    # se enciende la conexión
 step=math.ceil(n*0.01)             # el número es el porcentaje que se va a tomar "dx"
@@ -63,7 +63,7 @@ cont=0                  #contador
 while tqdm(cont <= (n-1)):  
     #La siguiente fila de codigo lo que carga es el dx, se toma una porción y solo se carga
     #el porcentaje que se desea cargar que inicialmente se asigno en cada paso. 
-    v=pd.read_csv(p,nrows=int(step),skiprows=range(1,int(cont)))
+    v=pd.read_csv(t,nrows=int(step),skiprows=range(1,int(cont)))
     ###################################################
     #corregir nombres#
     ###################################################
@@ -73,13 +73,12 @@ while tqdm(cont <= (n-1)):
     v.to_sql(name='temperatura',con=sqlite_connection,index=False,if_exists='append') 
     cont=cont+step
     del v
-    #print(cont,"_",step)
-sqlite_connection.commit()     
+    #print(cont,"_",step)    
 sqlite_connection.close()   
 
 
 #  2.3 información de la base de datos
-eng = 'sqlite:////media/luisa/Datos/documentos/FACOM/gits/FACOM/DATA.db'
+eng = 'sqlite:////media/luisa/Datos/documentos/FACOM/gits/FACOM/DATA2.db'
 
 #------------------------#----------------------------#-----------------------#
 #3. funciones
@@ -95,23 +94,31 @@ def SQL_PD(table_or_sql,eng):
 #------------------------#----------------------------#-----------------------#
 #  4. se genera el archivo con la informaición por estación
 my_query1='''
-SELECT  DISTINCT CodigoEstacion FROM temperatura LIMIT 550
+SELECT  DISTINCT CodigoEstacion FROM temperatura
 '''
 codigo = SQL_PD(my_query1,eng)
 
 print(codigo)
 
 print(" se empieza a leer por columna")
-for i in tqdm(range(3)):
+
+titulos=["Codigo Estacion","Nombre de estacion","Municipio","Departamento", "Zona Hidrográfica","Latitud"
+         ,"Longitud","Fecha Inicial","Fecha Final","Numerofilas y columnas",
+         "Máximo","Mínimo","Promedio","Desviación Estándar","Mediana"]
+vector=[titulos]
+
+for i in tqdm (range(550)):
+#for i in tqdm(codigo):
     
     cod = codigo["CodigoEstacion"][i]
-    
+    #cod=i
     my_query2='''
     SELECT CodigoEstacion,FechaObservacion,ValorObservado,NombreEstacion,Departamento,
     Municipio,ZonaHidrografica,Latitud,Longitud,DescripcionSensor,UnidadMedida 
-    FROM precipitacion
+    FROM temperatura
     WHERE (codigoestacion = {})
     '''.format(int(cod))
+
     df_est = SQL_PD(my_query2,eng)
 
     df_est["fecha"]=pd.to_datetime(df_est['FechaObservacion']).dt.strftime("%d/%m/%Y %X")
@@ -137,8 +144,8 @@ for i in tqdm(range(3)):
     #descrición del sensor y unidades
     desS=df_est.DescripcionSensor.unique()
     unidades=df_est.UnidadMedida.unique()
-
-
+    print("")
+    print("#---------------------------#")
     print("Estación",cod)
     print("")
     print("INFORMACIÓN INICIAL")
@@ -190,9 +197,6 @@ for i in tqdm(range(3)):
     print("19. Mediana= ", mediana)
 
 
-
-    df_est.head(20)
-
     df_est["year"]=pd.to_datetime(df_est['fecha']).dt.year 
     df_est["month"]=pd.to_datetime(df_est['fecha']).dt.month
     df_est["day"]=pd.to_datetime(df_est['fecha']).dt.day  
@@ -217,7 +221,20 @@ for i in tqdm(range(3)):
     plt.ylabel("precipitación "+unidades)
     plt.grid()
     
+    c=[cod,ne[0],mu[0],dep[0],zh[0],lat[0],lon[0],df_est["fecha"][0],df_est["fecha"][n-1],
+       shape,maxi,mini,media,desviacion,mediana]
     
+    vector.append(c)
+    #print(vector)
+    print("termina" ,i)
+    print("#---------------------------#")
+
+df=pd.DataFrame(vector)
+df.head()
+   
+df.to_csv(r'/media/luisa/Datos/documentos/FACOM/gits/FACOM/temperatura.csv', 
+          header=None, index=None, sep=';')
+print("se guarda el archivo")
 
 #------------------------#----------------------------#-----------------------#
 #------------------------#----------------------------#-----------------------#
