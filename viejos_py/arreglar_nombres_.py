@@ -107,7 +107,7 @@ def corregir_municipios(df):
     df = df["Municipio"].str.lower()
     # Cambia tildes, comas y ñ
     df = normalizar(df)
-    '''
+    
     # Casos especiales municipios
     def casos_especiales_mun(df):
         # Corregir bogotá
@@ -119,7 +119,7 @@ def corregir_municipios(df):
         return df       
     
     casos_especiales_mun(df)
-    '''
+    
     df = pd.DataFrame(df)
     return df
 

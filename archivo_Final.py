@@ -25,7 +25,7 @@ import matplotlib.pyplot as plt #Para graficar
 #Si la base de datos ya esta creada por favor agregar # para comentar las 
 #lineas ya que no se usaran.
 
-t="/media/luisa/Datos/documentos/FACOM/Datos_Hidrometeorol_gicos_Crudos_-_Red_de_Estaciones_IDEAM___Temperatura.csv" 
+t="/home/marcelae/Documents/organizar/Datos_Hidrometeorol_gicos_Crudos_-_Red_de_Estaciones_IDEAM___Temperatura.csv" 
 p="/media/luisa/Datos/documentos/FACOM/P.csv"
 
 #2.1 información de las columnas 
@@ -48,16 +48,18 @@ p="/media/luisa/Datos/documentos/FACOM/P.csv"
 # 2.2 Crear la base de datos
 
 #cambiar por "p" o por "t" según la información que se desee cargar
+
 k=pd.read_csv(t,usecols=[0])    #Se crea una variable que contenga la longitud del archivo original
 n=len(k)                        #longitud de la columna de prueba
 k.head()
 del k
 
-data_base_name = "/media/luisa/Datos/documentos/FACOM/gits/FACOM/DATA2.db"    # se asigna un nombre al db
+data_base_name = "/home/marcelae/Desktop/FACOM/DATA3.db"    # se asigna un nombre al db
 engine = create_engine('sqlite:///'+data_base_name)     # se crea el motor 
 sqlite_connection = engine.connect()                    # se enciende la conexión
 step=math.ceil(n*0.01)             # el número es el porcentaje que se va a tomar "dx"
 cont=0                  #contador
+
 
 #Se crea el while que recorra el DataFrame y lo vaya ingresando cada dx
 while tqdm(cont <= (n-1)):  

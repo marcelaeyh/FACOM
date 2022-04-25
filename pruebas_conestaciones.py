@@ -17,7 +17,7 @@ import math
 import matplotlib.pyplot as plt #Para graficar
 
 #  2.3 información de la base de datos
-eng = 'sqlite:////media/luisa/Datos/documentos/FACOM/gits/FACOM/DATA2.db'
+eng = 'sqlite:////home/marcelae/Desktop/FACOM/DATA3.db'
 #------------------------#----------------------------#-----------------------#
 #3. funciones
 
@@ -29,6 +29,27 @@ def SQL_PD(table_or_sql,eng):
        generator_object = pd.read_sql(table_or_sql,con=conn)
        return generator_object 
    
+
+# 3.2 CORREGIR TILDES, COMAS Y Ñ
+def normalizar(df):
+    
+    # Diccionario con las correcciones
+    dic = {'á':'a', 'é':'e','í':'i','ó':'o','ú':'u',",":"",'ñ':'n'}
+    
+        # guarda el string viejo
+        vs = df
+        
+        # Busca en el diccionario el caracter especial
+        for key in dic:
+            x = re.search(key,df[i])
+            
+            # Si lo encuentra, lo reemplaza 
+            if x != None:
+                df[i] = df[i].replace(key,dic[key])
+                
+                # Reemplaza el string viejo por el nuevo en todo el df
+                df = df.replace(vs,df[i])
+    return df   
     
 cod = 26135502
 
@@ -40,32 +61,56 @@ WHERE (codigoestacion = {})
 '''.format(int(cod))
 
 df_est = SQL_PD(my_query2,eng)
+for index, row in df_est.iterrows():
+    print(row["ValorObservado"])
+
 x=p
 #Datos reemplazados
+columnas=["CodigoEstacion","FechaObservacion","ValorObservado"]
+T_null=[columnas]
+P_null=[columnas]
 
 if (x==p):
     
     for index, row in df_est.iterrows():
+        if (row["Departament"]== <nil>):
+            
         if (row["ValorObservado"]<0):
             row["ValorObservado"]="<nil>"
+            t_vec=[row["CodigoEstacion"],row["ValorObservado"],row["fechaObservación"]]
+            T_null.append(t_vec)
             print("Se encontro un valor menor a cero de= ",
                   row["ValorObservado"], ", en la fecha= ", row["FechaObservacion"])
         if (row["ValorObservado"]<0):
             row["ValorObservado"]="<nil>"
+            t_vec=[row["CodigoEstacion"],row["ValorObservado"],row["fechaObservación"]]
+            T_null.append(t_vec)
+            print("Se encontro un valor menor a cero de= ",
+                  row["ValorObservado"], ", en la fecha= ", row["FechaObservacion"])
+          
+        
+        
+        
+        
+            
+if (x==t):
+    
+    for index, row in df_est.iterrows():
+        if (row["ValorObservado"]< -10.0):
+            row["ValorObservado"]="<nil>"
+            p_vec=[row["CodigoEstacion"],row["ValorObservado"],row["fechaObservación"]]
+            P_null.append(p_vec)
+            print("Se encontro un valor menor a cero de= ",
+                  row["ValorObservado"], ", en la fecha= ", row["FechaObservacion"])
+            
+        if (row["ValorObservado"] > 60.0):
+            row["ValorObservado"]="<nil>"
+            p_vec=[row["CodigoEstacion"],row["ValorObservado"],row["fechaObservación"]]
+            P_null.append(p_vec)
             print("Se encontro un valor menor a cero de= ",
                   row["ValorObservado"], ", en la fecha= ", row["FechaObservacion"])
             
     
-
-
-
-
-
-
-
-
-
-
 
 
 df_est["fecha"]=pd.to_datetime(df_est['FechaObservacion']).dt.strftime("%d/%m/%Y %X")
@@ -185,4 +230,9 @@ m1=pd.DataFrame(m)
 m1.head()
 print( titulos) 
 
+my_query2='''
+SELECT COUNT(CodigoEstacion) FROM temperatura
+'''
 
+df_est = SQL_PD(my_query2,eng)
+df_est
