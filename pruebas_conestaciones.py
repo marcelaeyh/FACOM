@@ -40,6 +40,33 @@ WHERE (codigoestacion = {})
 '''.format(int(cod))
 
 df_est = SQL_PD(my_query2,eng)
+x=p
+#Datos reemplazados
+
+if (x==p):
+    
+    for index, row in df_est.iterrows():
+        if (row["ValorObservado"]<0):
+            row["ValorObservado"]="<nil>"
+            print("Se encontro un valor menor a cero de= ",
+                  row["ValorObservado"], ", en la fecha= ", row["FechaObservacion"])
+        if (row["ValorObservado"]<0):
+            row["ValorObservado"]="<nil>"
+            print("Se encontro un valor menor a cero de= ",
+                  row["ValorObservado"], ", en la fecha= ", row["FechaObservacion"])
+            
+    
+
+
+
+
+
+
+
+
+
+
+
 
 df_est["fecha"]=pd.to_datetime(df_est['FechaObservacion']).dt.strftime("%d/%m/%Y %X")
 #organizar las filas de mayor a menor con respecto a la fecha
