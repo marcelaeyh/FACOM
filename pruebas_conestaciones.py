@@ -18,7 +18,7 @@ import re
 import matplotlib.pyplot as plt #Para graficar
 
 #  2.3 información de la base de datos
-eng = 'sqlite:////home/marcelae/Desktop/FACOM/DATA3.db'
+eng = 'sqlite:////Volumes/DiscoMarcela/DATA3.db'
 #------------------------#----------------------------#-----------------------#
 #3. funciones
 
@@ -45,7 +45,7 @@ def normalizar(df):
         if x != None:
             df = df.replace(key,dic[key])
 
-    return df  
+    return df,x
 
      
 
@@ -83,22 +83,37 @@ if (x==1):
             
         # Corrección de nombres
         
-        row["Departamento"] = normalizar(row["Departamento"])
-        row["Municipio"] = normalizar(row["Municipio"])
-        row["ZonaHidrografica"] = normalizar(row["ZonaHidrografica"])
+        row["Departamento"],x = normalizar(row["Departamento"])
         
+        if x != None:
+            df_est["Departamento"][index] = row["Departamento"]
+        
+        row["Municipio"],x = normalizar(row["Municipio"])
+        
+        if x != None:
+            df_est["Municipio"][index] = row["Municipio"]
+        
+        row["ZonaHidrografica"],x = normalizar(row["ZonaHidrografica"])
+        
+        if x != None:
+            df_est["ZonaHidrografica"][index] = row["ZonaHidrografica"]
+        
+        # Busqueda de casos especiales
         x_dep_bog = re.search('bog',row["Departamento"])
         x_dep_sa = re.search('san and',row["Departamento"])
         x_mun = re.search('bog',row["Municipio"])
         
         if x_dep_bog != None:
             row["Departamento"] = "bogota"
+            df_est["Departamento"][index] = row["Departamento"]
         if x_mun != None:
             row["Municipio"] = "bogota"
+            df_est["Departamento"][index] = row["Departamento"]
         if x_dep_sa != None:
             row["Departamento"] = "san andres"
+            df_est["Departamento"][index] = row["Departamento"]
             
-        df_est["Departamento"][index] = row["Departamento"]
+        
         print(df_est["Departamento"][index])
 df_est.Departamento.head(40)  
         
@@ -119,9 +134,20 @@ if (x==t):
             print("Se encontro un valor menor a cero de= ",
                   row["ValorObservado"], ", en la fecha= ", row["FechaObservacion"])
             
-    row["Departamento"] = normalizar(row["Departamento"])
-    row["Municipio"] = normalizar(row["Municipio"])
-    row["ZonaHidrografica"] = normalizar(row["ZonaHidrografica"])
+    row["Departamento"],x = normalizar(row["Departamento"])
+    
+    if x != None:
+        df_est["Departamento"][index] = row["Departamento"]
+    
+    row["Municipio"],x = normalizar(row["Municipio"])
+    
+    if x != None:
+        df_est["Municipio"][index] = row["Municipio"]
+    
+    row["ZonaHidrografica"],x = normalizar(row["ZonaHidrografica"])
+    
+    if x != None:
+        df_est["Departamento"][index] = row["Departamento"]
     
     x_dep_bog = re.search('bog',row["Departamento"])
     x_dep_sa = re.search('san and',row["Departamento"])

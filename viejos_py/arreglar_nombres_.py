@@ -48,29 +48,6 @@ def normalizar(df):
                 # Reemplaza el string viejo por el nuevo en todo el df
                 df = df.replace(vs,df[i])
     return df        
-
-# CORRECCIÓN NOMBRE ESTACIONES
-        
-def corregir_nombre_estaciones(df):
-    # Pone todo en minuscula
-    df = df["NombreEstacion"].str.lower()
-    # Cambia tildes, comas y ñ
-    df = normalizar(df)
-    '''
-    # Casos especiales nombre estaciones
-    def casos_especiales_ne(df):
-        # Corregir bogotá
-        for i in tqdm(range(len(df))):
-            x = re.search('bog',df[i])
-            if x != None:
-                df[i] = 'bogota'
-
-        return df       
-    
-    casos_especiales_ne(df)
-    '''
-    df = pd.DataFrame(df)
-    return df
     
 # CORRECCIÓN DEPARTAMENTOS
         
@@ -131,26 +108,12 @@ def corregir_zona_hidrografica(df):
     # Cambia tildes, comas y ñ
     df = normalizar(df)
     
-    '''
-    # Casos especiales zona hidrográfica
-    def casos_especiales_zh(df):
-        # Corregir bogotá
-        for i in tqdm(range(len(df))):
-            x = re.search('bog',df[i])
-            if x != None:
-                df[i] = 'bogota'
-              
-        return df   
-    
-    casos_especiales_zh(df)
-    '''
     df = pd.DataFrame(df)
     return df
 
 
 # IMPLEMENTACIÓN DE LAS FUNCIONES 
         
-bd_ne_c = corregir_nombre_estaciones(bd_ne)
 bd_dep_c = corregir_departamentos(bd_dep)
 bd_mun_c = corregir_municipios(bd_mun)
 bd_zn_c = corregir_zona_hidrografica(bd_zh)
