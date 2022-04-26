@@ -49,7 +49,7 @@ def normalizar(df):
 
      
 
-cod = 26135502
+cod = 21201200
 
 my_query2='''
 SELECT CodigoEstacion,FechaObservacion,ValorObservado,NombreEstacion,Departamento,
@@ -71,7 +71,7 @@ if (x==1):
     df_est["Departamento"] = pd.DataFrame(df_est["Departamento"].str.lower())
     df_est["Municipio"] = pd.DataFrame(df_est["Municipio"].str.lower())
     df_est["ZonaHidrografica"] = pd.DataFrame(df_est["ZonaHidrografica"].str.lower())
-    
+
     for index, row in tqdm(df_est.iterrows()):
           
         if (row["ValorObservado"]<0):
@@ -82,21 +82,6 @@ if (x==1):
                   row["ValorObservado"], ", en la fecha= ", row["FechaObservacion"])   
             
         # Corrección de nombres
-        
-        row["Departamento"],x = normalizar(row["Departamento"])
-        
-        if x != None:
-            df_est["Departamento"][index] = row["Departamento"]
-        
-        row["Municipio"],x = normalizar(row["Municipio"])
-        
-        if x != None:
-            df_est["Municipio"][index] = row["Municipio"]
-        
-        row["ZonaHidrografica"],x = normalizar(row["ZonaHidrografica"])
-        
-        if x != None:
-            df_est["ZonaHidrografica"][index] = row["ZonaHidrografica"]
         
         # Busqueda de casos especiales
         x_dep_bog = re.search('bog',row["Departamento"])
@@ -113,9 +98,21 @@ if (x==1):
             row["Departamento"] = "san andres"
             df_est["Departamento"][index] = row["Departamento"]
             
+       # Corrección de tildes, ñ y comas 
+        row["Departamento"],x = normalizar(row["Departamento"])
         
-        print(df_est["Departamento"][index])
-df_est.Departamento.head(40)  
+        if x != None:
+            df_est["Departamento"][index] = row["Departamento"]
+        
+        row["Municipio"],x = normalizar(row["Municipio"])
+        
+        if x != None:
+            df_est["Municipio"][index] = row["Municipio"]
+        
+        row["ZonaHidrografica"],x = normalizar(row["ZonaHidrografica"])
+        
+        if x != None:
+            df_est["ZonaHidrografica"][index] = row["ZonaHidrografica"]
         
 if (x==t):
     
@@ -134,33 +131,39 @@ if (x==t):
             print("Se encontro un valor menor a cero de= ",
                   row["ValorObservado"], ", en la fecha= ", row["FechaObservacion"])
             
-    row["Departamento"],x = normalizar(row["Departamento"])
+        # Corrección de nombres
+        
+        # Busqueda de casos especiales
+        x_dep_bog = re.search('bog',row["Departamento"])
+        x_dep_sa = re.search('san and',row["Departamento"])
+        x_mun = re.search('bog',row["Municipio"])
+        
+        if x_dep_bog != None:
+            row["Departamento"] = "bogota"
+            df_est["Departamento"][index] = row["Departamento"]
+        if x_mun != None:
+            row["Municipio"] = "bogota"
+            df_est["Departamento"][index] = row["Departamento"]
+        if x_dep_sa != None:
+            row["Departamento"] = "san andres"
+            df_est["Departamento"][index] = row["Departamento"]
+            
+       # Corrección de tildes, ñ y comas 
+        row["Departamento"],x = normalizar(row["Departamento"])
+        
+        if x != None:
+            df_est["Departamento"][index] = row["Departamento"]
+        
+        row["Municipio"],x = normalizar(row["Municipio"])
+        
+        if x != None:
+            df_est["Municipio"][index] = row["Municipio"]
+        
+        row["ZonaHidrografica"],x = normalizar(row["ZonaHidrografica"])
+        
+        if x != None:
+            df_est["ZonaHidrografica"][index] = row["ZonaHidrografica"]
     
-    if x != None:
-        df_est["Departamento"][index] = row["Departamento"]
-    
-    row["Municipio"],x = normalizar(row["Municipio"])
-    
-    if x != None:
-        df_est["Municipio"][index] = row["Municipio"]
-    
-    row["ZonaHidrografica"],x = normalizar(row["ZonaHidrografica"])
-    
-    if x != None:
-        df_est["Departamento"][index] = row["Departamento"]
-    
-    x_dep_bog = re.search('bog',row["Departamento"])
-    x_dep_sa = re.search('san and',row["Departamento"])
-    x_mun = re.search('bog',row["Municipio"])
-    
-    if x_dep_bog != None:
-        row["Departamento"] = "bogota"
-    if x_mun != None:
-        row["Municipio"] = "bogota"
-    if x_dep_sa != None:
-        row["Departamento"] = "san andres"
-    
-
 
 df_est["fecha"]=pd.to_datetime(df_est['FechaObservacion']).dt.strftime("%d/%m/%Y %X")
 #organizar las filas de mayor a menor con respecto a la fecha
