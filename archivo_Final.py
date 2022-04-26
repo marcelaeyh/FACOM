@@ -33,11 +33,11 @@ def normalizar(df):
     # Busca en el diccionario el caracter especial
     for key in dic:
         x = re.search(key,df)
-        
         # Si lo encuentra, lo reemplaza 
         if x != None:
             df = df.replace(key,dic[key])
-
+            break
+        
     return df,x
 
 #1.1.2 Extracción de datos de un database
@@ -52,8 +52,8 @@ def SQL_PD(table_or_sql,eng):
 #Si la base de datos ya esta creada por favor agregar # para comentar las 
 #lineas ya que no se usaran.
 
-t="/home/marcelae/Documents/organizar/Datos_Hidrometeorol_gicos_Crudos_-_Red_de_Estaciones_IDEAM___Temperatura.csv" 
-p="/home/marcelae/Documents/organizar/Precipitaci_n.csv"
+t="/Volumes/DiscoMarcela/facom/Datos_Hidrometeorol_gicos_Crudos_-_Red_de_Estaciones_IDEAM___Temperatura.csv" 
+p="/Volumes/DiscoMarcela/facom/Precipitaci_n.csv"
 
 #2.1 información de las columnas 
 # 0-CodigoEstacion
@@ -75,16 +75,16 @@ p="/home/marcelae/Documents/organizar/Precipitaci_n.csv"
 # 2.2 Crear la base de datos
 
 #se cambia x1 por p o por t
-x1=p
+x1=t
 
 k=pd.read_csv(x1,usecols=[0])    #Se crea una variable que contenga la longitud del archivo original
 n=len(k)                        #longitud de la columna de prueba
 k.head()
 del k
 
-n=10
+n=50
 
-data_base_name = "/home/marcelae/Desktop/FACOM/prueba1.db"    # se asigna un nombre al db
+data_base_name = "/Volumes/DiscoMarcela/facom/prueba1.db"    # se asigna un nombre al db
 engine = create_engine('sqlite:///'+data_base_name)     # se crea el motor 
 sqlite_connection = engine.connect()                    # se enciende la conexión
 step=math.ceil(n*0.01)             # el número es el porcentaje que se va a tomar "dx"
@@ -150,6 +150,10 @@ while tqdm(cont <= (n-1)):
             
     if (x1==t):
         
+        v["Departamento"] = pd.DataFrame(v["Departamento"].str.lower())
+        v["Municipio"] = pd.DataFrame(v["Municipio"].str.lower())
+        v["ZonaHidrografica"] = pd.DataFrame(v["ZonaHidrografica"].str.lower())
+        
         for index, row in v.iterrows():
             if (row["ValorObservado"]< -10.0):
                 v["ValorObservado"][index]="<nil>"
@@ -177,7 +181,7 @@ while tqdm(cont <= (n-1)):
                 v["Departamento"][index] = row["Departamento"]
             if x_mun != None:
                 row["Municipio"] = "bogota"
-                v["Departamento"][index] = row["Departamento"]
+                v["Municipio"][index] = row["Municipio"]
             if x_dep_sa != None:
                 row["Departamento"] = "san andres"
                 v["Departamento"][index] = row["Departamento"]
@@ -197,8 +201,9 @@ while tqdm(cont <= (n-1)):
             
             if x != None:
                 v["ZonaHidrografica"][index] = row["ZonaHidrografica"]
+                
     print("ingresando paso",cont)
-    v.to_sql(name='temperatura',con=sqlite_connection,index=False,if_exists='append') 
+    v.to_sql(name='precipitacion',con=sqlite_connection,index=False,if_exists='append') 
     cont=cont+step
     del v
     #print(cont,"_",step)    
