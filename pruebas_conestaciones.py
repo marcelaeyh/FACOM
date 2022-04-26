@@ -75,7 +75,7 @@ if (x==1):
     for index, row in tqdm(df_est.iterrows()):
           
         if (row["ValorObservado"]<0):
-            row["ValorObservado"]="<nil>"
+            df_est["ValorObservado"][index]="<nil>"
             t_vec=[row["CodigoEstacion"],row["ValorObservado"],row["fechaObservación"]]
             T_null.append(t_vec)
             print("Se encontro un valor menor a cero de= ",
@@ -93,7 +93,7 @@ if (x==1):
             df_est["Departamento"][index] = row["Departamento"]
         if x_mun != None:
             row["Municipio"] = "bogota"
-            df_est["Departamento"][index] = row["Departamento"]
+            df_est["Municipio"][index] = row["Municipio"]
         if x_dep_sa != None:
             row["Departamento"] = "san andres"
             df_est["Departamento"][index] = row["Departamento"]
@@ -118,14 +118,14 @@ if (x==t):
     
     for index, row in df_est.iterrows():
         if (row["ValorObservado"]< -10.0):
-            row["ValorObservado"]="<nil>"
+            df_est["ValorObservado"][index]="<nil>"
             p_vec=[row["CodigoEstacion"],row["ValorObservado"],row["fechaObservación"]]
             P_null.append(p_vec)
             print("Se encontro un valor menor a cero de= ",
                   row["ValorObservado"], ", en la fecha= ", row["FechaObservacion"])
             
         if (row["ValorObservado"] > 60.0):
-            row["ValorObservado"]="<nil>"
+            df_est["ValorObservado"][index]="<nil>"
             p_vec=[row["CodigoEstacion"],row["ValorObservado"],row["fechaObservación"]]
             P_null.append(p_vec)
             print("Se encontro un valor menor a cero de= ",
