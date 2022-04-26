@@ -52,8 +52,13 @@ def SQL_PD(table_or_sql,eng):
 #Si la base de datos ya esta creada por favor agregar # para comentar las 
 #lineas ya que no se usaran.
 
-t="/Volumes/DiscoMarcela/facom/Datos_Hidrometeorol_gicos_Crudos_-_Red_de_Estaciones_IDEAM___Temperatura.csv" 
-p="/Volumes/DiscoMarcela/facom/Precipitaci_n.csv"
+#marcela
+#t="/Volumes/DiscoMarcela/facom/Datos_Hidrometeorol_gicos_Crudos_-_Red_de_Estaciones_IDEAM___Temperatura.csv" 
+#p="/Volumes/DiscoMarcela/facom/Precipitaci_n.csv"
+#lucy
+t="/home/marcelae/Documents/organizar/Datos_Hidrometeorol_gicos_Crudos_-_Red_de_Estaciones_IDEAM___Temperatura.csv"
+p="/home/marcelae/Documents/organizar/Precipitaci_n.csv"
+
 
 #2.1 información de las columnas 
 # 0-CodigoEstacion
@@ -82,12 +87,15 @@ n=len(k)                        #longitud de la columna de prueba
 k.head()
 del k
 
-n=50
+#marcela
+#data_base_name = "/Volumes/DiscoMarcela/facom/prueba1.db"    # se asigna un nombre al db
+#lucy
+data_base_name = "/home/marcelae/Desktop/FACOM/temperatura.db"     # se asigna un nombre al db
 
-data_base_name = "/Volumes/DiscoMarcela/facom/prueba1.db"    # se asigna un nombre al db
+
 engine = create_engine('sqlite:///'+data_base_name)     # se crea el motor 
 sqlite_connection = engine.connect()                    # se enciende la conexión
-step=math.ceil(n*0.01)             # el número es el porcentaje que se va a tomar "dx"
+step=math.ceil(n*0.001)             # el número es el porcentaje que se va a tomar "dx"
 cont=0                  #contador
 
 #Se crear el archivo donde se almacena la información de los datos cambiados en Valor Observado
@@ -108,9 +116,9 @@ while tqdm(cont <= (n-1)):
 
         for index, row in tqdm(v.iterrows()):
               
-            if (row["ValorObservado"]>0):
+            if (row["ValorObservado"]<0):
                 v["ValorObservado"][index]="<nil>"
-                t_vec=[row["CodigoEstacion"],row["ValorObservado"],row["fechaObservación"]]
+                t_vec=[row["CodigoEstacion"],row["ValorObservado"],row["FechaObservación"]]
                 T_null.append(t_vec)
                 print("Se encontro un valor menor a cero de= ",
                       row["ValorObservado"], ", en la fecha= ", row["FechaObservacion"])   
@@ -157,14 +165,14 @@ while tqdm(cont <= (n-1)):
         for index, row in v.iterrows():
             if (row["ValorObservado"]< -10.0):
                 v["ValorObservado"][index]="<nil>"
-                p_vec=[row["CodigoEstacion"],row["ValorObservado"],row["fechaObservación"]]
+                p_vec=[row["CodigoEstacion"],row["ValorObservado"],row["FechaObservación"]]
                 P_null.append(p_vec)
                 print("Se encontro un valor menor a cero de= ",
                       row["ValorObservado"], ", en la fecha= ", row["FechaObservacion"])
                 
             if (row["ValorObservado"] > 60.0):
                 v["ValorObservado"][index]="<nil>"
-                p_vec=[row["CodigoEstacion"],row["ValorObservado"],row["fechaObservación"]]
+                p_vec=[row["CodigoEstacion"],row["ValorObservado"],row["FechaObservación"]]
                 P_null.append(p_vec)
                 print("Se encontro un valor menor a cero de= ",
                       row["ValorObservado"], ", en la fecha= ", row["FechaObservacion"])
@@ -203,7 +211,7 @@ while tqdm(cont <= (n-1)):
                 v["ZonaHidrografica"][index] = row["ZonaHidrografica"]
                 
     print("ingresando paso",cont)
-    v.to_sql(name='precipitacion',con=sqlite_connection,index=False,if_exists='append') 
+    v.to_sql(name='temperatura',con=sqlite_connection,index=False,if_exists='append') 
     cont=cont+step
     del v
     #print(cont,"_",step)    
