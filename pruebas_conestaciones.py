@@ -18,7 +18,7 @@ import re
 import matplotlib.pyplot as plt #Para graficar
 
 #  2.3 información de la base de datos
-eng = 'sqlite:////Volumes/DiscoMarcela/DATA3.db'
+eng = 'sqlite:////home/marcelae/Desktop/FACOM/DATA3.db'
 #------------------------#----------------------------#-----------------------#
 #3. funciones
 

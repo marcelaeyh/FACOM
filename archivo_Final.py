@@ -20,13 +20,40 @@ from sqlalchemy import create_engine
 import os
 import math
 import matplotlib.pyplot as plt #Para graficar
+import re
+
+
+# 1.1. funciones
+# 1.1.1 CORREGIR TILDES, COMAS Y Ñ
+def normalizar(df):
+    
+    # Diccionario con las correcciones
+    dic = {'á':'a', 'é':'e','í':'i','ó':'o','ú':'u',",":"",'ñ':'n'}
+    
+    # Busca en el diccionario el caracter especial
+    for key in dic:
+        x = re.search(key,df)
+        
+        # Si lo encuentra, lo reemplaza 
+        if x != None:
+            df = df.replace(key,dic[key])
+
+    return df,x
+
+#1.1.2 Extracción de datos de un database
+# Load de data
+def SQL_PD(table_or_sql,eng):
+       engine = create_engine(eng)
+       conn = engine.connect()
+       generator_object = pd.read_sql(table_or_sql,con=conn)
+       return generator_object 
 #------------------------#----------------------------#-----------------------#
 #  2. leer las bases de datos
 #Si la base de datos ya esta creada por favor agregar # para comentar las 
 #lineas ya que no se usaran.
 
 t="/home/marcelae/Documents/organizar/Datos_Hidrometeorol_gicos_Crudos_-_Red_de_Estaciones_IDEAM___Temperatura.csv" 
-p="/media/luisa/Datos/documentos/FACOM/P.csv"
+p="/home/marcelae/Documents/organizar/Precipitaci_n.csv"
 
 #2.1 información de las columnas 
 # 0-CodigoEstacion
@@ -47,30 +74,129 @@ p="/media/luisa/Datos/documentos/FACOM/P.csv"
 
 # 2.2 Crear la base de datos
 
-#cambiar por "p" o por "t" según la información que se desee cargar
+#se cambia x1 por p o por t
+x1=p
 
-k=pd.read_csv(t,usecols=[0])    #Se crea una variable que contenga la longitud del archivo original
+k=pd.read_csv(x1,usecols=[0])    #Se crea una variable que contenga la longitud del archivo original
 n=len(k)                        #longitud de la columna de prueba
 k.head()
 del k
 
-data_base_name = "/home/marcelae/Desktop/FACOM/DATA3.db"    # se asigna un nombre al db
+n=10
+
+data_base_name = "/home/marcelae/Desktop/FACOM/prueba1.db"    # se asigna un nombre al db
 engine = create_engine('sqlite:///'+data_base_name)     # se crea el motor 
 sqlite_connection = engine.connect()                    # se enciende la conexión
 step=math.ceil(n*0.01)             # el número es el porcentaje que se va a tomar "dx"
 cont=0                  #contador
 
+#Se crear el archivo donde se almacena la información de los datos cambiados en Valor Observado
+columnas=["CodigoEstacion","FechaObservacion","ValorObservado"]
+T_null=[columnas]
+P_null=[columnas]
 
 #Se crea el while que recorra el DataFrame y lo vaya ingresando cada dx
 while tqdm(cont <= (n-1)):  
     #La siguiente fila de codigo lo que carga es el dx, se toma una porción y solo se carga
     #el porcentaje que se desea cargar que inicialmente se asigno en cada paso. 
-    v=pd.read_csv(t,nrows=int(step),skiprows=range(1,int(cont)))
-    ###################################################
-    #corregir nombres#
-    ###################################################
-    #organizar los datos nulos y definirlos#
-    ###################################################
+    v=pd.read_csv(x1,nrows=int(step),skiprows=range(1,int(cont)))
+    
+    if (x1==p):
+        v["Departamento"] = pd.DataFrame(v["Departamento"].str.lower())
+        v["Municipio"] = pd.DataFrame(v["Municipio"].str.lower())
+        v["ZonaHidrografica"] = pd.DataFrame(v["ZonaHidrografica"].str.lower())
+
+        for index, row in tqdm(v.iterrows()):
+              
+            if (row["ValorObservado"]>0):
+                v["ValorObservado"][index]="<nil>"
+                t_vec=[row["CodigoEstacion"],row["ValorObservado"],row["fechaObservación"]]
+                T_null.append(t_vec)
+                print("Se encontro un valor menor a cero de= ",
+                      row["ValorObservado"], ", en la fecha= ", row["FechaObservacion"])   
+                
+            # Corrección de nombres
+            
+            # Busqueda de casos especiales
+            x_dep_bog = re.search('bog',row["Departamento"])
+            x_dep_sa = re.search('san and',row["Departamento"])
+            x_mun = re.search('bog',row["Municipio"])
+            
+            if x_dep_bog != None:
+                row["Departamento"] = "bogota"
+                v["Departamento"][index] = row["Departamento"]
+            if x_mun != None:
+                row["Municipio"] = "bogota"
+                v["Municipio"][index] = row["Municipio"]
+            if x_dep_sa != None:
+                row["Departamento"] = "san andres"
+                v["Departamento"][index] = row["Departamento"]
+                
+           # Corrección de tildes, ñ y comas 
+            row["Departamento"],x = normalizar(row["Departamento"])
+            
+            if x != None:
+                v["Departamento"][index] = row["Departamento"]
+            
+            row["Municipio"],x = normalizar(row["Municipio"])
+            
+            if x != None:
+                v["Municipio"][index] = row["Municipio"]
+            
+            row["ZonaHidrografica"],x = normalizar(row["ZonaHidrografica"])
+            
+            if x != None:
+                v["ZonaHidrografica"][index] = row["ZonaHidrografica"]
+            
+    if (x1==t):
+        
+        for index, row in v.iterrows():
+            if (row["ValorObservado"]< -10.0):
+                v["ValorObservado"][index]="<nil>"
+                p_vec=[row["CodigoEstacion"],row["ValorObservado"],row["fechaObservación"]]
+                P_null.append(p_vec)
+                print("Se encontro un valor menor a cero de= ",
+                      row["ValorObservado"], ", en la fecha= ", row["FechaObservacion"])
+                
+            if (row["ValorObservado"] > 60.0):
+                v["ValorObservado"][index]="<nil>"
+                p_vec=[row["CodigoEstacion"],row["ValorObservado"],row["fechaObservación"]]
+                P_null.append(p_vec)
+                print("Se encontro un valor menor a cero de= ",
+                      row["ValorObservado"], ", en la fecha= ", row["FechaObservacion"])
+                
+            # Corrección de nombres
+            
+            # Busqueda de casos especiales
+            x_dep_bog = re.search('bog',row["Departamento"])
+            x_dep_sa = re.search('san and',row["Departamento"])
+            x_mun = re.search('bog',row["Municipio"])
+            
+            if x_dep_bog != None:
+                row["Departamento"] = "bogota"
+                v["Departamento"][index] = row["Departamento"]
+            if x_mun != None:
+                row["Municipio"] = "bogota"
+                v["Departamento"][index] = row["Departamento"]
+            if x_dep_sa != None:
+                row["Departamento"] = "san andres"
+                v["Departamento"][index] = row["Departamento"]
+                
+           # Corrección de tildes, ñ y comas 
+            row["Departamento"],x = normalizar(row["Departamento"])
+            
+            if x != None:
+                v["Departamento"][index] = row["Departamento"]
+            
+            row["Municipio"],x = normalizar(row["Municipio"])
+            
+            if x != None:
+                v["Municipio"][index] = row["Municipio"]
+            
+            row["ZonaHidrografica"],x = normalizar(row["ZonaHidrografica"])
+            
+            if x != None:
+                v["ZonaHidrografica"][index] = row["ZonaHidrografica"]
     print("ingresando paso",cont)
     v.to_sql(name='temperatura',con=sqlite_connection,index=False,if_exists='append') 
     cont=cont+step
@@ -80,18 +206,8 @@ sqlite_connection.close()
 
 
 #  2.3 información de la base de datos
-eng = 'sqlite:////media/luisa/Datos/documentos/FACOM/gits/FACOM/DATA2.db'
+eng = 'sqlite:////home/marcelae/Desktop/FACOM/DATA3.db'
 
-#------------------------#----------------------------#-----------------------#
-#3. funciones
-
-#3.1 Extracción de datos de un database
-# Load de data
-def SQL_PD(table_or_sql,eng):
-       engine = create_engine(eng)
-       conn = engine.connect()
-       generator_object = pd.read_sql(table_or_sql,con=conn)
-       return generator_object 
 
 #------------------------#----------------------------#-----------------------#
 #  4. se genera el archivo con la informaición por estación
