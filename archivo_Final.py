@@ -229,35 +229,74 @@ sqlite_connection.close()
 eng='sqlite:////home/marcela/Desktop/FACOM/bases_de_datos/temperatura_1.db'
 
 #------------------------#----------------------------#-----------------------#
+#  3. Valores individuales por codigo de estación para las columnas
+myquery_unique='''
+SELECT DISTINCT "CodigoEstacion","NombreEstacion","Municipio","Departamento", "ZonaHidrografica"
+FROM temperatura
+'''
+df_ubi = SQL_PD(myquery_unique,eng)
+
+
+
+#Se elimnan toda la información que sea completamente nula
+'''
+# Elimina la fila con los valores nulos
+for i in range(len(df_ubi)):
+    if df_ubi["Municipio"][i] == "<nil>":
+        df_ubi = df_ubi.drop([i],axis=0)
+'''
+
+# La zona hidrografica aún tiene valores nulos en las posiciones 204 254 277 306 318 340 385
+df_ubi.to_csv(r'/home/marcelae/Desktop/FACOM/ubicacion_temperatura.csv', index=None, sep=';')
+#------------------------#----------------------------#-----------------------#
 #  4. se genera el archivo con la informaición por estación
+
+
+#  4.1 Codigos individuales 
+
 my_query1='''
 SELECT  DISTINCT CodigoEstacion FROM temperatura
 '''
 codigo = SQL_PD(my_query1,eng)
-
 print(codigo)
 
-print(" se empieza a leer por columna")
-
+#  4.2 Nombres de las columnas para el archivo final y vector para guardar la información
 titulos=["Codigo Estacion","Nombre de estacion","Municipio","Departamento", "Zona Hidrográfica","Latitud"
          ,"Longitud","Fecha Inicial","Fecha Final","Numerofilas y columnas",
          "Máximo","Mínimo","Promedio","Desviación Estándar","Mediana"]
 vector=[titulos]
 
+#  4.3 Lectura del archivo 
+print(" se empieza a leer por columna")
+
 for i in tqdm (range(550)):
 #for i in tqdm(codigo):
-    
+    # se determina el valor i
     cod = codigo["CodigoEstacion"][i]
-    #cod=i
-    my_query2='''
-    SELECT CodigoEstacion,FechaObservacion,ValorObservado,NombreEstacion,Departamento,
-    Municipio,ZonaHidrografica,Latitud,Longitud,DescripcionSensor,UnidadMedida 
+    
+    #--------------------------------------------------------#
+    
+    #Valores individuales de columna
+    my_query3='''
+    SELECT DISTINCT NombreEstacion,Departamento,Municipio,ZonaHidrografica,Latitud,Longitud,DescripcionSensor,UnidadMedida 
     FROM temperatura
     WHERE (codigoestacion = {})
     '''.format(int(cod))
+    df_unicos = SQL_PD(my_query3,eng)
+    
+    #--------------------------------------------------------#
 
+    #Se obtiene el valor observado y la fecha del valor para la estación de analisis
+    my_query2='''
+    SELECT FechaObservacion,ValorObservado, 
+    FROM temperatura
+    WHERE (codigoestacion = {})
+    '''.format(int(cod))
     df_est = SQL_PD(my_query2,eng)
+    
+    #--------------------------------------------------------#
 
+    #fechas
     df_est["fecha"]=pd.to_datetime(df_est['FechaObservacion'],format='%m/%d/%Y %I:%M:%S %p')
     #organizar las filas de mayor a menor con respecto a la fecha
     df_est = df_est.sort_values(by='fecha')
@@ -269,18 +308,22 @@ for i in tqdm (range(550)):
     shape = df_est.shape
     #Obtener el nombre de las columnas
     columns_names = df_est.columns.values
+    
+    #--------------------------------------------------------#
+
+    #Valores unicos
     #latitud y longitud
-    lat=df_est.Latitud.unique()
-    lon=df_est.Longitud.unique()
+    lat=df_unicos["Latitud"][0]
+    lon=df_unicos["Longitud"][0]
     #Municipio y departamento
-    mu=df_est.Municipio.unique()
-    dep=df_est.Departamento.unique()
+    mu=df_unicos["Municipio"][0]
+    dep=df_unicos["Departamento"][0]
     #Zona hidrografica y nombre de la estación
-    zh=df_est.ZonaHidrografica.unique()
-    ne=df_est.NombreEstacion.unique()
+    zh=df_unicos["ZonaHidrografica"][0]
+    ne=df_unicos["NombreEstacion"][0]
     #descrición del sensor y unidades
-    desS=df_est.DescripcionSensor.unique()
-    unidades=df_est.UnidadMedida.unique()
+    desS=df_unicos["DescripcionSensor"][0]
+    unidades=df_unicos["UnidadMedida"][0]
     print("")
     print("#---------------------------#")
     print("Estación",cod)
@@ -315,6 +358,8 @@ for i in tqdm (range(550)):
     print("15. Unidades de la variable de estudio= ", unidades[0])
     print("16. Descripción del sensor= ", desS[0])
     print("")
+
+    #--------------------------------------------------------#
         
     #CALCULOS
     #max, min, promedio
