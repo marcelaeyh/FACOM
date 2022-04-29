@@ -402,3 +402,19 @@ plt.xticks([1],["Precipitación"])
 plt.ylabel("P [mm]", fontsize=12)
 plt.xlabel("P",fontsize=12)
 
+#---------------------------------------#------------------------------------#
+# abril 29 de 2022  optimización de la lectura del archivo de salida csv
+
+
+cod = 21201200
+#Valores individuales de columna
+my_query3='''
+SELECT DISTINCT NombreEstacion,Departamento,Municipio,ZonaHidrografica,Latitud,Longitud,DescripcionSensor,UnidadMedida 
+FROM temperatura
+WHERE (codigoestacion = {})
+'''.format(int(cod))
+df_est = SQL_PD(my_query3,eng)
+print(df_est)
+print(df_est["NombreEstacion"][0])
+df_est.head()
+    
