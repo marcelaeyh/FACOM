@@ -56,9 +56,11 @@ def SQL_PD(table_or_sql,eng):
 #t="/Volumes/DiscoMarcela/facom/Datos_Hidrometeorol_gicos_Crudos_-_Red_de_Estaciones_IDEAM___Temperatura.csv" 
 #p="/Volumes/DiscoMarcela/facom/Precipitaci_n.csv"
 #lucy
-t="/home/marcelae/Documents/organizar/Datos_Hidrometeorol_gicos_Crudos_-_Red_de_Estaciones_IDEAM___Temperatura.csv"
-p="/home/marcelae/Documents/organizar/Precipitaci_n.csv"
-
+#t="/home/marcelae/Documents/organizar/Datos_Hidrometeorol_gicos_Crudos_-_Red_de_Estaciones_IDEAM___Temperatura.csv"
+#p="/home/marcelae/Documents/organizar/Precipitaci_n.csv"
+#luisa
+#t="/media/luisa/Datos/documentos/FACOM/Datos_Hidrometeorol_gicos_Crudos_-_Red_de_Estaciones_IDEAM___Temperatura.csv"
+#p="/media/luisa/Datos/documentos/FACOM/P.csv"
 
 #2.1 información de las columnas 
 # 0-CodigoEstacion
@@ -219,7 +221,10 @@ sqlite_connection.close()
 
 
 #  2.3 información de la base de datos
-eng = 'sqlite:////home/marcelae/Desktop/FACOM/DATA3.db'
+#lucy
+#eng = 'sqlite:////home/marcelae/Desktop/FACOM/DATA3.db'
+#luisa
+#eng='sqlite:////media/luisa/Datos/documentos/FACOM/gits/FACOM/DATA3.db'
 
 
 #------------------------#----------------------------#-----------------------#

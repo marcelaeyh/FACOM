@@ -271,6 +271,7 @@ titulos=["Codigo Estacion","Nombre de estacion","Municipio","Departamento", "Zon
          ,"Longitud","Fecha Inicial","Fecha Final","Numerofilas","Numero de columnas",
          "Máximo","Mínimo","Promedio","Desviación Estándar","Mediana"]
 c1=[cod,ne,mu,dep,zh,lat,lon,df_est["fecha"][0],df_est["fecha"][n-1],n,shape,maxi,mini,media,desviacion,mediana]
+#------------------------#----------------------------#-----------------------#
 
 print(c)
 
@@ -291,3 +292,113 @@ df_est
 
 m = "HOLá"
 normalizar(m)
+#------------------------#----------------------------#-----------------------#
+#luisa
+#t="/media/luisa/Datos/documentos/FACOM/Datos_Hidrometeorol_gicos_Crudos_-_Red_de_Estaciones_IDEAM___Temperatura.csv"
+#p="/media/luisa/Datos/documentos/FACOM/P.csv"
+# Histogramas con todos los valores
+
+k=pd.read_csv(t,usecols=[3]) 
+k2=pd.read_csv(p,usecols=[3]) 
+#k.head()
+
+
+#Temperatura
+#Estadisticos
+media_t=k["ValorObservado"].mean(skipna=True)
+mediana_t=np.median(k)
+de_t=np.std(k)
+p01_t=np.percentile(k,1)
+p02_t=np.percentile(k,2)
+p98_t=np.percentile(k,98)
+p99_t=np.percentile(k,99)
+max_t=np.max(k)
+min_t=np.min(k)
+
+print("La media es=",media_t)
+print("La mediana es=",mediana_t )
+print("La desviación estándar es=", de_t)
+print("El Valor máximo= ", max_t)
+print("El Valor mínimo= ", min_t)
+print("El percentil 1= ",round(p01_t,3))
+print("El percentil 2= ",round(p02_t,3))
+print("El percentil 98= ",round(p98_t,3))
+print("El percentil 99= ",round(p99_t,3))
+
+
+#histograma
+num_bins = 30
+plt.figure(figsize=(10,5))
+plt.title("Temperatura",fontsize=15)
+plt.hist(k["ValorObservado"], num_bins,facecolor = "slateblue",
+         alpha=0.75,label="T",edgecolor = "gray")
+
+plt.axvline(x=media_t,color="black",linewidth=1.0,linestyle='-',label=('Media=',round(media_t,3)))
+plt.axvline(x=mediana_t,color="black",linewidth=1.0,linestyle='--',
+            label=('Mediana=',round(mediana_t,3)))
+plt.ylabel("Frecuencia (pr)", fontsize=10)
+plt.xlabel("Temperatura [°C]", fontsize=10)
+#plt.title("Muestra 1")
+plt.grid(color='lightgrey',linewidth=1.0)
+#plt.text(1, 65, 'A', fontsize = 15,
+#         bbox=dict(boxstyle="square,pad=0.3", fc="plum", ec="black", lw=2))
+plt.minorticks_on()
+plt.legend()
+
+#caja de bigotes
+k.boxplot(column="ValorObservado",figsize=(8, 5))
+plt.title("Temperatura") 
+plt.xticks([1],["Temperatura"])
+plt.ylabel("T [°C]", fontsize=12)
+plt.xlabel("T",fontsize=12)
+
+
+#Precipitación
+#Estadisticos
+media_p=k2["ValorObservado"].mean(skipna=True)
+mediana_p=np.median(k2)
+de_p=np.std(k2)
+p01_p=np.percentile(k2,1)
+p02_p=np.percentile(k2,2)
+p98_p=np.percentile(k2,98)
+p99_p=np.percentile(k2,99)
+max_p=np.max(k2)
+min_p=np.min(k2)
+
+print("La media es=",media_p)
+print("La mediana es=",mediana_p )
+print("La desviación estándar es=", de_p)
+print("El Valor máximo= ", max_p)
+print("El Valor mínimo= ", min_p)
+print("El percentil 1= ",round(p01_p,3))
+print("El percentil 2= ",round(p02_p,3))
+print("El percentil 98= ",round(p98_p,3))
+print("El percentil 99= ",round(p99_p,3))
+
+
+#histograma
+num_bins = 30
+plt.figure(figsize=(10,5))
+plt.title("Precipitación",fontsize=15)
+plt.hist(k2["ValorObservado"], num_bins,facecolor = "darkcyan",
+         alpha=0.75,label="P",edgecolor = "gray")
+
+plt.axvline(x=media_p,color="black",linewidth=1.0,linestyle='-',label=('Media=',round(media_p,3)))
+plt.axvline(x=mediana_p,color="black",linewidth=1.0,linestyle='--',
+            label=('Mediana=',round(mediana_p,3)))
+plt.ylabel("Frecuencia (pr)", fontsize=10)
+plt.xlabel("Precipitación [mm]", fontsize=10)
+#plt.title("Muestra 1")
+plt.grid(color='lightgrey',linewidth=1.0)
+#plt.text(1, 65, 'A', fontsize = 15,
+#         bbox=dict(boxstyle="square,pad=0.3", fc="plum", ec="black", lw=2))
+plt.minorticks_on()
+plt.legend()
+
+#caja de bigotes
+k2.boxplot(column="ValorObservado",figsize=(8, 5))
+plt.title("Precipitación") 
+plt.xticks([1],["Precipitación"])
+plt.ylabel("P [mm]", fontsize=12)
+plt.xlabel("P",fontsize=12)
+
