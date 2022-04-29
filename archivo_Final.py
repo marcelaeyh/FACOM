@@ -21,24 +21,24 @@ import os
 import math
 import matplotlib.pyplot as plt #Para graficar
 import re
-
+from unicodedata import normalize
 
 # 1.1. funciones
 # 1.1.1 CORREGIR TILDES, COMAS Y Ñ
 def normalizar(df):
     
-    # Diccionario con las correcciones
-    dic = {'á':'a', 'é':'e','í':'i','ó':'o','ú':'u',",":"",'ñ':'n'}
+    # caracteres especiales sin tildes
+    s = re.sub(r"[^\w\-]","",df)
     
-    # Busca en el diccionario el caracter especial
-    for key in dic:
-        x = re.search(key,df)
-        # Si lo encuentra, lo reemplaza 
-        if x != None:
-            df = df.replace(key,dic[key])
-            break
-        
-    return df,x
+    # tildes
+    s = re.sub(
+        	r"([^\u0300-\u036f])[\u0300-\u036f]+", r"\1", 
+        	normalize( "NFD", s), 0, re.I
+        )
+     
+    s = normalize( 'NFC', s)
+
+    return s
 
 #1.1.2 Extracción de datos de un database
 # Load de data
@@ -61,6 +61,10 @@ def SQL_PD(table_or_sql,eng):
 #luisa
 #t="/media/luisa/Datos/documentos/FACOM/Datos_Hidrometeorol_gicos_Crudos_-_Red_de_Estaciones_IDEAM___Temperatura.csv"
 #p="/media/luisa/Datos/documentos/FACOM/P.csv"
+#lucy2
+t="/home/marcela/Documents/organizar/Datos_Hidrometeorol_gicos_Crudos_-_Red_de_Estaciones_IDEAM___Temperatura.csv"
+p="/home/marcela/Documents/organizar/Precipitaci_n.csv"
+
 
 #2.1 información de las columnas 
 # 0-CodigoEstacion
@@ -93,8 +97,9 @@ del k
 #marcela
 #data_base_name = "/Volumes/DiscoMarcela/facom/prueba1.db"    # se asigna un nombre al db
 #lucy
-data_base_name = "/home/marcelae/Desktop/FACOM/precipitacion.db"     # se asigna un nombre al db
-
+#data_base_name = "/home/marcelae/Desktop/FACOM/precipitacion.db"     # se asigna un nombre al db
+#lucy2
+data_base_name = "/home/marcela/Desktop/FACOM/Bases_de_datos/precipitacion.db"     # se asigna un nombre al db
 
 engine = create_engine('sqlite:///'+data_base_name)     # se crea el motor 
 sqlite_connection = engine.connect()                    # se enciende la conexión
@@ -144,20 +149,14 @@ while tqdm(cont <= (n-1)):
                 v["Departamento"][index] = row["Departamento"]
                 
            # Corrección de tildes, ñ y comas 
-            row["Departamento"],x = normalizar(row["Departamento"])
+            row["Departamento"] = normalizar(row["Departamento"])
+            v["Departamento"][index] = row["Departamento"]
             
-            if x != None:
-                v["Departamento"][index] = row["Departamento"]
+            row["Municipio"] = normalizar(row["Municipio"])
+            v["Municipio"][index] = row["Municipio"]
             
-            row["Municipio"],x = normalizar(row["Municipio"])
-            
-            if x != None:
-                v["Municipio"][index] = row["Municipio"]
-            
-            row["ZonaHidrografica"],x = normalizar(row["ZonaHidrografica"])
-            
-            if x != None:
-                v["ZonaHidrografica"][index] = row["ZonaHidrografica"]
+            row["ZonaHidrografica"] = normalizar(row["ZonaHidrografica"])
+            v["ZonaHidrografica"][index] = row["ZonaHidrografica"]
             
     if (x1==t):
         
@@ -223,79 +222,42 @@ sqlite_connection.close()
 
 #  2.3 información de la base de datos
 #lucy
-eng = 'sqlite:////home/marcelae/Desktop/FACOM/db/temperatura_2.db'
+#eng = 'sqlite:////home/marcelae/Desktop/FACOM/DATA3.db'
 #luisa
 #eng='sqlite:////media/luisa/Datos/documentos/FACOM/gits/FACOM/DATA3.db'
-#------------------------#----------------------------#-----------------------#
+#lucy2
+eng='sqlite:////home/marcela/Desktop/FACOM/bases_de_datos/temperatura_1.db'
 
-#  3. Valores individuales por codigo de estación para las columnas
-myquery_unique='''
-SELECT DISTINCT "CodigoEstacion","NombreEstacion","Municipio","Departamento", "ZonaHidrografica"
-FROM temperatura
-'''
-df_ubi = SQL_PD(myquery_unique,eng)
-
-
-
-#Se elimnan toda la información que sea completamente nula
-'''
-# Elimina la fila con los valores nulos
-for i in range(len(df_ubi)):
-    if df_ubi["Municipio"][i] == "<nil>":
-        df_ubi = df_ubi.drop([i],axis=0)
-'''
-
-# La zona hidrografica aún tiene valores nulos en las posiciones 204 254 277 306 318 340 385
-df_ubi.to_csv(r'/home/marcelae/Desktop/FACOM/ubicacion_temperatura.csv', index=None, sep=';')
 #------------------------#----------------------------#-----------------------#
 #  4. se genera el archivo con la informaición por estación
-
-
-#  4.1 Codigos individuales 
-
 my_query1='''
 SELECT  DISTINCT CodigoEstacion FROM temperatura
 '''
 codigo = SQL_PD(my_query1,eng)
+
 print(codigo)
 
-#  4.2 Nombres de las columnas para el archivo final y vector para guardar la información
+print(" se empieza a leer por columna")
+
 titulos=["Codigo Estacion","Nombre de estacion","Municipio","Departamento", "Zona Hidrográfica","Latitud"
          ,"Longitud","Fecha Inicial","Fecha Final","Numerofilas y columnas",
          "Máximo","Mínimo","Promedio","Desviación Estándar","Mediana"]
 vector=[titulos]
 
-#  4.3 Lectura del archivo 
-print(" se empieza a leer por columna")
-
 for i in tqdm (range(550)):
 #for i in tqdm(codigo):
-    # se determina el valor i
+    
     cod = codigo["CodigoEstacion"][i]
-    
-    #--------------------------------------------------------#
-    
-    #Valores individuales de columna
-    my_query3='''
-    SELECT DISTINCT NombreEstacion,Departamento,Municipio,ZonaHidrografica,Latitud,Longitud,DescripcionSensor,UnidadMedida 
-    FROM temperatura
-    WHERE (codigoestacion = {})
-    '''.format(int(cod))
-    df_unicos = SQL_PD(my_query3,eng)
-    
-    #--------------------------------------------------------#
-
-    #Se obtiene el valor observado y la fecha del valor para la estación de analisis
+    #cod=i
     my_query2='''
-    SELECT FechaObservacion,ValorObservado, 
+    SELECT CodigoEstacion,FechaObservacion,ValorObservado,NombreEstacion,Departamento,
+    Municipio,ZonaHidrografica,Latitud,Longitud,DescripcionSensor,UnidadMedida 
     FROM temperatura
     WHERE (codigoestacion = {})
     '''.format(int(cod))
-    df_est = SQL_PD(my_query2,eng)
-    
-    #--------------------------------------------------------#
 
-    #fechas
+    df_est = SQL_PD(my_query2,eng)
+
     df_est["fecha"]=pd.to_datetime(df_est['FechaObservacion'],format='%m/%d/%Y %I:%M:%S %p')
     #organizar las filas de mayor a menor con respecto a la fecha
     df_est = df_est.sort_values(by='fecha')
@@ -307,22 +269,18 @@ for i in tqdm (range(550)):
     shape = df_est.shape
     #Obtener el nombre de las columnas
     columns_names = df_est.columns.values
-    
-    #--------------------------------------------------------#
-
-    #Valores unicos
     #latitud y longitud
-    lat=df_unicos["Latitud"][0]
-    lon=df_unicos["Longitud"][0]
+    lat=df_est.Latitud.unique()
+    lon=df_est.Longitud.unique()
     #Municipio y departamento
-    mu=df_unicos["Municipio"][0]
-    dep=df_unicos["Departamento"][0]
+    mu=df_est.Municipio.unique()
+    dep=df_est.Departamento.unique()
     #Zona hidrografica y nombre de la estación
-    zh=df_unicos["ZonaHidrografica"][0]
-    ne=df_unicos["NombreEstacion"][0]
+    zh=df_est.ZonaHidrografica.unique()
+    ne=df_est.NombreEstacion.unique()
     #descrición del sensor y unidades
-    desS=df_unicos["DescripcionSensor"][0]
-    unidades=df_unicos["UnidadMedida"][0]
+    desS=df_est.DescripcionSensor.unique()
+    unidades=df_est.UnidadMedida.unique()
     print("")
     print("#---------------------------#")
     print("Estación",cod)
@@ -357,8 +315,6 @@ for i in tqdm (range(550)):
     print("15. Unidades de la variable de estudio= ", unidades[0])
     print("16. Descripción del sensor= ", desS[0])
     print("")
-
-    #--------------------------------------------------------#
         
     #CALCULOS
     #max, min, promedio
