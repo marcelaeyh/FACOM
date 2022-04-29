@@ -82,17 +82,18 @@ def SQL_PD(table_or_sql,eng):
 # 2.2 Crear la base de datos
 
 #se cambia x1 por p o por t
-x1=t
+x1=p
 
 k=pd.read_csv(x1,usecols=[0])    #Se crea una variable que contenga la longitud del archivo original
 n=len(k)                        #longitud de la columna de prueba
 k.head()
+print(n)
 del k
 
 #marcela
 #data_base_name = "/Volumes/DiscoMarcela/facom/prueba1.db"    # se asigna un nombre al db
 #lucy
-data_base_name = "/home/marcelae/Desktop/FACOM/temperatura.db"     # se asigna un nombre al db
+data_base_name = "/home/marcelae/Desktop/FACOM/precipitacion.db"     # se asigna un nombre al db
 
 
 engine = create_engine('sqlite:///'+data_base_name)     # se crea el motor 
@@ -213,7 +214,7 @@ while tqdm(cont <= (n-1)):
                 v["ZonaHidrografica"][index] = row["ZonaHidrografica"]
                 
     print("ingresando paso",cont)
-    v.to_sql(name='temperatura',con=sqlite_connection,index=False,if_exists='append') 
+    v.to_sql(name='precipitacion',con=sqlite_connection,index=False,if_exists='append') 
     cont=cont+step
     del v
     #print(cont,"_",step)    
@@ -257,7 +258,7 @@ for i in tqdm (range(550)):
 
     df_est = SQL_PD(my_query2,eng)
 
-    df_est["fecha"]=pd.to_datetime(df_est['FechaObservacion']).dt.strftime("%d/%m/%Y %X")
+    df_est["fecha"]=pd.to_datetime(df_est['FechaObservacion'],format='%m/%d/%Y %I:%M:%S %p')
     #organizar las filas de mayor a menor con respecto a la fecha
     df_est = df_est.sort_values(by='fecha')
     #Se resetean los indices
@@ -288,29 +289,31 @@ for i in tqdm (range(550)):
     print("")
     print("1. La fecha inicial =",df_est["fecha"][0] )
     print("2. La fecha final =",df_est["fecha"][n-1] )
-    print("3. La cantidad de filas y columnas =",shape )
-    print("4. El nombre de las columnas es=",columns_names)
-    print("5. Las primeras filas son= ")
+    print("3. Muestreo valores iniciales =",(df_est["fecha"][1]-df_est["fecha"][0]).seconds/60, "min")
+    print("4. Muestreo valores finales =",(df_est["fecha"][n-1]-df_est["fecha"][n-2]).seconds/60, "min")
+    print("5. La cantidad de filas y columnas =",shape )
+    print("6. El nombre de las columnas es=",columns_names)
+    print("7. Las primeras filas son= ")
     print(df_est.head())
-    print("6. Las últimas filas= ")
+    print("8. Las últimas filas= ")
     print(df_est.tail())
     print("")
     print("LATITUD Y LONGITUD")
     print("")
-    print("7. latitud=", lat[0])
-    print("8. longitud=", lon[0])
+    print("9. latitud=", lat[0])
+    print("10. longitud=", lon[0])
     print("")
     print("MUNICIPIO, DEPARTAMENTO, ZONA HIDROGRAFICA Y NOMBRE DE LA ESTACIÓN")
     print("")
-    print("9. Municipio= ", mu[0])
-    print("10. Departamento= ", dep[0])
-    print("11. Zona Hidrografica= ", zh[0])
-    print("12. Nombre de la estación= ", ne[0])
+    print("11. Municipio= ", mu[0])
+    print("12. Departamento= ", dep[0])
+    print("13. Zona Hidrografica= ", zh[0])
+    print("14. Nombre de la estación= ", ne[0])
     print("")
     print("UNIDADES Y OTRAS DESCRIPCIONES")
     print("")
-    print("13. Unidades de la variable de estudio= ", unidades[0])
-    print("14. Descripción del sensor= ", desS[0])
+    print("15. Unidades de la variable de estudio= ", unidades[0])
+    print("16. Descripción del sensor= ", desS[0])
     print("")
         
     #CALCULOS
@@ -326,11 +329,11 @@ for i in tqdm (range(550)):
     print("")
     print("ESTADISTICOS")
     print("")
-    print("15. Valor máximo= ", maxi)
-    print("16. Valor mínimo= ", mini)
-    print("17. Valor medio= ", media)
-    print("18. Desviación estandar", desviacion)
-    print("19. Mediana= ", mediana)
+    print("17. Valor máximo= ", maxi)
+    print("18. Valor mínimo= ", mini)
+    print("19. Valor medio= ", media)
+    print("20. Desviación estandar", desviacion)
+    print("21. Mediana= ", mediana)
 
 
     df_est["year"]=pd.to_datetime(df_est['fecha']).dt.year 
@@ -358,6 +361,7 @@ for i in tqdm (range(550)):
     plt.grid()
     
     c=[cod,ne[0],mu[0],dep[0],zh[0],lat[0],lon[0],df_est["fecha"][0],df_est["fecha"][n-1],
+       (df_est["fecha"][1]-df_est["fecha"][0]).seconds/60,(df_est["fecha"][n-1]-df_est["fecha"][n-2]).seconds/60, 
        shape,maxi,mini,media,desviacion,mediana]
     
     vector.append(c)
