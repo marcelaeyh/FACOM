@@ -21,24 +21,24 @@ import os
 import math
 import matplotlib.pyplot as plt #Para graficar
 import re
-
+from unicodedata import normalize
 
 # 1.1. funciones
 # 1.1.1 CORREGIR TILDES, COMAS Y Ñ
 def normalizar(df):
     
-    # Diccionario con las correcciones
-    dic = {'á':'a', 'é':'e','í':'i','ó':'o','ú':'u',",":"",'ñ':'n'}
+    # caracteres especiales sin tildes
+    s = re.sub(r"[^\w\-]","",df)
     
-    # Busca en el diccionario el caracter especial
-    for key in dic:
-        x = re.search(key,df)
-        # Si lo encuentra, lo reemplaza 
-        if x != None:
-            df = df.replace(key,dic[key])
-            break
-        
-    return df,x
+    # tildes
+    s = re.sub(
+        	r"([^\u0300-\u036f])[\u0300-\u036f]+", r"\1", 
+        	normalize( "NFD", s), 0, re.I
+        )
+     
+    s = normalize( 'NFC', s)
+
+    return s
 
 #1.1.2 Extracción de datos de un database
 # Load de data
@@ -61,6 +61,10 @@ def SQL_PD(table_or_sql,eng):
 #luisa
 #t="/media/luisa/Datos/documentos/FACOM/Datos_Hidrometeorol_gicos_Crudos_-_Red_de_Estaciones_IDEAM___Temperatura.csv"
 #p="/media/luisa/Datos/documentos/FACOM/P.csv"
+#lucy2
+t="/home/marcela/Documents/organizar/Datos_Hidrometeorol_gicos_Crudos_-_Red_de_Estaciones_IDEAM___Temperatura.csv"
+p="/home/marcela/Documents/organizar/Precipitaci_n.csv"
+
 
 #2.1 información de las columnas 
 # 0-CodigoEstacion
@@ -93,8 +97,9 @@ del k
 #marcela
 #data_base_name = "/Volumes/DiscoMarcela/facom/prueba1.db"    # se asigna un nombre al db
 #lucy
-data_base_name = "/home/marcelae/Desktop/FACOM/precipitacion.db"     # se asigna un nombre al db
-
+#data_base_name = "/home/marcelae/Desktop/FACOM/precipitacion.db"     # se asigna un nombre al db
+#lucy2
+data_base_name = "/home/marcela/Desktop/FACOM/Bases_de_datos/precipitacion.db"     # se asigna un nombre al db
 
 engine = create_engine('sqlite:///'+data_base_name)     # se crea el motor 
 sqlite_connection = engine.connect()                    # se enciende la conexión
@@ -144,20 +149,14 @@ while tqdm(cont <= (n-1)):
                 v["Departamento"][index] = row["Departamento"]
                 
            # Corrección de tildes, ñ y comas 
-            row["Departamento"],x = normalizar(row["Departamento"])
+            row["Departamento"] = normalizar(row["Departamento"])
+            v["Departamento"][index] = row["Departamento"]
             
-            if x != None:
-                v["Departamento"][index] = row["Departamento"]
+            row["Municipio"] = normalizar(row["Municipio"])
+            v["Municipio"][index] = row["Municipio"]
             
-            row["Municipio"],x = normalizar(row["Municipio"])
-            
-            if x != None:
-                v["Municipio"][index] = row["Municipio"]
-            
-            row["ZonaHidrografica"],x = normalizar(row["ZonaHidrografica"])
-            
-            if x != None:
-                v["ZonaHidrografica"][index] = row["ZonaHidrografica"]
+            row["ZonaHidrografica"] = normalizar(row["ZonaHidrografica"])
+            v["ZonaHidrografica"][index] = row["ZonaHidrografica"]
             
     if (x1==t):
         
@@ -226,7 +225,8 @@ sqlite_connection.close()
 #eng = 'sqlite:////home/marcelae/Desktop/FACOM/DATA3.db'
 #luisa
 #eng='sqlite:////media/luisa/Datos/documentos/FACOM/gits/FACOM/DATA3.db'
-
+#lucy2
+eng='sqlite:////home/marcela/Desktop/FACOM/bases_de_datos/temperatura_1.db'
 
 #------------------------#----------------------------#-----------------------#
 #  4. se genera el archivo con la informaición por estación
