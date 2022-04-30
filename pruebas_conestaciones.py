@@ -18,7 +18,7 @@ import re
 import matplotlib.pyplot as plt #Para graficar
 
 #  2.3 información de la base de datos
-eng = 'sqlite:////home/marcelae/Desktop/FACOM/DATA3.db'
+eng = 'sqlite:////home/marcelae/Desktop/FACOM/db/temperatura_2.db'
 #------------------------#----------------------------#-----------------------#
 #3. funciones
 
@@ -417,4 +417,118 @@ df_est = SQL_PD(my_query3,eng)
 print(df_est)
 print(df_est["NombreEstacion"][0])
 df_est.head()
-    
+
+
+#---------------------------------------#------------------------------------#
+#abril 29 de 2022 encontrar los codigos de estación para el profe daniel
+
+
+#Notas adicionales, la información de los aeropuertos de julio tiene 46 estaciones, 
+#el de el profesor daniel tiene 17.
+
+
+#eng = 'sqlite:////home/marcelae/Desktop/FACOM/db/temperatura_2.db'
+eng = 'sqlite:////home/marcelae/Desktop/FACOM/db/precipitacion_2.db'
+
+
+
+#archivo de julio con la base de datos de precipitación
+datos=pd.read_csv("/home/marcelae/Desktop/FACOM/otros_documentos/Aeropuertos.csv", usecols=[2,3])
+datos.columns=["lon","lat"]
+datos.tail()
+
+#archivo con estaciones no encontradas
+titulos1=["lat","lon"]
+vector1=[titulos1]
+
+#archivo con estaciones encontradas
+titulos=["CodigoEstacion","NombreEstacion","Departamento","Municipio","ZonaHidrografica","Latitud","Longitud"]
+vector=[titulos]
+variacion=0.1
+
+for i in  tqdm(range(len(datos))):
+    my_query3='''
+    SELECT DISTINCT CodigoEstacion,NombreEstacion,Departamento,Municipio,ZonaHidrografica,Latitud,Longitud
+    FROM precipitacion
+    WHERE (Latitud <= {} AND Latitud >= {}) AND (Longitud <= {} AND Longitud >= {})
+    '''.format(datos["lat"][i]+variacion,datos["lat"][i]-variacion,datos["lon"][i]+variacion,datos["lon"][i]-variacion)
+
+    df_est = SQL_PD(my_query3,eng)
+    n=len(df_est)
+    if n != 0 :
+        #print("el paso de tiempo ", i, " tiene información disponible")
+        c=(df_est["CodigoEstacion"][0],df_est["NombreEstacion"][0],df_est["Departamento"][0],
+                      df_est["Municipio"][0],df_est["ZonaHidrografica"][0],df_est["Latitud"][0],df_est["Longitud"][0])
+        vector.append(c)
+        
+    else:
+        print("el paso de tiempo ",i, "no tiene información disponible en las coordenadas"
+              ,"(",datos["lon"][i],",",datos["lat"][i],")")
+        c1=(datos["lon"][i],datos["lat"][i])
+        vector1.append(c1)
+ 
+print(" el archivo final tiene ", len(vector), " filas")           
+#print(vector)
+
+#guardar el archivo csv
+df=pd.DataFrame(vector)
+df_noencontrados=pd.DataFrame(vector1)
+
+
+#luisa 
+#df.to_csv(r'/media/luisa/Datos/documentos/FACOM/gits/FACOM/temperatura.csv',header=None, index=None, sep=';')
+#lucy
+df.to_csv(r'/home/marcelae/Desktop/FACOM/aeropuertos/julio_estacionesAeropuertos.csv',header=None, index=None, sep=';')
+df_noencontrados.to_csv(r'/home/marcelae/Desktop/FACOM/aeropuertos/julio_NoE.csv',header=None, index=None, sep=';')
+
+print("se guarda el archivo")
+
+
+# archivo del profe Daniel con la base de datos de precipitación
+datos=pd.read_csv("/home/marcelae/Desktop/FACOM/otros_documentos/airport_coord.csv", usecols=[1,2])
+datos.columns=["lon","lat"]
+datos.tail()
+
+#archivo con estaciones no encontradas
+titulos1=["lat","lon"]
+vector1=[titulos1]
+
+#archivo con estaciones encontradas
+titulos=["CodigoEstacion","NombreEstacion","Departamento","Municipio","ZonaHidrografica","Latitud","Longitud"]
+vector=[titulos]
+variacion=0.1
+
+for i in  tqdm(range(len(datos))):
+    my_query3='''
+    SELECT DISTINCT CodigoEstacion,NombreEstacion,Departamento,Municipio,ZonaHidrografica,Latitud,Longitud
+    FROM precipitacion
+    WHERE (Latitud <= {} AND Latitud >= {}) AND (Longitud <= {} AND Longitud >= {})
+    '''.format(datos["lat"][i]+variacion,datos["lat"][i]-variacion,datos["lon"][i]+variacion,datos["lon"][i]-variacion)
+
+    df_est = SQL_PD(my_query3,eng)
+    n=len(df_est)
+    if n != 0 :
+        #print("el paso de tiempo ", i, " tiene información disponible")
+        c=(df_est["CodigoEstacion"][0],df_est["NombreEstacion"][0],df_est["Departamento"][0],
+                      df_est["Municipio"][0],df_est["ZonaHidrografica"][0],df_est["Latitud"][0],df_est["Longitud"][0])
+        vector.append(c)
+        
+    else:
+        print("el paso de tiempo ",i, "no tiene información disponible en las coordenadas"
+              ,"(",datos["lon"][i],",",datos["lat"][i],")")
+        c1=(datos["lon"][i],datos["lat"][i])
+        vector1.append(c1)
+ 
+print(" el archivo final tiene ", len(vector), " filas")           
+#print(vector)
+
+#guardar el archivo csv
+df=pd.DataFrame(vector)
+df_noencontrados=pd.DataFrame(vector1)
+#luisa 
+#df.to_csv(r'/media/luisa/Datos/documentos/FACOM/gits/FACOM/temperatura.csv',header=None, index=None, sep=';')
+#lucy
+df.to_csv(r'/home/marcelae/Desktop/FACOM/aeropuertos/daniel_estacionesAeropuertos.csv',header=None, index=None, sep=';')
+df_noencontrados.to_csv(r'/home/marcelae/Desktop/FACOM/aeropuertos/daniel_NoE.csv',header=None, index=None, sep=';')
+
+print("se guarda el archivo")
