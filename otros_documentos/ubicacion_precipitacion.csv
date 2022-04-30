@@ -1,0 +1,793 @@
+CodigoEstacion;NombreEstacion;Municipio;Departamento;ZonaHidrografica
+25025380;SAN BENITO ABAD - LA MOJANA TX GPRS/GOES;san benito abad;sucre;bajo magdalena- cauca -san jorge
+24035430;TUNGUAVITA - AUT;paipa;boyaca;sogamoso
+24015501;BERTHA  - AUT;moniquira;boyaca;sogamoso
+23195090;VIVERO SURATA  - AUT;surata;santander;medio magdalena
+26115090;LAS BRISAS - AUT;ansermanuevo;valle del cauca;san juan
+21205910;LA COSECHA - AUT;zipaquira;cundinamarca;alto magdalena
+24055501;CHUCURI  - AUT;san vicente de chucuri;santander;sogamoso
+23087230;PUERTO BELLO  - AUT;puerto nare;antioquia;medio magdalena
+23197700;MAJADAS - AUT;bucaramanga;santander;medio magdalena
+21115501;TELLO  - AUT;tello;huila;alto magdalena
+35085060;ZETAQUIRA - AUT;zetaquira;boyaca;meta
+35027001;CAQUEZA PLAZA DE FERIAS - TXGPRS;caqueza;cundinamarca;meta
+2403700149;PUENTE LA RAMADA - AUT;chiscas;boyaca;sogamoso
+35075070;CHINAVITA - AUT;chinavita;boyaca;meta
+11030010;PR CHOCO: CERTEGUI;certegui;choco;atrato - darien
+35195060;PERENCO: TOQUILLA;aquitania;boyaca;meta
+52055502;SANDONA  - AUT;sandona;narino;patia
+2613500126;POTREROS - AUT;santa rosa de cabal;risaralda;cauca
+23195200;CACHIRI  - AUT;surata;santander;medio magdalena
+23025502;ALMACAFE LETRAS  - AUT;manizales;caldas;medio magdalena
+23055502;VILLARAZ  - AUT;pensilvania;caldas;medio magdalena
+23195502;APTO PALONEGRO;lebrija;santander;medio magdalena
+35035110;SALINAS DE UPIN  - AUT;restrepo;meta;meta
+21057060;PAICOL - AUT;tesalia;huila;alto magdalena
+21195170;PAQUILO - AUT;cabrera;cundinamarca;alto magdalena
+37037010;PASO DE LA CANOA - AUT;cubara;boyaca;arauca
+21257100;LA NUEVA - AUT;venadillo;tolima;alto magdalena
+24037190;SAN RAFAEL  - AUT;tibasosa;boyaca;sogamoso
+2612500130;SALENTO - AUT;salento;quindio;cauca
+24030680;EL PARAMO - AUT;carcasi;santander;sogamoso
+35085070;SANTA MARIA - AUT;santa maria;boyaca;meta
+53115501;DAGUA  - AUT;dagua;valle del cauca;tapaje - dagua - directos
+3502500135;GUAYABETAL POLLO OLIMPICO - AUT;guayabetal;cundinamarca;meta
+26135503;NARANJAL  - AUT;chinchina;caldas;cauca
+11027030;EL SIETE - AUT;el carmen;choco;atrato - darien
+5311500121;LA CUMBRE - AUT;la cumbre;valle del cauca;tapaje - dagua - directos
+2610500131;SANTA LUCIA - AUT;tulua;valle del cauca;cauca
+35017020;PUENTE LLERAS - AUT;puerto lopez;meta;meta
+21015502;SAN AGUSTIN  - AUT;san agustin;huila;alto magdalena
+2105700099;PUENTE COHETANDO - AUT;paez (belalcazar);cauca;alto magdalena
+3507500133;TEATINOS - AUT;boyaca;boyaca;meta
+26217010;LA GALERA - AUT;santa fe de antioquia;antioquia;cauca
+26215501;CONCORDIA  - AUT;concordia;antioquia;cauca
+26145505;LA FLORESTA  - AUT;belalcazar;caldas;cauca
+24035340;AEROPUERTO A LLERAS C;sogamoso;boyaca;sogamoso
+26015040;ARRAYANALES - AUT;popayan;cauca;cauca
+25020430;TREMENTINO - LA MOJANA TX GPRS/GOES;monteria;cordoba;sinu
+24037290;PUENTE CHAMEZA  - AUT;sogamoso;boyaca;sogamoso
+23065180;VILLETA - AUT;villeta;cundinamarca;medio magdalena
+47017070;EL EDEN - AUT;santiago;putumayo;putumayo
+52055501;OSPINA PEREZ  - AUT;consaca;narino;patia
+23087210;CANTERAS - AUT;puerto nare;antioquia;medio magdalena
+24030950;MALAGA 2;malaga;santander;sogamoso
+21097070;PTE SANTANDER - TX GPRS;neiva;huila;alto magdalena
+3706500109;ARAUCA TERMINAL - AUT;arauca;arauca;arauca
+21050090;NATAGA  - AUT;nataga;huila;alto magdalena
+23050420;ARGELIA ANTIOQUIA - AUT;argelia;antioquia;medio magdalena
+26157190;RIO CLARO - AUT;villamaria;caldas;cauca
+21215501;ESPERANZA LA  - AUT;ibague;tolima;alto magdalena
+36015501;TAMARA  - AUT;tamara;casanare;casanare
+26085501;LA CELIA  - AUT;la celia;risaralda;cauca
+13035501;APTO LOS GARZONES;monteria;cordoba;sinu
+27015330;APTO OLAYA HERRERA - TX GPRS;medellin;antioquia;nechi
+24035390;PARAMO ALMORZADERO  - AUT;cerrito;santander;sogamoso
+26065501;JAMUNDI  - AUT;jamundi;valle del cauca;cauca
+26177030;LA VIRGINIA;la virginia;risaralda;cauca
+21057050;VEGA EL SALADO  - AUT;la plata;huila;alto magdalena
+23190130;TONA  - AUT;tona;santander;medio magdalena
+35105050;GUAICARAMO  - AUT;barranca de upia;meta;meta
+21187030;CUCUNUBA  - AUT;valle de san juan;tolima;alto magdalena
+35075080;PARAMO RABANAL - AUT;ventaquemada;boyaca;meta
+2401700091;LAS MINAS - AUT;zapatoca;santander;sogamoso
+24025501;ALBERTO SANTOS  - AUT;socorro;santander;sogamoso
+26125505;LA BELLA  - AUT;calarca;quindio;cauca
+11045010;PR CHOCO: APTO EL CARANO;quibdo;choco;atrato - darien
+2633500119;GUACHAL PALMASECA - AUT;buga;valle del cauca;cauca
+2604500039;CORINTO - AUT;corinto;cauca;cauca
+22045502;EL RUBY  - AUT;planadas;tolima;saldana
+36015020;EL DIAMANTE - AUT;paz de ariporo;casanare;meta
+2302500037;BRASIL - AUT;marulanda;caldas;medio magdalena
+2614500112;BELLAVISTA - JESUS MARIA - AUT;anserma;caldas;cauca
+3602700101;SAN SALVADOR - AUT;tame;arauca;casanare
+29047000;TEBSA TX GPRS;soledad;atlantico;bajo magdalena
+13077060;COTOCA ABAJO  - AUT;lorica;cordoba;sinu
+26155150;LAS BRISAS - AUT;villamaria;caldas;medio magdalena
+21137030;PUENTE CARRETERA  - AUT;aipe;huila;alto magdalena
+2403500041;DUITAMA - AUT;paipa;boyaca;sogamoso
+21195120;ITA VALSALICE  - AUT;silvania;cundinamarca;alto magdalena
+26205501;EL ROSARIO  - AUT;venecia;antioquia;cauca
+24037080;LA GRUTA  - AUT;pesca;boyaca;sogamoso
+13067020;MONTERIA  - AUT;monteria;cordoba;sinu
+5311500056;UNIVERSIDAD DEL PACIFICO - AUT;buenaventura;valle del cauca;tapaje - dagua - directos
+21105030;ALGECIRAS - AUT;algeciras;huila;alto magdalena
+29065501;CIENAGA,LA  - AUT;cienaga;magdalena;bajo magdalena
+53115502;JULIO FERNANDEZ  - AUT;restrepo;valle del cauca;tapaje - dagua - directos
+2201500047;HERRERA - AUT;planadas;tolima;saldana
+26237040;PTO VALDIVIA;valdivia;antioquia;cauca
+44035501;PAUJIL  - AUT;el paujil;caqueta;caqueta
+23217080;GAMARRA - AUT;gamarra;cesar;medio magdalena
+2611700158;RIO FRIO - AUT;riofrio;valle del cauca;cauca
+25027760;BEIRUT - LA MOJANA TX GPRS/GOES;ayapel;cordoba;bajo magdalena- cauca -san jorge
+24055070;SAN  VICENTE DE CHUCURI  - AUT;san vicente de chucuri;santander;medio magdalena
+26125300;CALARCA - AUT;calarca;quindio;cauca
+1602500110;ARBOLEDAS - AUT;arboledas;norte de santander;catatumbo
+23127060;SANTA ROSA  - AUT;cimitarra;santander;medio magdalena
+26165501;EL CIPRES  - AUT;salamina;caldas;cauca
+14019030;CC DIQUE: CIOH;cartagena de indias;bolivar;caribe - litoral
+35027100;CARAZA  - AUT;une;cundinamarca;meta
+48015040;PTO NARIÑO;puerto narino;amazonas;amazonas - directos
+52015050;BALBOA - AUT;balboa;cauca;patia
+35197020;VADO HONDO  - AUT;aquitania;boyaca;meta
+44017070;SANTA ROSA  - AUT;santa rosa;cauca;caqueta
+23087150;PUENTE REAL  - AUT;rionegro;antioquia;medio magdalena
+51025080;ALTAQUER - AUT;barbacoas;narino;mira
+2633700150;GUAYABAL - AUT;buga;valle del cauca;cauca
+16015502;BLONAY  - AUT;chinacota;norte de santander;catatumbo
+35160020;PR TOTA: LLANO ALARCON;cuitiva;boyaca;meta
+2403000113;LAS CAÑAS - AUT;chiscas;boyaca;sogamoso
+44017120;PIEDRA LISA II  - AUT;mocoa;putumayo;caqueta
+1605700152;PALO GRANDE - AUT;ocana;norte de santander;catatumbo
+26075150;APTO ALFONSO BONILLA ARAGON - TX GPRS;palmira;valle del cauca;cauca
+21205710;JARDIN BOTANICO  - AUT;bogota;bogota;alto magdalena
+24017590;PUENTE NACIONAL - AUT;puente nacional;santander;sogamoso
+26115501;MANUEL MARIA MALLARINO  - AUT;trujillo;valle del cauca;cauca
+21045501;OPORAPA  - AUT;oporapa;huila;alto magdalena
+2401500040;CUCUNUBA - AUT;cucunuba;cundinamarca;sogamoso
+23085501;COCORNA  - AUT;cocorna;antioquia;medio magdalena
+23067040;PUERTO LIBRE  - AUT;puerto salgar;cundinamarca;medio magdalena
+35185010;LA PALOMERA - AUT;puerto lopez;meta;meta
+26125508;LACATALINA  - AUT;pereira;risaralda;cauca
+21205502;MISIONES  - AUT;el colegio;cundinamarca;alto magdalena
+26127010;EL ALAMBRADO;caicedonia;valle del cauca;cauca
+16047010;PUENTE ABREGO - AUT;abrego;norte de santander;catatumbo
+2306500106;ALTO DEL TRIGO - AUT;guaduas;cundinamarca;medio magdalena
+26105250;ZARAGOZA - AUT;cartago;valle del cauca;cauca
+21255501;LA TRINIDAD  - AUT;libano;tolima;alto magdalena
+37027010;PEÑA DE LOS MICOS - AUT;toledo;norte de santander;arauca
+24037030;EL PALO - AUT;tuta;boyaca;sogamoso
+24017740;PUENTE CHACON  - AUT;villa de leiva;boyaca;sogamoso
+17019010;SAN ANDRES;san andres;san andres;islas caribe
+2401500080;PANELAS - AUT;motavita;boyaca;sogamoso
+24025030;LA SIERRA - AUT;paipa;boyaca;sogamoso
+21197010;EL PROFUNDO - AUT;cabrera;cundinamarca;alto magdalena
+2403500085;SUSA - AUT;onzaga;santander;sogamoso
+2405700149;EL JUNCAL - AUT;los santos;santander;sogamoso
+21065501;JORGE VILLAMIL  - AUT;gigante;huila;alto magdalena
+56015010;PR CHOCO: PANAMERICANA;bahia solano (mutis);choco;pacifico - directos
+57025020;GORGONA GUAPI;guapi;cauca;guaviare
+25027770;MARRALU - LA MOJANA;ayapel;cordoba;bajo magdalena- cauca -san jorge
+11057020;SAN ANTONIO PADUA  - AUT;vigia del fuerte;antioquia;atrato - darien
+2614500116;EL JARDIN CUENCA ALTA RIO RISARALDA - AUT;riosucio;caldas;cauca
+42077020;MITU;mitu;vaupes;vaupes
+24035410;SOGAMOSO - AUT;sogamoso;boyaca;sogamoso
+25025350;PUERTA ROJA - AUT;sincelejo;sucre;bajo magdalena- cauca -san jorge
+26125504;PARAGUAICITO  - AUT;buenavista;quindio;cauca
+29047070;SAN PEDRITO - TX GPRS;suan;atlantico;bajo magdalena
+35095130;LAGUNA DE LA PLAZA;saravena;arauca;casanare
+25025030;AYAPEL;ayapel;cordoba;bajo magdalena- cauca -san jorge
+21206280;ACAPULCO;bojaca;cundinamarca;alto magdalena
+37045010;SARAVENA  - AUT;saravena;arauca;arauca
+3518700145;TUA BALNEARIO - AUT;monterrey;casanare;meta
+24035250;CHITA  - AUT;chita;boyaca;sogamoso
+16025501;CUCUTILLA  - AUT;cucutilla;norte de santander;catatumbo
+25027910;LA RAYA;san jacinto del cauca;bolivar;cauca
+25027750;SAN MARCOS - LA MOJANA TX GPRS/GOES;san marcos;sucre;bajo magdalena- cauca -san jorge
+26075501;FLORIDA  - AUT;florida;valle del cauca;cauca
+1509500118;GUACHACA - AUT;santa marta;magdalena;caribe - guajira
+23125160;SAN PABLO DE BORBUR  - AUT;san pablo de borbur;boyaca;medio magdalena
+1206500136;UNIVERSIDAD UNAD CARTAGENA - AUT;cartagena de indias;bolivar;caribe - litoral
+2319500137;VETAS - AUT;vetas;santander;medio magdalena
+21205940;VILLA INES  - AUT;facatativa;cundinamarca;alto magdalena
+26055100;FARALLONES - AUT;cali;valle del cauca;cauca
+21185501;ROVIRA  - AUT;rovira;tolima;alto magdalena
+26180250;VALLE ALTO  - AUT;salamina;caldas;cauca
+51020011;PIEDRANCHA;mallama (piedrancha);narino;mira
+11047040;QUIBDO - AUT;quibdo;choco;atrato - darien
+2120700162;SAN JOAQUIN - AUT;la mesa;cundinamarca;alto magdalena
+2401500086;TUNJA-U.P.T.C - AUT;samaca;boyaca;sogamoso
+47017110;MONOPAMBA  - AUT;puerres;narino;putumayo
+2120500050;PARAMO ALTO - AUT;cogua;cundinamarca;alto magdalena
+52057050;SAN PEDRO  - AUT;linares;narino;patia
+21209920;SANTA ROSITA - AUT;suesca;cundinamarca;alto magdalena
+24025090;MOGOTES - AUT;mogotes;santander;sogamoso
+21237010;NARINO - AUT;narino;cundinamarca;alto magdalena
+2619700161;SALGAR - AUT;pueblorrico;antioquia;cauca
+24037490;PUENTE TOTUMO  - AUT;boavita;boyaca;sogamoso
+23065110;YACOPI  - AUT;yacopi;cundinamarca;medio magdalena
+21206990;TIBAITATA - AUT;mosquera;cundinamarca;alto magdalena
+11025501;CARMEN DE ATRATO  - AUT;el carmen;choco;atrato - darien
+21017030;CASCADA SIMON BOLIVAR  - AUT;isnos;huila;alto magdalena
+15065501;LA MINA CERREJON  - AUT;albania;la guajira;caribe - guajira
+23025501;MANZANARES  - AUT;manzanares;caldas;medio magdalena
+24035370;EL ESPINO - AUT;el espino;boyaca;sogamoso
+21015030;PARQUE ARQUEOLOGICO - AUT;san agustin;huila;alto magdalena
+26135501;EL PILAMO  - AUT;pereira;risaralda;cauca
+21055501;SIMON CAMPOS  - AUT;la plata;huila;alto magdalena
+24017640;LA CEIBA - AUT;socorro;santander;sogamoso
+54025010;PR CHOCO: SAN JOSE PALMAR;san jose del palmar;choco;san juan
+26125509;ESPERANZA LA  - AUT;pijao;quindio;cauca
+26017060;PUENTE ARAGON  - AUT;purace (coconuco);cauca;cauca
+26057030;POTRERITO;jamundi;valle del cauca;cauca
+17015010;APTO SESQUICENTENARIO TX GPRS;san andres;san andres;islas caribe
+35165000;EL TUNEL;cuitiva;boyaca;meta
+24015300;VILLA DE LEIVA  - AUT;villa de leiva;boyaca;sogamoso
+21195190;PASCA - AUT;pasca;cundinamarca;alto magdalena
+3503500062;EL CALVARIO - AUT;el calvario;meta;meta
+15065180;APTO ALMIRANTE PADILLA TX GPRS;riohacha;la guajira;caribe - guajira
+2119700147;SAN MIGUEL - AUT;ricaurte;cundinamarca;alto magdalena
+33035010;CARIMAGUA;puerto gaitan;meta;vichada
+21147030;CARRASPOSO  - AUT;colombia;huila;alto magdalena
+26125506;EL AGRADO  - AUT;montenegro;quindio;cauca
+26207080;BOLOMBOLO - AUT;venecia;antioquia;cauca
+26155503;PLANALTO  - AUT;manizales;caldas;cauca
+2403000117;PM LA LAGUNA;guacamayas;boyaca;sogamoso
+2319500125;POLIDEPORTIVO CACHIRA - AUT;cachira;norte de santander;medio magdalena
+26145501;APIA  - AUT;apia;risaralda;cauca
+2119500111;BASE AEREA MELGAR - AUT;melgar;tolima;alto magdalena
+3702500113;CAMPO HERMOSO - AUT;toledo;norte de santander;arauca
+2319500043;FLORIDABLANCA - AUT;floridablanca;santander;medio magdalena
+26095320;EL VINCULO - AUT;buga;valle del cauca;cauca
+52015501;BALBOA  - AUT;balboa;cauca;patia
+23097030;PTO BERRIO TX GPRS;puerto berrio;antioquia;medio magdalena
+2612500124;PIJAO - AUT;pijao;quindio;cauca
+25025240;MAJAGUAL;achi;bolivar;bajo magdalena- cauca -san jorge
+23180070;SABANA DE TORRES;sabana de torres;santander;medio magdalena
+21215160;CERROS NOROCCIDENTALES  - AUT;ibague;tolima;alto magdalena
+21097120;LA ESPERANZA - AUT;palermo;huila;alto magdalena
+31095030;PTO INIRIDA;inirida;guainia;inirida
+47017170;PICUDO EL;orito;putumayo;putumayo
+3507500046;GRANJA GUAYATA - AUT;guayata;boyaca;meta
+21205660;MERCEDES - AUT;anapoima;cundinamarca;alto magdalena
+54035501;SANTIAGO GUTIERREZ  - AUT;argelia;valle del cauca;san juan
+23125140;AEROPUERTO FURATENA  - AUT;quipama;boyaca;medio magdalena
+26145504;OSPIRMA  - AUT;guatica;risaralda;cauca
+25027050;MARGENTO  - AUT;caucasia;antioquia;bajo magdalena- cauca -san jorge
+26015010;EL TABLAZO - AUT;popayan;cauca;cauca
+24035360;SOCHA - AUT;socha;boyaca;sogamoso
+35167010;PROYECTO TOTA: HATO LAGUNA;aquitania;boyaca;meta
+22045010;DEMOSTRACION GRANJA  - AUT;chaparral;tolima;saldana
+23067060;TOBIA  - AUT;nimaima;cundinamarca;medio magdalena
+46035010;MAGUARE - AUT;el doncello;caqueta;caguan
+25020440;SAN PEDRO - LA MOJANA TX GPRS/GOES;san pedro;sucre;bajo magdalena- cauca -san jorge
+51039010;TUMACO - AUT;tumaco;narino;mira
+35235010;CARDON EL;socota;boyaca;meta
+16055501;GABRIEL MARIA  - AUT;convencion;norte de santander;catatumbo
+21205012;UNIVERSIDAD NACIONAL  - AUT;bogota;bogota;alto magdalena
+26145506;FILO BONITO  - AUT;belalcazar;caldas;cauca
+3518500127;GUADUALITO - AUT;monterrey;casanare;meta
+26147140;PUENTE NEGRO  - AUT;belalcazar;caldas;cauca
+21127030;SANTA MARIA  - AUT;santa maria;huila;alto magdalena
+26145503;ANSERMA  - AUT;anserma;caldas;cauca
+26195502;CIUDAD BOLIVAR  - AUT;ciudad bolivar;antioquia;cauca
+35085080;LA CAPILLA - AUT;la capilla;boyaca;meta
+26175501;RAFAEL ESCOBAR  - AUT;supia;caldas;cauca
+26155502;CENICAFE  - AUT;manizales;caldas;cauca
+21205791;APTO EL DORADO - TX GPRS;bogota;bogota;alto magdalena
+15065040;LA PAULINA - AUT;fonseca;la guajira;caribe - guajira
+21206960;IDEAM BOGOTA  - AUT;bogota;bogota;alto magdalena
+23205050;CANELOS  - AUT;santa rosa del sur;bolivar;medio magdalena
+2308500071;RETIRO - AUT;retiro;antioquia;medio magdalena
+2403000114;LAS MERCEDES - AUT;chiscas;boyaca;sogamoso
+23125501;PAUNA  - AUT;pauna;boyaca;medio magdalena
+35035100;ICA VILLAVICENCIO  - AUT;villavicencio;meta;meta
+21037020;SAN MARCOS  - AUT;acevedo;huila;alto magdalena
+25025190;PLANETA RICA  - AUT;planeta rica;cordoba;bajo magdalena- cauca -san jorge
+1303500129;SAHAGUN - AUT;sahagun;cordoba;sinu
+52017110;PUENTE CARRETERA  - AUT;el tambo;cauca;patia
+3519700092;MANI - AUT;mani;casanare;meta
+26125502;CAICEDONIA  - AUT;caicedonia;valle del cauca;cauca
+26135502;EL JAZMIN  - AUT;santa rosa de cabal;risaralda;cauca
+35095120;AQUITANIA - AUT;aquitania;boyaca;meta
+14015080;AEROPUERTO RAFAEL NUNEZ;cartagena de indias;bolivar;caribe - litoral
+35235050;PERENCO: TAMARA;tamara;casanare;meta
+21137050;RIO ANGOSTURA  - AUT;natagaima;tolima;alto magdalena
+29015000;EL GUAMO - AUT;el guamo;bolivar;bajo magdalena
+22077050;PIJAITO  - AUT;rovira;tolima;saldana
+26145507;LAS TANGAS  - AUT;belalcazar;caldas;cauca
+2636700098;HACIENDA LA GRACIOSA - AUT;bugalagrande;valle del cauca;cauca
+22025501;ATACO  - AUT;ataco;tolima;saldana
+52055230;AEROPUERTO SAN LUIS - AUT;aldana;narino;patia
+2120700146;UNIVERSIDAD DE LA SABANA - AUT;chia;cundinamarca;alto magdalena
+21257090;LA ESMERALDA - AUT;lerida;tolima;alto magdalena
+21107020;PUENTE MULAS  - AUT;campoalegre;huila;alto magdalena
+26027200;PUENTE CARRETERA  - AUT;popayan;cauca;cauca
+23065501;PACHO  - AUT;pacho;cundinamarca;medio magdalena
+23085260;LA SELVA - AUT;rionegro;antioquia;medio magdalena
+51025090;GRANJA MIRA;tumaco;narino;mira
+26167070;IRRA  - AUT;neira;caldas;cauca
+23195230;NEOMUNDO - AUT;bucaramanga;santander;medio magdalena
+26185501;SONSON  - AUT;sonson;antioquia;cauca
+26015050;PALETARA  - AUT;purace (coconuco);cauca;cauca
+2120500135;UNIVERSIDAD DE LA SABANA - AUT;chia;cundinamarca;alto magdalena
+2403500084;MONGUA - AUT;mongua;boyaca;sogamoso
+23067070;VILLETA - AUT;villeta;cundinamarca;medio magdalena
+15065190;MONGUI;riohacha;la guajira;caribe - guajira
+2604500134;TORIBIO ALERTAS   TORIBIO - AUT;toribio;cauca;cauca
+48015050;AEROPUERTO VASQUEZ COBO;leticia;amazonas;amazonas - directos
+37015030;BERLIN - AUT;tona;santander;arauca
+2121500042;EL SILENCIO - AUT;ibague;tolima;alto magdalena
+21237020;ARRANCAPLUMAS  - AUT;guaduas;cundinamarca;alto magdalena
+35037100;PUENTE ABADIA - AUT;villavicencio;meta;meta
+25020600;HDA SAJONIA - LA MOJANA TX GPRS/GOES;pueblo nuevo;cordoba;bajo magdalena- cauca -san jorge
+35160000;PR TOTA: LAS CINTAS;sogamoso;boyaca;meta
+21206920;VILLA TERESA - AUT;bogota;bogota;alto magdalena
+25020470;CHINU - LA MOJANA TX GPRS/GOES;chinu;cordoba;bajo magdalena- cauca -san jorge
+2403500082;SIACHOQUE - AUT;siachoque;boyaca;sogamoso
+11117050;DABEIBA 2  - AUT;dabeiba;antioquia;atrato - darien
+29065000;MEDIA LUNA - AUT;pivijai;magdalena;bajo magdalena
+24055080;VIZCAINA LA LIZAMA  - AUT;barrancabermeja;santander;sogamoso
+26145090;SANTA EMILIA - AUT;belen de umbría;risaralda;cauca
+35227070;OROCUE BZO DERECHO;orocue;casanare;meta
+26015030;PNN PURACE - AUT;purace (coconuco);cauca;cauca
+23085270;APTO J.M CORDOVA TX GPRS;rionegro;antioquia;medio magdalena
+2311700155;PUERTO BOYACA - AUT;puerto boyaca;boyaca;medio magdalena
+2125700094;RECIO 1 - AUT;libano;tolima;alto magdalena
+26065502;TRINIDAD LA  - AUT;piendamo;cauca;cauca
+21235030;UNIVERSIDAD DE CUNDINAMARCA - AUT;girardot;cundinamarca;alto magdalena
+2401500052;PUENTE GUILLERMO - AUT;puente nacional;santander;sogamoso
+35107040;GUAICARAMO  - AUT;barranca de upia;meta;meta
+35027510;CALOSTROS BAJO - AUT;la calera;cundinamarca;meta
+21115180;HACIENDA MANILA - AUT;baraya;huila;alto magdalena
+1501500054;SAN ISIDRO BONDA - AUT;santa marta;magdalena;caribe - guajira
+35025090;BOSQUE INTERVENIDO  - AUT;la calera;cundinamarca;meta
+26225060;HACIENDA COTOVE - AUT;santa fe de antioquia;antioquia;cauca
+35025080;PNN CHINGAZA - AUT;la calera;cundinamarca;meta
+35035130;PARAMO CHINGAZA  - AUT;guasca;cundinamarca;meta
+29035080;NORMAL MANATI  - AUT;manati;atlantico;bajo magdalena
+21206980;SANTA CRUZ DE SIECHA  - AUT;guasca;cundinamarca;alto magdalena
+14015010;GALERAZAMBA  - AUT;santa catalina;bolivar;caribe - litoral
+21206950;PARAMO GUACHENEQUE  - AUT;villapinzon;cundinamarca;alto magdalena
+46015030;SAN VICENTE DEL CAGUAN  - AUT;san vicente del caguan;caqueta;caguan
+28047050;PALMARIGUANI  - AUT;ariguani (el dificil);magdalena;cesar
+12015110;CHIGORODO - AUT;chigorodo;antioquia;caribe - litoral
+29015040;CARMEN DE BOLIVAR  - AUT;el carmen de bolívar;bolivar;bajo magdalena
+21206790;HACIENDA SANTA ANA - AUT;nemocon;cundinamarca;alto magdalena
+2802500079;CARACOLÍ HDA MANATURE - AUT;valledupar;cesar;cesar
+52055210;BOTANA - AUT;pasto;narino;patia
+25025280;EL TESORO IDEAM  - AUT;morroa;sucre;bajo magdalena- cauca -san jorge
+2901500072;HOBO - AUT;el carmen de bolívar;bolivar;bajo magdalena
+21206930;PARAMO GUERRERO  - AUT;zipaquira;cundinamarca;alto magdalena
+12015060;TULENAPA  - AUT;carepa;antioquia;caribe - litoral
+23125170;SAN CAYETANO - AUT;san cayetano;cundinamarca;medio magdalena
+52055170;LA JOSEFINA - AUT;contadero;narino;patia
+29065120;BATALLON NO. 6 - AUT;fundacion;magdalena;bajo magdalena
+44037040;EL ROSARIO - AUT;florencia;caqueta;caqueta
+24015110;LA BOYERA - AUT;ubate;cundinamarca;sogamoso
+12017020;BARRANQUILLITA  - AUT;chigorodo;antioquia;caribe - litoral
+52055150;CERRO PARAMO  - AUT;puerres;narino;patia
+21015050;PURACE  - AUT;san agustin;huila;alto magdalena
+29067150;GANADERIA CARIBE  - AUT;aracataca;magdalena;bajo magdalena
+29067060;PUERTO RICO HACIENDA  - AUT;aracataca;magdalena;bajo magdalena
+52055220;EL PARAISO - AUT;tuquerres;narino;patia
+3701500117;EL PORTILLO - AUT;silos;norte de santander;arauca
+44037080;MORELIA  - AUT;morelia;caqueta;caqueta
+21206600;NUEVA GENERACION  - AUT;bogota;bogota;alto magdalena
+25025340;SAN MARCOS - AUT;san marcos;sucre;bajo magdalena- cauca -san jorge
+21015070;LOS GUACHAROS  - AUT;palestina;huila;alto magdalena
+21015060;MARENGO  - AUT;pitalito;huila;alto magdalena
+12027010;PUEBLO BELLO  - AUT;turbo;antioquia;caribe - litoral
+15015120;UNIVERSIDAD TECNOLOGICA  - AUT;santa marta;magdalena;caribe - guajira
+21015040;LA PRIMAVERA - AUT;saladoblanco;huila;alto magdalena
+5102500128;RESERVA NATURAL LA PLANADA - AUT;ricaurte;narino;mira
+22057060;LA MURALLA - AUT;ataco;tolima;saldana
+23065190;QUEBRADA NEGRA - AUT;quebradanegra;cundinamarca;medio magdalena
+25017030;PICA PICA  - AUT;montelibano;cordoba;bajo magdalena- cauca -san jorge
+26135330;LA LAGUNA DEL OTUN  - AUT;pereira;risaralda;cauca
+2501500120;JUAN JOSE - AUT;puerto libertador;cordoba;bajo magdalena- cauca -san jorge
+26155260;SENDERO LAGUNA VERDE  - AUT;villamaria;caldas;cauca
+29065130;LA GRAN VIA - AUT;zona bananera;magdalena;bajo magdalena
+37017040;PUENTE LOPEZ - AUT;chitaga;norte de santander;arauca
+24015503;CONFINES  - AUT;confines;santander;sogamoso
+16015120;UNIVERSIDAD DE PAMPLONA  - AUT;pamplona;norte de santander;catatumbo
+47015100;EL ENCANO - AUT;pasto;narino;putumayo
+16025503;GRAMALOTE  - AUT;gramalote;norte de santander;catatumbo
+26247050;LAS CAMELIAS - AUT;taraza;antioquia;cauca
+44015060;ACUEDUCTO MOCOA - AUT;mocoa;putumayo;caqueta
+16015130;ALCALDIA DE HERRAN  - AUT;herran;norte de santander;catatumbo
+26155240;PNN NEVADOS - AUT;villamaria;caldas;cauca
+11135030;UNGUIA - AUT;unguia;choco;atrato - darien
+21055070;INZA - AUT;inza;cauca;alto magdalena
+26155250;PARAMO CONEJERAS  - AUT;villamaria;caldas;cauca
+52045080;UNIVERSIDAD DE NARINO  - AUT;pasto;narino;patia
+21115170;LA PLATA - AUT;neiva;huila;alto magdalena
+1501700160;RIO MANZANARES ALERTAS - AUT;santa marta;magdalena;caribe - guajira
+15015060;SAN LORENZO  - AUT;santa marta;magdalena;caribe - guajira
+25017010;MONTELIBANO - AUT;montelibano;cordoba;bajo magdalena- cauca -san jorge
+26135320;NEVADO SANTA ISABEL  - AUT;villamaria;caldas;cauca
+15017030;MINCA  - AUT;santa marta;magdalena;caribe - guajira
+26247010;PALMIRA HACIENDA  - AUT;caceres;antioquia;cauca
+52040050;APONTE;el tablon;narino;patia
+26255030;SANTA ISABEL VALDIVIA - AUT;valdivia;antioquia;cauca
+2703700106;EL RETIRO - AUT;el bagre;antioquia;nechi
+24017600;MONIQUIRA  - AUT;moniquira;boyaca;sogamoso
+35025110;LA LIBERTAD - AUT;villavicencio;meta;meta
+26135300;PNN QUIMBAYA - AUT;pereira;risaralda;cauca
+16027300;PUENTE CAPIRA - AUT;cucutilla;norte de santander;catatumbo
+2615500122;LA ESPERANZA ANDALUCIA - AUT;manizales;caldas;cauca
+23105070;MACEO - AUT;yolombo;antioquia;medio magdalena
+16025040;CINERA-VILLA OLGA;cucuta;norte de santander;catatumbo
+27015320;ARAGON - AUT;santa rosa de osos;antioquia;nechi
+27015310;METROMEDELLIN - AUT;bello;antioquia;nechi
+16017010;AGUAS CLARAS  - AUT;cucuta;norte de santander;catatumbo
+3701500114;CHINACOTA - AUT;toledo;norte de santander;arauca
+16027060;PUERTO LEON - AUT;puerto santander;norte de santander;catatumbo
+16040050;LA MARIA - AUT;abrego;norte de santander;catatumbo
+54057010;NOANAMA ASERRIO;medio san juan;choco;san juan
+16035030;SARDINATA  - AUT;sardinata;norte de santander;catatumbo
+26137220;EL RETEN - AUT;santa rosa de cabal;risaralda;cauca
+2702500107;ANGOSTURA - AUT;angostura;antioquia;nechi
+5205500123;LAS IGLESIAS  - AUT;pasto;narino;patia
+16055120;AGUAS DE LA VIRGEN  - AUT;ocana;norte de santander;catatumbo
+16057030;LA CABANA - AUT;ocana;norte de santander;catatumbo
+25027240;JEGUA;san benito abad;sucre;bajo magdalena- cauca -san jorge
+25027180;SAN ANTONIO;magangue;bolivar;bajo magdalena- cauca -san jorge
+29045000;SABANALARGA TX GPRS;sabanalarga;atlantico;bajo magdalena
+25010010;PUERTO LIBERTADOR;puerto libertador;cordoba;bajo magdalena- cauca -san jorge
+15015100;PARQUE TAYRONA;santa marta;magdalena;caribe - guajira
+17025020;AEROPUERTO EL EMBRUJO;san andres;san andres;islas caribe
+11080010;PR CHOCO: BELLAVISTA;bojaya (bellavista);choco;atrato - darien
+25027270;LAS FLORES;nechi;antioquia;cauca
+21209200;LA CAMPINA - AUT;girardot;cundinamarca;alto magdalena
+25027720;BARRANCONES;chimichagua;cesar;cesar
+23107020;LA BODEGA - AUT;yondo (casabe);antioquia;medio magdalena
+1303500074;LOMA VERDE - AUT;monteria;cordoba;sinu
+28045501;PUEBLO BELLO  - AUT;pueblo bello;cesar;cesar
+21145080;SANTA ANA - AUT;colombia;huila;alto magdalena
+21215180;BATALLON ROOKE  - AUT;ibague;tolima;alto magdalena
+21215190;CAJAMARCA - AUT;cajamarca;tolima;alto magdalena
+23087160;CARAMANTA  - AUT;san roque;antioquia;medio magdalena
+21185090;NATAIMA - AUT;espinal;tolima;alto magdalena
+35167000;LAGO DE TOTA;aquitania;boyaca;meta
+22075050;PARAMO DE YERBABUENA  - AUT;roncesvalles;tolima;saldana
+44035050;MACAGUAL - AUT;florencia;caqueta;caqueta
+22057010;PIEDRAS DE COBRE  - AUT;saldana;tolima;saldana
+44035040;FLORENCIA - AUT;florencia;caqueta;caqueta
+4403700097;SUCRE - AUT;florencia;caqueta;caqueta
+35215020;APTO YOPAL;yopal;casanare;meta
+35217030;PUENTE LA CABANA;yopal;casanare;meta
+21167060;SAN PABLO TOLIMA  - AUT;cunday;tolima;alto magdalena
+35217090;PERENCO: LABRANZA GRANDE;labranzagrande;boyaca;meta
+21160260;PUERTO LLERAS TOLIMA  - AUT;villarrica;tolima;alto magdalena
+35217010;PUENTE YOPAL  - AUT;yopal;casanare;meta
+35217060;PERENCO: EL PLAYON;nunchia;casanare;meta
+21255160;HACIENDA PAJONALES;ambalema;tolima;alto magdalena
+11035030;PR CHOCO: UNION PANAMERICANA;union panamericana;choco;atrato - darien
+35235040;PERENCO - TRINIDAD METEO;trinidad;casanare;<nil>
+23037010;PUERTO SALGAR - AUT;puerto salgar;cundinamarca;medio magdalena
+2302500064;MANZANARES - AUT;manzanares;caldas;medio magdalena
+35225030;PERENCO: MODULOS;orocue;casanare;meta
+26085170;BASE AEREA MARCO FIDEL SUAREZ  - AUT;cali;valle del cauca;cauca
+26055120;UNIVERSIDAD DEL VALLE  - AUT;cali;valle del cauca;cauca
+54010010;PR CHOCO: ISTMINA;istmina;choco;<nil>
+54027050;PR CHOCO: RIO IRO;rio iro;choco;<nil>
+11175000;PR CHOCO: ATRATO;el atrato;choco;atrato - darien
+26075120;LA DIANA - AUT;florida;valle del cauca;cauca
+26055110;LA INDEPENDENCIA - AUT;jamundi;valle del cauca;cauca
+35057010;EL CABLE;paratebueno;cundinamarca;meta
+29045190;APTO ERNESTO CORTIZOS TX GPRS;soledad;atlantico;bajo magdalena
+2403500083;PESCA - AUT;pesca;boyaca;sogamoso
+26155220;VILLAMARIA - AUT;villamaria;caldas;cauca
+23085080;GRANJA EXPERIOMENTAL EL NUS  - AUT;san roque;antioquia;medio magdalena
+2403500081;SOTAQUIRÁ - AUT;sotaquira;boyaca;sogamoso
+3502700090;GUAYURIBA - AUT;villavicencio;meta;meta
+23195110;LLANO GRANDE  - AUT;giron;santander;medio magdalena
+44055010;TRES ESQUINAS;solano;caqueta;caqueta
+23190700;PIEDECUESTA GRANJA;piedecuesta;santander;medio magdalena
+21165501;DOLORES  - AUT;dolores;tolima;alto magdalena
+16025502;FRANCISCO ROMERO  - AUT;salazar;norte de santander;catatumbo
+29004520;ESCUELA NAVAL BARRANQUILLA  - AUT;barranquilla;atlantico;bajo magdalena
+26187040;QUITASUENO  - AUT;aguadas;caldas;cauca
+35020300;GUTIERREZ;gutierrez;cundinamarca;meta
+29035200;REPELON - AUT;repelon;atlantico;bajo magdalena
+29035000;SINCERIN  - AUT;arjona;bolivar;bajo magdalena
+25025360;AEROPUERTO LAS FLORES  - AUT;el banco;magdalena;bajo magdalena
+35260050;VUELTA MALA;la primavera;vichada;meta
+3206500058;LEJANÍAS - AUT;lejanias;meta;guaviare
+32105080;SAN JOSE DEL GUAVIARE;san jose del guaviare;guaviare;guaviare
+25025000;EL DIFICIL - AUT;ariguani (el dificil);magdalena;cesar
+28035060;FEDEARROZ - AUT;valledupar;cesar;cesar
+28037030;PUENTE SALGUERO  - AUT;valledupar;cesar;cesar
+28035070;GUATAPURI - AUT;valledupar;cesar;cesar
+2801700088;CHEMESQUEMENA - AUT;valledupar;cesar;cesar
+28025120;SERRANIA DEL PERIJA  - AUT;agustin codazzi;cesar;cesar
+24015380;CARMEN DE CARUPA  - AUT;carmen de carupa;cundinamarca;sogamoso
+2301700089;GUALÍ ALERTAS - AUT;fresno;tolima;medio magdalena
+35197030;LOS ESTEROS;aguazul;casanare;meta
+35087020;PAEZ;campohermoso;boyaca;meta
+35080050;PAEZ;paez;boyaca;meta
+35195020;TAURAMENA;tauramena;casanare;meta
+26125061;APTO EL EDEN;armenia;quindio;cauca
+23087190;LA GARRUCHA - AUT;san luis;antioquia;medio magdalena
+21035501;ACEVEDO  - AUT;acevedo;huila;alto magdalena
+52035040;VIENTO LIBRE - AUT;taminango;narino;patia
+52025080;ESTRECHO PATIA  - AUT;patia (el bordo);cauca;patia
+52055090;SINDAGUA;tangua;narino;patia
+52050090;IMUES;imues;narino;patia
+5204700100;PUENTE LOS DOLORES - AUT;pasto;narino;patia
+44015070;EL PEPINO - AUT;mocoa;putumayo;caqueta
+52050080;TANGUA;tangua;narino;patia
+21117110;MOTILON  - AUT;rivera;huila;alto magdalena
+52050060;RIO BOBO;pasto;narino;patia
+26185050;SANTA BARBARA - AUT;santa barbara;antioquia;cauca
+32075501;LEJANIAS  - AUT;lejanias;meta;guaviare
+15085050;TOROMANA - AUT;uribia;la guajira;caribe - guajira
+1508500053;PUERTO ESTRELLA - AUT;uribia;la guajira;caribe - guajira
+23127020;PTO ARAUJO - RIO CARARE;cimitarra;santander;medio magdalena
+15067020;EL CERCADO;fonseca;la guajira;caribe - guajira
+21201200;ESC LA UNION - FOPAE;bogota;bogota;alto magdalena
+24017704;HDA EL HATO - CAR;carmen de carupa;cundinamarca;alto magdalena
+26155505;GRANJA LUKER  - AUT;palestina;caldas;cauca
+21202180;QUIBA - FOPAE;bogota;bogota;alto magdalena
+21206780;LA INDEPENDENCIA FOPAE Fuera de Servicio;bogota;bogota;alto magdalena
+16027280;ASTILLEROS - AUT;cucuta;norte de santander;catatumbo
+23195190;SAN ANTONIO;floridablanca;santander;medio magdalena
+21202240;UAN SEDE CIRCUNVALAR - FOPAE;bogota;bogota;alto magdalena
+21206810;SAN BENITO - FOPAE;bogota;bogota;alto magdalena
+21202200;VITELMA;bogota;bogota;meta
+21201980;CERRO GUADALUPE - FOPAE;bogota;bogota;alto magdalena
+15075501;AEROPUERTO PUERTO BOLIVAR  - AUT;uribia;la guajira;caribe - guajira
+11115501;CAÑASGORDAS  - AUT;canasgordas;antioquia;atrato - darien
+23157030;BARRANCABERMEJA  - AUT;barrancabermeja;santander;medio magdalena
+52017030;LA FONDA - AUT;patia (el bordo);cauca;patia
+21015501;PITALITO  - AUT;pitalito;huila;alto magdalena
+21167080;LA MORA - AUT;prado;tolima;alto magdalena
+2120000104;COLEGIO MIGUEL ANTONIO CARO - AUT;bogota;bogota;alto magdalena
+11017020;PR CHOCO: BAGADO;bagado;choco;<nil>
+21257120;PUENTE NEGRO  - AUT;villahermosa;tolima;alto magdalena
+16017030;LA UCHEMA - En Siniestro;villa del rosario;norte de santander;catatumbo
+21195501;GRANJA TIBACUY  - AUT;tibacuy;cundinamarca;alto magdalena
+13057010;NUEVA COLOMBIA;monteria;cordoba;sinu
+23035030;BASE PALANQUERO  - AUT;puerto salgar;cundinamarca;medio magdalena
+2120000105;EL CODITO - AUT;bogota;bogota;alto magdalena
+21137010;PURIFICACION;purificacion;tolima;alto magdalena
+57015010;MALPELO - DIMAR;buenaventura;valle del cauca;baudo - directos pacifico
+26125503;LA SIRENA  - AUT;sevilla;valle del cauca;cauca
+35027520;BOCATOMA EAAB - AUT;la calera;cundinamarca;meta
+21085501;TERUEL  - AUT;teruel;huila;alto magdalena
+14017001;TESORO INVEMAR;cartagena de indias;bolivar;bajo magdalena
+56015040;PR CHOCO: JURADO;jurado;choco;<nil>
+17017001;JHONNY CAY;san andres;san andres;islas caribe
+2120700038;SAN FRANCISCO - AUT;bogota;bogota;alto magdalena
+25020520;BUENAVISTA - LA MOJANA TX GPRS/GOES;buenavista;cordoba;bajo magdalena- cauca -san jorge
+2120700037;CASAS FISCALES ESCUELA DE ARTILLERÍA - AUT;bogota;bogota;alto magdalena
+12015100;PISTA INDIRA - AUT;turbo;antioquia;caribe - litoral
+56125730;ESTRELLA DE AGUA - AUT;salento;quindio;cauca
+13095010;COVEÑAS - DIMAR;tolu;sucre;caribe - litoral
+21202210;MICAELA - FOPAE;bogota;bogota;alto magdalena
+11105020;CARMEN DARIEN;carmen del darien  (curbaradó);choco;atrato - darien
+21202250;DOÑA JUANA - FOPAE;bogota;bogota;alto magdalena
+23117030;EL TAGUAL;cimitarra;santander;medio magdalena
+37057020;ALCARAVAN  AUT;arauquita;arauca;arauca
+14015020;APTO RAFAEL NUÑEZ  TX GPRS;cartagena;bolivar;caribe - litoral
+21215170;LA MARTINICA;ibague;tolima;alto magdalena
+54077210;JUANCHACO - AUT;buenaventura;valle del cauca;san juan
+23207040;SAN PABLO RIO MAGDALENA  - AUT;san pablo;bolivar;medio magdalena
+16015110;UNIVERSIDAD FRANCISO DE PAULA SANTANDER - AUT;cucuta;norte de santander;catatumbo
+11037030;LA LOMA PUEBLO NUEVO - En Siniestro;rio quito (paimado);choco;atrato - darien
+28025130;LA LOMA CARBONES - AUT;el paso;cesar;cesar
+21087080;HDA VENECIA;yaguara;huila;alto magdalena
+52025501;LA VEGA  - AUT;la vega;cauca;patia
+54017040;TADO - AUT;tado;choco;san juan
+23017040;LA ESPERANZA- GUALÍ;mariquita;tolima;medio magdalena
+21255170;MURILLO - AUT;murillo;tolima;alto magdalena
+13055040;INCODER - AUT;monteria;cordoba;sinu
+21202220;PARAISO - FOPAE;bogota;bogota;alto magdalena
+21202170;SIERRA MORENA - FOPAE;bogota;bogota;alto magdalena
+26155270;SAN ANTONIO CALDAS - AUT;villamaria;caldas;cauca
+23055501;SANTA HELENA  - AUT;marquetalia;caldas;medio magdalena
+23197690;PALOGORDO - AUT;giron;santander;medio magdalena
+11120040;PR CHOCO: RIOSUCIO;riosucio;choco;atrato - darien
+16015501;APTO CAMILO DAZA;cucuta;norte de santander;catatumbo
+11027070;BORAUDO;lloro;choco;atrato - darien
+25027020;EL BANCO - AUT;el banco;magdalena;cesar
+15067210;CARACOLI - En Siniestro;san juan del cesar;la guajira;caribe - guajira
+51025060;BIOTOPO - AUT;barbacoas;narino;mira
+21202230;UAN SEDE USME - FOPAE;bogota;bogota;alto magdalena
+2120000102;COLEGIO CARLOS PIZARRO - AUT;bogota;bogota;alto magdalena
+24015340;EL HATO - CAR;carmen de carupa;cundinamarca;sogamoso
+23057140;SAN MIGUEL;sonson;antioquia;medio magdalena
+2120000106;GRAN BRETAÑA - AUT;bogota;bogota;alto magdalena
+2120000103;CERRO NORTE - AUT;bogota;bogota;alto magdalena
+24025504;ENCINO - ISAGEN;encino;santander;sogamoso
+11159010;CAPURGANA - TX GPRS;acandi;choco;atrato - darien
+21206900;LA ESPERANZA USME - FOPAE;bogota;bogota;meta
+37015501;LABATECA  - AUT;labateca;norte de santander;arauca
+21208480;KENNEDY - FOPAE;bogota;bogota;alto magdalena
+35071001;TEATINOS - ESTACION EN PRUEBA;boyaca;boyaca;meta
+13037040;CARRIZOLA - En Siniestro;tierralta;cordoba;sinu
+51027060;SAN JUAN RIO MIRA;tumaco;narino;mira
+27015290;PAJARITO - AUT;medellin;antioquia;nechi
+21165502;VILLARICA  - AUT;villarrica;tolima;alto magdalena
+15067220;PTE CARRETERA;riohacha;la guajira;caribe - guajira
+2120000100;COLEGIO ALEMANIA SOLIDARIA - AUT;bogota;bogota;alto magdalena
+35160010;PR TOTA: POTRERITO;aquitania;boyaca;meta
+56010040;PR CHOCO: NUQUI;nuqui;choco;pacifico - directos
+26185030;JERICO - AUT;jerico;antioquia;cauca
+21206940;CIUDAD BOLIVAR;bogota;bogota;alto magdalena
+16035501;SARDINATA  - AUT;sardinata;norte de santander;catatumbo
+21195160;SUBIA;silvania;cundinamarca;alto magdalena
+15017060;BOCATOMA STA MARTA - En Siniestro;santa marta;magdalena;caribe - guajira
+26085160;SILOE - AUT;cali;valle del cauca;cauca
+11050020;PR CHOCO: BETE;medio atrato (bete);choco;atrato - darien
+2601700104;MOLINOS - AUT;popayan;cauca;cauca
+16027120;SAN JAVIER - RIO ZULIA;<nil>;<nil>;catatumbo
+55015010;PIE DE PATO - AUT;alto baudo (pie de pato);choco;baudo - directos pacifico
+52025090;LA SIERRA - AUT;la sierra;cauca;patia
+21197430;PROVIDENCIA - PROVIDENCIA;fusagasuga;cundinamarca;alto magdalena
+53045040;AEROPUERTO GUAPI - AUT;guapi;cauca;tapaje - dagua - directos
+26125760;PEÑAS BLANCAS - AUT;calarca;quindio;cauca
+13085030;SAN BERNARDO;san bernardo del viento;cordoba;sinu
+23065503;EL MIRADOR  - AUT;sasaima;cundinamarca;medio magdalena
+25027200;LAS VARAS;san jacinto del cauca;bolivar;bajo magdalena- cauca -san jorge
+24025050;CHARALA - ISAGEN - Estacion en Pruebas;charala;santander;sogamoso
+2120000099;COLEGIO VEINTIUN ANGELES - AUT;bogota;bogota;alto magdalena
+32067030;PUERTO ANGOSTURAS  - AUT;cubarral;meta;guaviare
+26125501;GENOVA  - AUT;genova;quindio;cauca
+2613700156;PUERTO CALDAS - AUT;pereira;risaralda;cauca
+2120000108;IDIGER - AUT;bogota;bogota;alto magdalena
+23195240;AGUACHICA - AUT;aguachica;cesar;medio magdalena
+27015501;YOLOMBO  - AUT;yolombo;antioquia;nechi
+26125507;ARTURO GOMEZ  - AUT;alcala;valle del cauca;cauca
+21115010;DESIERTO TATACOA;villavieja;huila;alto magdalena
+24015502;SUAITA  - AUT;suaita;santander;sogamoso
+13085050;LORICA ITA - En Siniestro;lorica;cordoba;sinu
+44017110;ANDAQUI  - AUT;mocoa;putumayo;caqueta
+25025002;LOS ALAMOS;san sebastian de buenavista;magdalena;bajo magdalena
+54050010;PR CHOCO: NOANAMA;istmina;choco;san juan
+25017020;SAN PEDRO - AUT;puerto libertador;cordoba;bajo magdalena- cauca -san jorge
+21205503;EL DELIRIO- CAR;el colegio;cundinamarca;alto magdalena
+26145508;SAN JOSE  - AUT;san jose;caldas;cauca
+24017330;PTE LA BALSA - CAR;lenguazaque;cundinamarca;sogamoso
+15075150;PAICI - AUT;uribia;la guajira;caribe - guajira
+2120000109;COLEGIO RODOLFO LLINAS - AUT;bogota;bogota;alto magdalena
+23105060;VEGACHA;vegachi;antioquia;medio magdalena
+21217200;CARMEN EL;rovira;tolima;alto magdalena
+21217180;MONTEZUMA - RIO COMBEIMA;ibague;tolima;alto magdalena
+26175502;LA CRISTALINA  - AUT;tamesis;antioquia;cauca
+23015501;FRESNO  - AUT;fresno;tolima;medio magdalena
+55015020;PR CHOCO: BAJO BAUDO;quibdo;choco;baudo - directos pacifico
+53119010;BUENAVENTURA IDEAM  - AUT;buenaventura;valle del cauca;tapaje - dagua - directos
+35215030;PERENCO: PISBA;pisva;boyaca;meta
+21209170;PTE CHOCONTA - CAR;choconta;cundinamarca;alto magdalena
+3505500061;MEDINA - AUT;medina;cundinamarca;meta
+26135290;MARSELLA - AUT;marsella;risaralda;cauca
+35077180;CULIMA - CHIVOR RIO BATA;santa maria;boyaca;meta
+26125710;APTO MATECAÑA TX GPS/GOES;pereira;risaralda;cauca
+26155230;EMAS - AUT;manizales;caldas;cauca
+53075020;EL DIVISO - AUT;argelia;cauca;tapaje - dagua - directos
+27015280;PARAMO BELMIRA - AUT;entrerrios;antioquia;nechi
+27027060;BRISAS DEL NECHI  - AUT;angostura;antioquia;nechi
+16037030;PUENTE SARDINATA - AUT;sardinata;norte de santander;catatumbo
+15067200;EL SILENCIO;fonseca;la guajira;caribe - guajira
+26125290;ARMENIA - AUT;armenia;quindio;cauca
+2120000107;LA FISCALA - AUT;bogota;bogota;alto magdalena
+26180180;SONSON;sonson;antioquia;cauca
+52077010;PUENTE PUSMEO - AUT;cumbitara;narino;patia
+3206500059;VISTA HERMOSA - AUT;vistahermosa;meta;guaviare
+1602500044;GRAMALOTE - AUT;gramalote;norte de santander;catatumbo
+27037030;SAN JUAN NECHI;zaragoza;antioquia;nechi
+21206890;CERRO CAZADORES - FOPAE;bogota;bogota;alto magdalena
+21201580;PASQUILLA - FOPAE;bogota;bogota;alto magdalena
+26247020;LA COQUERA;caucasia;antioquia;bajo magdalena- cauca -san jorge
+24017705;LA BALSA CHIQUINQUIRA - CAR;chiquinquira;boyaca;sogamoso
+21205507;CACHIPAY - CAR;cachipay;cundinamarca;alto magdalena
+3206500045;GRANADA SENA - AUT;granada;meta;guaviare
+21105501;ALGECIRAS  - AUT;algeciras;huila;alto magdalena
+26165502;JARDIN  - AUT;jardin;antioquia;cauca
+35167020;PR TOTA: LAGO DE TOTA;aquitania;boyaca;meta
+21202270;PLUVIOMETROS IDEAM BOGOTA Pruebas GPRS;bogota;bogota;alto magdalena
+26055501;GINEBRA  - AUT;ginebra;valle del cauca;cauca
+35217080;PERENCO: LA CABANA - TERMO ELECTRICA;<nil>;<nil>;<nil>
+26155170;TESORITO FINCA  - AUT;manizales;caldas;cauca
+44197020;VILLAREAL - RIO CAQUETA;la pedrera;amazonas;caqueta
+15067150;PTE GUAJIRO - En Siniestro;barrancas;la guajira;caribe - guajira
+54015020;PR CHOCO: TADO;tado;choco;san juan
+2805500075;CURUMANÍ - AUT;curumani;cesar;cesar
+3508700103;PUENTE CAMPANA - AUT;santa maria;boyaca;meta
+52035501;EL SAUCE  - AUT;la union;narino;patia
+52057100;RUMICHACA - RIO GUAITARA;ipiales;narino;patia
+2120000101;ALTOS DE LA ESTANCIA - AUT;bogota;bogota;alto magdalena
+13027040;CAÑO BARRO - LA MOJANA;ayapel;cordoba;sinu
+35237030;PERENCO: TRINIDAD PAUTO - PUENTE NONATO;trinidad;casanare;meta
+24015509;ARCABUCO - ISAGEN - Estacion en Pruebas;arcabuco;boyaca;sogamoso
+52020070;SANTIAGO;san sebastian;cauca;patia
+21207714;LA PRADERA - CAR;subachoque;cundinamarca;alto magdalena
+1602500063;MUTISCUA - AUT;mutiscua;norte de santander;catatumbo
+35077320;CARACOL - CHIVOR;garagoa;boyaca;meta
+2804500076;PALMARITO - AUT;pueblo bello;cesar;cesar
+23065502;LA PALMA  - AUT;la palma;cundinamarca;medio magdalena
+21207702;GRANJA BOSCONIA - CAR;apulo;cundinamarca;alto magdalena
+24015506;CAPELLANIA - CAR;fuquene;cundinamarca;sogamoso
+11117040;MUTATA  - AUT;mutata;antioquia;atrato - darien
+24010390;El TRIANGULO - CAR;lenguazaque;cundinamarca;sogamoso
+54020020;PR CHOCO: NOVITA;novita;choco;san juan
+36037020;ESTACION HIDROMETRICA QUEBRADA LA GALLINAZA;tame;arauca;casanare
+2202500051;PLANADAS - AUT;planadas;tolima;saldana
+28025502;APTO ALFONSO LOPEZ;valledupar;cesar;cesar
+25025330;COLEGIO AGROPECUARIO PAILITAS  - AUT;pailitas;cesar;cesar
+54037050;PR CHOCO: SIPI;sipi;choco;<nil>
+48015010;APTO VASQUEZ COBO TX GPRS/GOES;leticia;amazonas;<nil>
+21227010;PIEDRAS  - AUT;piedras;tolima;alto magdalena
+23065504;VIANI - CAR;viani;cundinamarca;medio magdalena
+21195502;AGUAS CLARAS - CAR;san bernardo;cundinamarca;alto magdalena
+35025501;QUETAME  - AUT;quetame;cundinamarca;meta
+24015504;RAQUIRA - CAR;raquira;boyaca;sogamoso
+1111500036;ABRIAQUI - AUT;abriaqui;antioquia;atrato - darien
+26195501;ANDES  - AUT;andes;antioquia;cauca
+2612500038;CRQ ARMENIA - AUT;circasia;quindio;cauca
+54020090;PR CHOCO: APTO CONDOTO;condoto;choco;<nil>
+35227020;PERENCO: OROCUE PIPESCA;<nil>;<nil>;<nil>
+28017140;CORRAL DE PIEDRA  - AUT;san juan del cesar;la guajira;cesar
+26125720;CENTRO DE LA GUADUA - AUT;cordoba;quindio;cauca
+2121500048;IBAGUE - AUT;ibague;tolima;alto magdalena
+26105240;EL PLACER - AUT;buga;valle del cauca;cauca
+11077020;LA MAGDALENA - AUT;urrao;antioquia;atrato - darien
+2801500078;HATICO DE LOS INDIOS - AUT;san juan del cesar;la guajira;cesar
+35077150;PUNTEADERO - CHIVOR;chinavita;boyaca;meta
+26127040;CARTAGO;pereira;risaralda;cauca
+12045020;CRISTO REY  - AUT;puerto escondido;cordoba;caribe - litoral
+23065505;CAPARRAPI - CAR;caparrapi;cundinamarca;medio magdalena
+54015010;PUEBLO RICO  - AUT;pueblo rico;risaralda;san juan
+21257070;PUENTE SAN FRANCISCO  - AUT;armero (guayabal);tolima;alto magdalena
+36027060;ESTACION HIDROMETRICA CUENCA RIO TAME - AUT;tame;arauca;casanare
+23067020;COLORADOS  - AUT;puerto salgar;cundinamarca;medio magdalena
+21047010;PTE BALSEADERO;agrado;huila;alto magdalena
+1117500060;LLORO - AUT;lloro;choco;atrato - darien
+2621500070;ITUANGO - AUT;ituango;antioquia;cauca
+11115020;CAÑASGORDAS  - AUT;canasgordas;antioquia;atrato - darien
+24017706;PTE MERCHAN - CAR;saboya;boyaca;sogamoso
+35077080;PTE FIERRO - CHIVOR;somondoco;boyaca;meta
+2906500077;PALMOR - SIERRA NEVADA - AUT;cienaga;magdalena;bajo magdalena
+26125740;LA MONTAÑA - AUT;salento;quindio;cauca
+35077310;BARBOSA TERMALES - CHIVOR;tibirita;cundinamarca;meta
+24025506;SAN GIL - ISAGEN Estacion en Pruebas;san gil;santander;sogamoso
+15035020;TERMOGUAJIRA  - AUT;dibulla;la guajira;caribe - guajira
+16057040;QUINCE LETRAS - AUT;teorama;norte de santander;catatumbo
+2308500068;SANTUARIO - AUT;santuario;antioquia;medio magdalena
+24017703;FUQUENE TICHA MARIA - CAR;guacheta;cundinamarca;alto magdalena
+24035501;ARATOCA  - AUT;aratoca;santander;sogamoso
+16035010;TIBU  - AUT;tibu;norte de santander;catatumbo
+51035020;CCCP DL PACIFICO;tumaco;narino;mira
+17035010;SERRANILLA;san andres;san andres;islas caribe
+23157050;BARRANCABERMEJA;<nil>;<nil>;<nil>
+27037010;LA ESPERANZA NECHI;nechi;antioquia;nechi
+35197190;PAJARITO - AUT;pajarito;boyaca;meta
+21197030;LA PLAYA - AUT;icononzo;tolima;alto magdalena
+5311700154;PUENTE ZACARIAS - AUT;buenaventura;valle del cauca;tapaje - dagua - directos
+24027070;MERIDA - AUT;paramo;santander;sogamoso
+23087660;PUENTE LA FERIA  - AUT;marinilla;antioquia;medio magdalena
+21205505;PTAR TOCANCIPA - CAR;tocancipa;cundinamarca;alto magdalena
+23067080;CHARCO LARGO  - AUT;la palma;cundinamarca;medio magdalena
+24015510;CONFINES - ISAGEN Estacion en Pruebas;confines;santander;sogamoso
+54057020;PR CHOCO: LITORAL SAN JUAN;litoral del san juan;choco;<nil>
+2602700148;CAUCA ALTO - AUT;cajibio;cauca;cauca
+23195501;SAN ANTONIO  - AUT;floridablanca;santander;medio magdalena
+21205501;MESITAS DE SANTA INES  - AUT;cachipay;cundinamarca;alto magdalena
+21205506;GUAMAL - CAR;subachoque;cundinamarca;alto magdalena
+24030350;DUITAMA;duitama;boyaca;sogamoso
+35027140;PUENTE CARRETERA  - AUT;villavicencio;meta;meta
+21197080;BONANZA LA HACIENDA  - AUT;silvania;cundinamarca;alto magdalena
+26035100;SUECIA HDA;el tambo;cauca;cauca
+2305500055;SAN JOSE DE PENSILVANIA - AUT;pensilvania;caldas;medio magdalena
+15067050;CUESTECITAS - En Siniestro;albania;la guajira;caribe - guajira
+2603500127;REMOLINO ALERTAS - EL VOLCAN - AUT;el tambo;cauca;cauca
+29067160;PUENTE SEVILLA  - AUT;cienaga;magdalena;bajo magdalena
+15079010;PTO BOLIVAR MAREOGRAFICA;uribia;la guajira;caribe - guajira
+24035507;SOCHA  - AUT;socha;boyaca;sogamoso
+52017020;PTO NUEVO PATIA - En Siniestro;leiva;narino;<nil>
+2904700095;REMOLINO - MAG - AUT;sabanagrande;atlantico;bajo magdalena
+21017040;SALADO BLANCO;elias;huila;alto magdalena
+25015020;CERROMATOSO;montelibano;cordoba;bajo magdalena- cauca -san jorge
+23145501;EL CARMEN - ISAGEN - Estacion en Pruebas;el carmen;santander;medio magdalena
+21167090;HDA EL RUBY - En Siniestro;cunday;tolima;alto magdalena
+2319700096;SAN JUAN DE LOS CHORROS - AUT;puerto wilches;santander;medio magdalena
+2502700153;PLANTA ECOPETROL - AUT;magangue;bolivar;bajo magdalena- cauca -san jorge
+44015501;MOCOA  - AUT;mocoa;putumayo;caqueta
+2603700157;REMOLINO - AUT;el tambo;cauca;cauca
+52057080;PIEDRAS;tangua;narino;patia
+52055160;VOLCAN CHILES  - AUT;cumbal;narino;mira
+2629700151;LA VORAGINE - AUT;cali;valle del cauca;cauca
+35237040;PERENCO: TRINIDAD METEO;<nil>;<nil>;<nil>
+21017080;LA MAGDALENA;san agustin;huila;alto magdalena
+88112901;ECI JULIO GARAVITO EST. EN PRUEBAS;<nil>;<nil>;<nil>
+21057030;PTE RICAURTE;paez (belalcazar);cauca;alto magdalena
+24015513;GRANJA VELEZ-ISAGEN Estacion en Pruebas;velez;santander;sogamoso
+28015110;MANAURE - AUT;manaure balcon del cesar;cesar;cesar
+29045180;LAS FLORES;barranquilla;atlantico;<nil>
+36037030;ESTACION HIDROMETRICA QUEBRADA LA CRISTALINA - AUT;tame;arauca;casanare
+21206620;COL H DURAN DUSAN;bogota;bogota;alto magdalena
+23020080;MANZANARES;manzanares;caldas;medio magdalena
+2314700159;RIO LA COLORADA - AUT;simacota;santander;medio magdalena
+13027040;CANO BRAVO - AUT;ayapel;cordoba;sinu

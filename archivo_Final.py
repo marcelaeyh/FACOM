@@ -222,17 +222,17 @@ sqlite_connection.close()
 
 #  2.3 información de la base de datos
 #lucy
-#eng = 'sqlite:////home/marcelae/Desktop/FACOM/DATA3.db'
+eng = 'sqlite:////home/marcelae/Desktop/FACOM/db/precipitacion_2.db'
 #luisa
 #eng='sqlite:////media/luisa/Datos/documentos/FACOM/gits/FACOM/DATA3.db'
 #lucy2
-eng='sqlite:////home/marcela/Desktop/FACOM/bases_de_datos/temperatura_1.db'
+#eng='sqlite:////home/marcela/Desktop/FACOM/bases_de_datos/temperatura_1.db'
 
 #------------------------#----------------------------#-----------------------#
 #  3. Valores individuales por codigo de estación para las columnas
 myquery_unique='''
 SELECT DISTINCT "CodigoEstacion","NombreEstacion","Municipio","Departamento", "ZonaHidrografica"
-FROM temperatura
+FROM precipitacion
 '''
 df_ubi = SQL_PD(myquery_unique,eng)
 
@@ -247,7 +247,7 @@ for i in range(len(df_ubi)):
 '''
 
 # La zona hidrografica aún tiene valores nulos en las posiciones 204 254 277 306 318 340 385
-df_ubi.to_csv(r'/home/marcelae/Desktop/FACOM/ubicacion_temperatura.csv', index=None, sep=';')
+df_ubi.to_csv(r'/home/marcelae/Desktop/FACOM/otros_documentos/ubicacion_precipitacion.csv', index=None, sep=';')
 #------------------------#----------------------------#-----------------------#
 #  4. se genera el archivo con la informaición por estación
 
