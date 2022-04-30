@@ -1,3 +1,3 @@
-CodigoEstacion;NombreEstacion;Departamento;Municipio;ZonaHidrografica;Latitud;Longitud
-26075150;APTO ALFONSO BONILLA ARAGON - TX GPRS;valle del cauca;palmira;cauca;3.533;-76.382
-21097070;PTE SANTANDER - TX GPRS;huila;neiva;alto magdalena;2.943;-75.309
+i;CodigoEstacion;NombreEstacion;Departamento;Municipio;ZonaHidrografica;Latitud;Longitud
+1;26075150;APTO ALFONSO BONILLA ARAGON - TX GPRS;valle del cauca;palmira;cauca;3.533;-76.382
+10;21097070;PTE SANTANDER - TX GPRS;huila;neiva;alto magdalena;2.943;-75.309

@@ -487,17 +487,17 @@ print("se guarda el archivo")
 
 #lucy
 #eng = 'sqlite:////home/marcelae/Desktop/FACOM/db/temperatura_2.db'
-#eng = 'sqlite:////home/marcelae/Desktop/FACOM/db/precipitacion_2.db'
+eng = 'sqlite:////home/marcelae/Desktop/FACOM/db/precipitacion_2.db'
 #luisa
-eng="sqlite:////media/luisa/Datos/FACOM/gits/FACOM/db/precipitacion_2.db"
+#eng="sqlite:////media/luisa/Datos/FACOM/gits/FACOM/db/precipitacion_2.db"
 
 #El de daniel ya tiene todas las correcciones
 
 # archivo del profe Daniel con la base de datos de precipitación
 #lucy
-#datos=pd.read_csv("/home/marcelae/Desktop/FACOM/aeropuertos/airport_coord.csv", usecols=[1,2])
+datos=pd.read_csv("/home/marcelae/Desktop/FACOM/aeropuertos/airport_coord.csv", usecols=[1,2])
 #lusia
-datos=pd.read_csv("/media/luisa/Datos/FACOM/gits/FACOM/aeropuertos/airport_coord.csv", usecols=[1,2])
+#datos=pd.read_csv("/media/luisa/Datos/FACOM/gits/FACOM/aeropuertos/airport_coord.csv", usecols=[1,2])
 
 datos.columns=["lon","lat"]
 datos.tail()
