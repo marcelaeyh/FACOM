@@ -483,9 +483,22 @@ df_noencontrados.to_csv(r'/home/marcelae/Desktop/FACOM/aeropuertos/julio_NoE.csv
 
 print("se guarda el archivo")
 
+#-----------------------------------------------------------#-----------------------------------#
+
+#lucy
+#eng = 'sqlite:////home/marcelae/Desktop/FACOM/db/temperatura_2.db'
+#eng = 'sqlite:////home/marcelae/Desktop/FACOM/db/precipitacion_2.db'
+#luisa
+eng="sqlite:////media/luisa/Datos/FACOM/gits/FACOM/db/precipitacion_2.db"
+
+#El de daniel ya tiene todas las correcciones
 
 # archivo del profe Daniel con la base de datos de precipitación
-datos=pd.read_csv("/home/marcelae/Desktop/FACOM/aeropuertos/airport_coord.csv", usecols=[1,2])
+#lucy
+#datos=pd.read_csv("/home/marcelae/Desktop/FACOM/aeropuertos/airport_coord.csv", usecols=[1,2])
+#lusia
+datos=pd.read_csv("/media/luisa/Datos/FACOM/gits/FACOM/aeropuertos/airport_coord.csv", usecols=[1,2])
+
 datos.columns=["lon","lat"]
 datos.tail()
 
@@ -494,7 +507,7 @@ titulos1=["lat","lon"]
 vector1=[titulos1]
 
 #archivo con estaciones encontradas
-titulos=["CodigoEstacion","NombreEstacion","Departamento","Municipio","ZonaHidrografica","Latitud","Longitud"]
+titulos=["i","CodigoEstacion","NombreEstacion","Departamento","Municipio","ZonaHidrografica","Latitud","Longitud"]
 vector=[titulos]
 
 #cuando encuentra más de 1 estación
@@ -520,7 +533,7 @@ for i in  tqdm(range(len(datos))):
         if n == 1:
             
             #print("el paso de tiempo ", i, " tiene información disponible")
-            c=(df_est["CodigoEstacion"][0],df_est["NombreEstacion"][0],df_est["Departamento"][0],
+            c=(i,df_est["CodigoEstacion"][0],df_est["NombreEstacion"][0],df_est["Departamento"][0],
                       df_est["Municipio"][0],df_est["ZonaHidrografica"][0],df_est["Latitud"][0],
                       df_est["Longitud"][0])
             print(i, "- El codigo de estación es= ",df_est["CodigoEstacion"][0] )
