@@ -485,7 +485,7 @@ print("se guarda el archivo")
 
 
 # archivo del profe Daniel con la base de datos de precipitación
-datos=pd.read_csv("/home/marcelae/Desktop/FACOM/otros_documentos/airport_coord.csv", usecols=[1,2])
+datos=pd.read_csv("/home/marcelae/Desktop/FACOM/aeropuertos/airport_coord.csv", usecols=[1,2])
 datos.columns=["lon","lat"]
 datos.tail()
 
@@ -496,6 +496,10 @@ vector1=[titulos1]
 #archivo con estaciones encontradas
 titulos=["CodigoEstacion","NombreEstacion","Departamento","Municipio","ZonaHidrografica","Latitud","Longitud"]
 vector=[titulos]
+
+#cuando encuentra más de 1 estación
+titulos2=["i","CodigoEstacion","NombreEstacion","Departamento","Municipio","ZonaHidrografica","Latitud","Longitud"]
+vector2=[titulos2]
 variacion=0.1
 
 for i in  tqdm(range(len(datos))):
@@ -507,17 +511,30 @@ for i in  tqdm(range(len(datos))):
 
     df_est = SQL_PD(my_query3,eng)
     n=len(df_est)
-    if n != 0 :
-        #print("el paso de tiempo ", i, " tiene información disponible")
-        c=(df_est["CodigoEstacion"][0],df_est["NombreEstacion"][0],df_est["Departamento"][0],
-                      df_est["Municipio"][0],df_est["ZonaHidrografica"][0],df_est["Latitud"][0],df_est["Longitud"][0])
-        vector.append(c)
-        
-    else:
+    if n== 0 :
         print("el paso de tiempo ",i, "no tiene información disponible en las coordenadas"
               ,"(",datos["lon"][i],",",datos["lat"][i],")")
         c1=(datos["lon"][i],datos["lat"][i])
         vector1.append(c1)
+    if n != 0 :
+        if n == 1:
+            
+            #print("el paso de tiempo ", i, " tiene información disponible")
+            c=(df_est["CodigoEstacion"][0],df_est["NombreEstacion"][0],df_est["Departamento"][0],
+                      df_est["Municipio"][0],df_est["ZonaHidrografica"][0],df_est["Latitud"][0],
+                      df_est["Longitud"][0])
+            print(i, "- El codigo de estación es= ",df_est["CodigoEstacion"][0] )
+            vector.append(c)
+        elif n > 1:
+            print("el paso de tiempo ",i, " tiene ",n," estaciones que coindice")
+            for j in range(n):
+                print(i, "- El codigo de estación es= ",df_est["CodigoEstacion"][j] )
+                c2=(i,df_est["CodigoEstacion"][j],df_est["NombreEstacion"][j],df_est["Departamento"][j],
+                          df_est["Municipio"][j],df_est["ZonaHidrografica"][j],df_est["Latitud"][j],
+                          df_est["Longitud"][j])
+                vector2.append(c2)
+            
+    
  
 print(" el archivo final tiene ", len(vector), " filas")           
 #print(vector)
@@ -525,10 +542,17 @@ print(" el archivo final tiene ", len(vector), " filas")
 #guardar el archivo csv
 df=pd.DataFrame(vector)
 df_noencontrados=pd.DataFrame(vector1)
+df_varios=pd.DataFrame(vector2)
 #luisa 
 #df.to_csv(r'/media/luisa/Datos/documentos/FACOM/gits/FACOM/temperatura.csv',header=None, index=None, sep=';')
 #lucy
 df.to_csv(r'/home/marcelae/Desktop/FACOM/aeropuertos/daniel_estacionesAeropuertos.csv',header=None, index=None, sep=';')
 df_noencontrados.to_csv(r'/home/marcelae/Desktop/FACOM/aeropuertos/daniel_NoE.csv',header=None, index=None, sep=';')
+df_varios.to_csv(r'/home/marcelae/Desktop/FACOM/aeropuertos/daniel_varios.csv',header=None, index=None, sep=';')
 
 print("se guarda el archivo")
+#-------------------------------------------------#--------------------------------#
+
+# 30 de abril de 2022 prueba para sacar la información
+
+
