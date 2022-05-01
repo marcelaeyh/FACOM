@@ -568,4 +568,31 @@ print("se guarda el archivo")
 
 # 30 de abril de 2022 prueba para sacar la información
 
+#se va a sacar la información de las estaciones que se tienen hasta el momento para el profesor Daniel
+#en el año 2018.
 
+#Se saca la información
+datos=pd.read_csv(r'/media/luisa/Datos/FACOM/gits/FACOM/aeropuertos/Final_CodigoEstacion_Aeropuertos.csv',
+                  usecols=[1],skiprows=range(1,3))
+
+#lucy
+#eng = 'sqlite:////home/marcelae/Desktop/FACOM/db/temperatura_2.db'
+#eng = 'sqlite:////home/marcelae/Desktop/FACOM/db/precipitacion_2.db'
+#luisa
+eng="sqlite:////media/luisa/Datos/FACOM/gits/FACOM/db/precipitacion_2.db"
+
+cod=datos["CodigoEstacion"][0]
+
+
+for i in tqdm(range(len(datos))) :
+    cod=datos["CodigoEstacion"][i]
+    
+    my_query1='''
+    SELECT  DISTINCT CodigoEstacion,NombreEstacion,Departamento,Municipio,
+    ZonaHidrografica,Latitud,Longitud
+    FROM precipitacion
+    WHERE (codigoestacion = {})
+    '''.format(int(cod))
+
+    df = SQL_PD(my_query1,eng)
+    df
