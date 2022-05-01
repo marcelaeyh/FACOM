@@ -658,3 +658,27 @@ unicos_df.to_csv(r'/home/marcelae/Desktop/FACOM/aeropuertos/unicos_PDaniel.csv',
                  header=None, index=None, sep=';')
 cod_verificar_df.to_csv(r'/home/marcelae/Desktop/FACOM/aeropuertos/revisarcod_PDaniel.csv',
                  header=None, index=None, sep=';')
+
+#-----------------------------------#------------------------------------#----------#
+#estaciones para revisar
+datos=pd.read_csv(r"/media/luisa/Datos/FACOM/gits/FACOM/aeropuertos/revisarcod_PDaniel.csv")
+datos
+#lucy
+#eng = 'sqlite:////home/marcelae/Desktop/FACOM/db/temperatura_2.db'
+#eng = 'sqlite:////home/marcelae/Desktop/FACOM/db/precipitacion_2.db'
+#luisa
+eng="sqlite:////media/luisa/Datos/FACOM/gits/FACOM/db/precipitacion_2.db"
+
+for i in tqdm(range(len(datos))) :
+    cod=datos["Codigo"][i]
+    
+    my_query2='''
+    SELECT  DISTINCT CodigoEstacion,NombreEstacion,Departamento,Municipio,
+    ZonaHidrografica,Latitud,Longitud
+    FROM precipitacion
+    WHERE (codigoestacion = {})
+    '''.format(int(cod))
+
+    df = SQL_PD(my_query2,eng)
+    print("La estación ",cod, "tiene valores =")
+    print(df)
