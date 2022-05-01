@@ -572,27 +572,89 @@ print("se guarda el archivo")
 #en el año 2018.
 
 #Se saca la información
-datos=pd.read_csv(r'/media/luisa/Datos/FACOM/gits/FACOM/aeropuertos/Final_CodigoEstacion_Aeropuertos.csv',
+#luisa
+#datos=pd.read_csv(r'/media/luisa/Datos/FACOM/gits/FACOM/aeropuertos/Final_CodigoEstacion_Aeropuertos.csv',
+#                  usecols=[1],skiprows=range(1,3))
+
+#lucy
+datos=pd.read_csv(r'/home/marcelae/Desktop/FACOM/aeropuertos/Final_CodigoEstacion_Aeropuertos.csv',
                   usecols=[1],skiprows=range(1,3))
+
 
 #lucy
 #eng = 'sqlite:////home/marcelae/Desktop/FACOM/db/temperatura_2.db'
-#eng = 'sqlite:////home/marcelae/Desktop/FACOM/db/precipitacion_2.db'
+eng = 'sqlite:////home/marcelae/Desktop/FACOM/db/precipitacion_2.db'
 #luisa
-eng="sqlite:////media/luisa/Datos/FACOM/gits/FACOM/db/precipitacion_2.db"
+#eng="sqlite:////media/luisa/Datos/FACOM/gits/FACOM/db/precipitacion_2.db"
 
-cod=datos["CodigoEstacion"][0]
 
+#crean los vectores para guardar la información
+titulosunicos=["CodigoEstacion","NombreEstacion","Departamento","Municipio",
+         "ZonaHidrografica","Latitud","Longitud"]
+unicos=[titulosunicos]
+cod_verificar=["Codigo"]
+
+#vector para almacenar los resultados del 2018
+titulos=["fecha","CodigoEstacion","ValorObservado"]
+vector=[titulos]
+vector=pd.DataFrame(vector)
+vector.columns=["fecha","CodigoEstacion","ValorObservado"]
+vector=vector.drop([0],axis=0)
+vector
 
 for i in tqdm(range(len(datos))) :
     cod=datos["CodigoEstacion"][i]
     
-    my_query1='''
+    my_query2='''
     SELECT  DISTINCT CodigoEstacion,NombreEstacion,Departamento,Municipio,
     ZonaHidrografica,Latitud,Longitud
     FROM precipitacion
     WHERE (codigoestacion = {})
     '''.format(int(cod))
 
+    df = SQL_PD(my_query2,eng)
+    n=len(df)
+    if n==1 :
+        print(cod, " Tiene información única.")
+        a=(df["CodigoEstacion"][0],df["NombreEstacion"][0],df["Departamento"][0],
+                  df["Municipio"][0],df["ZonaHidrografica"][0],df["Latitud"][0],
+                  df["Longitud"][0])
+        unicos.append(a)   
+    else:
+        print( "El codigo ",cod,"tiene más de un valor unico, verificar.")
+        cod_verificar.append(cod)
+        
+    print("--------#----------------#-------")
+    
+    my_query1='''
+    SELECT  CodigoEstacion,FechaObservacion,ValorObservado
+    FROM precipitacion
+    WHERE (codigoestacion = {})
+    '''.format(int(cod))
+
     df = SQL_PD(my_query1,eng)
-    df
+
+    df["fecha"]=pd.to_datetime(df["FechaObservacion"],format='%m/%d/%Y %I:%M:%S %p')
+    df.index=df["fecha"]
+    df.drop(["FechaObservacion","fecha"],axis=1,inplace=True)
+    df_2018=df.loc["2018-01":"2018-12"]
+    df_2018=df_2018.sort_values("fecha")
+    df_2018.reset_index(inplace=True)
+    
+
+    print("ingresan los valores para el año 2018 de la estación= ", cod)
+    vector=vector.append(df_2018,ignore_index=True)
+    print("termina= ", cod)
+    
+#Se almacenan los dataframe
+unicos_df=pd.DataFrame(unicos)
+vector_df=pd.DataFrame(vector)
+cod_verificar_df=pd.DataFrame(cod_verificar)
+
+#guardar archivos
+vector_df.to_csv(r'/home/marcelae/Desktop/FACOM/aeropuertos/aeropuertos_PDaniel_2018.csv',
+                 header=None, index=None, sep=';')
+unicos_df.to_csv(r'/home/marcelae/Desktop/FACOM/aeropuertos/unicos_PDaniel.csv',
+                 header=None, index=None, sep=';')
+cod_verificar_df.to_csv(r'/home/marcelae/Desktop/FACOM/aeropuertos/revisarcod_PDaniel.csv',
+                 header=None, index=None, sep=';')
