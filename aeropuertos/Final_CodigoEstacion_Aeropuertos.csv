@@ -1,5 +1,5 @@
 ii,CodigoEstacion,NombreEstacion,Departamento,Municipio,ZonaHidrografica,Latitud,Longitud,
-0,48015050,AEROPUERTO VASQUEZ COBO,amazonas,leticia,amazonas - directos,-4.193861111,-69.94091667,
+0,48015050,AEROPUERTO VASQUEZ COBO,amazonas,leticia,amazonas - directos,-4.193861111,-69.94091667,verificar estas dos estaciones
 0,48015010,APTO VASQUEZ COBO TX GPRS/GOES,amazonas,leticia,<nil>,-4.194,-69.941,
 1,26075150,APTO ALFONSO BONILLA ARAGON - TX GPRS,valle del cauca,palmira,cauca,3.533,-76.382,"El aeropuerto está bien, el municipio dice que es palmira y es cali en el archivo de julio"
 2,23085270,APTO J.M CORDOVA TX GPRS,antioquia,rionegro,medio magdalena,6.169,-75.426,
@@ -10,10 +10,10 @@ ii,CodigoEstacion,NombreEstacion,Departamento,Municipio,ZonaHidrografica,Latitud
 7,16015501,APTO CAMILO DAZA,norte de santander,cucuta,catatumbo,7.932,-72.511,
 8,26125061,APTO EL EDEN,quindio,armenia,cauca,4.455,-75.766,
 9,13035501,APTO LOS GARZONES,cordoba,monteria,sinu,8.826,-75.825,
-10,21115020,benito salas,huila,neiva,,,,
+10,21115020,benito salas,huila,neiva,,,,No se encuentra información de estas estaciones
 11,28025502,APTO ALFONSO LOPEZ,cesar,valledupar,cesar,10.436,-73.248,
-12,52045020,Antonio Nariño,,pasto,,,,
-13,35035020, Vanguardia,,villavicencio,,,,
-14,21245040, Perales,,ibague,,,,
-15,23155030,Yariguies,,barrancabermeja,,,,Verificar el nombre de la estación es YARIGUIES 
+12,52045020,Antonio Nariño,,pasto,,,,No se encuentra información de estas estaciones
+13,35035020, Vanguardia,,villavicencio,,,,No se encuentra información de estas estaciones
+14,21245040, Perales,,ibague,,,,No se encuentra información de estas estaciones
+15,23155030,Yariguies,,barrancabermeja,,,,"Verificar el nombre de la estación es YARIGUIES ,No se encuentra información de estas estaciones"
 16,52055230,AEROPUERTO SAN LUIS - AUT,narino,aldana,patia,0.857,-77.678,"El aeropuerto está bien, el municipio dice que es aldana y es ipiales en el archivo de julio"
