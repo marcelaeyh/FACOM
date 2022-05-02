@@ -578,8 +578,8 @@ print("se guarda el archivo")
 
 #lucy
 datos=pd.read_csv(r'/home/marcelae/Desktop/FACOM/aeropuertos/Final_CodigoEstacion_Aeropuertos.csv',
-                  usecols=[1],skiprows=range(1,3))
-
+                  usecols=[1],skiprows=(range(3,19)))
+datos
 
 #lucy
 #eng = 'sqlite:////home/marcelae/Desktop/FACOM/db/temperatura_2.db'
@@ -651,13 +651,22 @@ unicos_df=pd.DataFrame(unicos)
 vector_df=pd.DataFrame(vector)
 cod_verificar_df=pd.DataFrame(cod_verificar)
 
+vector_df = vector_df.sort_values("fecha")
+vector_df
+
 #guardar archivos
-vector_df.to_csv(r'/home/marcelae/Desktop/FACOM/aeropuertos/aeropuertos_PDaniel_2018.csv',
+vector_df.to_csv(r'/home/marcelae/Desktop/FACOM/aeropuertos/amazonas_PDaniel_2018.csv',
                  header=None, index=None, sep=';')
-unicos_df.to_csv(r'/home/marcelae/Desktop/FACOM/aeropuertos/unicos_PDaniel.csv',
+unicos_df.to_csv(r'/home/marcelae/Desktop/FACOM/aeropuertos/unicosa_PDaniel.csv',
                  header=None, index=None, sep=';')
-cod_verificar_df.to_csv(r'/home/marcelae/Desktop/FACOM/aeropuertos/revisarcod_PDaniel.csv',
+cod_verificar_df.to_csv(r'/home/marcelae/Desktop/FACOM/aeropuertos/revisarcoda_PDaniel.csv',
                  header=None, index=None, sep=';')
+
+daniel = pd.read_csv("/home/marcelae/Desktop/FACOM/aeropuertos/aeropuertos_PDaniel_2018.csv",sep=';')
+daniel
+daniel.append(vector_df)
+vector_df["CodigoEstacion"] = vector_df["CodigoEstacion"].replace(["4815010"],"4815050")
+vector_df
 
 #-----------------------------------#------------------------------------#----------#
 #estaciones para revisar
@@ -695,3 +704,227 @@ for i in tqdm(range(len(datos))) :
     df = SQL_PD(my_query2,eng)
     print("La estación ",cod, "tiene valores =")
     print(df)
+    
+#-----------------------------------#------------------------------------#----------#
+#2 de mayo se trabaja en el archivo de entrega de daniel
+    
+    
+    
+#lucy
+datos=pd.read_csv(r'/home/marcelae/Desktop/FACOM/aeropuertos/Final_CodigoEstacion_Aeropuertos.csv',
+                  usecols=[1],skiprows=(range(3,19)))
+datos
+
+#lucy
+#eng = 'sqlite:////home/marcelae/Desktop/FACOM/db/temperatura_2.db'
+eng = 'sqlite:////home/marcelae/Desktop/FACOM/db/precipitacion_2.db'
+
+
+#  4.2 Nombres de las columnas para el archivo final y vector para guardar la información
+titulos=["Codigo Estacion","Nombre de estacion","Municipio","Departamento", "Zona Hidrográfica","Latitud"
+         ,"Longitud","Fecha Inicial","Fecha Final","Muestreo valores iniciales","Muestreo valores finales","Numerofilas y columnas",
+         "Máximo","Mínimo","Promedio","Desviación Estándar","Mediana"]
+vector=[titulos]
+
+#  4.3 Lectura del archivo 
+print(" se empieza a leer por columna")
+
+for i in tqdm (range(len(datos))):
+#for i in tqdm(codigo):
+    # se determina el valor i
+    cod = datos["CodigoEstacion"][i]
+    
+    #--------------------------------------------------------#
+    
+    #Valores individuales de columna
+    my_query3='''
+    SELECT DISTINCT NombreEstacion,Departamento,Municipio,ZonaHidrografica,Latitud,Longitud,DescripcionSensor,UnidadMedida 
+    FROM precipitacion
+    WHERE (codigoestacion = {})
+    '''.format(int(cod))
+    df_unicos = SQL_PD(my_query3,eng)
+    
+    #--------------------------------------------------------#
+
+    #Se obtiene el valor observado y la fecha del valor para la estación de analisis
+    my_query2='''
+    SELECT FechaObservacion,ValorObservado 
+    FROM precipitacion
+    WHERE (codigoestacion = {})
+    '''.format(int(cod))
+    df_est = SQL_PD(my_query2,eng)
+    
+    #--------------------------------------------------------#
+    df["fecha"]=pd.to_datetime(df["FechaObservacion"],format='%m/%d/%Y %I:%M:%S %p')
+    df.index=df["fecha"]
+    df.drop(["FechaObservacion","fecha"],axis=1,inplace=True)
+    df_2018=df.loc["2018-01":"2018-12"]
+    df_2018=df_2018.sort_values("fecha")
+    df_2018.reset_index(inplace=True)
+
+    #fechas
+    df_est["fecha"]=pd.to_datetime(df_est['FechaObservacion'],format='%m/%d/%Y %I:%M:%S %p')
+    #organizar las filas de mayor a menor con respecto a la fecha
+    df_est = df_est.sort_values(by='fecha')
+    #Se resetean los indices
+    df_est=df_est.reset_index(drop=True)
+    #longitud de filas
+    n=len(df_est)
+    #longitud de columnas
+    shape = df_est.shape
+    #Obtener el nombre de las columnas
+    columns_names = df_est.columns.values
+    
+    #--------------------------------------------------------#
+
+    #Valores unicos
+    #latitud y longitud
+    lat=df_unicos["Latitud"][0]
+    lon=df_unicos["Longitud"][0]
+    #Municipio y departamento
+    mu=df_unicos["Municipio"][0]
+    dep=df_unicos["Departamento"][0]
+    #Zona hidrografica y nombre de la estación
+    zh=df_unicos["ZonaHidrografica"][0]
+    ne=df_unicos["NombreEstacion"][0]
+    #descrición del sensor y unidades
+    desS=df_unicos["DescripcionSensor"][0]
+    unidades=df_unicos["UnidadMedida"][0]
+    print("")
+    print("#---------------------------#")
+    print("Estación",cod)
+    print("")
+    print("INFORMACIÓN INICIAL")
+    print("")
+    print("1. La fecha inicial =",df_est["fecha"][0] )
+    print("2. La fecha final =",df_est["fecha"][n-1] )
+    print("3. Muestreo valores iniciales =",(df_est["fecha"][1]-df_est["fecha"][0]).seconds/60, "min")
+    print("4. Muestreo valores finales =",(df_est["fecha"][n-1]-df_est["fecha"][n-2]).seconds/60, "min")
+    print("5. La cantidad de filas y columnas =",shape )
+    print("6. El nombre de las columnas es=",columns_names)
+    print("7. Las primeras filas son= ")
+    print(df_est.head())
+    print("8. Las últimas filas= ")
+    print(df_est.tail())
+    print("")
+    print("LATITUD Y LONGITUD")
+    print("")
+    print("9. latitud=", lat)
+    print("10. longitud=", lon)
+    print("")
+    print("MUNICIPIO, DEPARTAMENTO, ZONA HIDROGRAFICA Y NOMBRE DE LA ESTACIÓN")
+    print("")
+    print("11. Municipio= ", mu)
+    print("12. Departamento= ", dep)
+    print("13. Zona Hidrografica= ", zh)
+    print("14. Nombre de la estación= ", ne)
+    print("")
+    print("UNIDADES Y OTRAS DESCRIPCIONES")
+    print("")
+    print("15. Unidades de la variable de estudio= ", unidades)
+    print("16. Descripción del sensor= ", desS)
+    print("")
+
+    #--------------------------------------------------------#
+        
+    #CALCULOS
+    #max, min, promedio
+    #Valor máximo
+    maxi=df_est.ValorObservado.max()
+    mini=df_est.ValorObservado.min()
+    media=df_est.ValorObservado.mean()
+    desviacion=np.std(df_est.ValorObservado)
+    mediana=np.median(df_est.ValorObservado)
+
+
+    print("")
+    print("ESTADISTICOS")
+    print("")
+    print("17. Valor máximo= ", maxi)
+    print("18. Valor mínimo= ", mini)
+    print("19. Valor medio= ", media)
+    print("20. Desviación estandar", desviacion)
+    print("21. Mediana= ", mediana)
+
+
+    df_est["year"]=pd.to_datetime(df_est['fecha']).dt.year 
+    df_est["month"]=pd.to_datetime(df_est['fecha']).dt.month
+    df_est["day"]=pd.to_datetime(df_est['fecha']).dt.day  
+    df_est["hour"]=pd.to_datetime(df_est['fecha']).dt.hour
+    month=list(df_est["month"].unique())
+    month.sort() 
+    Ma_mes=[]
+    for i in tqdm(month):
+        mes=df_est[df_est.month==i]
+        mean_m=mes.ValorObservado.mean(skipna=True)
+        Ma_mes.append(mean_m)
+        print("Ingresa el promedio del mes",i)
+    meses=np.array(["Ene","Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", 
+                    "Sep","Oct", "Nov", "Dic"])
+    print("")
+    print("GRAFICOS")
+    print("")
+    plt.figure(figsize=(10,5))
+    plt.title("Ciclo medio anual \n Estación" )
+    plt.plot(meses,Ma_mes)
+    plt.xlabel("tiempo (meses)")
+    plt.ylabel("precipitación "+unidades)
+    plt.grid()
+
+    c=[cod,ne,mu,dep,zh,lat,lon,df_est["fecha"][0],df_est["fecha"][n-1],
+       (df_est["fecha"][1]-df_est["fecha"][0]).seconds/60,(df_est["fecha"][n-1]-df_est["fecha"][n-2]).seconds/60, 
+       shape,maxi,mini,media,desviacion,mediana]
+    
+    
+    
+    vector.append(c)
+    #print(vector)
+    print("termina" ,i)
+    print("#---------------------------#")
+
+df=pd.DataFrame(vector)
+df
+
+#------------------------#----------------------------#-----------------------#
+
+# 2 de mayo, catalogo de estaciones
+
+engt= 'sqlite:////home/marcelae/Desktop/FACOM/db/temperatura_2.db'
+engp= 'sqlite:////home/marcelae/Desktop/FACOM/db/precipitacion_2.db'
+#------------------------#----------------------------#-----------------------#
+
+catalogo = pd.read_csv(r"/home/marcelae/Desktop/FACOM/otros_documentos/Cat_logo_Nacional_de_Estaciones_del_IDEAM.csv",usecols=[0])
+
+catalogo["p"]=np.zeros(len(catalogo))
+catalogo["t"]=np.zeros(len(catalogo))
+catalogo
+
+
+for i in range(len (catalogo)):
+    cod=catalogo["Codigo"][i]
+    #Lectura de codigos en ambas bases de datos
+    #od=52057100
+   
+   
+    my_query3='''
+    SELECT DISTINCT CodigoEstacion
+    FROM precipitacion
+    WHERE "CodigoEstacion" = {}
+    '''.format(int(cod))
+    df_p = SQL_PD(my_query3,engp)
+
+    my_query2='''
+    SELECT DISTINCT CodigoEstacion
+    FROM temperatura
+    WHERE "CodigoEstacion" = {}
+    '''.format(int(cod))
+    df_t = SQL_PD(my_query2,engt)
+   
+    if df_p["CodigoEstacion"][0] ==cod :
+        print(cod,"Tiene precipitacion")
+        catalogo["p"][i]=1
+    if df_t["CodigoEstacion"][0] ==cod :
+        print(cod,"Tiene temperatura")
+        catalogo["t"][i]=1
+   
+
