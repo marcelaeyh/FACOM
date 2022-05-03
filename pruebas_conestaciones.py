@@ -888,49 +888,87 @@ df=pd.DataFrame(vector)
 df
 
 #------------------------#----------------------------#-----------------------#
-
-# 2 de mayo, catalogo de estaciones
+# 2 de mayo - Marcela - identificacion de estaciones de las bases de datos en el catalogo nacional
+# pruebas de archivo temperatura y precipitacion
 
 engt= 'sqlite:////home/marcelae/Desktop/FACOM/db/temperatura_2.db'
 engp= 'sqlite:////home/marcelae/Desktop/FACOM/db/precipitacion_2.db'
 #------------------------#----------------------------#-----------------------#
 
+# Se descarga el catalogo de estaciones
 catalogo = pd.read_csv(r"/home/marcelae/Desktop/FACOM/otros_documentos/Cat_logo_Nacional_de_Estaciones_del_IDEAM.csv",usecols=[0])
 
+# Se crean dos columnas para almacenar los datos
 catalogo["p"]=np.zeros(len(catalogo))
 catalogo["t"]=np.zeros(len(catalogo))
 catalogo
 
+# Se busca la informacion de los codigos distintos para temperatura y precipitacion
+my_query3='''
+SELECT DISTINCT CodigoEstacion
+FROM precipitacion
+'''
 
-for i in range(len (catalogo)):
-    cod=catalogo["Codigo"][i]
-    #Lectura de codigos en ambas bases de datos
-    #od=52057100
-   
-   
-    my_query3='''
-    SELECT DISTINCT CodigoEstacion
-    FROM precipitacion
-    WHERE "CodigoEstacion" = {}
-    '''.format(int(cod))
-    df_p = SQL_PD(my_query3,engp)
+df_p = SQL_PD(my_query3,engp)
 
-    my_query2='''
-    SELECT DISTINCT CodigoEstacion
-    FROM temperatura
-    WHERE "CodigoEstacion" = {}
-    '''.format(int(cod))
-    df_t = SQL_PD(my_query2,engt)
+my_query2='''
+SELECT DISTINCT CodigoEstacion
+FROM temperatura
+'''
+
+df_t = SQL_PD(my_query2,engt)
+
+# Listas vacias para almacenar
+malos_t=[]
+malos_p=[]
+
+# Busqueda de las estaciones de precipitacion
+for i in range(len (df_p)):
+    b=0
+    cod=df_p["CodigoEstacion"][i]
+
+    for j in range(len(catalogo)):
+        if catalogo["Codigo"][j] ==cod :
+            # cuando encuentra la estacion en el catalogo reemplaza el 0.0 por 1
+            catalogo["p"][j]=1
+            b=1
+            
+    if b==0:
+        # Si no la encuentra en el catalogo, la guarda para analizarla despues
+        print(cod, "de la tabla precipitacion no se econtró en el catalogo")
+        malos_p.append(cod)
+ 
+# Busqueda de las estaciones de temperatura           
+for i in range(len(df_t)):
+    b=0
+    cod=df_t["CodigoEstacion"][i]
+    
+    for j in range(len(catalogo)):
+        if catalogo["Codigo"][j] ==cod :
+            # cuando encuentra la estacion en el catalogo reemplaza el 0.0 por 1
+            catalogo["t"][j]=1
+            b=1
+            
+    if b==0:
+        # Si no la encuentra en el catalogo, la guarda para analizarla despues
+        print(cod, "de la tabla temperatura no se econtró en el catalogo")
+        malos_t.append(cod)
    
-    if df_p["CodigoEstacion"][0] ==cod :
-        print(cod,"Tiene precipitacion")
-        catalogo["p"][i]=1
-    if df_t["CodigoEstacion"][0] ==cod :
-        print(cod,"Tiene temperatura")
-        catalogo["t"][i]=1
-   
+# Convierte a dataframe y guarda en csv
+malos_p = pd.DataFrame(malos_p)
+malos_t = pd.DataFrame(malos_t)
+
+catalogo.to_csv(r'/home/marcelae/Desktop/FACOM/Estaciones/existencia_estaciones_catalogo.csv', 
+                index=None, sep=';')
+
+malos_p.to_csv(r'/home/marcelae/Desktop/FACOM/Estaciones/noexisten_precipitacion.csv',
+                 header=None, index=None, sep=';')
+
+malos_t.to_csv(r'/home/marcelae/Desktop/FACOM/Estaciones/noexisten_temperatura.csv',
+                 header=None, index=None, sep=';')
+
 #----------------------------------------#--------------------------------#
-#2 de mayo de 2022 
+#2 de mayo de 2022  - Luisa
 engt= 'sqlite:////home/marcelae/Desktop/FACOM/db/temperatura_2.db'
 engp= 'sqlite:////home/marcelae/Desktop/FACOM/db/precipitacion_2.db'
 cod=26135502
