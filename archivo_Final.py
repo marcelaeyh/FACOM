@@ -450,14 +450,25 @@ def analisis_variable(tabla, eng,direccion,direccion2,direccion3):
     df_final.to_csv(direccion2,sep=";")
     return(df_final)
 
-    
+engp = 'sqlite:////home/marcelae/Desktop/FACOM/db/precipitacion_2.db'
+engt = 'sqlite:////home/marcelae/Desktop/FACOM/db/temperatura_2.db'   
 
 #df=pd.DataFrame(vector)
+
+#direccion = para guardar los graficos del ciclo anual
+#direccion2= para guardar el archivo final que saca la información de precipitacion
+#direccion3= para guardar los graficos del ciclo diurno
 direccion="/home/marcelae/Desktop/FACOM/png/precipitacion_completo/anual/"
-direccion2="/home/marcelae/Desktop/FACOM/otros_documentos/prueba.csv"
+direccion2="/home/marcelae/Desktop/FACOM/otros_documentos/precipitacion_información.csv"
 direccion3="/home/marcelae/Desktop/FACOM/png/precipitacion_completo/diurno/"
 tabla="precipitacion"
 p=analisis_variable(tabla, engp,direccion,direccion2,direccion3)
+
+direccion="/home/marcelae/Desktop/FACOM/png/temperatura_completo/anual/"
+direccion2="/home/marcelae/Desktop/FACOM/otros_documentos/temperatura_información.csv"
+direccion3="/home/marcelae/Desktop/FACOM/png/temperatura_completo/diurno/"
+tabla="temperatura"
+p=analisis_variable(tabla, engt,direccion,direccion2,direccion3)
 #------------------------#----------------------------#-----------------------#
 #------------------------#----------------------------#-----------------------#
 #------------------------#----------------------------#-----------------------#
