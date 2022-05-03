@@ -865,6 +865,8 @@ for i in tqdm (range(len(datos))):
     print("GRAFICOS")
     print("")
     plt.figure(figsize=(10,5))
+    plt.title('Temperatura Superficial (°C) \n Promedio Anual de \n' + meses[i]+ 
+              ' 2011-2015', size=20, loc='center', pad=8)
     plt.title("Ciclo medio anual \n Estación" )
     plt.plot(meses,Ma_mes)
     plt.xlabel("tiempo (meses)")
