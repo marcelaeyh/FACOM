@@ -417,6 +417,15 @@ def analisis_variable(tabla, eng,direccion,direccion2,direccion3):
         plt.grid()
         plt.savefig(direccion3+'CMD'  + '_IDEAM-' + str(cod) + '_' + str(i) + '.png') 
         
+        if len(month) != 12:
+            lista=[1,2,3,4,5,6,7,8,9,10,11,12]
+            dif_1=set(lista).difference(set(month))
+            dif_2=set(month).difference(set(lista))
+            dif=list(dif_1.union(dif_2))
+            len_dif=len(dif)
+            for k in range(len(dif)):
+                month.append(dif[k])
+            month.sort()
         Ma_mes=[]
         for j in tqdm(month):
             mes=variables_df[variables_df.month==j]
@@ -459,7 +468,7 @@ engt = 'sqlite:////home/marcelae/Desktop/FACOM/db/temperatura_2.db'
 #direccion2= para guardar el archivo final que saca la información de precipitacion
 #direccion3= para guardar los graficos del ciclo diurno
 direccion="/home/marcelae/Desktop/FACOM/png/precipitacion_completo/anual/"
-direccion2="/home/marcelae/Desktop/FACOM/otros_documentos/precipitacion_información.csv"
+direccion2="/home/marcelae/Desktop/FACOM/Estaciones/precipitacion_información.csv"
 direccion3="/home/marcelae/Desktop/FACOM/png/precipitacion_completo/diurno/"
 tabla="precipitacion"
 p=analisis_variable(tabla, engp,direccion,direccion2,direccion3)
