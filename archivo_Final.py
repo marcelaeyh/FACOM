@@ -294,179 +294,183 @@ def analisis_variable(tabla, eng,direccion,direccion2,direccion3):
     columnas="CodigoEstacion"
     datos=my_query_distinct(columnas,tabla,eng)
     for i in tqdm(range(len(datos))):
-        #cod = datos["CodigoEstacion"][i]
-        cod=21201580
-        #valores individuales de la base de datos para el codigo
-        columnas1 = "NombreEstacion,Departamento,Municipio,ZonaHidrografica,Latitud,Longitud,DescripcionSensor,UnidadMedida"
-        where = "CodigoEstacion"
-        unicos_df = my_query_distinct_where(columnas1,tabla,eng,where,cod)
-        #Valores variables de fecha y valor observado
-        columnas2="FechaObservacion,ValorObservado "
-        variables_df=my_query_where(columnas2,tabla,eng,where,cod)
-        
-        #-------------------------------------------------------------------#
-        
-        #fechas
-        variables_df["fecha"]=pd.to_datetime(variables_df['FechaObservacion'],format='%m/%d/%Y %I:%M:%S %p')
-        #organizar las filas de mayor a menor con respecto a la fecha
-        variables_df = variables_df.sort_values(by='fecha')
-        #Se resetean los indices
-        variables_df=variables_df.reset_index(drop=True)
-        #longitud de filas
-        n=len(variables_df)
-        #longitud de columnas
-        shape = variables_df.shape
-        #Obtener el nombre de las columnas
-        #columns_names = variables_df.columns.values
-        
-        #Valores unicos
-        #latitud y longitud
-        lat=unicos_df["Latitud"][0]
-        lon=unicos_df["Longitud"][0]
-        #Municipio y departamento
-        mu=unicos_df["Municipio"][0]
-        dep=unicos_df["Departamento"][0]
-        #Zona hidrografica y nombre de la estación
-        zh=unicos_df["ZonaHidrografica"][0]
-        ne=unicos_df["NombreEstacion"][0]
-        #descrición del sensor y unidades
-        desS=unicos_df["DescripcionSensor"][0]
-        unidades=unicos_df["UnidadMedida"][0]
-        #Paso de tiempo
-        if n <=1 :
-            print("SOLO TIENE UNA FECHA REGISTRADA")
-            dxi=None
-            dxf=None
+        try:
+            cod = datos["CodigoEstacion"][i]
+            #cod=21201580
+            #valores individuales de la base de datos para el codigo
+            columnas1 = "NombreEstacion,Departamento,Municipio,ZonaHidrografica,Latitud,Longitud,DescripcionSensor,UnidadMedida"
+            where = "CodigoEstacion"
+            unicos_df = my_query_distinct_where(columnas1,tabla,eng,where,cod)
+            #Valores variables de fecha y valor observado
+            columnas2="FechaObservacion,ValorObservado "
+            variables_df=my_query_where(columnas2,tabla,eng,where,cod)
             
-        if n > 1:
-            if variables_df["fecha"][0] != variables_df["fecha"][1]:
-                dxi=(variables_df["fecha"][1]-variables_df["fecha"][0]).seconds/60    
-            else:
+            #-------------------------------------------------------------------#
+            
+            #fechas
+            variables_df["fecha"]=pd.to_datetime(variables_df['FechaObservacion'],format='%m/%d/%Y %I:%M:%S %p')
+            #organizar las filas de mayor a menor con respecto a la fecha
+            variables_df = variables_df.sort_values(by='fecha')
+            #Se resetean los indices
+            variables_df=variables_df.reset_index(drop=True)
+            #longitud de filas
+            n=len(variables_df)
+            #longitud de columnas
+            shape = variables_df.shape
+            #Obtener el nombre de las columnas
+            #columns_names = variables_df.columns.values
+            
+            #Valores unicos
+            #latitud y longitud
+            lat=unicos_df["Latitud"][0]
+            lon=unicos_df["Longitud"][0]
+            #Municipio y departamento
+            mu=unicos_df["Municipio"][0]
+            dep=unicos_df["Departamento"][0]
+            #Zona hidrografica y nombre de la estación
+            zh=unicos_df["ZonaHidrografica"][0]
+            ne=unicos_df["NombreEstacion"][0]
+            #descrición del sensor y unidades
+            desS=unicos_df["DescripcionSensor"][0]
+            unidades=unicos_df["UnidadMedida"][0]
+            #Paso de tiempo
+            if n <=1 :
+                print("SOLO TIENE UNA FECHA REGISTRADA")
                 dxi=None
-                
-            if variables_df["fecha"][n-1] != variables_df["fecha"][n-2]:
-                dxf=(variables_df["fecha"][n-1]-variables_df["fecha"][n-2]).seconds/60    
-            else:
                 dxf=None
-        
-        print("")
-        print("#---------------------------#")
-        print("Estación",cod)
-        print("")
-        print("INFORMACIÓN INICIAL")
-        print("")
-        print("1. La fecha inicial =",variables_df["fecha"][0] )
-        print("2. La fecha final =",variables_df["fecha"][n-1] )
-        print("3. Muestreo valores iniciales =",dxi, "min")
-        print("4. Muestreo valores finales =",dxf, "min")
-        print("5. La cantidad de filas y columnas =",shape )
-        #print("6. El nombre de las columnas es=",columns_names)
-        print("7. Las primeras filas son= ")
-        print(variables_df.head())
-        print("8. Las últimas filas= ")
-        print(variables_df.tail())
-        print("")
-        print("LATITUD Y LONGITUD")
-        print("")
-        print("9. latitud=", lat)
-        print("10. longitud=", lon)
-        print("")
-        print("MUNICIPIO, DEPARTAMENTO, ZONA HIDROGRAFICA Y NOMBRE DE LA ESTACIÓN")
-        print("")
-        print("11. Municipio= ", mu)
-        print("12. Departamento= ", dep)
-        print("13. Zona Hidrografica= ", zh)
-        print("14. Nombre de la estación= ", ne)
-        print("")
-        print("UNIDADES Y OTRAS DESCRIPCIONES")
-        print("")
-        print("15. Unidades de la variable de estudio= ", unidades)
-        print("16. Descripción del sensor= ", desS)
-        print("")
-        
-        #CALCULOS
-        #max, min, promedio
-        #Valor máximo
-        maxi=variables_df.ValorObservado.max()
-        mini=variables_df.ValorObservado.min()
-        media=variables_df.ValorObservado.mean()
-        desviacion=np.std(variables_df.ValorObservado)
-        mediana=np.median(variables_df.ValorObservado)
-
-        print("")
-        print("ESTADISTICOS")
-        print("")
-        print("17. Valor máximo= ", maxi)
-        print("18. Valor mínimo= ", mini)
-        print("19. Valor medio= ", media)
-        print("20. Desviación estandar", desviacion)
-        print("21. Mediana= ", mediana)
-
-
-        variables_df["year"]=pd.to_datetime(variables_df['fecha']).dt.year 
-        variables_df["month"]=pd.to_datetime(variables_df['fecha']).dt.month
-        variables_df["day"]=pd.to_datetime(variables_df['fecha']).dt.day  
-        variables_df["hour"]=pd.to_datetime(variables_df['fecha']).dt.hour
-        month=list(variables_df["month"].unique())
-        month.sort() 
-        hour=list(variables_df["hour"].unique())
-        hour.sort()
-        
-        H=[]
-        for j in tqdm(hour):
-            hora=variables_df[variables_df.hour==j]
-            mean_h=hora.ValorObservado.mean(skipna=True)
-            H.append(mean_h)
-            #print("Ingresa")
-        
-        print("")
-        print("GRAFICOS")
-        print("")
-        
-        plt.figure(figsize=(10,5))
-        plt.title("Ciclo medio diurno \n Estación " +str(cod) +" - "+ne
-                  , size=20, loc='center', pad=8)
-        plt.plot(hour,H)
-        plt.xlabel("Tiempo (horas)")
-        plt.ylabel(desS+" ("+unidades+")")
-        plt.grid()
-        plt.savefig(direccion3+'CMD'  + '_IDEAM-' + str(cod) + '_' + str(i) + '.png') 
-        
-        if len(month) != 12:
-            lista=[1,2,3,4,5,6,7,8,9,10,11,12]
-            dif_1=set(lista).difference(set(month))
-            dif_2=set(month).difference(set(lista))
-            dif=list(dif_1.union(dif_2))
-            len_dif=len(dif)
-            for k in range(len(dif)):
-                month.append(dif[k])
-            month.sort()
-        Ma_mes=[]
-        for j in tqdm(month):
-            mes=variables_df[variables_df.month==j]
-            mean_m=mes.ValorObservado.mean(skipna=True)
-            Ma_mes.append(mean_m)
-            #print("Ingresa el promed|io del mes",j)
-        meses=np.array(["Ene","Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", 
-                        "Sep","Oct", "Nov", "Dic"])
-        
-        plt.figure(figsize=(10,5))
-        plt.title("Ciclo medio anual \n Estación " +str(cod) +" - "+ne
-                  , size=20, loc='center', pad=8)
-        #plt.title("Ciclo medio anual \n Estación" )
-        plt.plot(meses,Ma_mes)
-        plt.xlabel("Tiempo en meses")
-        plt.ylabel(desS+" ("+unidades+")")
-        plt.grid()
-        plt.savefig(direccion+'CMA'  + '_IDEAM-' + str(cod) + '_' + str(i) + '.png')  
-
-        c=[cod,ne,mu,dep,zh,lat,lon,variables_df["fecha"][0],variables_df["fecha"][n-1],
-           dxi,dxf,shape,maxi,mini,media,desviacion,mediana]
-        
-        vector.append(c)
-        #print(vector)
-        print("termina" ,i, "-",cod)
-        print("#---------------------------#")
+                
+            if n > 1:
+                if variables_df["fecha"][0] != variables_df["fecha"][1]:
+                    dxi=(variables_df["fecha"][1]-variables_df["fecha"][0]).seconds/60    
+                else:
+                    dxi=None
+                    
+                if variables_df["fecha"][n-1] != variables_df["fecha"][n-2]:
+                    dxf=(variables_df["fecha"][n-1]-variables_df["fecha"][n-2]).seconds/60    
+                else:
+                    dxf=None
+            
+            print("")
+            print("#---------------------------#")
+            print("Estación",cod)
+            print("")
+            print("INFORMACIÓN INICIAL")
+            print("")
+            print("1. La fecha inicial =",variables_df["fecha"][0] )
+            print("2. La fecha final =",variables_df["fecha"][n-1] )
+            print("3. Muestreo valores iniciales =",dxi, "min")
+            print("4. Muestreo valores finales =",dxf, "min")
+            print("5. La cantidad de filas y columnas =",shape )
+            #print("6. El nombre de las columnas es=",columns_names)
+            print("7. Las primeras filas son= ")
+            print(variables_df.head())
+            print("8. Las últimas filas= ")
+            print(variables_df.tail())
+            print("")
+            print("LATITUD Y LONGITUD")
+            print("")
+            print("9. latitud=", lat)
+            print("10. longitud=", lon)
+            print("")
+            print("MUNICIPIO, DEPARTAMENTO, ZONA HIDROGRAFICA Y NOMBRE DE LA ESTACIÓN")
+            print("")
+            print("11. Municipio= ", mu)
+            print("12. Departamento= ", dep)
+            print("13. Zona Hidrografica= ", zh)
+            print("14. Nombre de la estación= ", ne)
+            print("")
+            print("UNIDADES Y OTRAS DESCRIPCIONES")
+            print("")
+            print("15. Unidades de la variable de estudio= ", unidades)
+            print("16. Descripción del sensor= ", desS)
+            print("")
+            
+            #CALCULOS
+            #max, min, promedio
+            #Valor máximo
+            maxi=variables_df.ValorObservado.max()
+            mini=variables_df.ValorObservado.min()
+            media=variables_df.ValorObservado.mean()
+            desviacion=np.std(variables_df.ValorObservado)
+            mediana=np.median(variables_df.ValorObservado)
+    
+            print("")
+            print("ESTADISTICOS")
+            print("")
+            print("17. Valor máximo= ", maxi)
+            print("18. Valor mínimo= ", mini)
+            print("19. Valor medio= ", media)
+            print("20. Desviación estandar", desviacion)
+            print("21. Mediana= ", mediana)
+    
+    
+            variables_df["year"]=pd.to_datetime(variables_df['fecha']).dt.year 
+            variables_df["month"]=pd.to_datetime(variables_df['fecha']).dt.month
+            variables_df["day"]=pd.to_datetime(variables_df['fecha']).dt.day  
+            variables_df["hour"]=pd.to_datetime(variables_df['fecha']).dt.hour
+            month=list(variables_df["month"].unique())
+            month.sort() 
+            hour=list(variables_df["hour"].unique())
+            hour.sort()
+            
+            H=[]
+            for j in tqdm(hour):
+                hora=variables_df[variables_df.hour==j]
+                mean_h=hora.ValorObservado.mean(skipna=True)
+                H.append(mean_h)
+                #print("Ingresa")
+            
+            print("")
+            print("GRAFICOS")
+            print("")
+            
+            plt.figure(figsize=(10,5))
+            plt.title("Ciclo medio diurno \n Estación " +str(cod) +" - "+ne
+                      , size=20, loc='center', pad=8)
+            plt.plot(hour,H)
+            plt.xlabel("Tiempo (horas)")
+            plt.ylabel(desS+" ("+unidades+")")
+            plt.grid()
+            plt.savefig(direccion3+'CMD'  + '_IDEAM-' + str(cod) + '_' + str(i) + '.png') 
+            
+            if len(month) != 12:
+                lista=[1,2,3,4,5,6,7,8,9,10,11,12]
+                dif_1=set(lista).difference(set(month))
+                dif_2=set(month).difference(set(lista))
+                dif=list(dif_1.union(dif_2))
+                len_dif=len(dif)
+                for k in range(len(dif)):
+                    month.append(dif[k])
+                month.sort()
+            Ma_mes=[]
+            for j in tqdm(month):
+                mes=variables_df[variables_df.month==j]
+                mean_m=mes.ValorObservado.mean(skipna=True)
+                Ma_mes.append(mean_m)
+                #print("Ingresa el promed|io del mes",j)
+            meses=np.array(["Ene","Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", 
+                            "Sep","Oct", "Nov", "Dic"])
+            
+            plt.figure(figsize=(10,5))
+            plt.title("Ciclo medio anual \n Estación " +str(cod) +" - "+ne
+                      , size=20, loc='center', pad=8)
+            #plt.title("Ciclo medio anual \n Estación" )
+            plt.plot(meses,Ma_mes)
+            plt.xlabel("Tiempo en meses")
+            plt.ylabel(desS+" ("+unidades+")")
+            plt.grid()
+            plt.savefig(direccion+'CMA'  + '_IDEAM-' + str(cod) + '_' + str(i) + '.png')  
+    
+            c=[cod,ne,mu,dep,zh,lat,lon,variables_df["fecha"][0],variables_df["fecha"][n-1],
+               dxi,dxf,shape,maxi,mini,media,desviacion,mediana]
+            
+            vector.append(c)
+            #print(vector)
+            print("termina" ,i, "-",cod)
+            print("#---------------------------#")
+        except:
+            print("La estación", cod, "No pudo ser ingresada")
+            
     print("se termina de analizar la base de datos")
     df_final=pd.DataFrame(vector)
     df_final.to_csv(direccion2,sep=";")
@@ -494,7 +498,7 @@ direccion="/home/marcela/Desktop/FACOM/png/temperatura_completo/anual/"
 direccion2="/home/marcela/Desktop/FACOM/Estaciones/temperatura_información.csv"
 direccion3="/home/marcela/Desktop/FACOM/png/temperatura_completo/diurno/"
 tabla="temperatura"
-p=analisis_variable(tabla, engt,direccion,direccion2,direccion3)
+t=analisis_variable(tabla, engt,direccion,direccion2,direccion3)
 #------------------------#----------------------------#-----------------------#
 def analisis_variable_unicoCOD(tabla,eng,direccion,direccion2,direccion3,cod):
     #creación de vectores
