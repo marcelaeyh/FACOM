@@ -31,16 +31,20 @@ def SQL_PD(table_or_sql,eng):
 
 def col3_analisis_p(df_v,direccion1,direccion2,direccion3):
     df_v["fecha"]=pd.to_datetime(df_v["FechaObservacion"])
-    df_v.reset_index(inplace=True) 
     cod=df_v.CodigoEstacion.unique()
-    vector=[]
+    n_1=len(cod)
+    titulos=["CodigoEstacion","FechaInicial","FechaFinal","dxI","dxF","tamaño","Maximo"
+             ,"Minimo","Promedio"]
+    vector=[titulos]
     exep=["CodigoEstacion"]
-    for i in tqdm(range(len(cod))):
+    for i in tqdm(range(n_1)):
+        cod_q=cod[i]
+        df=df_v[df_v.CodigoEstacion==cod_q]
+        #df=pd.DataFrame(df)
+        df = df.reset_index()
+        print("Se guarda la estacion", cod_q)
+    
         try:
-            cod_q =cod[i]
-            df=df_v[df_v.CodigoEstacion==cod_q]
-            df=pd.DataFrame(df)
-            print(df)
             
             #longitud de filas
             n=len(df)
@@ -67,7 +71,7 @@ def col3_analisis_p(df_v,direccion1,direccion2,direccion3):
                 
             print("")
             print("#---------------------------#")
-            print("Estación",cod)
+            print("Estación",cod_q)
             print("")
             print("INFORMACIÓN INICIAL")
             print("")
@@ -109,25 +113,31 @@ def col3_analisis_p(df_v,direccion1,direccion2,direccion3):
             hour=list(df["hour"].unique())
             hour.sort()
             
+            print("")
+            print("GRAFICOS")
+            print("")
+            
+            #ciclo diurno
             H=[]
             for j in tqdm(hour):
                 hora=df[df.hour==j]
                 mean_h=hora.ValorObservado.mean(skipna=True)
                 H.append(mean_h)
                 #print("Ingresa")
-            
-            print("")
-            print("GRAFICOS")
-            print("")
-            
+            #grafico
             plt.figure(figsize=(10,5))
-            plt.title("Ciclo medio diurno \n Estación " +str(cod) 
+            plt.title("Ciclo medio diurno \n Estación " +str(cod_q) 
                       , size=20, loc='center', pad=8)
-            plt.plot(hour,H)
+            plt.plot(hour,H,color="slateblue",label=("precipitacion -",str(cod_q)))
             plt.xlabel("Tiempo (horas)")
             plt.ylabel("Precipitacion [mm]")
             plt.grid()
-            plt.savefig(direccion2+'CMD'  + '_IDEAM-' + str(cod) + '_' + str(i) + '.png') 
+            plt.legend()
+            plt.minorticks_on()
+            plt.savefig(direccion2+'CMD'  + '_IDEAM-' + str(cod_q) + '_' + str(i) + '.png') 
+            
+            
+            #ciclo medio anual
             
             if len(month) != 12:
                 lista=[1,2,3,4,5,6,7,8,9,10,11,12]
@@ -138,6 +148,7 @@ def col3_analisis_p(df_v,direccion1,direccion2,direccion3):
                 for k in range(len(dif)):
                     month.append(dif[k])
                 month.sort()
+                
             Ma_mes=[]
             for j in tqdm(month):
                 mes=df[df.month==j]
@@ -148,40 +159,52 @@ def col3_analisis_p(df_v,direccion1,direccion2,direccion3):
                             "Sep","Oct", "Nov", "Dic"])
             
             plt.figure(figsize=(10,5))
-            plt.title("Ciclo medio anual \n Estación " +str(cod) 
+            plt.title("Ciclo Medio Anual \n Estación= " +str(cod_q) 
                       , size=20, loc='center', pad=8)
             #plt.title("Ciclo medio anual \n Estación" )
-            plt.plot(meses,Ma_mes,color="midnightblue",label=("precipitacion /n Cod =",str(cod)))
+            plt.plot(meses,Ma_mes,color="indigo",label=("precipitacion -",str(cod_q)))
             plt.legend()
-            plt.xlabel("Tiempo en meses")
-            plt.ylabel("precipitación [mm]")
+            plt.xlabel("Tiempo (meses)")
+            plt.ylabel("Precipitación [mm]")
             plt.grid()
-            plt.savefig(direccion1+'CMA'  + '_IDEAM-' + str(cod) + '_' + str(i) + '.png')  
+            plt.minorticks_on()
+            plt.savefig(direccion1+'CMA'  + '_IDEAM-' + str(cod_q) + '_' + str(i) + '.png')  
+            
+            #se guarda el archivo
+            titulos=["CodigoEstacion","FechaInicial","FechaFinal","dxI","dxF","tamaño","Maximo"
+                     ,"Minimo","Promedio"]
     
-            c=[cod,df["fecha"][0],df["fecha"][n-1],dxi,dxf,shape,maxi,mini,media,
+            c=[cod_q,df["fecha"][0],df["fecha"][n-1],dxi,dxf,shape,maxi,mini,media,
                desviacion,mediana]
             vector.append(c)
             #print(vector)
-            print("termina" ,i, "-",cod)
+            print("termina" ,i, "-",cod_q)
             print("#---------------------------#")
         except:
-            print("La estación", cod, "No pudo ser ingresada")
-            exep.append(cod)
+            print("La estación", cod_q, "No pudo ser ingresada")
+            exep.append(cod_q)
             
     print("se termina de analizar la base de datos")
     df_final=pd.DataFrame(vector)
     df_final.to_csv(direccion3,sep=";")
-    return(df_final)
+    return(df_final,exep)    
 
-def col3_analisis_t(df,direccion1,direccion2,direccion3):
-    df["fecha"]=pd.to_datetime(df["FechaObservacion"])
-    df.reset_index(inplace=True) 
-    cod=df.CodigoEstacion.unique()
-    vector=[]
+def col3_analisis_t(df_v,direccion1,direccion2,direccion3):
+    df_v["fecha"]=pd.to_datetime(df_v["FechaObservacion"])
+    cod=df_v.CodigoEstacion.unique()
+    n_1=len(cod)
+    titulos=["CodigoEstacion","FechaInicial","FechaFinal","dxI","dxF","tamaño","Maximo"
+             ,"Minimo","Promedio"]
+    vector=[titulos]
     exep=["CodigoEstacion"]
-    for i in tqdm(range(len(cod))):
+    for i in tqdm(range(n_1)):
+        cod_q=cod[i]
+        df=df_v[df_v.CodigoEstacion==cod_q]
+        #df=pd.DataFrame(df)
+        df = df.reset_index()
+        print("Se guarda la estacion", cod_q)
+    
         try:
-            cod = df["CodigoEstacion"][i]
             
             #longitud de filas
             n=len(df)
@@ -208,7 +231,7 @@ def col3_analisis_t(df,direccion1,direccion2,direccion3):
                 
             print("")
             print("#---------------------------#")
-            print("Estación",cod)
+            print("Estación",cod_q)
             print("")
             print("INFORMACIÓN INICIAL")
             print("")
@@ -250,25 +273,31 @@ def col3_analisis_t(df,direccion1,direccion2,direccion3):
             hour=list(df["hour"].unique())
             hour.sort()
             
+            print("")
+            print("GRAFICOS")
+            print("")
+            
+            #ciclo diurno
             H=[]
             for j in tqdm(hour):
                 hora=df[df.hour==j]
                 mean_h=hora.ValorObservado.mean(skipna=True)
                 H.append(mean_h)
                 #print("Ingresa")
-            
-            print("")
-            print("GRAFICOS")
-            print("")
-            
+            #grafico
             plt.figure(figsize=(10,5))
-            plt.title("Ciclo medio diurno \n Estación " +str(cod) 
+            plt.title("Ciclo medio diurno \n Estación " +str(cod_q) 
                       , size=20, loc='center', pad=8)
-            plt.plot(hour,H)
+            plt.plot(hour,H,color="palevioletred",label=("precipitacion -",str(cod_q)))
             plt.xlabel("Tiempo (horas)")
             plt.ylabel("Temperatura [°C]")
             plt.grid()
-            plt.savefig(direccion2+'CMD'  + '_IDEAM-' + str(cod) + '_' + str(i) + '.png') 
+            plt.legend()
+            plt.minorticks_on()
+            plt.savefig(direccion2+'CMD'  + '_IDEAM-' + str(cod_q) + '_' + str(i) + '.png') 
+            
+            
+            #ciclo medio anual
             
             if len(month) != 12:
                 lista=[1,2,3,4,5,6,7,8,9,10,11,12]
@@ -279,6 +308,7 @@ def col3_analisis_t(df,direccion1,direccion2,direccion3):
                 for k in range(len(dif)):
                     month.append(dif[k])
                 month.sort()
+                
             Ma_mes=[]
             for j in tqdm(month):
                 mes=df[df.month==j]
@@ -289,48 +319,55 @@ def col3_analisis_t(df,direccion1,direccion2,direccion3):
                             "Sep","Oct", "Nov", "Dic"])
             
             plt.figure(figsize=(10,5))
-            plt.title("Ciclo medio anual \n Estación " +str(cod) 
+            plt.title("Ciclo Medio Anual \n Estación= " +str(cod_q) 
                       , size=20, loc='center', pad=8)
             #plt.title("Ciclo medio anual \n Estación" )
-            plt.plot(meses,Ma_mes,color="midnightblue",label=("precipitacion /n Cod =",str(cod)))
+            plt.plot(meses,Ma_mes,color="crimson",label=("precipitacion -",str(cod_q)))
             plt.legend()
-            plt.xlabel("Tiempo en meses")
+            plt.xlabel("Tiempo (meses)")
             plt.ylabel("Temperatura [°C]")
             plt.grid()
-            plt.savefig(direccion1+'CMA'  + '_IDEAM-' + str(cod) + '_' + str(i) + '.png')  
+            plt.minorticks_on()
+            plt.savefig(direccion1+'CMA'  + '_IDEAM-' + str(cod_q) + '_' + str(i) + '.png')  
+            
+            #se guarda el archivo
+            titulos=["CodigoEstacion","FechaInicial","FechaFinal","dxI","dxF","tamaño","Maximo"
+                     ,"Minimo","Promedio"]
     
-            c=[cod,df["fecha"][0],df["fecha"][n-1],dxi,dxf,shape,maxi,mini,media,
+            c=[cod_q,df["fecha"][0],df["fecha"][n-1],dxi,dxf,shape,maxi,mini,media,
                desviacion,mediana]
             vector.append(c)
             #print(vector)
-            print("termina" ,i, "-",cod)
+            print("termina" ,i, "-",cod_q)
             print("#---------------------------#")
         except:
-            print("La estación", cod, "No pudo ser ingresada")
-            exep.append(cod)
+            print("La estación", cod_q, "No pudo ser ingresada")
+            exep.append(cod_q)
             
     print("se termina de analizar la base de datos")
     df_final=pd.DataFrame(vector)
     df_final.to_csv(direccion3,sep=";")
-    return(df_final)
+    return(df_final,exep)
 
 #precipitacion
-dfp=pd.read_csv(r"/media/luisa/Datos/FACOM/gits/FACOM/aeropuertos/entrega/precipitacion_2018_AeropuertosPD.csv")
+#lucy
+dfp=pd.read_csv(r"/home/marcelae/Desktop/FACOM/aeropuertos/entrega/precipitacion_2018_AeropuertosPD.csv")
+#luisa
+#dfp=pd.read_csv(r"/media/luisa/Datos/FACOM/gits/FACOM/aeropuertos/entrega/precipitacion_2018_AeropuertosPD.csv")
 dfp.columns=["FechaObservacion", "CodigoEstacion", "ValorObservado"]
-
-direccion1p="/media/luisa/Datos/FACOM/gits/FACOM/aeropuertos/entrega/png/anual_p/"
-direccion2p="/media/luisa/Datos/FACOM/gits/FACOM/aeropuertos/entrega/png/diurno_p/"
-direccion3p= "/media/luisa/Datos/FACOM/gits/FACOM/aeropuertos/entrega/daniel/aeropuertos_p_2018.csv"
-col3_analisis_p(dfp,direccion1p,direccion2p,direccion3p)
+direccion1p="/home/marcelae/Desktop/FACOM/aeropuertos/entrega/daniel/png/anual_p/"
+direccion2p="/home/marcelae/Desktop/FACOM/aeropuertos/entrega/daniel/png/diurno_p/"
+direccion3p="/home/marcelae/Desktop/FACOM/aeropuertos/entrega/daniel/aeropuertos_p_2018.csv"
+p,exep_p=col3_analisis_p(dfp,direccion1p,direccion2p,direccion3p)
 
 #temperatura
-dft=pd.read_csv(r"/media/luisa/Datos/FACOM/gits/FACOM/aeropuertos/entrega/temperatura_2018_AeropuertosPD.csv",sep=";")
+dft=pd.read_csv(r"/home/marcelae/Desktop/FACOM/aeropuertos/entrega/temperatura_2018_AeropuertosPD.csv",sep=";")
 dft.columns=["FechaObservacion", "CodigoEstacion", "ValorObservado"]
 
-direccion1t="/media/luisa/Datos/FACOM/gits/FACOM/aeropuertos/entrega/png/anual_t/"
-direccion2t="/media/luisa/Datos/FACOM/gits/FACOM/aeropuertos/entrega/png/diurno_t/"
-direccion3t= "/media/luisa/Datos/FACOM/gits/FACOM/aeropuertos/entrega/daniel/aeropuertos_t_2018.csv"
-col3_analisis_t(dft,direccion1t,direccion2t,direccion3t)
+direccion1t="/home/marcelae/Desktop/FACOM/aeropuertos/entrega/daniel/png/anual_t/"
+direccion2t="/home/marcelae/Desktop/FACOM/aeropuertos/entrega/daniel/png/diurno_t/"
+direccion3t="/home/marcelae/Desktop/FACOM/aeropuertos/entrega/daniel/aeropuertos_t_2018.csv"
+t,exep_t=col3_analisis_t(dft,direccion1t,direccion2t,direccion3t)
 
 #################################################3
 
@@ -365,7 +402,7 @@ def rangocuadrado_coordenadas(d_A_entrada,usecols_AE,variacion_lat,variacion_lon
         SELECT DISTINCT CodigoEstacion,NombreEstacion,Departamento,Municipio,ZonaHidrografica,Latitud,Longitud
         FROM {}
         WHERE (Latitud <= {} AND Latitud >= {}) AND (Longitud <= {} AND Longitud >= {})
-        '''.format(tabla,datos["lat"][i]+variacion_lat,datos["lat"][i]-variacion_lat,datos["lon"][i]+variacion_lon,datos["lon"][i]-variacion_lon)
+        '''.format(tabla,datos["lat"][i]+variacion_lat , datos["lat"][i]-variacion_lat ,datos["lon"][i]+variacion_lon,datos["lon"][i]-variacion_lon)
         df_est = SQL_PD(my_query3,eng)
         
         n=len(df_est)
@@ -413,27 +450,27 @@ def rangocuadrado_coordenadas(d_A_entrada,usecols_AE,variacion_lat,variacion_lon
 
 
 #daniel
-d_A_entradad="/media/luisa/Datos/FACOM/gits/FACOM/aeropuertos/airport_coord.csv"
+d_A_entradad="/home/marcelae/Desktop/FACOM/aeropuertos/airport_coord.csv"
 usecols_AEd=[1,2]
-variacion_latd=0.09
-variacion_lond=0.17921 
-direccion1d="/media/luisa/Datos/FACOM/gits/FACOM/aeropuertos/entrega/daniel/C1.csv"
-direccion2d="/media/luisa/Datos/FACOM/gits/FACOM/aeropuertos/entrega/daniel/sinC.csv"
-direccion3d="/media/luisa/Datos/FACOM/gits/FACOM/aeropuertos/entrega/daniel/variasC.csv" 
+variacion_latd=(0.09/2)
+variacion_lond=(0.17921/2) 
+direccion1d="/home/marcelae/Desktop/FACOM/aeropuertos/entrega/daniel/analisis_por_lat_lon/C1.csv"
+direccion2d="/home/marcelae/Desktop/FACOM/aeropuertos/entrega/daniel/analisis_por_lat_lon/sinC.csv"
+direccion3d="/home/marcelae/Desktop/FACOM/aeropuertos/entrega/daniel/analisis_por_lat_lon/variasC.csv" 
 
 #julio
-d_A_entradaj="/media/luisa/Datos/FACOM/gits/FACOM/aeropuertos/Aeropuertos.csv"
+d_A_entradaj="/home/marcelae/Desktop/FACOM/aeropuertos/Aeropuertos.csv"
 usecols_AEj=[2,3]
 variacion_latj=0.009
 variacion_lonj=0.017921  
 
-direccion1j="/media/luisa/Datos/FACOM/gits/FACOM/aeropuertos/entrega/julio/C1.csv"
-direccion2j="/media/luisa/Datos/FACOM/gits/FACOM/aeropuertos/entrega/julio/sinC.csv"
-direccion3j="/media/luisa/Datos/FACOM/gits/FACOM/aeropuertos/entrega/julio/variasC.csv"
+direccion1j="/home/marcelae/Desktop/FACOM/aeropuertos/entrega/julio/analisis_por_lat_lon/C1.csv"
+direccion2j="/home/marcelae/Desktop/FACOM/aeropuertos/entrega/julio/analisis_por_lat_lon/sinC.csv"
+direccion3j="/home/marcelae/Desktop/FACOM/aeropuertos/entrega/julio/analisis_por_lat_lon/variasC.csv"
   
 
-engt = "sqlite:////media/luisa/Datos/FACOM/gits/FACOM/db/temperatura_2.db"
-engp = "sqlite:////media/luisa/Datos/FACOM/gits/FACOM/db/precipitacion_2.db"
+engt = "sqlite:////home/marcelae/Desktop/FACOM/db/temperatura_2.db"
+engp = "sqlite:////home/marcelae/Desktop/FACOM/db/precipitacion_2.db"
 tablap="precipitacion"
 tablat="temperatura"
 
@@ -444,6 +481,6 @@ rangocuadrado_coordenadas(d_A_entradad,usecols_AEd,variacion_latd,variacion_lond
 
 #julio
 rangocuadrado_coordenadas(d_A_entradaj,usecols_AEj,variacion_latj,variacion_lonj,
-                          direccion1,direccion2,direccion3,engp,tablat)
+                          direccion1j,direccion2j,direccion3j,engp,tablat)
 
 
