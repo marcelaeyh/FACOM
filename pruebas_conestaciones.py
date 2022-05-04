@@ -577,13 +577,16 @@ print("se guarda el archivo")
 #                  usecols=[1],skiprows=range(1,3))
 
 #lucy
-datos=pd.read_csv(r'/home/marcelae/Desktop/FACOM/aeropuertos/Final_CodigoEstacion_Aeropuertos.csv',
-                  usecols=[1],skiprows=(range(3,19)))
+#datos=pd.read_csv(r'/home/marcelae/Desktop/FACOM/aeropuertos/Final_CodigoEstacion_Aeropuertos.csv',
+#                  usecols=[1])
+#Lucy2
+datos=pd.read_csv(r'/home/marcela/Desktop/FACOM/aeropuertos/Final_CodigoEstacion_Aeropuertos.csv',
+                  usecols=[1],skiprows=range(3,19))
 datos
 
 #lucy
-#eng = 'sqlite:////home/marcelae/Desktop/FACOM/db/temperatura_2.db'
-eng = 'sqlite:////home/marcelae/Desktop/FACOM/db/precipitacion_2.db'
+eng = 'sqlite:////home/marcela/Desktop/FACOM/db/temperatura_2.db'
+#eng = 'sqlite:////home/marcelae/Desktop/FACOM/db/precipitacion_2.db'
 #luisa
 #eng="sqlite:////media/luisa/Datos/FACOM/gits/FACOM/db/precipitacion_2.db"
 
@@ -608,7 +611,7 @@ for i in tqdm(range(len(datos))) :
     my_query2='''
     SELECT  DISTINCT CodigoEstacion,NombreEstacion,Departamento,Municipio,
     ZonaHidrografica,Latitud,Longitud
-    FROM precipitacion
+    FROM temperatura
     WHERE (codigoestacion = {})
     '''.format(int(cod))
 
@@ -628,7 +631,7 @@ for i in tqdm(range(len(datos))) :
     
     my_query1='''
     SELECT  CodigoEstacion,FechaObservacion,ValorObservado
-    FROM precipitacion
+    FROM temperatura
     WHERE (codigoestacion = {})
     '''.format(int(cod))
 
@@ -655,7 +658,7 @@ vector_df = vector_df.sort_values("fecha")
 vector_df
 
 #guardar archivos
-vector_df.to_csv(r'/home/marcelae/Desktop/FACOM/aeropuertos/amazonas_PDaniel_2018.csv',
+vector_df.to_csv(r'/home/marcela/Desktop/FACOM/aeropuertos/amazonas_TDaniel_2018.csv',
                  header=None, index=None, sep=';')
 unicos_df.to_csv(r'/home/marcelae/Desktop/FACOM/aeropuertos/unicosa_PDaniel.csv',
                  header=None, index=None, sep=';')
