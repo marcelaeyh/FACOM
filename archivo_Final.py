@@ -289,6 +289,7 @@ def analisis_variable(tabla, eng,direccion,direccion2,direccion3):
              ,"Longitud","Fecha Inicial","Fecha Final","Muestreo valores iniciales","Muestreo valores finales","Numerofilas y columnas",
              "Máximo","Mínimo","Promedio","Desviación Estándar","Mediana"]
     vector=[titulos]
+    exep=["codigos"]
     
     #encontrar los codigos de la base de datos ingresada
     columnas="CodigoEstacion"
@@ -470,18 +471,20 @@ def analisis_variable(tabla, eng,direccion,direccion2,direccion3):
             print("#---------------------------#")
         except:
             print("La estación", cod, "No pudo ser ingresada")
+            exep.append(cod)
+            
             
     print("se termina de analizar la base de datos")
     df_final=pd.DataFrame(vector)
     df_final.to_csv(direccion2,sep=";")
-    return(df_final)
+    return(df_final,exep)
 
 #lucy
-#engp = 'sqlite:////home/marcelae/Desktop/FACOM/db/precipitacion_2.db'
+engp = 'sqlite:////home/marcelae/Desktop/FACOM/db/precipitacion_2.db'
 #engt = 'sqlite:////home/marcelae/Desktop/FACOM/db/temperatura_2.db'   
 
 #lucy2
-engt = 'sqlite:////home/marcela/Desktop/FACOM/db/temperatura_2.db' 
+#engt = 'sqlite:////home/marcela/Desktop/FACOM/db/temperatura_2.db' 
 
 #df=pd.DataFrame(vector)
 
@@ -694,3 +697,4 @@ p=analisis_variable_unicoCOD(tabla,engt,direccion,direccion2,direccion3,cod)
 #------------------------#----------------------------#-----------------------#
 #------------------------#----------------------------#-----------------------#
 #------------------------#----------------------------#-----------------------#
+
