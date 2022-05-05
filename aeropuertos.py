@@ -193,8 +193,8 @@ def col3_analisis_t(df_v,direccion1,direccion2,direccion3):
     df_v["fecha"]=pd.to_datetime(df_v["FechaObservacion"])
     cod=df_v.CodigoEstacion.unique()
     n_1=len(cod)
-    titulos=["CodigoEstacion","FechaInicial","FechaFinal","dxI","dxF","tamaño","Maximo"
-             ,"Minimo","Promedio"]
+    titulos=["CodigoEstacion","FechaInicial","FechaFinal","dxI","dxF","Tamaño","Maximo"
+             ,"Minimo","Promedio","DesviacionEstandar","Mediana"]
     vector=[titulos]
     exep=["CodigoEstacion"]
     for i in tqdm(range(n_1)):
@@ -331,8 +331,6 @@ def col3_analisis_t(df_v,direccion1,direccion2,direccion3):
             plt.savefig(direccion1+'CMA'  + '_IDEAM-' + str(cod_q) + '_' + str(i) + '.png')  
             
             #se guarda el archivo
-            titulos=["CodigoEstacion","FechaInicial","FechaFinal","dxI","dxF","tamaño","Maximo"
-                     ,"Minimo","Promedio"]
     
             c=[cod_q,df["fecha"][0],df["fecha"][n-1],dxi,dxf,shape,maxi,mini,media,
                desviacion,mediana]
