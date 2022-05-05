@@ -1187,3 +1187,35 @@ direccion3="/home/marcelae/Desktop/FACOM/png/precipitacion_completo/diurno/"
 tabla="precipitacion"
 p=analisis_variable(tabla, engp,direccion,direccion2,direccion3)
 
+# ------------------------------------------------------------------#-----------------------------------------------------
+
+
+#Lucy2
+engt = 'sqlite:////home/marcela/Desktop/FACOM/db/temperatura_2.db'
+engp = 'sqlite:////home/marcela/Desktop/FACOM/db/precipitacion_2.db'
+
+# Estaciones fuera de servicio y en pruebas
+my_query='''
+SELECT DISTINCT CodigoEstacion, NombreEstacion, Departamento, Municipio
+FROM precipitacion
+WHERE NombreEstacion
+LIKE "%pruebas%"
+'''
+
+df_t = SQL_PD(my_query,engt)
+df_p = SQL_PD(my_query,engp)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
