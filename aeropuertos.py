@@ -386,7 +386,7 @@ def rangocuadrado_coordenadas(d_A_entrada,usecols_AE,variacion_lat,variacion_lon
     #Se crean los vectores para guardar
     
     #archivo con estaciones no encontradas
-    titulos1 = ["lat","lon"]
+    titulos1 = ["lon","lat"]
     vector1 = [titulos1]
     #archivo con estaciones encontradas
     titulos = ["i","CodigoEstacion","NombreEstacion","Departamento","Municipio",
@@ -448,7 +448,6 @@ def rangocuadrado_coordenadas(d_A_entrada,usecols_AE,variacion_lat,variacion_lon
         
 
 
-
 #daniel
 d_A_entradad="/home/marcelae/Desktop/FACOM/aeropuertos/airport_coord.csv"
 usecols_AEd=[1,2]
@@ -457,6 +456,7 @@ variacion_lond=(0.17921/2)
 direccion1d="/home/marcelae/Desktop/FACOM/aeropuertos/entrega/daniel/analisis_por_lat_lon/C1.csv"
 direccion2d="/home/marcelae/Desktop/FACOM/aeropuertos/entrega/daniel/analisis_por_lat_lon/sinC.csv"
 direccion3d="/home/marcelae/Desktop/FACOM/aeropuertos/entrega/daniel/analisis_por_lat_lon/variasC.csv" 
+
 
 #julio
 d_A_entradaj="/home/marcelae/Desktop/FACOM/aeropuertos/Aeropuertos.csv"
@@ -477,10 +477,10 @@ tablat="temperatura"
 
 #daniel
 rangocuadrado_coordenadas(d_A_entradad,usecols_AEd,variacion_latd,variacion_lond,
-                          direccion1d,direccion2d,direccion3d,engp,tablat)
+                          direccion1d,direccion2d,direccion3d,engt,tablat)
 
 #julio
 rangocuadrado_coordenadas(d_A_entradaj,usecols_AEj,variacion_latj,variacion_lonj,
-                          direccion1j,direccion2j,direccion3j,engp,tablat)
+                          direccion1j,direccion2j,direccion3j,engt,tablat)
 
 
