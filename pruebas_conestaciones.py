@@ -1667,14 +1667,25 @@ rangocuadrado_coordenadas(d_A_entradad,usecols_AEd,variacion_latd,variacion_lond
 #julio
 rangocuadrado_coordenadas(d_A_entradaj,usecols_AEj,variacion_latj,variacion_lonj,
                           direccion1j,direccion2j,direccion3j,engt,tablat)
+#-------------------------------------------#-----------------------------------#
+#mayo 9 de 2022 pruebas con el profe Esteban
 
 
+my_query='''
+SELECT CodigoEstacion,FechaObservacion,Departamento
+FROM precipitacion
+WHERE Departamento = "antioquia"
+'''
+v1 = SQL_PD(my_query,engp)
 
+cod=v1.CodigoEstacion.unique()
+v1["FechaObservacion"]=pd.to_datetime(v1["FechaObservacion"],format='%m/%d/%Y %I:%M:%S %p')
 
+for i in cod:
+    ok = v1.CodigoEstacion==i
+    print((v1["Departamento"][ok]).unique(),i,
+          (v1["FechaObservacion"][ok]).max(),
+          (v1["FechaObservacion"][ok]).min())
+v1.min()
 
-
-
-
-
-
-
+print(len(v1[v1.CodigoEstacion==47017070]))
