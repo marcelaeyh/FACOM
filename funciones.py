@@ -3,6 +3,17 @@
 """
 Funciones
 """
+# Librerias
+import pandas as pd
+import  numpy as np
+from datetime import datetime
+from tqdm import tqdm              # libreria para saber el tiempo de ejecución
+from sqlalchemy import create_engine
+import os
+import math
+import re
+import matplotlib.pyplot as plt #Para graficar
+
 ###############################################################################
 
 # 1. 
@@ -710,5 +721,21 @@ def analisis_variable(tabla, eng,direccion,direccion2,direccion3):
     df_final.to_csv(direccion2,sep=";")
     return(df_final,exep)
 
+###############################################################################
+#8. 
     
+# Correcion de los nombres del catalogo
+# df = dataframe con la columna de los nombres del catalogo 
+#(tambien funciona para arreglar los de las bases de datos)
 
+def nombres_catalogo(df):
+    
+    for i in range(len(df)):
+        a = re.search("-",df[i])
+        
+        if a :
+            n = a.start()-3
+            df[i] = df[i][:n]
+            
+    return df
+    
