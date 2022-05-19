@@ -275,9 +275,24 @@ def momento_observacion():
     end = pd.to_datetime("31-12-2030 23:59:59", format="%d-%m-%Y %H:%M:%S")
     mo = pd.date_range(start, end,freq="1min").to_frame()
     mo.columns=["fecha_observacion"]
+    
+    # Se añade el df a la tabla momento_observacion
     mo.to_sql('momento_observacion', con=engine, index=False, if_exists='append', 
                   chunksize=5000)
+def variable():
+    temp = pd.read_csv(r"/home/marcela/Documents/organizar/Datos_Hidrometeorol_gicos_Crudos_-_Red_de_Estaciones_IDEAM___Temperatura.csv",
+                       nrows=1)
+    precip = pd.read_csv(r"/home/marcela/Documents/organizar/Precipitaci_n.csv",
+                         nrows=1)
 
+    variable = pd.DataFrame(columns = ["descripcion_variable","unidad_medida","codigo_sensor"])
+    variable.descripcion_variable = [temp.DescripcionSensor[0],precip.DescripcionSensor[0],"Presión Atmosferica (1h)"]
+    variable.unidad_medida = [temp.UnidadMedida[0],precip.UnidadMedida[0],"HPa"]
+    variable.codigo_sensor = [temp.CodigoSensor[0],precip.CodigoSensor[0],255]
+    
+    # Se añade el df a la tabla variable
+    variable.to_sql("variable", engine, if_exists= "append",index=False)
+    
 def añadirdb(catalogo):
     departamento(catalogo)
     print("Se añadieron los datos a la tabla departamento")
@@ -295,7 +310,9 @@ def añadirdb(catalogo):
     print("Se añadieron los datos a la tabla estacion")
     momento_observacion()
     print("Se añadieron los datos a la tabla momento_observacion")
-    
+    variable()
+    print("Se añadieron los datos a la tabla variable")
+
 añadirdb(catalogo)
 
 
