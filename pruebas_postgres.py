@@ -120,10 +120,10 @@ def municipio(catalogo,eng):
     
     cod = []
     
-    for i in dep.nombre_departamento:
-        for j in mun_cat.Departamento:
+    for i in mun_cat.Departamento:
+        for j in dep.nombre_departamento:
             if i == j:
-                cod.append(dep.index[dep["nombre_departamento"] == i][0])
+                cod.append(dep.index[dep["nombre_departamento"] == j][0])
     
     mun = pd.DataFrame(columns = ["cod_departamento","nombre_municipio"])
     mun.nombre_municipio = mun_cat.Municipio
