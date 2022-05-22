@@ -47,23 +47,23 @@ def nombres_catalogo(df):
     return df
 
 # Se crea la conexión a la base de datos
-engine = create_engine("postgresql://lucy2:usuario@localhost:5432/prueba")
+engine = create_engine("postgresql://lucy:usuario@localhost:5432/FACOM_IDEAM")
 
-eng = "postgresql://lucy2:usuario@localhost:5432/prueba"
+eng = "postgresql://lucy:usuario@localhost:5432/FACOM_IDEAM"
 
 # Se lee el catalogo con la información para añadir
-catalogo = pd.read_csv(r"/home/marcela/Desktop/FACOM/otros_documentos/Cat_logo_Nacional_de_Estaciones_del_IDEAM.csv")
+catalogo = pd.read_csv(r"/home/marcelae/Desktop/FACOM/otros_documentos/Cat_logo_Nacional_de_Estaciones_del_IDEAM.csv")
 print("Se leyó correctamente el catalogo de estaciones")
 
 # Se saca la latitud y longitud de cada una de las estaciones de los datos del IDEAM
 
 print("inició la carga del archivo precipitacion")
-p = pd.read_csv(r"/home/marcela/Documents/organizar/Precipitaci_n.csv",usecols=(0,8,9))
+p = pd.read_csv(r"/home/marcelae/Documents/organizar/Precipitaci_n.csv",usecols=(0,8,9))
 print("terminó la carga del archivo precipitacion")
 
 
 print("inició la carga del archivo temperatura")
-t = pd.read_csv(r"/home/marcela/Documents/organizar/Datos_Hidrometeorol_gicos_Crudos_-_Red_de_Estaciones_IDEAM___Temperatura.csv",
+t = pd.read_csv(r"/home/marcelae/Documents/organizar/Datos_Hidrometeorol_gicos_Crudos_-_Red_de_Estaciones_IDEAM___Temperatura.csv",
                 usecols=(0,8,9))
 print("terminó la carga del archivo temperatura")
 
@@ -75,7 +75,7 @@ t = t.drop_duplicates(subset = "CodigoEstacion")
 t = t.sort_values("CodigoEstacion")
 t = t.reset_index(drop="index")
 
-a = pd.read_csv(r"/home/marcela/Desktop/FACOM/Estaciones/existencia_estaciones_catalogo.csv",sep=";")
+a = pd.read_csv(r"/home/marcelae/Desktop/FACOM/Estaciones/existencia_estaciones_catalogo.csv",sep=";")
 
 est = []
 lat = []
