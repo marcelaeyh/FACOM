@@ -97,7 +97,7 @@ coordenadas = pd.DataFrame(columns = ["Codigo","Latitud","Longitud"])
 coordenadas.Codigo = est
 coordenadas.Latitud = lat
 coordenadas.Longitud = lon
-
+coordenadas.to_csv(r"/home/marcelae/Desktop/FACOM/Estaciones/coordenadas_estaciones.csv",sep=";",index=None)
 
 # Funciones para añadir informacion por tabla
 
