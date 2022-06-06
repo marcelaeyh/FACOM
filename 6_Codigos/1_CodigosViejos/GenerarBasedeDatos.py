@@ -32,8 +32,7 @@ import os
 
 
 #2.1 DIRECIONES DE LOS ARCHIVOS
-mt="Datos_Hidrometeorol_gicos_Crudos_-_Red_de_Estaciones_IDEAM___Temperatura.csv" 
-mp="P.csv"
+mt="Presi_n_Atmosf_rica.csv" 
 
 #2.2 LECTURA Y CARGA DE LOS ARCHIVOS
 k=pd.read_csv(mt,usecols=[0])    #Se crea una variable que contenga la longitud del archivo original
@@ -43,7 +42,7 @@ n=len(k)                        #longitud de la columna de prueba
 k.head()
 del k
 
-data_base_name = "DATA.db"    # se asigna un nombre al db
+data_base_name = "presion.db"    # se asigna un nombre al db
 engine = create_engine('sqlite:///'+data_base_name)     # se crea el motor 
 sqlite_connection = engine.connect()                    # se enciende la conexión
 step=n*0.01             # el número es el porcentaje que se va a tomar "dx"
@@ -54,7 +53,7 @@ while tqdm(cont <= (n-1)):
     #el porcentaje que se desea cargar que inicialmente se asigno en cada paso. 
     v=pd.read_csv(mt,nrows=int(step),skiprows=range(1,int(cont)))
     print("ingresando paso",cont)
-    v.to_sql(name='temperatura',con=sqlite_connection,index=False,if_exists='append') 
+    v.to_sql(name='presion',con=sqlite_connection,index=False,if_exists='append') 
     cont=cont+step
     del v
     #print(cont,"_",step)
