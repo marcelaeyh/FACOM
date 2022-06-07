@@ -35,27 +35,37 @@ mx = []
 lon = []
 for i in range(len(n)):
     estacion = df[df.CodigoEstacion == df.CodigoEstacion[i]]
-    #if len(estacion.ValorObservado) > 24:
-    mx.append(estacion.FechaObservacion[estacion.ValorObservado == max(estacion.ValorObservado)])
-    lon.append(estacion.Longitud[estacion.ValorObservado == max(estacion.ValorObservado)])
-    
-    cod = estacion.CodigoEstacion.unique()
-    
-    plt.figure(figsize=(10,5))
-    plt.plot(estacion.FechaObservacion,estacion.ValorObservado,label=cod[0])
-    plt.title("Presion vs tiempo para el dia 15 de enero del 2022",fontsize=20)
-    plt.xlabel("Tiempo [Horas]",fontsize=15)
-    plt.ylabel("Presión [hP]",fontsize=15)
-    plt.grid()
-    plt.legend()
-    
-    plt.savefig('/home/marcelae/Desktop/FACOM/1_Proyectos/5_volcan/png_completos/presion_15-01-2022_'+str(cod[0])+'.png') 
-    
+    estacion = estacion.reset_index(drop='index')
+    if len(estacion.ValorObservado) > 24:
+        maximo = estacion.ValorObservado[(estacion.ValorObservado == max(estacion.ValorObservado))]
+        fecha = estacion.FechaObservacion[(estacion.ValorObservado == max(estacion.ValorObservado))]
+        
+        #a = estacion.ValorObservado[estacion.index==(maximo.index-3)[0]]
+        #d = estacion.ValorObservado[estacion.index==(maximo.index+3)[0]]
+        #prom = abs((a[a.index[0]]+d[d.index[0]])/2)
+        mx.append(maximo)
+        lon.append(estacion.Longitud[estacion.ValorObservado == max(estacion.ValorObservado)])
+        
+        cod = estacion.CodigoEstacion.unique()
+        
+        plt.figure(figsize=(10,5))
+        plt.plot(estacion.FechaObservacion,estacion.ValorObservado,label=cod[0])
+        plt.title("Presion vs tiempo para el dia 15 de enero del 2022",fontsize=20)
+        plt.xlabel("Tiempo [Horas]",fontsize=15)
+        plt.ylabel("Presión [hP]",fontsize=15)
+        plt.grid()
+        plt.legend()
+        
+        plt.savefig('/home/marcelae/Desktop/FACOM/1_Proyectos/5_volcan/png_completos/presion_15-01-2022_'+str(cod[0])+'.png') 
+   
+lon = np.array(lon)*111.1
+
 plt.figure(figsize=(9,5)) 
 plt.plot(lon,mx,'o')
-plt.title("Fecha del pico maximo de la anomalia por longitud geográfica",fontsize=20)     
-plt.xlabel("Longitud Geográfica [°]",fontsize=14)
-plt.ylabel("Fecha del pico maximo [min]",fontsize=14)
+plt.title("Maximo de la anomalia por longitud geográfica",fontsize=20)     
+plt.xlabel("Longitud Geográfica [km]",fontsize=14)
+plt.ylabel("Magnitud del pico maximo [hP]",fontsize=14)
 plt.grid()
-plt.savefig('/home/marcelae/Desktop/FACOM/1_Proyectos/5_volcan/png_completos/longitudes'+'.png') 
+plt.savefig('/home/marcelae/Desktop/FACOM/1_Proyectos/5_volcan/png/max_km'+'.png') 
+
 
