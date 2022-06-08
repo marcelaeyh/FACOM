@@ -29,7 +29,7 @@ SELECT DISTINCT CodigoEstacion FROM presion
 
 cod = pd.read_sql(query,con=eng)
 
-for i in cod.CodigoEstacion:
+for i in tqdm(cod.CodigoEstacion):
     q = '''
     SELECT FechaObservacion, ValorObservado
     FROM presion
@@ -40,6 +40,7 @@ for i in cod.CodigoEstacion:
     
     df["FechaObservacion"]=pd.to_datetime(df['FechaObservacion'],format='%m/%d/%Y %I:%M:%S %p')
     df = df.sort_values("FechaObservacion")
+    df = df.reset_index(drop='index')
     
     fechainicial=df["FechaObservacion"].min()
     fechafinal=df["FechaObservacion"].max()
@@ -57,24 +58,23 @@ for i in cod.CodigoEstacion:
     y=list(df["year"].unique())
     y.sort()
     
-    #3. PROMEDIOS MENSUALES
-    print(i,"-",cod,"- PM")
-    Ma_mes=[]
-    for i in tqdm(y):
-        year=df[df.year==i]
-        for j in tqdm(month):
-            mes=year[year.month==j]
-            mean_m=mes.ValorObservado.mean(skipna=True)
-            Ma_mes.append(mean_m)
-
-
-    plt.figure(figsize=(10,5))    
-    plt.plot(Ma_mes,color="sienna",label=str(cod))
-    plt.title(" Promedios Mensuales \n "+str(fechainicial)+" - "+str(fechafinal),fontsize=15)
+    #Anomalia
+    prom = df.ValorObservado.mean()
+    desv = np.std(df.ValorObservado)
+    
+    datos = []
+    
+    for j in tqdm(df.ValorObservado):
+        ae = (j-prom)/desv
+        datos.append(ae)
+    
+    plt.figure(figsize=(10,5))
+    plt.plot(df.FechaObservacion,datos,color="orange",label=str(i))
+    plt.title("Anomalia Estandarizada - "+str(i),fontsize=15)
     plt.minorticks_on()
-    plt.ylabel("Temperatura [°C]", fontsize=12)
-    plt.xlabel("Tiempo (meses)",fontsize=12)
+    plt.ylabel("Anomalía estandarizada", fontsize=12)
+    plt.xlabel("TTiempo [años]",fontsize=12)
     plt.legend()
     plt.grid()
     
-    plt.savefig(r"/home/marcelae/Desktop/FACOM/1_Proyectos/5_volcan/anomalia/png/promedio_presion "+str(cod)+".png",dpi = 400)
+    plt.savefig(r"/home/marcelae/Desktop/FACOM/7_png/3_PresionCompleto/Anomalias/anomalia_estandarizada "+str(cod)+".png",dpi = 400)
