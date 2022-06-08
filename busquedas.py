@@ -91,4 +91,4 @@ for i in tqdm(cod.CodigoEstacion):
         plt.legend()
         plt.grid()
         
-        plt.savefig(r"/home/marcelae/Desktop/graficos_prueba/ "+str(cod)+".png",dpi = 400)
+        plt.savefig(r"/home/marcelae/Desktop/graficos_prueba/ "+str(i)+".png",dpi = 400)
