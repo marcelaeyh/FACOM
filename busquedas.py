@@ -54,23 +54,7 @@ for i in tqdm(cod.CodigoEstacion):
         df = df.sort_values("FechaObservacion")
         df = df.reset_index(drop='index')
         
-        fechainicial=df["FechaObservacion"].min()
-        fechafinal=df["FechaObservacion"].max()
-        df["year"]=pd.to_datetime(df["FechaObservacion"]).dt.year 
-        df["month"]=pd.to_datetime(df["FechaObservacion"]).dt.month 
-        df["day"]=pd.to_datetime(df["FechaObservacion"]).dt.day
-        df["hour"]=pd.to_datetime(df["FechaObservacion"]).dt.hour
-        #creamos las lista con los dates
-        h=list(df["hour"].unique())
-        h.sort()
-        d=list(df["day"].unique())
-        d.sort()
-        month=list(df["month"].unique())
-        month.sort()
-        y=list(df["year"].unique())
-        y.sort()
-        
-        #Anomalia
+        #Anomalia estandarizada
         prom = df.ValorObservado.mean()
         desv = np.std(df.ValorObservado)
         
@@ -91,4 +75,47 @@ for i in tqdm(cod.CodigoEstacion):
         plt.legend()
         plt.grid()
         
-        plt.savefig(r"/home/marcelae/Desktop/graficos_prueba/ "+str(i)+".png",dpi = 400)
+        plt.savefig(r"/home/marcelae/Desktop/graficos_prueba/anomalia_estandarizada/ "+str(i)+".png",dpi = 400)
+        
+        # anomalia otra **
+        q2 = '''
+        SELECT FechaObservacion, ValorObservado
+        FROM presion
+        WHERE CodigoEstacion == {}
+        AND FechaObservacion LIKE '01/%'
+        '''.format(i)
+        
+        
+        eneros = pd.read_sql(q2,con=eng)
+        
+        eneros["FechaObservacion"]=pd.to_datetime(eneros['FechaObservacion'],format='%m/%d/%Y %I:%M:%S %p')
+        eneros = eneros.sort_values("FechaObservacion")
+        eneros = eneros.reset_index(drop='index')
+        
+        fechainicial=eneros["FechaObservacion"].min()
+        fechafinal=eneros["FechaObservacion"].max()
+        
+        eneros["day"]=pd.to_datetime(eneros["FechaObservacion"]).dt.day
+        eneros["hour"]=pd.to_datetime(eneros["FechaObservacion"]).dt.hour
+        #creamos las lista con los dates
+        h=list(df["hour"].unique())
+        h.sort()
+        d=list(df["day"].unique())
+        d.sort()
+ 
+        CMD=[]
+        for i in tqdm(h):
+            hour=df[df.hour==i]
+            mean_h=hour["ValorObservado"].mean(skipna=True)
+            CMD.append(mean_h)
+        
+        plt.figure(figsize=(10,5))
+        plt.plot(h,CMD,color="orange",label=str(i))
+        plt.title("Anomalia - "+str(i),fontsize=15)
+        plt.minorticks_on()
+        plt.ylabel("Anomalía", fontsize=12)
+        plt.xlabel("Tiempo [horas]",fontsize=12)
+        plt.legend()
+        plt.grid()
+        
+        plt.savefig(r"/home/marcelae/Desktop/graficos_prueba/anomalia/ "+str(i)+".png",dpi = 400)
