@@ -105,7 +105,7 @@ for i in tqdm(cod.CodigoEstacion):
  
         CMD=[]
         for i in tqdm(h):
-            hour=df[df.hour==i]
+            hour=eneros[eneros.hour==i]
             mean_h=hour["ValorObservado"].mean(skipna=True)
             CMD.append(mean_h)
         
