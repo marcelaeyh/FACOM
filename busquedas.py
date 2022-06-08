@@ -98,9 +98,9 @@ for i in tqdm(cod.CodigoEstacion):
         eneros["day"]=pd.to_datetime(eneros["FechaObservacion"]).dt.day
         eneros["hour"]=pd.to_datetime(eneros["FechaObservacion"]).dt.hour
         #creamos las lista con los dates
-        h=list(df["hour"].unique())
+        h=list(eneros["hour"].unique())
         h.sort()
-        d=list(df["day"].unique())
+        d=list(eneros["day"].unique())
         d.sort()
  
         CMD=[]
