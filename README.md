@@ -104,3 +104,38 @@ A continuación se presenta una descripción de cada una de las tablas de la bas
 * **cod_variable (integer):** Llave foránea que relaciona cada valor observado con la tabla variable.
 
 
+## Información relevante
+
+Durante el análisis de los datos se encontró que algunas de las estaciones meteorológicas cambiaron su código de estación con el paso del tiempo y por ende, el CodigoEstacion ya no existía en el catálogo nacional de estaciones del IDEAM. Los datos de las estaciones que cambiaron su código se almacenaron en la base de datos con el código de estación actual, con el fin de agilizar las búsquedas y unificar la información, sin embargo, a continuación se presenta un registro de los códigos modificados y las fechas respectivas a cada codigo.
+
+* **nombre_estacion:** aeropuerto rafael nunez 
+    * codigo 14015020 entre 2014-09-02 16:10:00 y 2019-09-14 23:50:00  
+    * codigo 14015080 entre 2019-09-18 00:00:00 y actualidad 
+
+* **nombre_estacion:** aeropuerto vasquez cobo 
+    * codigo 48015010 entre 2014-09-02 16:10:00 y 2018-10-11 14:00:00
+    * codigo 48015050 entre 2018-10-11 16:10:00 y actualidad 
+    
+* **nombre_estacion:** PERENCO: TRINIDAD METEO
+    * codigo 35237040, la mayoría de los datos que contiene son '<nil>', se descarta por completo la estacion.
+    
+* **nombre_estacion:** ECI JULIO GARAVITO EST. EN PRUEBAS
+    * codigo 88112901, la mayoría de los datos que contiene son '<nil>', se descarta por completo la estacion.
+
+* **nombre_estacion:** PLUVIOMETROS IDEAM BOGOTA Pruebas GPRS
+    * codigo 21202270, tiene datos, estación en pruebas
+
+* **nombre_estacion:** PERENCO: LA CABANA - TERMO ELECTRICA
+    * codigo 35217080, tiene datos, estación en pruebas
+
+* **nombre_estacion:** PERENCO: OROCUE PIPESCA
+    * codigo 35227020, la mayoría de los datos que contiene son '<nil>', se descarta por completo la estacion.
+
+* **nombre_estacion:** BARRANCABERMEJA
+    * codigo 23157050, la mayoría de los datos que contiene son '<nil>', se descarta por completo la estacion.
+
+* **nombre_estacion:** PTO NUEVO PATIA - En Siniestro
+    * codigo 23157050, la mayoría de los datos que contiene son '<nil>', se descarta por completo la estación.
+
+
+

@@ -108,7 +108,13 @@ for i in tqdm(cod.CodigoEstacion):
             hour=eneros[eneros.hour==i]
             mean_h=hour["ValorObservado"].mean(skipna=True)
             CMD.append(mean_h)
-        
+            
+        for j in tqdm(df.ValorObservado):
+            if desv ==0:
+                continue
+            ae = (j-CMD[j])/desv
+            datos.append(ae)
+            
         plt.figure(figsize=(10,5))
         plt.plot(h,CMD,color="orange",label=str(i))
         plt.title("Anomalia - "+str(i),fontsize=15)

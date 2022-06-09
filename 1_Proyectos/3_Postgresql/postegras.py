@@ -232,8 +232,6 @@ def estacion(datos,eng):
     # Se añade el df a la tabla estacion
     estacion.to_sql(tablas[7], engine, if_exists= "append",index=False)
 
-estacion(datos, eng)
-
 #########################################################
 # EJECUCION DE LAS FUNCIONES PARA AGREGAR TABLAS
 def añadirdb(catalogo,eng):
@@ -283,14 +281,14 @@ dx=0
 print("Longitud del archivo de entrada= ",n_p)
 print("Los pasos de tiempo son de= ",step)
 print("Inicia desde= ",cont)
-|
+
 while tqdm(cont <= (n_p-1)):
     start= time.time()
     #La siguiente fila de codigo lo que carga es el dx, se toma una porción y solo se carga
     #el porcentaje que se desea cargar que inicialmente se asigno en cada paso. 
     df=pd.read_csv(pre,nrows=int(step),skiprows=range(1,int(cont)),usecols=[0,2,3])
     print("#------#-------#")
-    print("contador",cont,"paso=",dx)
+    print("contador ",cont,"paso=",dx)
     print("#------#-------#")
     dx=dx+1
     
@@ -327,11 +325,15 @@ while tqdm(cont <= (n_p-1)):
     
     for i in tqdm(range(p,n_df)):
         ab=df["CodigoEstacion"][i]
-        if (ab==14015020 or ab==48015010 or ab==88112901 or 
-            ab==35237040 or ab==21202270 or ab==35217080
-            or ab==35227020 or ab==23157050 or ab==52017020):
+        if (ab==88112901 or ab==35237040 or ab==21202270 
+            or ab==35217080 or ab==35227020 or ab==23157050 or ab==52017020):
             continue 
-
+        
+        if ab ==14015020:
+            df[vnCSV[0]][i] = 14015080
+        if ab==48015010:
+            df[vnCSV[0]][i] = 48015050
+            
         v =[df[vnCSV[3]][i],df[vnC[20]][i],df[vnCSV[0]][i],df[vnC[19]][i],2]
         V.append(v)
 
@@ -403,12 +405,16 @@ while tqdm(cont <= (n_t-1)):
     p=0
     for i in tqdm(range(p,n_df)):
         ab=df["CodigoEstacion"][i]
-        if (ab==14015020 or ab==48015010 or ab==88112901 or 
-            ab==35237040 or ab==21202270 or ab==35217080
-            or ab==35227020 or ab==23157050 or ab==52017020):
+        if (ab==88112901 or ab==35237040 or ab==21202270 
+            or ab==35217080 or ab==35227020 or ab==23157050 or ab==52017020):
             continue 
-
-        v =[df[vnCSV[3]][i],df[vnC[20]][i],df[vnCSV[0]][i],df[vnC[19]][i],1]
+        
+        if ab ==14015020:
+            df[vnCSV[0]][i] = 14015080
+        if ab==48015010:
+            df[vnCSV[0]][i] = 48015050
+            
+        v =[df[vnCSV[3]][i],df[vnC[20]][i],df[vnCSV[0]][i],df[vnC[19]][i],2]
         V.append(v)
 
     V=pd.DataFrame(V)
@@ -468,11 +474,15 @@ while tqdm(cont <= (n_pe-1)):
     
     for i in tqdm(range(p,n_df)):
         ab=df["CodigoEstacion"][i]
-        if (ab==14015020 or ab==48015010 or ab==88112901 or 
-            ab==35237040 or ab==21202270 or ab==35217080
-            or ab==35227020 or ab==23157050 or ab==52017020):
+        if (ab==88112901 or ab==35237040 or ab==21202270 
+            or ab==35217080 or ab==35227020 or ab==23157050 or ab==52017020):
             continue 
-
+        
+        if ab ==14015020:
+            df[vnCSV[0]][i] = 14015080
+        if ab==48015010:
+            df[vnCSV[0]][i] = 48015050
+            
         v =[df[vnCSV[3]][i],df[vnC[20]][i],df[vnCSV[0]][i],df[vnC[19]][i],2]
         V.append(v)
 
