@@ -64,7 +64,7 @@ tablas=["departamento","municipio","zonahidrografica","categoria","tecnologia",
         "flags_X_observacion","flags_x_estacion"]
 
 #direcciones
-d1=r"/home/marcelae/Desktop/FACOM/otros_documentos/Cat_logo_Nacional_de_Estaciones_del_IDEAM.csv"
+d1=r"/home/marcelae/Desktop/FACOM/5_Documentos/Cat_logo_Nacional_de_Estaciones_del_IDEAM.csv"
 temp = r"/home/marcelae/Desktop/FACOM/3_csv/Datos_Hidrometeorol_gicos_Crudos_-_Red_de_Estaciones_IDEAM___Temperatura.csv"
 pre = r"/home/marcelae/Desktop/FACOM/3_csv/recipitaci_n.csv"
 pres= r"/home/marcelae/Desktop/FACOM/3_csv/Presi_n_Atmosf_rica.csv"
@@ -242,8 +242,8 @@ def estacion(datos,eng):
 #########################################################
 # EJECUCION DE LAS FUNCIONES PARA AGREGAR TABLAS
 def añadirdb(catalogo,eng):
-    departamento(catalogo)
-    print("Se añadieron los datos a la tabla departamento")
+    #departamento(catalogo)
+    #print("Se añadieron los datos a la tabla departamento")
     municipio(catalogo,eng)
     print("Se añadieron los datos a la tabla municipio")
     zonahidrografica(catalogo)
