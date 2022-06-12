@@ -66,7 +66,7 @@ tablas=["departamento","municipio","zonahidrografica","categoria","tecnologia",
 #direcciones
 d1=r"/home/marcelae/Desktop/FACOM/5_Documentos/Cat_logo_Nacional_de_Estaciones_del_IDEAM.csv"
 temp = r"/home/marcelae/Desktop/FACOM/3_csv/Datos_Hidrometeorol_gicos_Crudos_-_Red_de_Estaciones_IDEAM___Temperatura.csv"
-pre = r"/home/marcelae/Desktop/FACOM/3_csv/recipitaci_n.csv"
+pre = r"/home/marcelae/Desktop/FACOM/3_csv/Precipitaci_n.csv"
 pres= r"/home/marcelae/Desktop/FACOM/3_csv/Presi_n_Atmosf_rica.csv"
 coor= r"/home/marcelae/Desktop/FACOM/1_Proyectos/2_Estaciones/CSV/coordenadas_estaciones.csv"
 
@@ -244,16 +244,16 @@ def estacion(datos,eng):
 def añadirdb(catalogo,eng):
     #departamento(catalogo)
     #print("Se añadieron los datos a la tabla departamento")
-    municipio(catalogo,eng)
-    print("Se añadieron los datos a la tabla municipio")
-    zonahidrografica(catalogo)
-    print("Se añadieron los datos a la tabla zonahidrografica")
-    categoria(catalogo)
-    print("Se añadieron los datos a la tabla categoria")
-    tecnologia(catalogo)
-    print("Se añadieron los datos a la tabla tecnologia")
-    estado(catalogo)
-    print("Se añadieron los datos a la tabla estado")
+    #municipio(catalogo,eng)
+    #print("Se añadieron los datos a la tabla municipio")
+    #zonahidrografica(catalogo)
+    #print("Se añadieron los datos a la tabla zonahidrografica")
+    #categoria(catalogo)
+    #print("Se añadieron los datos a la tabla categoria")
+    #tecnologia(catalogo)
+    #print("Se añadieron los datos a la tabla tecnologia")
+    #estado(catalogo)
+    #print("Se añadieron los datos a la tabla estado")
     estacion(catalogo,eng)
     print("Se añadieron los datos a la tabla estacion")
     #momento_observacion()
