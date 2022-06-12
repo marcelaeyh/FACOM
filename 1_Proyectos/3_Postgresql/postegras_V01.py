@@ -25,16 +25,16 @@ import time
 #2.1 Bases de datos
 
 #2.1.1 postgresql
-#eng = "postgresql://facom:usuario@localhost:5432/alejandria" #Motorlucy marcela
-eng="postgresql://luisa:000000@localhost:5432/alejandria" #Motor Luisa
+eng = "postgresql://facom:usuario@localhost:5432/alejandria" #Motorlucy marcela
+#eng="postgresql://luisa:000000@localhost:5432/alejandria" #Motor Luisa
 engine = create_engine(eng) #Maquina
 conn=engine.connect()
 
 #2.1.2 sqlite
 T_sqlite= 'sqlite:////home/marcelae/Desktop/FACOM/2_db/temperatura_2.db' #lucy
 P_sqlite= 'sqlite:////home/marcelae/Desktop/FACOM/2_db/precipitacion_2.db' #lucy
-T_sqlite= 'sqlite:////media/luisa/Datos/FACOM/gits/FACOM/2_db/temperatura_2.db' #lucy
-P_sqlite= 'sqlite:////media/luisa/Datos/FACOM/gits/FACOM/2_db/precipitacion_2.db' #luisa
+#T_sqlite= 'sqlite:////media/luisa/Datos/FACOM/gits/FACOM/2_db/temperatura_2.db' #lucy
+#P_sqlite= 'sqlite:////media/luisa/Datos/FACOM/gits/FACOM/2_db/precipitacion_2.db' #luisa
 
 #2.2 Creación de la conexión con la base de datos
 Tengine_sql = create_engine(T_sqlite)  #Temperatura 
@@ -68,18 +68,18 @@ tablas=["departamento","municipio","zonahidrografica","categoria","tecnologia",
 #2.4 Direcciones
 
 #2.4.1 lucy
-#d1=r"/home/marcelae/Desktop/FACOM/5_Documentos/Cat_logo_Nacional_de_Estaciones_del_IDEAM.csv"
-#temp = r"/home/marcelae/Desktop/FACOM/3_csv/Datos_Hidrometeorol_gicos_Crudos_-_Red_de_Estaciones_IDEAM___Temperatura.csv"
-#pre = r"/home/marcelae/Desktop/FACOM/3_csv/Precipitaci_n.csv"
-#pres= r"/home/marcelae/Desktop/FACOM/3_csv/Presi_n_Atmosf_rica.csv"
-#coor= r"/home/marcelae/Desktop/FACOM/1_Proyectos/2_Estaciones/CSV/coordenadas_estaciones.csv"
+d1=r"/home/marcelae/Desktop/FACOM/5_Documentos/Cat_logo_Nacional_de_Estaciones_del_IDEAM.csv"
+temp = r"/home/marcelae/Desktop/FACOM/3_csv/Datos_Hidrometeorol_gicos_Crudos_-_Red_de_Estaciones_IDEAM___Temperatura.csv"
+pre = r"/home/marcelae/Desktop/FACOM/3_csv/Precipitaci_n.csv"
+pres= r"/home/marcelae/Desktop/FACOM/3_csv/Presi_n_Atmosf_rica.csv"
+coor= r"/home/marcelae/Desktop/FACOM/1_Proyectos/2_Estaciones/CSV/coordenadas_estaciones.csv"
 
 #2.4.2 Luisa
-d1=r"/media/luisa/Datos/FACOM/gits/FACOM/5_Documentos/Cat_logo_Nacional_de_Estaciones_del_IDEAM.csv"
-temp = r"/media/luisa/Datos/FACOM/gits/FACOM/3_csv/Datos_Hidrometeorol_gicos_Crudos_-_Red_de_Estaciones_IDEAM___Temperatura.csv"
-pre=r"/media/luisa/Datos/FACOM/gits/FACOM/3_csv/Precipitaci_n.csv"
-pres= r"/media/luisa/Datos/FACOM/gits/FACOM/3_csv/Presi_n_Atmosf_rica.csv"
-coor= r"/media/luisa/Datos/FACOM/gits//FACOM/1_Proyectos/2_Estaciones/CSV/coordenadas_estaciones.csv"
+#d1=r"/media/luisa/Datos/FACOM/gits/FACOM/5_Documentos/Cat_logo_Nacional_de_Estaciones_del_IDEAM.csv"
+#temp = r"/media/luisa/Datos/FACOM/gits/FACOM/3_csv/Datos_Hidrometeorol_gicos_Crudos_-_Red_de_Estaciones_IDEAM___Temperatura.csv"
+#pre=r"/media/luisa/Datos/FACOM/gits/FACOM/3_csv/Precipitaci_n.csv"
+#pres= r"/media/luisa/Datos/FACOM/gits/FACOM/3_csv/Presi_n_Atmosf_rica.csv"
+#coor= r"/media/luisa/Datos/FACOM/gits//FACOM/1_Proyectos/2_Estaciones/CSV/coordenadas_estaciones.csv"
 
 #conjunto de datos
 datos = pd.read_csv(d1)
@@ -249,7 +249,7 @@ def estacion(datos,eng):
 
 #########################################################
 # EJECUCION DE LAS FUNCIONES PARA AGREGAR TABLAS
-def añadirdb(catalogo,eng):
+#def añadirdb(catalogo,eng):
     #departamento(catalogo)
     #print("Se añadieron los datos a la tabla departamento")
     #municipio(catalogo,eng)
@@ -266,11 +266,11 @@ def añadirdb(catalogo,eng):
     #print("Se añadieron los datos a la tabla estacion")
     #momento_observacion()
     #print("Se añadieron los datos a la tabla momento_observacion")
-    variable()
-    print("Se añadieron los datos a la tabla variable")
+    #variable()
+    #print("Se añadieron los datos a la tabla variable")
 
 
-añadirdb(datos,eng)
+#añadirdb(datos,eng)
 
 #6.11 TABLA OBSERVACION
 
@@ -286,11 +286,11 @@ añadirdb(datos,eng)
 
 #6.11.1 PRECIPITACION
 #logitud del archivo de entrada
-lp =pd.read_csv(pre,usecols=[0])
+lp=pd.read_csv(pre,usecols=[0])
 n_p=len(lp)
 del lp
 
-step=math.ceil(n_p*0.0)  #el número es el porcentaje que se va a tomar "dx"
+step=math.ceil(n_p*0.05)  #el número es el porcentaje que se va a tomar "dx"
 cont=0 # el contador inicia desde 0, pero si es necesario se pue asignar uno diferente
 dx=0
 print("Longitud del archivo de entrada= ",n_p)
@@ -339,7 +339,7 @@ while tqdm(cont <= (n_p-1)):
 
     V=pd.DataFrame(V)
     vnBD[25]
-    V.columns=[vnBD[22], "fecha_observacion",vnBD[23],vnBD[24],vnBD[25]]
+    V.columns=[vnBD[22], "fecha_observacion",vnBD[23],"categoria_dato",vnBD[25]]
     V.to_sql(tablas[8], con=engine, index=False, if_exists='append',chunksize=100000)
     cont=cont+step
     final= time.time()
@@ -402,7 +402,7 @@ while tqdm(cont <= (n_t-1)):
 
     V=pd.DataFrame(V)
     vnBD[25]
-    V.columns=[vnBD[22], "fecha_observacion",vnBD[23],vnBD[24],vnBD[25]]
+    V.columns=[vnBD[22], "fecha_observacion",vnBD[23],"categoria_dato",vnBD[25]]
     V.to_sql(tablas[8], con=engine, index=False, if_exists='append',chunksize=100000)
     cont=cont+step
     final= time.time()
