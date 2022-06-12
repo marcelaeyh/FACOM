@@ -22,25 +22,27 @@ import time
 #----------------------------------------------------------------#
 #2. CREACION DE VARIABLES DE NORMALIZACION, MOTOR DE POSGREST, DIRECCIONES, CONJUNTO DE DATOS
 
-#bases de datos
-#postgresql
-eng = "postgresql://facom:usuario@localhost:5432/alejandria" #Motor
-#eng="postgresql://luisa:000000@localhost:5432/FACOM_IDEAM" #Motor Luisa
+#2.1 Bases de datos
+
+#2.1.1 postgresql
+#eng = "postgresql://facom:usuario@localhost:5432/alejandria" #Motorlucy marcela
+eng="postgresql://luisa:000000@localhost:5432/alejandria" #Motor Luisa
 engine = create_engine(eng) #Maquina
 conn=engine.connect()
-#sqlite
-#lucy
-T_sqlite= 'sqlite:////home/marcelae/Desktop/FACOM/2_db/temperatura_2.db'
-P_sqlite= 'sqlite:////home/marcelae/Desktop/FACOM/2_db/precipitacion_2.db'
-#
 
-Tengine_sql = create_engine(T_sqlite)
-Pengine_sql = create_engine(P_sqlite)
+#2.1.2 sqlite
+T_sqlite= 'sqlite:////home/marcelae/Desktop/FACOM/2_db/temperatura_2.db' #lucy
+P_sqlite= 'sqlite:////home/marcelae/Desktop/FACOM/2_db/precipitacion_2.db' #lucy
+T_sqlite= 'sqlite:////media/luisa/Datos/FACOM/gits/FACOM/2_db/temperatura_2.db' #lucy
+P_sqlite= 'sqlite:////media/luisa/Datos/FACOM/gits/FACOM/2_db/precipitacion_2.db' #luisa
 
-Tconn = Tengine_sql.connect()
-Pconn = Pengine_sql.connect()
+#2.2 Creación de la conexión con la base de datos
+Tengine_sql = create_engine(T_sqlite)  #Temperatura 
+Pengine_sql = create_engine(P_sqlite)  #Precipitación
+Tconn = Tengine_sql.connect()  #Temperatura
+Pconn = Pengine_sql.connect()  #Precipitación
 
-#variables normalizadoras
+#2.3 Variables normalizadoras
 vnC=['Codigo', 'Nombre', 'Categoria', 'Tecnologia', 'Estado', 'Departamento',
        'Municipio', 'Ubicación', 'Altitud', 'Fecha_instalacion',
        'Fecha_suspension', 'Area Operativa', 'Corriente', 'Area Hidrografica',
@@ -63,15 +65,21 @@ tablas=["departamento","municipio","zonahidrografica","categoria","tecnologia",
         "estado","momento_observacion","estacion","observacion","variable","flags",
         "flags_X_observacion","flags_x_estacion"]
 
-#direcciones
-d1=r"/home/marcelae/Desktop/FACOM/5_Documentos/Cat_logo_Nacional_de_Estaciones_del_IDEAM.csv"
-temp = r"/home/marcelae/Desktop/FACOM/3_csv/Datos_Hidrometeorol_gicos_Crudos_-_Red_de_Estaciones_IDEAM___Temperatura.csv"
-pre = r"/home/marcelae/Desktop/FACOM/3_csv/Precipitaci_n.csv"
-pres= r"/home/marcelae/Desktop/FACOM/3_csv/Presi_n_Atmosf_rica.csv"
-coor= r"/home/marcelae/Desktop/FACOM/1_Proyectos/2_Estaciones/CSV/coordenadas_estaciones.csv"
+#2.4 Direcciones
 
-#Luisa
-#pre=r"/media/luisa/Datos/FACOM/gits/FACOM/3_csv/Precipitaci_n.csv"
+#2.4.1 lucy
+#d1=r"/home/marcelae/Desktop/FACOM/5_Documentos/Cat_logo_Nacional_de_Estaciones_del_IDEAM.csv"
+#temp = r"/home/marcelae/Desktop/FACOM/3_csv/Datos_Hidrometeorol_gicos_Crudos_-_Red_de_Estaciones_IDEAM___Temperatura.csv"
+#pre = r"/home/marcelae/Desktop/FACOM/3_csv/Precipitaci_n.csv"
+#pres= r"/home/marcelae/Desktop/FACOM/3_csv/Presi_n_Atmosf_rica.csv"
+#coor= r"/home/marcelae/Desktop/FACOM/1_Proyectos/2_Estaciones/CSV/coordenadas_estaciones.csv"
+
+#2.4.2 Luisa
+d1=r"/media/luisa/Datos/FACOM/gits/FACOM/5_Documentos/Cat_logo_Nacional_de_Estaciones_del_IDEAM.csv"
+temp = r"/media/luisa/Datos/FACOM/gits/FACOM/3_csv/Datos_Hidrometeorol_gicos_Crudos_-_Red_de_Estaciones_IDEAM___Temperatura.csv"
+pre=r"/media/luisa/Datos/FACOM/gits/FACOM/3_csv/Precipitaci_n.csv"
+pres= r"/media/luisa/Datos/FACOM/gits/FACOM/3_csv/Presi_n_Atmosf_rica.csv"
+coor= r"/media/luisa/Datos/FACOM/gits//FACOM/1_Proyectos/2_Estaciones/CSV/coordenadas_estaciones.csv"
 
 #conjunto de datos
 datos = pd.read_csv(d1)
@@ -254,8 +262,8 @@ def añadirdb(catalogo,eng):
     #print("Se añadieron los datos a la tabla tecnologia")
     #estado(catalogo)
     #print("Se añadieron los datos a la tabla estado")
-    estacion(catalogo,eng)
-    print("Se añadieron los datos a la tabla estacion")
+    #estacion(catalogo,eng)
+    #print("Se añadieron los datos a la tabla estacion")
     #momento_observacion()
     #print("Se añadieron los datos a la tabla momento_observacion")
     variable()
