@@ -55,3 +55,23 @@ for i in codigos:
     plt.xticks(np.arange(0, 24, step=1))
     plt.legend()
     plt.grid()
+    
+    
+    plt.savefig("/home/marcelae/Desktop/FACOM/7_png/3_PresionCompleto/diurnos/Pre_CD"+str(i)+".png",dpi = 400)
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
