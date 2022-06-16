@@ -255,22 +255,22 @@ def añadirdb(catalogo,eng):
     municipio(catalogo,eng)
     print("Se añadieron los datos a la tabla municipio")
     zonahidrografica(catalogo)
-    print("Se añadieron los datos a la tabla zonahidrografica")
-    categoria(catalogo)
-    print("Se añadieron los datos a la tabla categoria")
-    tecnologia(catalogo)
-    print("Se añadieron los datos a la tabla tecnologia")
-    estado(catalogo)
-    print("Se añadieron los datos a la tabla estado")
-    estacion(catalogo,eng)
-    print("Se añadieron los datos a la tabla estacion")
+   #print("Se añadieron los datos a la tabla zonahidrografica")
+    #categoria(catalogo)
+    #print("Se añadieron los datos a la tabla categoria")
+    #tecnologia(catalogo)
+    #print("Se añadieron los datos a la tabla tecnologia")
+    #estado(catalogo)
+    #print("Se añadieron los datos a la tabla estado")
+    #estacion(catalogo,eng)
+    #print("Se añadieron los datos a la tabla estacion")
     #momento_observacion()
     #print("Se añadieron los datos a la tabla momento_observacion")
-    variable()
-    print("Se añadieron los datos a la tabla variable")
+    #variable()
+    #print("Se añadieron los datos a la tabla variable")
 
 
-añadirdb(datos,eng)
+#añadirdb(datos,eng)
 
 #6.11 TABLA OBSERVACION
 
@@ -317,7 +317,7 @@ while tqdm(cont <= (n_p-1)):
     #categoria del dato
     for index, row in tqdm(df.iterrows()):
         
-        if row[vnCSV[3]] < 0.0 or row[vnCSV[3]] >0.8:
+        if row[vnCSV[3]] < 0.0 and row[vnCSV[3]] >0.8:
             df[vnC[19]][index] = 1.0
        
     V=[]
@@ -377,7 +377,7 @@ while tqdm(cont <= (n_t-1)):
     #Calidad del dato
     for index, row in tqdm(df.iterrows()):
         
-        if row[vnCSV[3]] < 1.3 or row[vnCSV[3]] > 32.90:
+        if row[vnCSV[3]] < 1.3 and row[vnCSV[3]] > 32.90:
             df[vnC[19]][index] = 1 
        
 
@@ -397,7 +397,7 @@ while tqdm(cont <= (n_t-1)):
         if ab==48015010:
             df[vnCSV[0]][i] = 48015050
             
-        v =[df[vnCSV[3]][i],df[vnCSV[2]][i],df[vnCSV[0]][i],df[vnC[19]][i],1]
+        v =[df[vnCSV[3]][i],df[vnCSV[2]][i],df[vnCSV[0]][i],df[vnC[19]][i],2]
         V.append(v)
 
     V=pd.DataFrame(V)

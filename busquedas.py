@@ -24,8 +24,7 @@ eng = 'sqlite:////home/marcelae/Desktop/FACOM/2_db/presion.db'
 #eng = 'sqlite:////Volumes/DiscoMarcela/facom/presion.db'
 
 query='''
-SELECT DISTINCT CodigoEstacion FROM presion
-WHERE FechaObservacion LIKE '01/15/2022%'
+SELECT FechaObservacion FROM presion LIMIT 1
 '''
 
 cod = pd.read_sql(query,con=eng)
@@ -46,7 +45,7 @@ for a in tqdm(cod.CodigoEstacion):
         co21.append(a)
         
         
-for a in tqdm(cod):
+for a in tqdm(co21):
 
         q = '''
         SELECT FechaObservacion, ValorObservado
@@ -92,7 +91,7 @@ for a in tqdm(cod):
         m.sort()
         d=list(eneros["day"].unique())
         d.sort()
-        """
+        
         # Analisis por minutos
         eneros_min = eneros[eneros.day==15]
         df_min = df[df.day==15]
@@ -115,6 +114,7 @@ for a in tqdm(cod):
                 vo = minute["ValorObservado"]
                 
                 if len(vo)!=0:
+                    
                     vo = vo[vo.index[0]]
                     AN.append(vo-mean_h)
                     ANE.append((vo-mean_h)/desv)
@@ -149,8 +149,8 @@ for a in tqdm(cod):
         plt.xlabel("Tiempo [horas]",fontsize=12)
         plt.grid()
         
-        plt.savefig(r"/home/marcelae/Desktop/graficos_prueba/minutos/63/"+str(a)+".png",dpi = 400)
-        """
+        plt.savefig(r"/home/marcelae/Desktop/graficos_prueba/minutos/21/"+str(a)+".png")
+        
         # Analisis por horas
         eneros_h = eneros[eneros.day==15]
         df_h = df[df.day==15]
@@ -210,7 +210,7 @@ for a in tqdm(cod):
         plt.xlabel("Tiempo [horas]",fontsize=12)
         plt.grid()
         
-        plt.savefig(r"/home/marcelae/Desktop/graficos_prueba/horas/63/"+str(a)+".png",dpi = 400)
+        plt.savefig(r"/home/marcelae/Desktop/graficos_prueba/horas/21/"+str(a)+".png")
         
         # Analisis por dias
         
@@ -267,5 +267,5 @@ for a in tqdm(cod):
         plt.xlabel("Tiempo [dias]",fontsize=12)
         plt.grid()
         
-        plt.savefig(r"/home/marcelae/Desktop/graficos_prueba/dias/63/"+str(a)+".png",dpi = 400)
+        plt.savefig(r"/home/marcelae/Desktop/graficos_prueba/dias/21/"+str(a)+".png")
         

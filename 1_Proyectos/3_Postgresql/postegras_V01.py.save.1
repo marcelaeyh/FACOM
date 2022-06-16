@@ -75,11 +75,10 @@ pres= r"/home/marcelae/Desktop/FACOM/3_csv/Presi_n_Atmosf_rica.csv"
 coor= r"/home/marcelae/Desktop/FACOM/1_Proyectos/2_Estaciones/CSV/coordenadas_estaciones.csv"
 
 #2.4.2 Luisa
-#d1=r"/media/luisa/Datos/FACOM/gits/FACOM/5_Documentos/Cat_logo_Nacional_de_Estaciones_del_IDEAM.csv"
-#temp = r"/media/luisa/Datos/FACOM/gits/FACOM/3_csv/Datos_Hidrometeorol_gicos_Crudos_-_Red_de_Estaciones_IDEAM___Temperatura.csv"
-#pre=r"/media/luisa/Datos/FACOM/gits/FACOM/3_csv/Precipitaci_n.csv"
-#pres= r"/media/luisa/Datos/FACOM/gits/FACOM/3_csv/Presi_n_Atmosf_rica.csv"
-#coor= r"/media/luisa/Datos/FACOM/gits//FACOM/1_Proyectos/2_Estaciones/CSV/coordenadas_estaciones.csv"
+#d1=r"/media/luisa/Datos/FACOM/gits/FACOM/5_Documentos/Cat_logo_Nacional_de_Estaciones_del_IDEAM.csv"temp = r"/media/luisa/Datos/FACOM/gits/FACOM/3_csv/Datos_Hidrometeorol_gicos_Crudos_-_Red_de_Estaciones_IDEAM___Temperatura.csv"
+pre=r"/media/luisa/Datos/FACOM/gits/FACOM/3_csv/Precipitaci_n.csv"
+pres= r"/media/luisa/Datos/FACOM/gits/FACOM/3_csv/Presi_n_Atmosf_rica.csv"
+coor= r"/media/luisa/Datos/FACOM/gits//FACOM/1_Proyectos/2_Estaciones/CSV/coordenadas_estaciones.csv"
 
 #conjunto de datos
 datos = pd.read_csv(d1)
@@ -250,20 +249,20 @@ def estacion(datos,eng):
 #########################################################
 # EJECUCION DE LAS FUNCIONES PARA AGREGAR TABLAS
 def añadirdb(catalogo,eng):
-    departamento(catalogo)
-    print("Se añadieron los datos a la tabla departamento")
-    municipio(catalogo,eng)
-    print("Se añadieron los datos a la tabla municipio")
-    zonahidrografica(catalogo)
-    print("Se añadieron los datos a la tabla zonahidrografica")
-    categoria(catalogo)
-    print("Se añadieron los datos a la tabla categoria")
-    tecnologia(catalogo)
-    print("Se añadieron los datos a la tabla tecnologia")
-    estado(catalogo)
-    print("Se añadieron los datos a la tabla estado")
-    estacion(catalogo,eng)
-    print("Se añadieron los datos a la tabla estacion")
+    #departamento(catalogo)
+    #print("Se añadieron los datos a la tabla departamento")
+    #municipio(catalogo,eng)
+    #print("Se añadieron los datos a la tabla municipio")
+    #zonahidrografica(catalogo)
+    #print("Se añadieron los datos a la tabla zonahidrografica")
+    #categoria(catalogo)
+    #print("Se añadieron los datos a la tabla categoria")
+    #tecnologia(catalogo)
+    #print("Se añadieron los datos a la tabla tecnologia")
+    #estado(catalogo)
+    #print("Se añadieron los datos a la tabla estado")
+    #estacion(catalogo,eng)
+    #print("Se añadieron los datos a la tabla estacion")
     #momento_observacion()
     #print("Se añadieron los datos a la tabla momento_observacion")
     variable()
@@ -286,11 +285,11 @@ añadirdb(datos,eng)
 
 #6.11.1 PRECIPITACION
 #logitud del archivo de entrada
-lp=pd.read_csv(pre,usecols=[0])
+lp =pd.read_csv(pre,usecols=[0])
 n_p=len(lp)
 del lp
 
-step=math.ceil(n_p*0.05)  #el número es el porcentaje que se va a tomar "dx"
+step=math.ceil(n_p*0.0)  #el número es el porcentaje que se va a tomar "dx"
 cont=0 # el contador inicia desde 0, pero si es necesario se pue asignar uno diferente
 dx=0
 print("Longitud del archivo de entrada= ",n_p)
@@ -317,7 +316,7 @@ while tqdm(cont <= (n_p-1)):
     #categoria del dato
     for index, row in tqdm(df.iterrows()):
         
-        if row[vnCSV[3]] < 0.0 or row[vnCSV[3]] >0.8:
+        if row[vnCSV[3]] < 0.0 and row[vnCSV[3]] >0.8:
             df[vnC[19]][index] = 1.0
        
     V=[]
@@ -339,7 +338,7 @@ while tqdm(cont <= (n_p-1)):
 
     V=pd.DataFrame(V)
     vnBD[25]
-    V.columns=[vnBD[22], "fecha_observacion",vnBD[23],"categoria_dato",vnBD[25]]
+    V.columns=[vnBD[22], "fecha_observacion",vnBD[23],vnBD[24],vnBD[25]]
     V.to_sql(tablas[8], con=engine, index=False, if_exists='append',chunksize=100000)
     cont=cont+step
     final= time.time()
@@ -377,7 +376,7 @@ while tqdm(cont <= (n_t-1)):
     #Calidad del dato
     for index, row in tqdm(df.iterrows()):
         
-        if row[vnCSV[3]] < 1.3 or row[vnCSV[3]] > 32.90:
+        if row[vnCSV[3]] < 1.3 and row[vnCSV[3]] > 32.90:
             df[vnC[19]][index] = 1 
        
 
@@ -397,12 +396,12 @@ while tqdm(cont <= (n_t-1)):
         if ab==48015010:
             df[vnCSV[0]][i] = 48015050
             
-        v =[df[vnCSV[3]][i],df[vnCSV[2]][i],df[vnCSV[0]][i],df[vnC[19]][i],1]
+        v =[df[vnCSV[3]][i],df[vnCSV[2]][i],df[vnCSV[0]][i],df[vnC[19]][i],2]
         V.append(v)
 
     V=pd.DataFrame(V)
     vnBD[25]
-    V.columns=[vnBD[22], "fecha_observacion",vnBD[23],"categoria_dato",vnBD[25]]
+    V.columns=[vnBD[22], "fecha_observacion",vnBD[23],vnBD[24],vnBD[25]]
     V.to_sql(tablas[8], con=engine, index=False, if_exists='append',chunksize=100000)
     cont=cont+step
     final= time.time()
