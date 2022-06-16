@@ -18,10 +18,10 @@ import re
 from unicodedata import normalize
 
 #Lucy
-#eng = 'sqlite:////home/marcelae/Desktop/FACOM/2_db/presion.db'
+eng = 'sqlite:////home/marcelae/Desktop/FACOM/2_db/presion.db'
 
 #Marcela
-eng = 'sqlite:////Volumes/DiscoMarcela/facom/presion.db'
+#eng = 'sqlite:////Volumes/DiscoMarcela/facom/presion.db'
 
 q = '''
 SELECT *

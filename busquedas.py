@@ -24,8 +24,7 @@ eng = 'sqlite:////home/marcelae/Desktop/FACOM/2_db/presion.db'
 #eng = 'sqlite:////Volumes/DiscoMarcela/facom/presion.db'
 
 query='''
-SELECT DISTINCT CodigoEstacion FROM presion
-WHERE FechaObservacion LIKE '01/15/2022%'
+SELECT FechaObservacion FROM presion LIMIT 1
 '''
 
 cod = pd.read_sql(query,con=eng)
@@ -33,11 +32,10 @@ cod = pd.read_sql(query,con=eng)
 co21 = []
 
 for a in tqdm(cod.CodigoEstacion):
-  
     qq = '''
     SELECT COUNT(ValorObservado)
     FROM presion
-    WHERE FechaObservacion LIKE '01/%/2022%'
+    WHERE FechaObservacion LIKE '01/15/2022%'
     AND CodigoEstacion == {}
     '''.format(a)
     
@@ -48,6 +46,7 @@ for a in tqdm(cod.CodigoEstacion):
         
         
 for a in tqdm(co21):
+
         q = '''
         SELECT FechaObservacion, ValorObservado
         FROM presion
@@ -76,12 +75,10 @@ for a in tqdm(co21):
         eneros = eneros.sort_values("FechaObservacion")
         eneros = eneros.reset_index(drop='index')
         
-        fechainicial=eneros["FechaObservacion"].min()
-        fechafinal=eneros["FechaObservacion"].max()
-        
         eneros["min"]=pd.to_datetime(eneros["FechaObservacion"]).dt.minute
         eneros["hour"]=pd.to_datetime(eneros["FechaObservacion"]).dt.hour
         eneros["day"]=pd.to_datetime(eneros["FechaObservacion"]).dt.day
+        eneros["year"] = pd.to_datetime(eneros["FechaObservacion"]).dt.year
         
         df["min"]=pd.to_datetime(df["FechaObservacion"]).dt.minute
         df["hour"]=pd.to_datetime(df["FechaObservacion"]).dt.hour
@@ -94,7 +91,7 @@ for a in tqdm(co21):
         m.sort()
         d=list(eneros["day"].unique())
         d.sort()
- 
+        
         # Analisis por minutos
         eneros_min = eneros[eneros.day==15]
         df_min = df[df.day==15]
@@ -108,24 +105,25 @@ for a in tqdm(co21):
                 minute = eneros_min[eneros_min.hour==i]
                 minute=minute[minute["min"]==j]
                 mean_h=minute["ValorObservado"].mean(skipna=True)
-                #desv = np.std(minute["ValorObservado"])
+                desv = np.std(minute["ValorObservado"])
                 
-                años = len(minute)
+                años = len(eneros_min.year.unique())
                 
                 minute = df_min[df_min.hour==i]
                 minute=minute[minute["min"]==j]
                 vo = minute["ValorObservado"]
                 
                 if len(vo)!=0:
+                    
                     vo = vo[vo.index[0]]
                     AN.append(vo-mean_h)
-                    #ANE.append((vo-mean_h)/desv)
+                    ANE.append((vo-mean_h)/desv)
                     mean.append(mean_h)
                     
                     
-        plt.figure(figsize=(15,10))
+        plt.figure(figsize=(15,18))
         
-        plt.subplot(2,1,1)
+        plt.subplot(3,1,1)
         plt.plot(df_min.FechaObservacion,df_min.ValorObservado,color="darkorange",label="15 de enero de 2022")
         plt.plot(df_min.FechaObservacion,mean,'-',color="wheat",label="promedio todos los eneros de "+str(años)+" años")
         plt.title("Serie de tiempo - "+str(a),fontsize=15)
@@ -134,7 +132,7 @@ for a in tqdm(co21):
         plt.xlabel("Tiempo [horas]",fontsize=12)
         plt.legend()
         plt.grid()
-        '''
+        
         plt.subplot(3,1,2)
         plt.plot(df_min.FechaObservacion,ANE,color="darkorange")
         plt.title("Anomalia estandarizada - "+str(a),fontsize=15)
@@ -142,8 +140,8 @@ for a in tqdm(co21):
         plt.ylabel("Anomalía estandarizada", fontsize=12)
         plt.xlabel("Tiempo [horas]",fontsize=12)
         plt.grid()
-        '''
-        plt.subplot(2,1,2)
+        
+        plt.subplot(3,1,3)
         plt.plot(df_min.FechaObservacion,AN,color="darkorange")
         plt.title("Anomalia - "+str(a),fontsize=15)
         plt.minorticks_on()
@@ -151,7 +149,7 @@ for a in tqdm(co21):
         plt.xlabel("Tiempo [horas]",fontsize=12)
         plt.grid()
         
-        plt.savefig(r"/home/marcelae/Desktop/graficos_prueba/minutos/17/ "+str(a)+".png",dpi = 400)
+        plt.savefig(r"/home/marcelae/Desktop/graficos_prueba/minutos/21/"+str(a)+".png")
         
         # Analisis por horas
         eneros_h = eneros[eneros.day==15]
@@ -161,37 +159,41 @@ for a in tqdm(co21):
         ANE =[]
         mean_t = []
         mean = []
+        
         for i in tqdm(h):
         
             ho = eneros_h[eneros_h.hour==i]
             mean_h=ho["ValorObservado"].mean(skipna=True)
-            #desv = np.std(eneros_h["ValorObservado"])
-            años = len(ho)
+            desv = np.std(ho["ValorObservado"])
+            años = len(eneros_h.year.unique())
             
             ho = df_h[df_h.hour==i]
-            vo = ho["ValorObservado"]
-            vo_m = vo.mean(skipna=True)
+            vo_m = ho["ValorObservado"].mean(skipna=True)
             
-            if len(vo)!=0:
-                vo = vo[vo.index[0]]
+            if len(ho["ValorObservado"])!=0:
                 AN.append(vo_m-mean_h)
-                #ANE.append((vo_m-mean_h)/desv)
+                ANE.append((vo_m-mean_h)/desv)
                 mean_t.append(mean_h)
-                mean.append(vo)
-                    
-                    
-        plt.figure(figsize=(15,10))
+                mean.append(vo_m)
+            else:
+                AN.append(np.nan)
+                ANE.append(np.nan)
+                mean_t.append(np.nan)
+                mean.append(np.nan)
         
-        plt.subplot(2,1,1)
+        
+        plt.figure(figsize=(15,18))
+        
+        plt.subplot(3,1,1)
         plt.plot(h,mean,color="darkorange",label="15 de enero de 2022")
         plt.plot(h,mean_t,'-',color="wheat",label="promedio todos los eneros de "+str(años)+" años")
-        plt.title("Serie de tiempo - "+str(a),fontsize=15)
+        plt.title("Promedio horario - "+str(a),fontsize=15)
         plt.ylabel("Presión [hPa]", fontsize=12)
         plt.xlabel("Tiempo [horas]",fontsize=12)
         plt.legend()
         plt.grid()
         
-        '''
+        
         plt.subplot(3,1,2)
         plt.plot(h,ANE,color="darkorange")
         plt.title("Anomalia estandarizada - "+str(a),fontsize=15)
@@ -199,8 +201,8 @@ for a in tqdm(co21):
         plt.ylabel("Anomalía estandarizada", fontsize=12)
         plt.xlabel("Tiempo [horas]",fontsize=12)
         plt.grid()
-        '''
-        plt.subplot(2,1,2)
+        
+        plt.subplot(3,1,3)
         plt.plot(h,AN,color="darkorange")
         plt.title("Anomalia - "+str(a),fontsize=15)
         plt.minorticks_on()
@@ -208,7 +210,7 @@ for a in tqdm(co21):
         plt.xlabel("Tiempo [horas]",fontsize=12)
         plt.grid()
         
-        plt.savefig(r"/home/marcelae/Desktop/graficos_prueba/horas/17/ "+str(a)+".png",dpi = 400)
+        plt.savefig(r"/home/marcelae/Desktop/graficos_prueba/horas/21/"+str(a)+".png")
         
         # Analisis por dias
         
@@ -221,32 +223,34 @@ for a in tqdm(co21):
         
             dias = eneros[eneros.day==i]
             mean_h=dias["ValorObservado"].mean(skipna=True)
-            #desv = np.std(dias["ValorObservado"])
-            años = len(dias)
+            desv = np.std(dias["ValorObservado"])
+            años = len(eneros.year.unique())
             
-            ho = df[df.hour==i]
-            vo = dias["ValorObservado"]
-            vo_m = vo.mean(skipna=True)
-            
-            if len(vo)!=0:
-                vo = vo[vo.index[0]]
+            ho = df[df.day==i]
+            vo_m = ho["ValorObservado"].mean(skipna=True)
+
+            if len(dias["ValorObservado"])!=0:
                 AN.append(vo_m-mean_h)
-                #ANE.append((vo_m-mean_h)/desv)
+                ANE.append((vo_m-mean_h)/desv)
                 mean_t.append(mean_h)
-                mean.append(vo)
-                    
-                    
-        plt.figure(figsize=(15,10))
+                mean.append(vo_m)
+            else:
+                AN.append(np.nan)
+                ANE.append(np.nan)
+                mean_t.append(np.nan)
+                mean.append(np.nan)
         
-        plt.subplot(2,1,1)
+        plt.figure(figsize=(15,18))
+        
+        plt.subplot(3,1,1)
         plt.plot(d,mean,color="darkorange",label="15 de enero de 2022")
         plt.plot(d,mean_t,'-',color="wheat",label="promedio todos los eneros de "+str(años)+" años")
-        plt.title("Serie de tiempo - "+str(a),fontsize=15)
+        plt.title("promedio diario - "+str(a),fontsize=15)
         plt.ylabel("Presión [hPa]", fontsize=12)
         plt.xlabel("Tiempo [dias]",fontsize=12)
         plt.legend()
         plt.grid()
-        '''
+        
         plt.subplot(3,1,2)
         plt.plot(d,ANE,color="darkorange")
         plt.title("Anomalia estandarizada - "+str(a),fontsize=15)
@@ -254,8 +258,8 @@ for a in tqdm(co21):
         plt.ylabel("Anomalía estandarizada", fontsize=12)
         plt.xlabel("Tiempo [dias]",fontsize=12)
         plt.grid()
-        '''
-        plt.subplot(2,1,2)
+        
+        plt.subplot(3,1,3)
         plt.plot(d,AN,color="darkorange")
         plt.title("Anomalia - "+str(a),fontsize=15)
         plt.minorticks_on()
@@ -263,5 +267,5 @@ for a in tqdm(co21):
         plt.xlabel("Tiempo [dias]",fontsize=12)
         plt.grid()
         
-        plt.savefig(r"/home/marcelae/Desktop/graficos_prueba/dias/17/ "+str(a)+".png",dpi = 400)
+        plt.savefig(r"/home/marcelae/Desktop/graficos_prueba/dias/21/"+str(a)+".png")
         
