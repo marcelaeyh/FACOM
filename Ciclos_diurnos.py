@@ -9,6 +9,7 @@ Created on Wed Jun 15 23:44:38 2022
 import pandas as pd
 import matplotlib.pyplot as plt
 import datetime
+from tqdm import tqdm 
 from sqlalchemy import create_engine
 import numpy as np
 
@@ -24,15 +25,19 @@ FROM presion
 '''
 codigos = pd.read_sql(q,con=eng)
 
-for i in codigos:
+for i in tqdm(codigos.CodigoEstacion):
 
     query = '''
     SELECT FechaObservacion,ValorObservado
+    FROM presion
     WHERE CodigoEstacion = {}
     '''.format(i)
 
     df = pd.read_sql(query,con=eng)
-
+    
+    df["FechaObservacion"]=pd.to_datetime(df['FechaObservacion'],format='%m/%d/%Y %I:%M:%S %p')
+    df = df.sort_values("FechaObservacion")
+    
     n=len(df)
     
     if n==0:
@@ -58,20 +63,13 @@ for i in codigos:
     
     
     plt.savefig("/home/marcelae/Desktop/FACOM/7_png/3_PresionCompleto/diurnos/Pre_CD"+str(i)+".png",dpi = 400)
+
     
     
     
+
+
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
