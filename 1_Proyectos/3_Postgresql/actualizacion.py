@@ -47,7 +47,8 @@ tablas=["departamento","municipio","zonahidrografica","categoria","tecnologia",
         "estado","momento_observacion","estacion","observacion","variable","flags",
         "flags_X_observacion","flags_x_estacion"]
 
-eng = "postgresql://luisa:000000@localhost:5432/alejandria" #Motor Luisa
+#eng = "postgresql://luisa:000000@localhost:5432/alejandria" #Motor Luisa
+eng="postgresql://lucy:usuario@localhost:5432/alejandria"  #Motor Lucy-marcela
 engine = create_engine(eng) #Maquina
 conn=engine.connect()
 query='''
