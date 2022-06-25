@@ -105,3 +105,47 @@ V=pd.DataFrame(V)
 vnBD[25]
 V.columns=[vnBD[22], "fecha_observacion",vnBD[23],"categoria_dato",vnBD[25]]
 V.to_sql(tablas[8], con=engine, index=False, if_exists='append',chunksize=100000)
+
+#Temperatura
+df1 = pd.DataFrame( cliente.get('sbwg-7ju4', where=m1,limit=1000000))
+df1['codigoestacion'] = df1['codigoestacion'].astype(float)
+df1['valorobservado'] = df1['valorobservado'].astype(float)
+df=pd.concat([df1.codigoestacion,df1.fechaobservacion,df1.valorobservado],axis=1)
+df.columns=["CodigoEstacion","FechaObservacion","ValorObservado"]
+del df1
+
+df[vnCSV[2]]=pd.to_datetime(df[vnCSV[2]],format='%Y-%m-%dT%H:%M:%S.%f')
+df[vnCSV[2]] = df[vnCSV[2]].dt.floor('Min')
+df=df.sort_values(by=vnCSV[2]).reset_index(drop=True,inplace=False)
+df[vnC[19]]= np.zeros(len(df))
+df[vnC[20]]=np.zeros(len(df))
+n_df=len(df)
+
+
+#Calidad del dato
+for index, row in tqdm(df.iterrows()):
+    
+    if row[vnCSV[3]] < 1.3 or row[vnCSV[3]] > 32.90:
+        df[vnC[19]][index] = 1 
+ 
+#Ingreso de la informacion
+V=[]
+p=0
+for i in tqdm(range(p,n_df)):
+    ab=df["CodigoEstacion"][i]
+    if (ab==88112901 or ab==35237040 or ab==21202270 
+        or ab==35217080 or ab==35227020 or ab==23157050 or ab==52017020):
+        continue 
+    
+    if ab ==14015020:
+        df[vnCSV[0]][i] = 14015080
+    if ab==48015010:
+        df[vnCSV[0]][i] = 48015050
+        
+    v =[df[vnCSV[3]][i],df[vnCSV[2]][i],df[vnCSV[0]][i],df[vnC[19]][i],1]
+    V.append(v)
+
+V=pd.DataFrame(V)
+vnBD[25]
+V.columns=[vnBD[22], "fecha_observacion",vnBD[23],"categoria_dato",vnBD[25]]
+V.to_sql(tablas[8], con=engine, index=False, if_exists='append',chunksize=100000)
