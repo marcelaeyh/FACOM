@@ -44,7 +44,7 @@ for a in range(0,18,6):
         df = df.reset_index(drop='index')
         
         # Pasar a UTC
-        df.FechaObservacion = df.FechaObservacion + datetime.timedelta(hours=5)
+        #df.FechaObservacion = df.FechaObservacion + datetime.timedelta(hours=5)
         
         oi = df[df.FechaObservacion >= '2022-01-15 00:00:00']
         of = df[df.FechaObservacion <= '2022-01-15 23:59:59']
@@ -56,7 +56,7 @@ for a in range(0,18,6):
         
         plt.subplot(3,2,m)
         plt.plot(df.FechaObservacion,df.ValorObservado,label='Codigo = '+str(int(i)))
-        plt.title("Presión [hPa] vs Tiempo [horas] en "+df.Municipio.unique()[0]+" el 15 de enero del 2022 (UTC) " ,fontsize="16")
+        plt.title("Presión [hPa] vs Tiempo [horas] en "+df.Municipio.unique()[0]+" el 15 de enero del 2022 (UTC-5) " ,fontsize="16")
         plt.xlabel("Tiempo [horas]",fontsize="16")
         plt.ylabel("Presión [hPa]",fontsize="16")
         plt.grid()
