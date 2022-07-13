@@ -18,7 +18,7 @@ from tqdm import tqdm
 eng = 'sqlite:////home/marcelae/Desktop/FACOM/2_db/presion.db'
 
 qu = '''
-SELECT CodigoEstacion FROM presion
+SELECT DISTINCT CodigoEstacion FROM presion
 WHERE FechaObservacion LIKE '01/1%/2022%'
 '''
 cod = pd.read_sql(qu,con=eng)
