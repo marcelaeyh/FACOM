@@ -55,11 +55,11 @@ for a in range(0,18,6):
         #plt.figure(figsize=(15,15))
         
         plt.subplot(3,2,m)
-        plt.plot(df.FechaObservacion,df.ValorObservado,label='Codigo = '+str(int(i)))
-        plt.title("Presión [hPa] vs Tiempo [horas] en "+df.Municipio.unique()[0]+" el 15 de enero del 2022 (UTC-5) " ,fontsize="16")
-        plt.xlabel("Tiempo [horas]",fontsize="16")
-        plt.ylabel("Presión [hPa]",fontsize="16")
+        plt.plot(df.FechaObservacion,df.ValorObservado,label='Code = '+str(int(i)))
+        plt.title("Pressure [hPa] vs Time [hours] in "+df.Municipio.unique()[0]+" on January 15th 2022 (UTC -5) " ,fontsize="16")
+        plt.xlabel("Time [Hours]",fontsize="16")
+        plt.ylabel("Pressure [hPa]",fontsize="16")
         plt.grid()
         plt.legend()
         m+=1  
-    plt.savefig('/home/marcelae/Desktop/FACOM/1_Proyectos/5_volcan/ga/fig_es'+str(a)+'.png')
+    plt.savefig('/home/marcelae/Desktop/FACOM/1_Proyectos/5_volcan/ga/fig'+str(a)+'.png')
