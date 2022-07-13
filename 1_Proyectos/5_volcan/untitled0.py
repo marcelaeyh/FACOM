@@ -23,8 +23,9 @@ WHERE FechaObservacion LIKE '01/1%/2022%'
 '''
 cod = pd.read_sql(qu,con=eng)
 
-plt.figure(figsize=(25,20))
+
 for a in range(0,18,6):
+    plt.figure(figsize=(25,20))
     m=1
     for j in range(a+1,a+7):
         i = cod.CodigoEstacion[j]
