@@ -25,6 +25,7 @@ cod = pd.read_sql(qu,con=eng)
 
 plt.figure(figsize=(25,20))
 for a in range(0,18,6):
+    m=1
     for j in range(a+1,a+7):
         i = cod.CodigoEstacion[j]
         
@@ -52,12 +53,12 @@ for a in range(0,18,6):
         
         #plt.figure(figsize=(15,15))
         
-        plt.subplot(3,2,j)
+        plt.subplot(3,2,m)
         plt.plot(df.FechaObservacion,df.ValorObservado,label='Code = '+str(int(i)))
         plt.title("Pressure [hPa] vs Time [hours] in "+df.Municipio.unique()[0]+" on January 15th 2022 (UTC) " ,fontsize="16")
         plt.xlabel("Time [Hours]",fontsize="16")
         plt.ylabel("Pressure [hPa]",fontsize="16")
         plt.grid()
         plt.legend()
-            
+        m+=1  
     plt.savefig('/home/marcelae/Desktop/FACOM/1_Proyectos/5_volcan/ga/fig'+str(a)+'.png')
