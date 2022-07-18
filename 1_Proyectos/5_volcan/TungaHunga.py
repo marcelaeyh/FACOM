@@ -57,8 +57,8 @@ t1217["Tiempo Sistema"] = pd.to_datetime(t1217["Tiempo Sistema"],format = "%Y-%m
 o1217["Tiempo Sistema"] = pd.to_datetime(o1217["Tiempo Sistema"],format = "%Y-%m-%d %H:%M:%S.%f")
 
 
-#t1217["Tiempo Sistema"] = t1217["Tiempo Sistema"] + datetime.timedelta(hours=9,minutes=54)
-#o1217["Tiempo Sistema"] = o1217["Tiempo Sistema"] + datetime.timedelta(hours=5)
+t1217["Tiempo Sistema"] = t1217["Tiempo Sistema"] + datetime.timedelta(hours=9,minutes=54)
+o1217["Tiempo Sistema"] = o1217["Tiempo Sistema"] + datetime.timedelta(hours=5)
 
 o =  o1217.sort_values("Tiempo Sistema")
 t = t1217.sort_values("Tiempo Sistema")
@@ -158,10 +158,6 @@ dis_v_t = dis_esfe(coo_turbo[0]*np.pi/180,coo_turbo[1]*np.pi/180,coo_volcan[0]*n
 dis_t_o = dis_esfe(coo_turbo[0]*np.pi/180,coo_oriente[1]*np.pi/180,coo_turbo[0]*np.pi/180,coo_turbo[1]*np.pi/180)
 dis_v_o = dis_esfe(coo_oriente[0]*np.pi/180,coo_oriente[1]*np.pi/180,coo_volcan[0]*np.pi/180,coo_volcan[1]*np.pi/180)
 
-
-dis_v_t = dis_recta(coo_turbo[0],coo_turbo[1],coo_volcan[0],coo_volcan[1])
-dis_t_o = dis_recta(coo_oriente[0],coo_oriente[1],coo_turbo[0],coo_turbo[1])
-dis_v_o = dis_recta(coo_oriente[0],coo_oriente[1],coo_volcan[0],coo_volcan[1])
 # tiempos
 
 h_o = o.fecha[o.presion == o.presion.max()]
@@ -199,15 +195,37 @@ fv['velocidad (m/s)'] = [v_v_t,v_t_o,v_v_o,v_blog]
 
 fv
 
-t_blog = dis_v_o*1000/v_blog # Tiempo para llegar a turbo segun el blog
-t_blog = t_blog/60/60
+# ------------------------------------------------------------------
+# Análisis velocidades, estaciones seleccionadas
 
-f_ll_blog = h_v + pd.Timedelta(hours = t_blog)
+estaciones = pd.read_csv('/Users/mac/Desktop/FACOM/1_Proyectos/5_volcan/Article_volcano/completo_estaciones.csv')
+'''
+estaciones.fecha_max = pd.to_datetime(estaciones.fecha_max)
 
+max(estaciones.fecha_max)
 
-t_noso = 9081.528*1000/v_t_o # Tiempo para llegar a seattle segun nosotros
-t_noso = t_noso/60/60
+for i in range(27,41):
+    sep = estaciones[estaciones.fecha_max == pd.to_datetime('2022-01-15 09:'+str(i)+':00')]
+    if len(sep) > 0:
+        sep.to_csv('/Users/mac/Desktop/FACOM/1_Proyectos/5_volcan/gif animado.png/gif nuevo/'+str(i)+'.csv')
+'''
+ 
+v_1 = estaciones['velocidad(m/s)'][1] # Turbo
+v_2 = estaciones['velocidad(m/s)'][23] # Copacabana
+v_3 = estaciones['velocidad(m/s)'][13] # Simijacá
 
-f_ll_noso = h_v + pd.Timedelta(hours = t_noso)
+t_1 = estaciones['tiempo_llegada(horas)'][1]
+t_2 = estaciones['tiempo_llegada(horas)'][23]
+t_3 = estaciones['tiempo_llegada(horas)'][13]
 
-h_v + pd.Timedelta(seconds = 9081.528*1000/v_t_o)
+d_1 = estaciones['distancia_volcan(km)'][1]
+d_2 = estaciones['distancia_volcan(km)'][23]
+d_3 = estaciones['distancia_volcan(km)'][13]
+
+fv = pd.DataFrame(columns = ["comparacion","distancia (km)","tiempo (seg)","velocidad (m/s)"])
+fv.comparacion = ['volcan-turbo','turbo-copacabana','volcan-simijacá','turbo-copacabana','copacabana-simijacá']
+fv['distancia (km)'] = [d_1,d_2,d_3,d_2-d_1,d_3-d_2]
+fv['tiempo (seg)'] = [t_1,t_2,t_3,t_2-t_1,t_3-t_2]
+fv['velocidad (m/s)'] = [v_1,v_2,v_3,(d_2-d_1)/(t_2-t_1),(d_3-d_2)/(t_3-t_2)]
+
+fv
