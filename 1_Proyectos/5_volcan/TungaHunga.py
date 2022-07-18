@@ -28,7 +28,7 @@ for i in tqdm(ideam.Codigo):
     df["FechaObservacion"]=pd.to_datetime(df['FechaObservacion'],format='%m/%d/%Y %I:%M:%S %p')
     df = df.sort_values("FechaObservacion")
     
-    plt.figure(figsize=(12,5))
+    plt.figure(figsize=(11,5))
 
     plt.plot(df.FechaObservacion,df.ValorObservado)
     plt.title("Presión [hPa] vs Tiempo [Horas] en "+df.Municipio.unique()[0]+" el 15 de enero de 2022" ,fontsize="16")
@@ -102,10 +102,38 @@ plt.grid()
 #------------------------#----------------------------#-----------------------#
 # Estaciones SIATA
 
+est = [59,68,73,82,83,105,122,197,198,199,201,202,203,206,207,249,252,269,271,313,318,345,355,360,362,367,368,397,399,403,419,427,448,478,542]
+len(est)
 
+siata = pd.read_csv('/Users/mac/Desktop/FACOM/1_Proyectos/5_volcan/Presión estaciones SIATA/Estaciones.csv',encoding='latin1')
 
+for i in est:
+    df = pd.read_csv('/Users/mac/Desktop/FACOM/1_Proyectos/5_volcan/Presión estaciones SIATA/csv/estacion_data_presion_'+str(i)+'__20220101_20220131.csv')
+    df.fecha_hora = pd.to_datetime(df.fecha_hora)
+    
+    # Pasar a UTC
+    #df.fecha_hora = df.fecha_hora + datetime.timedelta(hours=5)
+    
+    df =  df.sort_values("fecha_hora")
+    df = df.reset_index(drop='index')
+    
+    oi = df[df.fecha_hora>= '2022-01-15 00:00:00']
+    of = df[df.fecha_hora <= '2022-01-15 23:59:59']
+    
+    df = df[oi.index[0]:of.index[-1]]
+    df = df.reset_index(drop='index')
 
+    plt.figure(figsize=(12,5))
 
+    plt.plot(df.fecha_hora,df.Presion,label='Codigo = '+str(i))
+    plt.title("Presión [hPa] vs Tiempo [Horas] en "+siata.Ciudad[siata.Ciudad[siata.Codigo == i].index[0]]+" el 15 enero 2022 (UTC-5)", fontsize="16")
+    plt.xlabel("Tiempo [Horas]",fontsize="16")
+    plt.ylabel("Presión [hPa]",fontsize="16")
+    plt.grid()
+    plt.legend()
+    
+    plt.savefig('/Users/mac/Desktop/FACOM/1_Proyectos/5_volcan/Article_volcano/g/SIATA/LOCAL_es/01152022-'+str(i)+'.png')
+#------------------------#----------------------------#-----------------------#
 # Coordenadas
 coo_volcan = [-20.557107766098405, -175.38186428377438]
 coo_turbo = [8.094314856114538, -76.7338430092313]
