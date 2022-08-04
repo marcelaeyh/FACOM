@@ -36,11 +36,13 @@ tablas=["departamento","municipio","zonahidrografica","categoria","tecnologia","
 
 #2.4 Direcciones
 #2.4.1 
-d1 = "direccion del csv del catalogo nacional de estaciones IDEAM"
-temp = "direccion del csv de los datos de temperatura"
-pre = "direccion del csv de los datos de precipitación"
-pres = "direccion del csv de los datos de presión"
-coor = "direccion del archivo coordenadas_estaciones.csv"
+d1   = r"direccion del csv del catalogo nacional de estaciones IDEAM"
+temp = r"direccion del csv de los datos de temperatura"
+pre  = r"direccion del csv de los datos de precipitación"
+pres = r"direccion del csv de los datos de presión"
+direV= r"direccion del csv de los datos de direccion del viento"
+veloV= r"direccion del csv de los datos de velocidad del viento"
+coor = r"direccion del archivo coordenadas_estaciones.csv"
 
 #conjunto de datos
 datos = pd.read_csv(d1)
@@ -353,7 +355,6 @@ while tqdm(cont <= (n_t-1)):
         V.append(v)
 
     V=pd.DataFrame(V)
-    vnBD[25]
     V.columns=[vnBD[21], vnBD[20],vnBD[22],vnBD[23],vnBD[24]]
     V.to_sql(tablas[7], con=engine, index=False, if_exists='append',chunksize=100000)
     cont=cont+step
@@ -361,6 +362,145 @@ while tqdm(cont <= (n_t-1)):
     print("Termina-",dx)
     print("#------#-------#")
 
+    dx=dx+1
+    print("Tiempo de ejecucion",final-start)
+    print("#------#-------#")
+    print("######################")
+    
+#----------------------------------------------------------------#
+#5.9.3 DIRECCIÓN VIENTO
+
+#logitud del archivo de entrada
+ldv =pd.read_csv(direV,usecols=[0])
+n_dv=len(ldv)
+del ldv
+
+step=math.ceil(n_dv*0.05)  #el numero es el porcentaje que se va a tomar "dx"
+cont=0 # el contador inicia desde 0, pero si es necesario se pue asignar uno diferente
+dx=0
+print("Longitud del archivo de entrada= ",n_dv)
+print("Los pasos de tiempo son de= ",step)
+print("Inicia desde= ",cont)
+while tqdm(cont <= (n_dv-1)):
+    start= time.time()
+    #Las siguientes lineas de codigo toman una porcion de los datos y solo se ingresa
+    #el porcentaje que se desea cargar, esto se asigno anteriormente en el paso. 
+    df=pd.read_csv(direV,nrows=int(step),skiprows=range(1,int(cont)),usecols=[0,2,3])
+    print("######################")
+    print("#------#-------#")
+    print("contador",cont,"paso=",dx)
+    print("#------#-------#")
+    df[vnCSV[2]]=pd.to_datetime(df[vnCSV[2]],format='%m/%d/%Y %I:%M:%S %p')
+    df[vnCSV[2]] = df[vnCSV[2]].dt.floor('Min')
+    df=df.sort_values(by=vnCSV[2]).reset_index(drop=True,inplace=False)
+    df[vnC[19]]= np.zeros(len(df))
+    df[vnC[20]]=np.zeros(len(df))
+    n_df=len(df)
+    print("Ingresa la categoria-",dx)
+    print("#------#-------#")
+    # Categoria del dato
+    for index, row in tqdm(df.iterrows()):
+        
+        if row[vnCSV[3]] < 0 or row[vnCSV[3]] > 360:
+            df[vnC[19]][index] = 1 
+       
+
+    print("Ingresa a ingresar informacion-",dx)
+    print("#------#-------#")       
+    #Ingreso de la informacion
+    V=[]
+    p=0
+    for i in tqdm(range(p,n_df)):
+        ab=df["CodigoEstacion"][i]
+        if (ab==88112901 or ab==35237040 or ab==21202270 
+            or ab==35217080 or ab==35227020 or ab==23157050 or ab==52017020):
+            continue 
+        
+        if ab ==14015020:
+            df[vnCSV[0]][i] = 14015080
+        if ab==48015010:
+            df[vnCSV[0]][i] = 48015050
+            
+        v =[df[vnCSV[3]][i],df[vnCSV[2]][i],df[vnCSV[0]][i],df[vnC[19]][i],4]
+        V.append(v)
+
+    V=pd.DataFrame(V)
+    V.columns=[vnBD[21], vnBD[20],vnBD[22],vnBD[23],vnBD[24]]
+    V.to_sql(tablas[7], con=engine, index=False, if_exists='append',chunksize=100000)
+    cont=cont+step
+    final= time.time()
+    print("Termina-",dx)
+    print("#------#-------#")
+
+    dx=dx+1
+    print("Tiempo de ejecucion",final-start)
+    print("#------#-------#")
+    print("######################")
+
+#----------------------------------------------------------------#
+#5.9.4 VELOCIDAD DEL VIENTO
+
+#logitud del archivo de entrada
+lvev =pd.read_csv(veloV,usecols=[0])
+n_vev=len(lvev)
+del lvev
+
+step=math.ceil(n_vev*0.05)  #el numero es el porcentaje que se va a tomar "dx"
+cont=0 # el contador inicia desde 0, pero si es necesario se pue asignar uno diferente
+dx=0
+print("Longitud del archivo de entrada= ",n_vev)
+print("Los pasos de tiempo son de= ",step)
+print("Inicia desde= ",cont)
+while tqdm(cont <= (n_vev-1)):
+    start= time.time()
+    #Las siguientes lineas de codigo toman una porcion de los datos y solo se ingresa
+    #el porcentaje que se desea cargar, esto se asigno anteriormente en el paso. 
+    df=pd.read_csv(veloV,nrows=int(step),skiprows=range(1,int(cont)),usecols=[0,2,3])
+    print("######################")
+    print("#------#-------#")
+    print("contador",cont,"paso=",dx)
+    print("#------#-------#")
+    df[vnCSV[2]]=pd.to_datetime(df[vnCSV[2]],format='%m/%d/%Y %I:%M:%S %p')
+    df[vnCSV[2]] = df[vnCSV[2]].dt.floor('Min')
+    df=df.sort_values(by=vnCSV[2]).reset_index(drop=True,inplace=False)
+    df[vnC[19]]= np.zeros(len(df))
+    df[vnC[20]]=np.zeros(len(df))
+    n_df=len(df)
+    print("Ingresa la categoria-",dx)
+    print("#------#-------#")
+    # Categoria del dato
+    for index, row in tqdm(df.iterrows()):
+        
+        if row[vnCSV[3]] < 0 or row[vnCSV[3]] > 50:
+            df[vnC[19]][index] = 1 
+       
+
+    print("Ingresa a ingresar informacion-",dx)
+    print("#------#-------#")       
+    #Ingreso de la informacion
+    V=[]
+    p=0
+    for i in tqdm(range(p,n_df)):
+        ab=df["CodigoEstacion"][i]
+        if (ab==88112901 or ab==35237040 or ab==21202270 
+            or ab==35217080 or ab==35227020 or ab==23157050 or ab==52017020):
+            continue 
+        
+        if ab ==14015020:
+            df[vnCSV[0]][i] = 14015080
+        if ab==48015010:
+            df[vnCSV[0]][i] = 48015050
+            
+        v =[df[vnCSV[3]][i],df[vnCSV[2]][i],df[vnCSV[0]][i],df[vnC[19]][i],5]
+        V.append(v)
+
+    V=pd.DataFrame(V)
+    V.columns=[vnBD[21], vnBD[20],vnBD[22],vnBD[23],vnBD[24]]
+    V.to_sql(tablas[7], con=engine, index=False, if_exists='append',chunksize=100000)
+    cont=cont+step
+    final= time.time()
+    print("Termina-",dx)
+    print("#------#-------#")
     dx=dx+1
     print("Tiempo de ejecucion",final-start)
     print("#------#-------#")
