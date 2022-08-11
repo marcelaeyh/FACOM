@@ -12,7 +12,10 @@ from sqlalchemy import create_engine # Conexión con la base de datos
 import plotly.express as px
 
 ## 2.1 Base de datos de Postgresql
-eng = "postgresql://luisa:000000@localhost:5432/alejandria" #Motor.
+
+eng = "postgresql://lucy:usuario@localhost:5432/alejandria"
+
+#eng = "postgresql://luisa:000000@localhost:5432/alejandria" #Motor.
 engine = create_engine(eng)                                 #Máquina.
 conn=engine.connect()                                       #Conexión.
 
@@ -34,10 +37,10 @@ st.sidebar.markdown("---")
 st.sidebar.write(" \n NOTA 2: \n Se solicita a cualquier persona que haga uso de los datos aquí contenidos, otorgar el debido reconocimiento a las estudiantes de la Universidad de Antioquia Luisa Fernanda Buriticá Ruiz y Marcela Echeverri Gallego por su trabajo en la creación y automatización de la base de datos alejandría.")
 st.sidebar.markdown("---")
 
-st.header("Seleccione el formato en que desea ver los datos")
+st.sidebar.header("Seleccione el formato en que desea ver los datos")
 nav = st.sidebar.radio("",["Conjunto de Datos","Gráficos por estación"])
 
-st.header("Filtros")
+st.sidebar.header("Filtros")
 st.sidebar.markdown("---")
 
 if nav == "Conjunto de Datos":
@@ -65,7 +68,7 @@ if nav == "Conjunto de Datos":
     ff=st.sidebar.date_input("Ingrese la fecha final:")
     
     query='''
-    select valor_observado,fecha_observacion
+    select valor_observado,fecha_observacion,cod_estacion
     from observacion where cod_variable={} and 
     fecha_observacion < '{}' and fecha_observacion >= '{}'
     '''.format(var,ff,fi)
@@ -128,5 +131,4 @@ if nav == "Gráficos por estación":
         
             fig = px.line(data, x = "Hora Local", y = str(variable1), title = "Serie de tiempo")
             st.plotly_chart(fig)
-
 
