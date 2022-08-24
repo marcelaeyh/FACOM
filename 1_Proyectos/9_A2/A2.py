@@ -254,11 +254,11 @@ def STmensual(variable,tipo,nombrecolumnafecha,nombrecolumnavariable):
     return(v)
 ################################ 3. INFORMACION DE ENTRADA ################################
 ## 3.1 Base de datos de Postgresql ALEJANDRÍA
-eng = "postgresql://luisa:000000@localhost:5432/alejandria" #Motor.
+eng = "postgresql://facom:usuario@localhost:5432/alejandria" #Motor.
 engine = create_engine(eng)                                 #Máquina.
 conn=engine.connect() 
 ## 3.2 Base de datos de Postgresql A2
-eng1 = "postgresql://luisa:000000@localhost:5432/a2" #Motor.
+eng1 = "postgresql://facom:usuario@localhost:5432/a2" #Motor.
 engine1 = create_engine(eng1)                                 #Máquina.
 conn1=engine1.connect()   
 ################################ 4. PROCESOS ################################ 

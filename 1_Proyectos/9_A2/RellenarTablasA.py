@@ -36,9 +36,9 @@ tablas=["departamento","municipio","zonahidrografica","categoria","tecnologia","
 
 #2.4 Direcciones
 #2.4.1 
-d1   =r"/media/luisa/Datos/alejandria/Cat_logo_Nacional_de_Estaciones_del_IDEAM.csv"
-coor = r"/media/luisa/Datos/alejandria/coordenadas_estaciones.csv"
-tvariable=r"/media/luisa/Datos/alejandria/tablavariable.csv"
+d1   =r"/home/marcelae/Desktop/FACOM/5_Documentos/Cat_logo_Nacional_de_Estaciones_del_IDEAM.csv"
+coor = r"/home/marcelae/Desktop/alejandria/coordenadas_estaciones.csv"
+tvariable=r"/home/marcelae/Desktop/alejandria/tablavariable.csv"
 
 #conjunto de datos
 datos = pd.read_csv(d1)
