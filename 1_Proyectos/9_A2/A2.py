@@ -254,11 +254,11 @@ def STmensual(variable,tipo,nombrecolumnafecha,nombrecolumnavariable):
     return(v)
 ################################ 3. INFORMACION DE ENTRADA ################################
 ## 3.1 Base de datos de Postgresql ALEJANDRÍA
-eng = "postgresql://facom:usuario@localhost:5432/alejandria" #Motor.
+eng = "postgresql://luisa:000000@localhost:5432/alejandria" #Motor.
 engine = create_engine(eng)                                 #Máquina.
 conn=engine.connect() 
 ## 3.2 Base de datos de Postgresql A2
-eng1 = "postgresql://facom:usuario@localhost:5432/a2" #Motor.
+eng1 = "postgresql://luisa:000000@localhost:5432/a2" #Motor.
 engine1 = create_engine(eng1)                                 #Máquina.
 conn1=engine1.connect()   
 ################################ 4. PROCESOS ################################ 
@@ -283,8 +283,8 @@ h=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]
 month.sort()
 d.sort()
 h.sort()
-
-for j in tqdm(range(len(estaciones))):
+p=1
+for j in tqdm(range(p,len(estaciones))):
     #Encontrar la información de la estación
     cod=estaciones.cod_estacion[j]
     query2='''
@@ -299,8 +299,7 @@ for j in tqdm(range(len(estaciones))):
     datos["month"]=pd.to_datetime(datos[bd[0]]).dt.month # crea una columna con los meses.
     datos["day"]=pd.to_datetime(datos[bd[0]]).dt.day     # crea una columna con los dias.
     datos["hour"]=pd.to_datetime(datos[bd[0]]).dt.hour   # crea una columna con los hora.
-    y=list(datos["year"].unique()) 
-    y.sort()
+    
     
 
     #Separando dataframes por variables
@@ -309,9 +308,13 @@ for j in tqdm(range(len(estaciones))):
     presión=datos[datos.cod_variable==3]
     direcionviento=datos[datos.cod_variable==4]
     velocidadviento=datos[datos.cod_variable==5]
-
+    
+    
+    temperatura=temperatura.reset_index()
     #Temperatura
     if len(temperatura) !=0:
+        y=list(temperatura["year"].unique()) 
+        y.sort()
         H,D,M,FRE,INT=0,0,0,0,0
         FRE,INT=intervalo(temperatura,bd[0])
         H=SThorario(temperatura,2,bd[0],bd[1])
@@ -451,7 +454,7 @@ for j in tqdm(range(len(estaciones))):
         tM.to_sql(tablas[2], con=engine1, index=False, if_exists='append',chunksize=100000)
         tInt.to_sql(tablas[3], con=engine1, index=False, if_exists='append',chunksize=100000)
     #Velocidad viento
-    if len(temperatura) !=0:
+    if len(velocidadviento) !=0:
         H,D,M,FRE,INT=0,0,0,0,0
         FRE,INT=intervalo(velocidadviento,bd[0])
         H=SThorario(velocidadviento,2,bd[0],bd[1])
