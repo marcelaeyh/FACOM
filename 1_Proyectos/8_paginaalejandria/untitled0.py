@@ -15,13 +15,14 @@ from tqdm import tqdm              # librería para saber el tiempo de ejecució
 import  numpy as np
 ####################### 2. DATOS #######################
 ##  Base de datos de Postgresql
-#eng = "postgresql://lucy:usuario@localhost:5432/alejandria"
-eng = "postgresql://luisa:000000@localhost:5432/alejandria" #Motor.
+eng = "postgresql://lucy:usuario@localhost:5432/alejandria"
+#eng = "postgresql://luisa:000000@localhost:5432/alejandria" #Motor.
 engine = create_engine(eng)                                 #Máquina.
 conn=engine.connect()                                       #Conexión.
 datos=[]
 ####################### 3. TITULO Y NOTAS INICIALES #######################
-st.title("Base de datos Alejandría") # Titulo       
+st.title("Base de datos Alejandría") # Titulo  
+st.subheader("Página en desarrollo")     
 st.sidebar.header("**IMPORTANTE**")
 #Nota 1
 st.sidebar.write("""
