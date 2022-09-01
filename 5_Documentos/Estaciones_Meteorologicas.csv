@@ -1,0 +1,834 @@
+Codigo;Estacion;Longitud;Latitud;Ciudad;Barrio;Comuna;Corregimiento;Vereda;Fecha_Instalacion;Estado
+1;Casa de Gobierno Altavista;-75.6282;6.2226;Medellin;;;70 Altavista;Altavista - Sector central;19/11/2009;Activa
+2;Escuela Rural La Verde;-75.64069;6.18686;Medellin;;;80 San Antonio de Prado;La Verde;12/11/2009;Activa
+3;Escuela Rural Yarumalito;-75.69426;6.23309;Medellin;;;80 San Antonio de Prado;Yarumalito;12/11/2009;Activa
+4;I.E Hector Rogelio Montoya;-75.6908;6.34309;Medellin;;;50 Palmitas;Palmitas - Sector Central;26/11/2009;Activa
+5;I.E Santa Elena;-75.49214;6.20621;Medellin;;;90 Santa Elena;Santa Elena Sector Central;13/11/2009;Activa
+6;Casa de Cultura Las Estancias;-75.53886;6.23405;Medellin;Villatina;08 Villa Hermosa;;;17/11/2009;Inactiva
+7;Escuela Republica de Cuba;-75.57721;6.29397;Medellin;La Esperanza;06 Doce Octubre;;;17/11/2009;Activa
+8;Escuela CEDEPRO;-75.63624;6.21959;Medellin;;;70 Altavista;Buga - Patio Bonito;19/11/2009;Activa
+9;Instituto Pedro Justo Berrio;-75.61093;6.23728;Medellin;Las Mercedes;16 Belen;;;20/11/2009;Activa
+10;Escuela Rural El Boqueron;-75.65763;6.31533;Medellin;;;60 San Cristobal;Boqueron;20/11/2009;Activa
+11;Escuela Rural Fabio Zuluaga;-75.65164;6.27313;Medellin;;;60 San Cristobal;La Palma;20/11/2009;Activa
+12;I.E Concejo de Medellin;-75.6005;6.258;Medellin;La Floresta;12 La America;;;23/11/2009;Activa
+13;I.E Maria de los Angeles Cano;-75.54472;6.29231;Medellin;Granizal;01 Popular;;;14/12/2009;Inactiva
+14;Escuela El Triunfo ;-75.58491;6.30634;Medellin;El Triunfo;06 Doce Octubre;;;23/11/2009;Activa
+15;Colegio San Lucas ;-75.56653;6.181;Medellin;San Lucas;14 El Poblado;;;17/12/2009;Activa
+16;I.E Ramon Munera Lopera;-75.54344;6.26977;Medellin;El Raizal;03 Manrique;;;14/12/2009;Activa
+17;Escuela El Corazon ;-75.62977;6.24723;Medellin;El Corazon;13 San Javier;;;28/01/2010;Activa
+18;Escuela El Salado;-75.67103;6.21113;Medellin;;;80 San Antonio de Prado;El Salado;14/01/2010;Activa
+19;Tecnologico Antioquia;-75.60374;6.17832;Itagüí;Las Americas-Zona Industrial No. 1;;;;14/01/2010;Activa
+20;Fundacion Hogares Claret;-75.61133;6.29411;Medellin;;;60 San Cristobal;Pajarito;18/01/2010;Activa
+21;Escuela Rural San Jose de la Montana;-75.63913;6.30408;Medellin;;;60 San Cristobal;San Jose de la Montana;18/01/2010;Activa
+22;Escuela La Capilla del Rosario ;-75.60204;6.20519;Medellin;Belen Rincon;16 Belen;;;28/01/2010;Activa
+23;Instituto Jorge Robledo;-75.58113;6.25827;Medellin;Carlos E. Restrepo;11 Laureles - Estadio;;;18/01/2010;Activa
+24;I.E Republica de Uruguay;-75.5769;6.28369;Medellin;Alfonso Lopez;05 Castilla;;;22/01/2010;Activa
+25;Escuela Rural Astilleros;-75.66688;6.23977;Medellin;;;80 San Antonio de Prado;El Astillero;12/03/2010;Activa
+26;Escuela Rural El Plan;-75.51729;6.20526;Medellin;;;90 Santa Elena;El Plan;22/01/2010;Activa
+27;Centro de Salud San Javier La Loma;-75.63112;6.27189;Medellin;;;60 San Cristobal;La Loma;25/01/2010;Activa
+28;Liceo Salazar y Herrera;-75.60583;6.24867;Medellin;La America;12 La America;;;25/01/2010;Activa
+29;Escuela Marina Orth;-75.64377;6.23231;Medellin;;;70 Altavista;Aguas Frias;25/01/2010;Activa
+30;Salon Social Barbosa;-75.33045;6.43687;Barbosa;Centro;;;;29/01/2010;Activa
+31;Colegio Jose Manuel Sierra;-75.44583;6.37583;Girardota;Calle Bolivar;;;;29/01/2010;Activa
+32;Colegio Presbitero Bernardo Montoya ;-75.49858;6.35398;Copacabana;La Maria;;;;29/01/2010;Activa
+33;Santa Maria Goretti;-75.63747;6.09446;Caldas;La Docena;;;;1/02/2010;Activa
+34;I.E La Doctora;-75.61315;6.14144;Sabaneta;Vegas de la Doctora;;;;2/02/2010;Activa
+35;I.E Joaquin Vallejo Arbelaez ;-75.54273;6.25513;Medellin;La Ladera;08 Villa Hermosa;;;28/04/2010;Activa
+36;Colegio Concejo de Itagui;-75.6438;6.16793;Itagüí;Ditaires;Comuna 03;;;27/03/2010;Activa
+37;Liceo Fernando Velez;-75.5678;6.33755;Bello;El Carmelo;Comuna 05;;;2/02/2010;Activa
+38;Casa Cultura La Estrella;-75.64447;6.15553;La Estrella;La Chinca;;;;5/02/2010;Inactiva
+39;I.E Pedro Octavio Amado;-75.61056;6.22179;Medellin;Altavista;16 Belen;;;30/04/2010;Activa
+40;I.E Ciro Mendia;-75.55587;6.29009;Medellin;Moscu No1;02 Santa Cruz;;;12/02/2010;Activa
+41;Comisaria El Poblado;-75.56616;6.20661;Medellin;La Florida;14 El Poblado;;;24/03/2010;Activa
+42;Escuela Rural Piedras Gordas;-75.49844;6.23614;Medellin;;;90 Santa Elena;Piedra Gorda;24/03/2010;Activa
+43;Escuela Rural Quebrada Larga;-75.68567;6.20558;Medellin;;;80 San Antonio de Prado;Yarumalito;3/01/2011;Activa
+44;I.E Villa Turbay;-75.53024;6.23563;Medellin;Villa Turbay;08 Villa Hermosa;;;28/04/2010;Activa
+45;AMVA;-75.57414;6.24215;Medellin;Calle Nueva;10 La Candelaria;;;31/08/2010;Activa
+46;I.E La Milagrosa ;-75.55426;6.23506;Medellin;La Milagrosa;09 Buenos Aires;;;30/04/2010;Activa
+47;Villa Nueva Sede La Luz;-75.49659;6.38852;Copacabana;;;;Zarzal La Luz;4/03/2011;Activa
+48;Escuela Rural Santa Angela;-75.59467;6.30446;Medellin;;;60 San Cristobal;El Carmelo;14/05/2010;Activa
+49;Colegio Latino (Av. Las Palmas);-75.5459;6.21217;Medellin;;;90 Santa Elena;Las Palmas;12/03/2011;Activa
+50;Universidad CES (Sabaneta);-75.60475;6.15787;Sabaneta;Virgen del Carmen;;;;12/03/2011;Activa
+51;Represa La Garcia ;-75.6002;6.3619;Bello;;;San Felix;La Primavera;4/03/2011;Activa
+52;Centro Veterinario y de Zootecnia CES;-75.56175;6.14496;Envigado;;;;Perico;10/03/2011;Activa
+53;Colegio Eduardo Santos;-75.62938;6.25865;Medellin;Eduardo Santos;13 San Javier;;;24/03/2011;Activa
+54;I.E Juan Maria Cespedes;-75.59716;6.23529;Medellin;El Nogal - Los Almendros;16 Belen;;;6/05/2011;Activa
+55;I.E Reino de Belgica;-75.54001;6.28466;Medellin;Maria Cano Carambolas;03 Manrique;;;23/03/2011;Activa
+56;I.E Inem Jose Felix de Restrepo Sede Santa Catalina ;-75.56096;6.19978;Medellin;El Tesoro;14 El Poblado;;;25/03/2011;Activa
+57;Escuela la Clara;-75.61859;6.04202;Caldas;;;;La Clara;23/03/2012;Activa
+58;Escuela Luis Javier Garcia Isaza;-75.6243;6.04777;Caldas;;;;La Salada Parte Baja;23/03/2012;Activa
+59;ISAGEN;-75.55897;6.21394;Medellin;Las Lomas No2;14 El Poblado;;;12/04/2013;Activa
+60;Torre SIATA;-75.5887;6.2592;Medellin;Estadio;11 Laureles - Estadio;;;7/03/2012;Activa
+61;Planta de Agua Bocatoma;-75.64306;6.11986;La Estrella;;;;San Miguel;20/03/2012;Activa
+62;Gimnasio Cantabria;-75.64413;6.13718;La Estrella;;;;Pueblo Viejo;3/03/2012;Activa
+63;Las Flores;-75.45019;6.24809;Guarne;;;;San Jose;7/04/2012;Activa
+64;Ecoparque La Romera;-75.59793;6.11981;Sabaneta;;;;La Doctora;29/08/2012;Activa
+65;I.E Las Lomitas;-75.60128;6.14311;Sabaneta;;;;Las Lomitas;9/03/2012;Activa
+66;I.E San Andres (Sede El Socorro);-75.45212;6.41035;Girardota;;;;El Socorro;9/05/2012;Activa
+67;I.E Juan Echeverry Abad;-75.61478;6.18535;Itagüí;;;;El Pedregal;16/03/2012;Activa
+68;Jardin Botanico;-75.56291;6.26925;Medellin;;04 Aranjuez;;;1/02/2013;Activa
+69;Parque Biblioteca Espana;-75.54402;6.29499;Medellin;Santo Domingo Savio No. 1;01 Popular;;;20/03/2013;Inactiva
+70;Indural Km6 Medellin-Bogota;-75.52297;6.32645;Copacabana;;;;Rodas;25/06/2012;Activa
+71;CEFA;-75.56181;6.24641;Medellin;Boston;10 La Candelaria;;;28/02/2013;Activa
+72;Jose Miguel de Restrepo;-75.51014;6.37739;Copacabana;;;;La Veta;25/06/2012;Activa
+73;Ciudadela Educativa La Vida;-75.50472;6.34534;Copacabana;Cristo Rey;;;Cabuyal;24/05/2013;Activa
+74;Edificio Gaspar de Rodas - Bello;-75.55855;6.33546;Bello;Centro;Comuna 04;;;27/05/2013;Activa
+75;Institucion Educativa Rural El Tambo;-75.59311;6.43103;San Pedro;;;;El Tambo;4/06/2013;Activa
+76;I.E. Fontidueno;-75.53774;6.33411;Bello;Fontidueno;Comuna 10;;;2/07/2013;Activa
+77;Torre SIATA - Disdrometro;-75.5887;6.2592;Medellin;Estadio;11 Laureles - Estadio;;;3/04/2013;Activa
+78;Parque 3 Aguas - Disdrometro;-75.63536;6.09628;Caldas;;;;La Miel;30/01/2014;Activa
+79;Subestacion Santa Rosa de Osos - Disdrometro;-75.45786;6.63889;Santa Rosa de Osos;Avenida crespo;;;;16/07/2015;Activa
+80;Vivero EPM Piedras Blancas - Disdrometro;-75.49397;6.28328;Guarne;;;;Piedras Blancas;23/07/2013;Activa
+81;Bomberos Guayabal;-75.58697;6.21522;Medellin;Campo Amor;15 Guayabal;;;28/06/2013;Activa
+82;I.E Manuel Jose Caicedo;-75.32722;6.43498;Barbosa;Aguas Calientes;;;;3/07/2013;Activa
+83;Centro de Salud San Javier La Loma - Meteorologica;-75.63112;6.27189;Medellin;;;60 San Cristobal;La Loma;11/07/2013;Activa
+84;Escuela CEDEPRO;-75.63624;6.21959;Medellin;;;70 Altavista;Buga - Patio Bonito;22/07/2013;Inactiva
+86;Pajarito;-75.58864;6.25922;Medellin;Estadio;11 Laureles - Estadio;;;;Inactiva
+88;CUIDA Juan Cojo;-75.45097;6.35678;Girardota;;;;Juan Cojo;7/11/2013;Activa
+89;I.E Pedro Nel;-75.56778;6.31137;Medellin;Florencia;05 Castilla;;;13/11/2013;Activa
+90;Colegio Campestre el Encanto;-75.66127;6.19537;Medellin;;;80 San Antonio de Prado;El Salado;3/12/2013;Activa
+91;Estacion Metro Sabaneta;-75.61672;6.15753;Sabaneta;El Carmelo;;;;14/03/2014;Activa
+92;Altavista;-75.61602;6.22185;Medellin;;;70 Altavista;Altavista;17/08/2012;Activa
+93;Puente 33;-75.5775;6.2396;Medellín;Perpetuo Socorro;10 La Candelaria;;;8/05/2012;Activa
+94;Puente de la Aguacatala;-75.58156;6.19533;Medellin;Guayabal;15 Guayabal;;;21/06/2012;Activa
+95;Parque Lleras (Inmobiliaria Lleras);-75.5684;6.2074;Medellin;Parque Lleras;14 El Poblado;;;21/06/2012;Inactiva
+96;La Gomez;-75.59295;6.27399;Medellin;Robledo;07 Robledo;;;3/11/2011;Inactiva
+97;Parque de las Aguas-Nivel;-75.4186;6.4054;Barbosa;;;;Filo Verde;19/10/2011;Inactiva
+98;Estacion Metro Floresta;-75.59743;6.25859;Medellin;El Estadio;11 Laureles - Estadio;;;30/09/2011;Activa
+99;Aula Ambiental;-75.57253;6.26411;Medellín;El Chagualo;10 La Candelaria;;;19/07/2011;Activa
+100;Emergencia Metro;-75.58864;6.25922;Medellin;Estadio;11 Laureles - Estadio;;;1/01/1999;Inactiva
+101;Parque lineal de la presidenta;-75.56938;6.20772;Medellin;El Poblado;14 El Poblado;;;30/08/2019;Activa
+102;Caldas-Unidad Deportiva;-75.63305;6.08825;Caldas;La Docena;;;;23/12/2013;Inactiva
+103;Parque del Artista  Itagui;-75.60361;6.1778;Itagui;;;;;27/12/2013;Inactiva
+104;Quebrada La Zuniga;-75.57951;6.18493;Medellin;Santa Maria de los Angeles;14 El Poblado;;;30/08/2019;Activa
+105;Parque 3 Aguas;-75.63536;6.09628;Caldas;;;;La Miel;16/01/2014;Activa
+106;3 Aguas - Nivel;-75.63536;6.09602;Caldas;La Inmaculada;;;;16/01/2014;Activa
+107;Fundacion Hogares Claret - Humedad;-75.61122;6.29498;Medellin;;;60 San Cristobal;Pajarito;7/11/2014;Activa
+108;Santa Rita - San Antonio de Prado;-75.6515;6.19057;Medellin;;;80 San Antonio de Prado;La Verde;10/03/2014;Activa
+109;La Doctora - Sabaneta;-75.61651;6.14556;Sabaneta;Vegas de la Doctora;;;;11/03/2014;Activa
+110;Q. La Iguana;-75.60525;6.27612;Medellin;Fuente Clara;07 Robledo;;;11/04/2014;Inactiva
+111;Q. Santa Elena;-75.554;6.2435;Medellin;Sucre;08 Villa Hermosa;;;8/04/2014;Inactiva
+112;Cantera Cimax - Humedad;-75.54628;6.31123;Bello;Santa Rita;Bello Comuna 11;;Granizal;28/08/2014;Inactiva
+115;Q. Ayura;-75.58061;6.17044;Envigado;Los Naranjos;;;;10/07/2014;Inactiva
+116;Q. Picacha;-75.58503;6.24214;Medellin;Conquistadores;11 Laureles - Estadio;;;13/07/2014;Inactiva
+117;Q. Chachafruto;-75.5737;6.3732;Bello;;;;Vereda Tierra Adentro;26/08/2015;Inactiva
+118;Colegio Waldorf Isolda Echavarria;-75.64743;6.15926;La Estrella;Horizontes;;;San Jose;28/03/2014;Inactiva
+120;Caldas-Unidad Deportiva;-75.63305;6.08825;Caldas;La Docena;;;;24/11/2014;Inactiva
+121;I.E Barrio Paris;-75.58156;6.31375;Bello;Paris;Comuna 01;;;26/11/2014;Activa
+122;Tasajera;-75.43522;6.4245;Barbosa;;;;El Tigre;5/12/2014;Activa
+123;Q. La Iguana;-75.60525;6.27612;Medellin;Fuente Clara;07 Robledo;;;15/01/2015;Inactiva
+124;Caldas-Unidad Deportiva;-75.63305;6.08825;Caldas;La Docena;;;;28/01/2015;Activa
+125;Cedro Verde - Humedad;-75.54473;6.15922;Medellin;;;;Santa Catalina;1/01/1999;Inactiva
+126;Puente de Machado;-75.53783;6.336;Bello;Machado;Comuna 10;;;7/04/2015;Inactiva
+127;I.E. Manuel Jose Sierra - Sede la Holanda;-75.48325;6.41933;Girardota;;;;La Holanda- parte alta;7/04/2015;Activa
+128;La Garcia;-75.56572;6.34378;Bello;Playa Rica;Comuna 06;;;16/04/2015;Activa
+129;Colegio Divino Salvador;-75.54839;6.23708;Medellin;Miraflores;09 Buenos Aires;;;23/04/2015;Activa
+130;El Hato;-75.55853;6.3295;Bello;Puerto Bello;;;;23/04/2015;Inactiva
+131;Parque de las aguas - Disdrometro;-75.41947;6.40626;Barbosa;;;;Filo Verde;28/04/2015;Inactiva
+132;Puente de Machado;-75.53783;6.336;Bello;Fontidueno;Comuna 8;;;28/04/2015;Inactiva
+133;Vereda el perico - Humedad;-75.50711;6.19133;Envigado;;;;El Vallano;8/05/2015;Inactiva
+134;Q. La Madera - Nivel;-75.57003;6.3109;Bello;Barrio Nuevo;Comuna 02;;;8/05/2015;Activa
+135;Q. La loca - Nivel;-75.56089;6.32375;Bello;San Jose Obrero;Comuna 02;;;21/05/2015;Activa
+136;Salgar Puente Hospital - Nivel;-75.98033;5.96486;Salgar;;;;;22/05/2015;Inactiva
+136;Salgar Puente Hospital;-75.9802;5.9648;Salgar;;;;;22/05/2015;Inactiva
+137;Vereda Liboriana - Nivel;-76.03139;5.95706;Salgar;;;;Vereda Liboriana;23/05/2015;Inactiva
+138;Vereda Liboriana;-76.0315;5.95706;Salgar;;;;Vereda Liboriana;23/05/2015;Inactiva
+139;Santa Rita Guatape - Disdrometro;-75.17269;6.31756;Guatape;;;;Santa Rita;28/05/2015;Activa
+140;Puente Fundadores Copacabana;-75.49881;6.35805;Copacabana;La Maria;;;;12/06/2015;Activa
+141;Finca El Canalon Deslizamiento;-75.60794;6.12931;Sabaneta;;;;La Doctora;23/06/2015;Inactiva
+142;Finca El Canalon Corona;-75.60789;6.12917;Sabaneta;;;;La Doctora ;23/06/2015;Inactiva
+143;Q. La Doctora Aguas Arriba;-75.60903;6.13553;Sabaneta;;;;La Doctora;24/06/2015;Activa
+144;Q. El Canalon;-75.60778;6.13403;Sabaneta;;;;La Doctora;24/06/2015;Inactiva
+145;Q. La Sabanetica;-75.62283;6.14736;Sabaneta;Prados de Sabaneta;;;;3/07/2015;Activa
+146;Club del adulto mayor - Sabaneta;-75.62225;6.14731;Sabaneta;Prados de Sabaneta;;;;21/07/2015;Activa
+147;Bocatoma el viento - nivel;-75.31006;6.41392;Barbosa;;;;Ventanas;22/07/2015;Inactiva
+148;Bocatoma las despensas;-75.67608;6.19;Medellin;;;80 San Antonio de Prado;Montanita;24/07/2015;Inactiva
+150;Canada Negra - Nivel;-75.55056;6.30669;Bello;Santa Rita;Comuna 11;;;5/08/2015;Activa
+151;Seminario Redemptoris Mater;-75.53711;6.22415;Medellin;;;90 Santa Elena;Las Palmas;18/08/2015;Inactiva
+152;Q. Ana Diaz;-75.60944;6.24603;Medellin;Barrio Cristobal;12 La America;;;24/08/2015;Activa
+153;Bocatoma la Cascada;-75.51181;6.22706;Medellin;;;90 Santa Elena;Vereda Media Luna;3/09/2015;Inactiva
+154;Centro de desarrollo infantil pequenos exploradores;-75.54792;6.30964;Bello;Santa Rita;Comuna 11;;;17/09/2015;Activa
+155;El Hato;-75.55851;6.3295;Bello;Puerto Bello;Comuna 04;;;23/09/2015;Activa
+156;Carmen de Viboral - Disdrometro;-75.30506;6.0855;El Carmen de Viboral;;;;Viboral;24/09/2015;Inactiva
+157;Aula Ambiental - Velocidad Superficial;-75.57253;6.26411;Medellin;El Chagualo;07 Robledo;;;1/10/2015;Inactiva
+158;Q. La Rosa;-75.55533;6.28919;Medellin;Moscu No1;01 Popular;;;7/10/2015;Activa
+159;Samana - Disdrometro;-74.99511;5.44064;Samana;;;;La Palma;24/09/2015;Activa
+160;Samana - Pluviometro;-74.99511;5.44064;Samana;;;;La Palma;16/10/2015;Activa
+161;Q. La Chocha;-75.64628;6.15362;La Estrella;Chile;;;;23/11/2015;Activa
+162;Q. El Tablazo;-75.61275;6.18111;Itagui;El Progreso;;;;23/11/2015;Inactiva
+163;Q. La Munoz;-75.62545;6.16687;Itagui;;;;;20/11/2015;Inactiva
+164;Planta de potabilizacion de barbosa;-75.32492;6.43003;Barbosa;;;;;7/01/2016;Inactiva
+165;Santa Rosa de Osos - Pluvio;-75.45786;6.63889;Santa Rosa de Osos;Avenida crespo;;;;1/03/2016;Activa
+166;Q. El Chocho;-75.63149;6.2232;Medellin;;;70 Altavista;Altavista - Sector Central;2/02/2016;Activa
+167;Ancon Sur;-75.62672;6.153;Medellin;Zona Industrial;;;;10/01/2016;Inactiva
+168;Santa Rita Guatape - Pluvio;-75.17269;6.31756;Guatape;;;;Santa Rita;29/02/2016;Activa
+169;Rio Medellin - La Clara;-75.61976;6.04869;Caldas;;;;La Clara;11/02/2016;Activa
+170;Metro Poblado - Nivel;-75.5781;6.21287;Medellin;Patio Bonito;14 El Poblado;;;2/04/2016;Inactiva
+171;Escombrera Mocatan - Pluvio;-75.63083;6.05973;Caldas;;;;La Clara;29/02/2016;Activa
+172;Escombrera Mocatan - Nivel;-75.62875;6.06063;Caldas;;;;La Clara;1/04/2016;Inactiva
+173;Q. Picacha - Aguas Frias;-75.63967;6.23148;Medellin;;;70 Altavista;Aguas Frias;28/09/2015;Activa
+174;Q. La Sanin;-75.5461;6.203;Medellin;;;90 Santa Elena;Las Palmas;11/05/2016;Inactiva
+174;Q. La Sanin;-75.5461;6.203;Medellin;;;90 Santa Elena;Las Palmas;11/05/2016;Inactiva
+175;Q. La Honda - C. Bravo M.;-75.55728;6.2661;Medellin;Manrique Central No. 1;4 Aranjuez;;;13/05/2016;Inactiva
+176;Altavista - Velocidad Superficial;-75.61586;6.22187;Medellin;;;70 Altavista;Altavista;10/06/2016;Inactiva
+177;3 Aguas - Velocidad Superficial;-75.63526;6.09602;Caldas;;;;La Miel;10/06/2016;Inactiva
+178;Q. La Honda - C. Bravo M.;-75.55728;6.2661;Medellin;Manrique Central No. 1;4 Aranjuez;;;13/05/2016;Inactiva
+179;La Inmaculada - Nivel;-75.63359;6.1367;La Estrella;;;;Pan de Azucar;23/09/2016;Activa
+181;Q. La grande - Vivero Ancon Sur;-75.63517;6.15051;La Estrella;;;;Pueblo Viejo;23/11/2016;Activa
+182;Q. Santa Elena;-75.55387;6.24315;Medellin;Caicedo;09 Buenos Aires;;;25/11/2016;Activa
+183;Q. la Ayura - Ecoparque el Salado;-75.56922;6.13868;Envigado;;;;Pantanillo;20/12/2016;Activa
+184;Miraflores;-75.54918;6.23002;Medellin;Cataluna;09 Buenos Aires;;;17/01/2017;Activa
+185;Puente de los Fundadores - Velocidad Superficial;-75.49882;6.35804;Copacabana;;;;;10/02/2017;Inactiva
+186;Q. La Gallinaza;-75.32771;6.43292;Barbosa;;;;Buenos Aires;7/04/2017;Activa
+187;Q. La Sanin - Nivel;-75.5461;6.203;Medellin;;;90 Santa Elena;Las Palmas;27/06/2017;Activa
+188;Humedad La Sanin;-75.5461;6.203;Medellin;;;90 Santa Elena;Las Palmas;25/06/2017;Activa
+189;Q. La Sanin - Pluviografica;-75.5461;6.203;Medellin;;;90 Santa Elena;Las Palmas;14/07/2017;Activa
+190;El Santuario - Pluvio;-75.27438;6.13384;El Santuario;;;;El Saladito;15/07/2017;Activa
+191;El Santuario - Disdrometro;-75.27438;6.13384;El Santuario;;;;El Saladito;15/07/2017;Activa
+192;Q. Dona Ana - Nivel;-75.61044;6.13909;Sabaneta;;;;La Doctora;19/07/2017;Inactiva
+193;Fuente Clara - Pluviometro;-75.61284;6.13266;Sabaneta;;;;La Doctora;18/07/2017;Activa
+194;Cocorna - Pluvio;-75.21106;6.07951;Cocorna;;;;Mediacuesta;24/07/2017;Activa
+195;La Ceja - Nivel;-75.42863;6.02957;La Ceja;Cabecera;;;;1/08/2017;Activa
+196;Rionegro - Nivel;-75.36133;6.17863;Rionegro;;;;La Laja;30/08/2017;Inactiva
+197;Universidad de Medellin - Meteorologica;-75.60996;6.23018;Medellin;Las Violetas;16 Belen;;;16/08/2017;Activa
+198;Politecnico Jaime Isaza Cadavid - Meteorologica;-75.57777;6.20898;Medellin;Patio Bonito;14 El Poblado;;;10/08/2017;Activa
+199;Rionegro - Thies;-75.369;6.16629;Rionegro;;;;La Laja;28/08/2017;Activa
+201;Torre SIATA;-75.5887;6.2592;Medellin;Estadio;11 Laureles - Estadio;;;28/12/2012;Activa
+202;AMVA;-75.5743;6.24215;Medellin;Calle Nueva;10 La Candelaria;;;30/10/2012;Activa
+203;UNAL-Sede Agronomia;-75.5778;6.26075;Medellin;La Iguana;07 Robledo;;;30/10/2012;Activa
+204;Parque de las Aguas;-75.41947;6.40626;Barbosa;;;;Vereda Filo Verde;23/11/2012;Inactiva
+205;Santa Elena-Radar;-75.5276;6.1935;Medellin;;;90 Santa Elena;El Plan;1/11/2012;Inactiva
+206;Colegio Concejo de Itagui;-75.6438;6.16793;Itagui;Ditaires;;;;6/11/2012;Activa
+207;Vivero EPM Piedras Blancas;-75.49397;6.28328;Guarne;;;;Piedras Blancas;25/02/2013;Activa
+210;Telemedellin-Poblado;-75.57581;6.18699;Medellin;El Diamante No. 2;14 El Poblado;;;7/12/2012;Inactiva
+211;La Ladera;-75.55403;6.25119;Medellin;La Ladera;08 Villa Hermosa;;;10/12/2012;Activa
+213;Ciudadela del Valle Itagui;-75.60175;6.18697;Itagui;;;70 Altavista;Los Gomez;1/01/1999;Inactiva
+227;Sonson - Pluvio;-75.30937;5.71597;Sonson;Centro;;;;29/08/2017;Activa
+228;Sonson - Disdrometro;-75.30937;5.71597;Sonson;Sector Central;;;;29/08/2017;Activa
+229;Alcaldia La Estrella - Thies;-75.64162;6.15814;La Estrella;El Dorado;;;;31/08/2017;Activa
+230;Alcaldia La Estrella - Pluvio;-75.64162;6.15814;La Estrella;El Dorado;;;;30/08/2017;Activa
+231;Alcaldia La Estrella - Disdrometro;-75.64162;6.15814;La Estrella;El Dorado;;;;30/08/2017;Activa
+233;I.E Manuel Jose Caicedo - Disdrometro;-75.32722;6.43498;Barbosa;Aguas Calientes;;;;18/09/2017;Activa
+234;I.E Manuel Jose Caicedo - Pluviometro;-75.32722;6.43498;Barbosa;Aguas Calientes;;;;18/09/2017;Activa
+235;Quebrada Larga - Humedad;-75.68551;6.20552;Medellin;;;80 San Antonio de Prado;Yarumalito;18/09/2017;Activa
+236;Q. Dona Maria;-75.59789;6.18104;Itagüí;Santa Maria No. 2;;;;19/09/2017;Activa
+237;Astilleros - Humedad;-75.66688;6.23977;Medellin;;;80 San Antonio de Prado;El Astillero;21/09/2017;Inactiva
+238;Q. La Iguana - Nivel;-75.60538;6.27622;Medellin;Fuente Clara;07 Robledo;;;25/09/2017;Activa
+239;Piedras Blancas - Nivel;-75.5107;6.34629;Copacabana;Simon Bolivar;;;;3/10/2017;Activa
+240;Q. La Valeria - Nivel;-75.64491;6.09199;Caldas;;;;La Valeria;5/10/2017;Activa
+241;Sede Social Picacho Las Vegas;-75.58336;6.29515;Medellin;Picacho;06 Doce Octubre;;;12/10/2017;Activa
+242;IE Jesus Maria Valle;-75.58216;6.30065;Medellin;Picacho;06 Doce Octubre;;;17/10/2017;Activa
+243;Unisabaneta-Caequinos - Humedad;-75.6045;6.13773;Sabaneta;;;;La Doctora;17/04/2017;Inactiva
+244;Bomberos Envigado - Pluvio;-75.60088;6.16663;Envigado;Las Vegas;;;;20/10/2017;Activa
+245;Q. La miel - Nivel;-75.62083;6.10153;Caldas;;;;La Miel;25/10/2017;Activa
+246;Q. La Raya - Nivel;-75.6409;6.11194;La Estrella;;;;La Raya;31/10/2017;Activa
+247;Q. El Tablazo - Nivel;-75.61275;6.18111;Itagüí;El Progreso;;;;1/11/2017;Activa
+248;Vivero EPM Piedras Blancas - Pluvio;-75.49397;6.28328;Guarne;;;;Piedras Blancas;3/11/2017;Activa
+249;Escuela CEDEPRO;-75.63624;6.21959;Medellin;;;70 Altavista;Buga - Patio Bonito;17/11/2017;Activa
+251;Q.  la Lopez - Nivel;-75.325;6.42972;Barbosa;;;;Buenos Aires;8/11/2017;Activa
+252;Alcaldia Envigado - Meteorologica;-75.5883;6.1699;Envigado;Sector Central;;;;24/04/2017;Activa
+253;Parque 3 Aguas - Pluvio;-75.63536;6.09628;Caldas;;;;La Miel;14/11/2017;Activa
+254;SOS Aburra Norte - Girardota - Meteorologica;-75.45091;6.37904;Girardota;Juan XXIII;;;;15/11/2017;Inactiva
+256;Puerto Triunfo - Pluviometro;-74.64149;5.86831;Puerto Triunfo;Sector Central;;;;22/11/2017;Activa
+257;Puerto Triunfo - Disdrometro;-74.64149;5.86831;Puerto Triunfo;Sector Central;;;;13/06/2018;Activa
+259;Andalucia Caldas - Nivel;-75.62651;6.09259;Caldas;Andalucia;;;;28/11/2017;Activa
+260;Puente Gabino - Nivel;-75.20589;6.55962;Barbosa;;;;El Caney;29/11/2017;Activa
+261;Deslizamiento La raya - Pluviografica;-75.6481;6.1138;La Estrella;;;;San Miguel;30/11/2017;Activa
+263;La clara digital- Pluviografica;-75.61976;6.04869;Caldas;;;;La Clara;14/12/2017;Inactiva
+265;Q. La loca El cafetal - Nivel;-75.58002;6.31582;Bello;Paris;Comuna 01;;;14/12/2017;Activa
+266;Himalaya - Pluvio;-75.63962;6.14716;La Estrella;;;;Pueblo Viejo;18/12/2017;Activa
+267;Colegio Canadiense - Pluviografica;-75.63836;6.13166;La Estrella;;;;Penas Blancas;18/12/2017;Activa
+268;Q La Bermejala - Nivel;-75.6357;6.13278;La Estrella;;;;La Tablaza;20/12/2017;Activa
+269;Parque de las Aguas - Thies;-75.41871;6.40661;Barbosa;;;;Filo Verde;4/01/2018;Activa
+271;Jorge Eliecer Gaitan - Thies;-75.55866;6.33711;Bello;Sector Central;Comuna 04;;;4/01/2018;Activa
+272;Q. El Salado - Vereda Jamundi - Nivel ;-75.43395;6.35787;Girardota;;;;Jamundi;5/01/2018;Activa
+273;Q. Mal Paso - Nivel;-75.58707;6.28231;Medellin;El Diamante;07 Robledo;;;15/01/2018;Activa
+274;Carpinelo amapolita - Pluvio;-75.53819;6.2871;Medellin;Carpinelo;01 Popular;;;19/01/2018;Activa
+275;Q. La loca El cafetal - Pluvio;-75.58002;6.31582;Bello;Paris;Comuna 01;;;16/01/2018;Activa
+278;Vereda Potrerito - Pluviografica;-75.32106;6.42525;Barbosa;;;;Potrerito;31/01/2018;Activa
+281;Megacolegio - Pluviografica;-75.58583;6.31043;Bello;Paris;Comuna 01;;;15/02/2018;Activa
+282;La isla - Pluviografica;-75.57322;6.31095;Bello;La Maruchenga;Comuna 01;;;16/02/2018;Activa
+283;Q. Montanita - Nivel;-75.57704;6.31196;Bello;Paris;Comuna 01;;;19/02/2018;Activa
+284;El Remanso - Nivel;-75.57575;6.14522;Envigado;El Salado;;;;13/04/2018;Activa
+286;Represa piedras blancas - Nivel;-75.50381;6.29692;Guarne;;;;Piedras Blancas;28/02/2018;Activa
+287;Represa piedras blancas - Pluvio;-75.50381;6.29692;Guarne;;;;Penas Blancas;22/02/2018;Activa
+288;Colegio Waldorf - Pluviografica;-75.64743;6.15926;La Estrella;Bellavista;;;;21/03/2018;Activa
+289;Seminario Redemptoris - Pluviografica;-75.53711;6.22417;Medellin;;;90 Santa Elena;Las Palmas;22/03/2018;Activa
+290;Q Yerbabuena - Nivel;-75.56105;6.21154;Medellin;Las Lomas No.1;14 El Poblado;;;5/04/2018;Activa
+295;Laguna Quitasol - Pluviografica;-75.55572;6.35789;Bello;;;;Tierradentro;23/04/2018;Activa
+296;Laguna Quitasol - Humedad;-75.55571;6.35787;Bello;;;;Tierradentro;23/04/2018;Activa
+297;Q. La Valeria - Calidad del Agua;-75.64822;6.09492;Caldas;;;;La Valeria;24/04/2018;Inactiva
+298;Torre SIATA - Pluvio OTT;-75.5889;6.2589;Medellin;Estadio;11 Laureles - Estadio;;;2/05/2018;Inactiva
+302;Ituango - Nivel;-75.64523;7.13905;Ituango;;;Santa Rita;Las Aguitas;11/05/2018;Activa
+303;Campamento Villa Luz - Meteorologica;-75.67957;7.12582;Ituango;;;;;11/05/2018;Inactiva
+305;Tunel vial (salida) - Thiess;-75.65615;7.13693;Ituango;;;;;17/05/2018;Inactiva
+306;Tunel vial (salida a presa) - Meteorologica;-75.67959;7.12582;Ituango;;;;;18/05/2018;Inactiva
+307;Tunel vial (acceso) - Meteorologica;-75.66176;7.12333;Ituango;;;;;18/05/2018;Inactiva
+308;Pozo de humos - Meteorologica;-75.67957;7.12582;Ituango;;;;;19/05/2018;Inactiva
+309;Pozo de aireacion de almaneras - Meteorologica;-75.67957;7.12582;Ituango;;;;;19/05/2018;Inactiva
+310;Subestacion Boxculvert - Meteorologica;-75.67957;7.12582;Ituango;;;;;19/05/2018;Inactiva
+311;Casa Siata - Pluviografica;-75.57971;6.19603;Medellin;Aguacatala;14 El Poblado;;;5/06/2018;Inactiva
+312;Pozo compuertas - Meteorologica;-75.65997;7.13147;Ituango;;;;;24/05/2018;Inactiva
+313;La Ye - Meteorologica;-75.55064;6.18254;Medellin;;;90 Santa Elena;Las Palmas;29/05/2018;Activa
+315;Casa Siata - Disdrometro;-75.57971;6.19603;Medellin;Aguacatala;14 El Poblado;;;5/06/2018;Inactiva
+316;Q. El Hato - Espiritu Santo;-75.56638;6.33244;Bello;Espiritu Santo;Comuna 04;;;30/07/2018;Activa
+317;Q. Avelina - Hato Viejo;-75.57277;6.33748;Bello;;;;Hato Viejo;7/06/2018;Activa
+318;Institucion Rafael J. Mejia - Thies;-75.62139;6.14564;Sabaneta;Tres Esquinas;;;;14/06/2018;Activa
+319;Institucion Educativa Colombia. Girardota - Thiess;-75.44399;6.37852;Girardota;Aurelio Mejia;;;;19/06/2018;Inactiva
+320;Palmitas potrera - Pluvio;-75.69977;6.35665;Medellin;;;50 Palmitas;Potrero - Miseranga;27/06/2018;Activa
+322;Metro La Estrella - Meteorologica;-75.62749;6.15231;Sabaneta;Ancon Sur;;;;29/06/2018;Activa
+323;Acueducto Hatillo - Pluviografica;-75.39823;6.41533;Barbosa;;;;Hatillo;17/07/2018;Activa
+324;E.R Jamundi - Pluviografica;-75.43623;6.36452;Girardota;;;;Jamundi;17/07/2018;Activa
+326;Q. La Guayabala - Nivel;-75.61354;6.20612;Medellin;;;70 Altavista;San Jose del Manzanillo;1/08/2018;Activa
+327;San Jose de las Vegas - Pluviografica;-75.53833;6.12;El Retiro;;;;Carrizales;8/08/2018;Activa
+328;Universidad EIA - Envigado - Pluviografica;-75.51694;6.15667;Envigado;;;;Santa Catalina;9/08/2018;Activa
+329;Cascada Santa Elena  - Nivel;-75.51197;6.22679;Medellin;;;90 Santa Elena;Media Luna;24/08/2018;Inactiva
+331;Ancon Sur - Nivel;-75.62808;6.15279;La Estrella;Zona Industrial;;;;3/09/2018;Activa
+332;Presidenta Puente Peatonal Exito - Nivel;-75.57584;6.21095;Medellin;Astorga;14 El Poblado;;;12/09/2018;Activa
+333;La Presidenta Vizcaya - Nivel;-75.56356;6.20774;Medellin;Las Lomas No 1;14 El Poblado;;;17/09/2018;Activa
+334;Manuel Mejia Vallejo - pluviografica;-75.56505;6.16734;Envigado;Loma El Atravesado;;;;18/09/2018;Activa
+335;Q. La Ayura Las Vegas  - Nivel;-75.58297;6.18519;Envigado;Villagrande;;;;23/10/2018;Activa
+337;Bulerias - Alcantarillado;-75.59013;6.23911;Medellin;Belen;16 Belen;;;30/10/2018;Inactiva
+339;Ecoparque el Salado - Pluviografica;-75.56922;6.13868;Envigado;;;;Pantanillo;23/11/2018;Activa
+340;Q. Dona Maria - Temperatura;-75.59789;6.18104;Itagui;Santa Maria No. 3;;;;12/12/2018;Activa
+342;Hatillo - Rio Medellin-Aburra;-75.39381;6.41249;Barbosa;;;;Hatillo;4/12/2018;Activa
+344;La Harenala Santa Maria;-75.60391;6.18417;Itagüí;Santa Maria No. 1;;;;5/12/2018;Activa
+345;Villa del Socorro - Meteorologica;-75.55392;6.29552;Medellin;Villa del Socorro;02 Santa Cruz;;;18/01/2019;Activa
+346;Puente Machado  - Nivel;-75.53776;6.3359;Bello;Machado;Comuna 10;;;23/01/2019;Activa
+347;Monte Alvernia;-75.60539;6.31041;Bello;;;;El Carmelo;5/02/2019;Inactiva
+349;Institucion Educativa La Candelaria - Meteorologica;-75.54263;6.29368;Medellin;Santo Domingo Savio;01 Popular;;;30/01/2019;Activa
+351;Radar de Vientos -  Disdrometro;-75.5899;6.2293;Medellin;Belen Las Playas;16 Belen;;;31/01/2019;Activa
+352;Institucion Educativa La Candelaria - Pluviografica;-75.54263;6.29368;Medellin;Santo Domingo Savio;01 Popular;;;1/02/2019;Activa
+353;Villa del Socorro - Pluviografica;-75.55392;6.29552;Medellin;Villa del Socorro;02 Santa Cruz;;;1/02/2019;Activa
+354;Villa Niza - Meteorologica;-75.55678;6.29514;Medellin;Villa Niza;02 Santa Cruz;;;8/02/2019;Activa
+355;Escuela Piedras Gordas - Meteorologica;-75.49844;6.23614;Medellin;;;90 Santa Elena;Piedras Gordas;12/02/2019;Activa
+356;Villa Niza - Pluviografica;-75.55678;6.29514;Medellin;Villa Niza;02 Santa Cruz;;;8/02/2019;Activa
+357;Thies Concejo de Itagui - Meteorologica;-75.6441;6.1681;Itagui;Ditaires;;;;26/02/2019;Inactiva
+359;Puente Peatonal Acevedo - Nivel;-75.55708;6.30687;Medellin;La Frontera;02 Santa Cruz;;;27/02/2019;Inactiva
+360;Thies Miraflores- Meteorologica;-75.54919;6.22997;Medellin;Cataluna;09 Buenos Aires;;;27/02/2019;Activa
+362;Proyecto Amsterdam;-75.55743;6.20131;Medellin;El Tesoro;14 El Poblado;;;5/03/2019;Activa
+365;Escuela Rural Yarumalito - Disdrometro;-75.69426;6.23309;Medellin;;;80 San Antonio de Prado;Yarumalito;7/03/2019;Activa
+367;Joaquin Vallejo - Meteorologica;-75.54273;6.25513;Medellin;La Ladera;08 Villa Hermosa;NULL;NULL;18/03/2019;Activa
+368;Federico Carrasquilla - Meteorologica;-75.54927;6.29722;Medellin;Popular;01 Popular;;;29/03/2019;Activa
+369;Metro la estrella - Pluviografica;-75.62749;6.15231;Sabaneta;Ancon Sur;NULL;NULL;NULL;8/04/2019;Activa
+370;Metro la estrella - Disdrometro;-75.62749;6.15231;Sabaneta;Ancon Sur;;;;8/04/2019;Activa
+372;Comfama Copacabana - Extensometro;-75.48344;6.37659;Copacabana;;;;;3/05/2019;Inactiva
+373;Ancon 2 - Pluviometro;-75.48344;6.37659;Copacabana;NULL;NULL;;Ancon Norte;3/05/2019;Activa
+374;Comfama copacabana - acelerometro;-75.48282;6.37647;Copacabana;;;;;6/05/2019;Inactiva
+375;Comfama copacabana - gnss;-75.48282;6.37647;Copacabana;;;;;7/05/2019;Inactiva
+376;Feria de Ganado - Pluviografica;-75.56167;6.30289;Medellín;Belalcazar;05 Castilla;;;14/05/2019;Activa
+377;Bulerias - Alcantarillado Lidar;-75.59291;6.23978;Medellin;Laureles;11 Laureles - Estadio;;;16/05/2019;Activa
+378;Edificio camacol - Pluviografica;-75.57859;6.25393;Medellín;Naranjal;11 Laureles - Estadio;NULL;NULL;4/06/2019;Activa
+379;Ancon 2 Copacabana - acelerometro;-75.48236;6.37786;Copacabana;;;;Ancon Norte;5/06/2019;Activa
+381;Salinas Caldas - Acelerometro;-75.66336;6.04908;Caldas;;;;;14/06/2019;Inactiva
+382;Picacha Las Violetas - Nivel;-75.61252;6.23465;Medellin;Las Violetas;16 Belen;;;14/06/2019;Activa
+383;Salinas Caldas - Pluviografica;-75.66264;6.04833;Caldas;;;;Salinas;14/06/2019;Activa
+384;Salinas Caldas - Extensometro;-75.66264;6.04833;Caldas;;;;;19/06/2019;Inactiva
+385;Ancon 2 - Extensometro;-75.48245;6.37822;Copacabana;;;;;11/07/2019;Activa
+386;Ancon 2 - GNSS;-75.4825;6.37783;Copacabana;;;;;11/07/2019;Inactiva
+387;Manga Arriba - Extensometro;-75.45896;6.3516;Girardota;;;;Manga Arriba;17/07/2019;Activa
+388;Torre Siata Piso 2 - Meteorologica;-75.5887;6.2592;Medellin;Estadio;11 Laureles - Estadio;NULL;NULL;6/08/2019;Inactiva
+389;Manga Arriba - Pluviometro;-75.45892;6.35169;Girardota;NULL;NULL;NULL;Manga Arriba;9/08/2019;Activa
+390;Manga Arriba - Acelerometro;-75.45896;6.3516;Girardota;;;;Manga Arriba;17/07/2019;Activa
+391;PTAR Aguas Claras - Nivel;-75.53034;6.34183;Bello;Navarra;Comuna 9;;;26/08/2019;Inactiva
+392;Universidad San buenaventura - Pluviografica;-75.57011;6.33092;Bello;Salento;Comuna 03;;;9/09/2019;Activa
+393;Deprimido terminal del norte - Pluviografica;-75.57275;6.27608;Medellin;;05 Castilla;;;20/09/2019;Activa
+394;Deprimido los musicos - Pluviografica;-75.58184;6.24745;Medellin;San Joaquin;11 Laureles - Estadio;;;20/09/2019;Activa
+395;La harenala santa Maria- Pluviografica;-75.60391;6.18417;Itagui;Santa Maria No. 1;;;;24/09/2019;Activa
+396;Quebrada Larga Stevens;-75.68574;6.20556;Medellin;;;80 San Antonio de Prado;Yarumalito;26/09/2019;Activa
+397;Concejo de Itagui - Thiess;-75.6438;6.16793;Itagui;Ditares;;;;27/09/2019;Activa
+398;Manga Arriba 2 - Extensometro;-75.45892;6.35169;Girardota;;;;Manga Arriba;1/10/2019;Activa
+399;Institucion Educativa Jesus Maria Valle - Meteorologica;-75.58223;6.30053;Medellin;Picacho;06 Doce de Octubre;NULL;NULL;9/10/2019;Activa
+401;Alcantarillado Feria Ganado - Nivel;-75.5623;6.3031;Medellin;Boyaca;05 Castilla;;;11/10/2019;Activa
+402;8 de marzo - Nivel;-75.52972;6.23017;Medellin;Juan Pablo II;09 Buenos Aires;;;25/09/2019;Activa
+403;Puerto Triunfo - Meteorologica;-74.6415;5.86831;Puerto Triunfo;Sector Central;;;;17/10/2019;Activa
+404;Santa Elena Km11 - Nivel;-75.50208;6.21211;Medellin;NULL;NULL;90 Santa Elena;Santa Elena - Sector Central;17/09/2019;Activa
+405;Q. San Alejo - Nivel;-75.62004;6.14873;Sabaneta;Sector Central;;;;1/11/2019;Activa
+406;El Plebiscito - Nivel;-75.62144;6.15227;Sabaneta;Sector Central;;;;1/11/2019;Activa
+407;Jerico - Pluviografica;-75.78706;5.79349;Jerico;Sector Central;;;;5/11/2019;Activa
+409;Extensometro Planta - Jerico;-75.78984;5.79312;Jerico;;;;;12/11/2019;Inactiva
+410;Acelerometro  Planta - Jerico;-75.78984;5.79312;Jerico;;;;;12/11/2019;Inactiva
+411;Extensometro Tanque - Jerico;-75.78935;5.79274;Jerico;;;;;13/11/2019;Inactiva
+412;Alcaldia Taraza - Meteorologica;-75.40034;7.58075;Taraza;Sector Central;;;;18/11/2019;Activa
+413;Bomberos Caucasia - Meteorologica;-75.17956;7.96742;Caucasia;Sector Central;;;;28/11/2019;Activa
+414;Caucasia - Nivel;-75.18637;7.96985;Caucasia;Sector Central;;;;2/12/2019;Activa
+416;Salada Parte Alta - Disdrometro;-75.61831;6.01689;Caldas;;;;Salada Parte Alta;11/12/2019;Activa
+417;Santa Elena Radar - Disdrometro;-75.5276;6.1935;Medellin;;;90 Santa Elena;El Plan;11/12/2019;Activa
+418;Montanita San Antonio - Pluviografica;-75.66603;6.19219;Medellin;;;80 San Antonio de Prado;Montanita;26/12/2019;Activa
+419;Thies SENA Medellin - Meteorologica;-75.57444;6.25528;Medellín;San Benito;10 La Candelaria;;;26/12/2019;Activa
+420;Pueblo Viejo - Pluviometro;-75.63792;6.14023;La Estrella;NULL;NULL;NULL;Pueblo Viejo;26/12/2019;Activa
+421;CC Viva Envigado - Pluviografica;-75.59106;6.17685;Envigado;Las Vegas;;;;14/01/2020;Activa
+422;Laguna Quitasol Digital- Humedad;-75.55571;6.35787;Bello;;;;Tierradentro;15/01/2020;Activa
+423;Q. La Ayura - Los Naranjos -  Nivel;-75.58061;6.17044;Envigado;Los Naranjos;NULL;NULL;NULL;23/12/2019;Activa
+424;Manga Arriba - Humedad;-75.45892;6.35169;Girardota;;;;Manga Arriba ;1/03/2020;Activa
+425;Montanita San Antonio - Disdrometro;-75.66603;6.19219;Medellin;;;80 San Antonio de Prado;Montanita;13/02/2020;Activa
+426;Unicentro -  Nivel Lidar;-75.5874;6.24;Medellin;Los Conquistadores;11 Laureles - Estadio;;;14/02/2020;Activa
+427;Thies ITM Castilla - Meteorologica;-75.56912;6.29391;Medellin;Girardot;05 Castilla;;;20/02/2019;Activa
+429;Perfilador de Viento - Pluviografica;-75.5899;6.2293;Medellin;Belen Las Playas;16 Belen;;;21/02/2020;Activa
+430;Deprimido de Los Musicos - Nivel Lidar;-75.58181;6.24621;Medellin;Los Conquistadores;11 Laureles - Estadio;;;24/02/2020;Activa
+431;Q. La Honda -  Sabaneta;-75.6063;6.15243;Sabaneta;Sector Central;;;;25/02/2020;Activa
+432;Andalucia Caldas - Pluviografica;-75.62651;6.09259;Caldas;Andalucia;;;;27/02/2020;Activa
+433;Salada Parte Alta - Pluviografica;-75.61831;6.01689;Caldas;;;;Salada Parte Alta;28/02/2020;Activa
+434;Museo de Antioquia - Pluviografica;-75.56891;6.25242;Medellin;La Candelaria;10 La Candelaria;;;3/03/2020;Activa
+435;Museo de Antioquia - Disdrometro;-75.56966;6.25277;Medellin;La Candelaria;10 La Candelaria;;;3/03/2020;Activa
+436;Ancon 2 - Humedad Stevens;-75.48221;6.37749;Copacabana;;;;Ancon Norte;12/03/2020;Activa
+437;Paradero Jalisco San Felix - Pluviografica;-75.597;6.31433;Bello;;;San Felix;El Carmelo;31/03/2020;Activa
+438;La Clara - Temp Pluviografica ;-75.6187;6.042;Caldas;;;;La Clara;24/04/2020;Inactiva
+439;La clara - Temp Lluvia;-75.6187;6.042;Caldas;;;;La Clara;23/12/2019;Inactiva
+440;El 12 Taraza - Nivel;-75.30716;7.44811;Medellin;;;;El Doce;23/12/2019;Activa
+441;Temp de agua Torre Siata - Pluviografica;-75.58864;6.25922;Medellin;Estadio;11 Laureles - Estadio;;;24/04/2020;Inactiva
+442;Temp Quebrada larga - Pluviografica;-75.68567;6.20558;Medellin;;;80 San Antonio de Prado;Yarumalito;7/05/2020;Inactiva
+443;Temp Quebrada larga - Temp Lluvia;-75.68567;6.20558;Medellin;;;80 San Antonio de Prado;Yarumalito;7/05/2020;Inactiva
+444;Museo de Antioquia - Meteorologica;-75.56891;6.25242;Medellin;La Candelaria;10 La Candelaria;;;7/05/2020;Inactiva
+445;Deprimido San Juan Con La 80 - Pluviografica;-75.60224;6.25038;Medellin;Lorena;11 Laureles - Estadio;;;8/05/2020;Activa
+446;Deprimido Bulerias - Pluviografica;-75.5899;6.2395;Medellin;Laureles;11 Laureles - Estadio;;;5/05/2020;Activa
+447;Deprimido San Juan Con Av Ferrocarril - Pluviografica;-75.57498;6.24598;Medellin;Guayaquil;10 La Candelaria;;;11/05/2020;Activa
+448;Thies CASD - Meteorologica;-75.57523;6.29762;Medellin;Pedregal ;06 Doce Octubre;;;19/05/2020;Activa
+449;Monterrey - Alcantarillado Lidar;-75.57565;6.21281;Medellin;Astorga;14 El Poblado;;;20/05/2020;Activa
+450;Universidad Lasallista - Meteorologica;-75.63824;6.09955;Caldas;Sector Central;;;;28/05/2020;Activa
+451;Heliodora - Pluviografica ;-75.58767;6.16083;Envigado;El Dorado;;;;3/07/2020;Activa
+452;Puente Gabino - Pluviografica;-75.20589;6.55962;Yolombo;;;;El Caney;22/07/2020;Activa
+453;Montanita -  Extensometro;-75.66599;6.19204;Medellín;;;80 San Antonio de Prado;Montanita;27/07/2020;Activa
+454;Montanita - Acelerometro;-75.66599;6.19204;Medellín;;;80 San Antonio de Prado;Montanita;27/07/2020;Activa
+455;Montanita - Humedad Stevens;-75.66601;6.19209;Medellín;;;80 San Antonio de Prado;Montanita;27/07/2020;Activa
+456;Pluviometro Arenys de mar;-75.60666;6.27631;Medellin;Blanquizal;13 San Javier;;;31/07/2020;Activa
+457;Ajizal;-75.6049;6.1936;Itagui;;;;Ajizal;8/09/2020;Activa
+459;Animalx p1;-75.56523;6.22612;Medellin;San Diego ;10 La Candelaria;;;22/09/2020;Inactiva
+460;Animalx p2;-75.56523;6.22612;Medellin;San Diego ;10 La Candelaria;;;22/09/2020;Inactiva
+461;La Heliodora;-75.59019;6.16206;Envigado;El Dorado;;;;25/09/2020;Activa
+463;San Cristobal;-75.65159;6.29647;Medellin;;;60 San Cristobal;El Llano ;2/10/2020;Inactiva
+464;Cementos Argos;-75.54757;6.31737;Bello;;;;;2/10/2020;Activa
+465;Cementos Argos 2;-75.54757;6.31737;Bello;;;;;2/10/2020;Activa
+466;Argos Km1 Medellin-Bogota;-75.54531;6.31734;Bello;;;;Croacia;10/10/2020;Activa
+467;Rio Taparto Cabecera;-75.96478;5.70378;Andes;;;Taparto;La Rochela;3/12/2020;Inactiva
+468;Escuela Vereda la Rochela;-75.99578;5.69011;Betania;;;;La Rochela;3/12/2020;Inactiva
+469;Rio Pavon ;-76.1334;6.24135;Urrao;;;;Pavon ;4/12/2020;Inactiva
+470;El Hato Vereda Pavon ;-76.14869;6.18105;Urrao;;;;Pavon;4/12/2020;Inactiva
+471;Escuela Capitan Pinzon Vereda Aguacates ;-76.05823;6.15161;Urrao;;;;Aguacates;5/12/2020;Inactiva
+472;Puente Girardota;-75.45209;6.38016;Girardota;;;;Loma de los Ochoa;7/12/2020;Activa
+473;Escuela Alto Medina - San Pedro;-75.54621;6.40072;San Pedro;;;;Alto Medina;7/12/2020;Inactiva
+474;El Uvito San Cristobal;-75.64878;6.29142;Medellin;;;60 San Cristobal;El Uvito;9/12/2020;Activa
+475;Reserva El Centello - Pluviografica;-75.84983;5.50493;Jardin;;;;Macanas;15/12/2020;Activa
+476;Reserva El Centello - Disdrometro;-75.84991;5.50496;Jardín;;;;Macanas;16/12/2020;Activa
+477;Tanque EPM Girardota;-75.44822;6.37343;Girardota;La Ferreria;;;;17/12/2020;Activa
+478;Fiscalia General de la Nacion - Thies;-75.57373;6.26853;Medellin;Caribe;05 Castilla;;;17/12/2020;Activa
+479;Q. La Iguana - San Cristobal;-75.63825;6.27683;Medellin;;;60 San Cristobal;San Cristobal - Sector Central;17/12/2020;Activa
+481;Hospital La Estrella - Pluviografica;-75.64398;6.15546;La Estrella;La Chinca;;;;17/12/2020;Activa
+482;Pluviometro Caracoli;-74.75528;6.41242;Caracoli;Clavellina;;;;29/12/2020;Inactiva
+483;Q. La Picacha - Nivel Lidar;-75.58328;6.24208;Medellin;Conquistadores;11 Laureles - Estadio;;;14/01/2021;Activa
+484;San Andres de Cuerquia - Pie de Cuesta;-75.6721;6.90747;San Andres de Cuerquia;;;;Pie de Cuesta;2/02/2021;Inactiva
+485;MODEM_3G;-75.58864;6.25922;Medellin;;;;;2/02/2021;Inactiva
+486;Escuela Sabanalarga - Cisneros;-75.10329;6.55965;Cisneros;;;;Alto de la Quiebra;4/02/2021;Inactiva
+487;Rio Nus - Puente Sapo - Cisneros ;-75.11026;6.53663;Cisneros;;;;El Limon;9/02/2021;Inactiva
+488;San Antonio - Zaragoza ;-74.82388;7.44538;Zaragoza;;;;San Antonio;12/03/2021;Inactiva
+489;Alcaldia - San Pedro de Uraba ;-76.38371;8.27989;San Pedro de Uraba;Central;;;;8/02/2021;Inactiva
+490;I.E Santa Gertrudis - Santo Domingo ;-75.11328;6.4975;Santo Domingo;;;;Santa Gertrudis;19/02/2021;Inactiva
+491;San Juancito - San Juan de Uraba;-76.49369;8.69398;San Juan de Uraba;;;San Juancito;;8/02/2021;Inactiva
+492;Planta Potabilizacion - Betulia ;-75.99063;6.11279;Betulia;Barrio Nuevo;;;;19/02/2021;Inactiva
+493;I.E El Carmelo - Arboletes ;-76.38178;8.61498;Arboletes;;;El Carmelo;;10/02/2021;Inactiva
+494;Q. La Villa - San Carlos;-74.99021;6.18447;San Carlos;;;;Villa Esperanza;10/02/2021;Inactiva
+495;Rio San Carlos - Puente Zulia;-74.99706;6.18535;San Carlos;Zulia;;;;12/02/2021;Inactiva
+496;La Natalia - San Carlos;-74.99117;6.19492;San Carlos;;;;La Natalia;12/02/2021;Inactiva
+497;I.E El Limon - Cisneros;-75.12101;6.53657;Cisneros;;;;El limon;15/02/2021;Inactiva
+498;Rio Penderisco - Puente La Cartagena ;-76.11003;6.20325;Urrao;;;;La Cartagena;16/02/2021;Inactiva
+499;El Pacifico - Pluviometro;-75.53578;6.24965;Medellín;;;90 Santa Elena;Piedras Blancas – Matasano;16/02/2021;Activa
+501;Escuela San Jose - Urrao;-76.12823;6.25773;Urrao;;;;San Jose;16/02/2021;Inactiva
+505;Q. San German - Cisneros ;-75.08404;6.53867;Cisneros;San German;;;;18/02/2021;Inactiva
+506;La Villa - San Carlos - Pluviometro;-74.99;6.17639;San Carlos;;;;La Villa;23/02/2021;Inactiva
+507;Dos Quebradas - San Carlos;-75.03457;6.16528;San Carlos;;;;Dos Quebradas;23/02/2021;Inactiva
+508;Rio San Juan - Puente Zoila Lopez - San Pedro de Uraba ;-76.38696;8.28693;San Pedro de Uraba;Zoila Lopez;;;;23/02/2021;Inactiva
+509;I.E Currulao - Turbo;-76.6356;7.99553;Turbo;;;Currulao;;26/02/2021;Inactiva
+511;I.E Gaspar de Rodas - Caceres;-75.25358;7.7521;Caceres;;;El Jardin;;9/03/2021;Inactiva
+512;La Piedra - Andes ;-75.95149;5.64788;Andes;;;;La Piedra;25/02/2021;Activa
+513;Q. La Chaparrala - Andes;-75.87831;5.6584;Andes;El Hoyo;;;;25/02/2021;Inactiva
+515;La Valeria - Caldas;-75.64334;6.09161;Caldas;;;;La Valeria;12/03/2021;Activa
+516;Q. El Hato - Porvenir - San Pedro;-75.55531;6.45946;San Pedro;El Porvenir;;;;10/05/2021;Inactiva
+517;C.E.R Los Limones - Sonson;-74.8122;5.71655;Taraza;;;San Miguel;Limones;4/03/2021;Inactiva
+518;Rio San Juan - El Carmelo - Arboletes ;-76.38273;8.60941;Arboletes;;;El Carmelo;;25/02/2021;Inactiva
+519;Deslizamiento Tierra Amarilla - Pluvio;-75.65849;6.15345;La Estrella;;;;Tierra Amarilla;24/03/2021;Activa
+520;Estacion Metro Acevedo;-75.55783;6.3007;Medellín;La Francia;02 Santa Cruz;;;24/03/2021;Activa
+521;U.R. Atavanza Rodeo Alto - Extensometro;-75.60483;6.20365;Medellín;La Hondonada;16 Belen;;;26/03/2021;Inactiva
+522;U.R. Atavanza Rodeo Alto - Acelerometro;-75.60483;6.20365;Medellín;La Hondonada;16 Belen;;;26/03/2021;Inactiva
+523;Acelerometro 1 y 2 - Estacion Metro Acevedo ;-75.55788;6.30155;Medellín;La Francia;02 Santa Cruz;;;24/03/2021;Activa
+524;Acelerometro 3 y 4 - Estacion Metro Acevedo ;-75.55772;6.30184;Medellín;La Francia;02 Santa Cruz;;;24/03/2021;Activa
+525;Acelerometro Olaya 1;-75.61192;6.27428;Medellin;Olaya Herrera;07 Robledo;;;27/03/2021;Inactiva
+526;Acelerometro Olaya 2;-75.61192;6.27468;Medellin;Olaya Herrera;07 Robledo;;;27/03/2021;Inactiva
+527;Q. La Toscana - Zenu;-75.56352;6.30432;Medellin;Boyaca;05 Castilla;;;29/04/2021;Activa
+528;Q. La Liboriana - Puente Gualanday;-76.03105;5.95725;Salgar;;;;Gualanday;11/05/2021;Inactiva
+529;Acelerometro 5 y 6 - Estacion Metro Acevedo ;-75.55795;6.30177;Medellín;La Francia;02 Santa Cruz;;;26/03/2021;Activa
+530;La Regada - Salgar;-76.04976;5.99233;Salgar;;;;La Regada;11/03/2021;Inactiva
+531;Q. El Indio - Via Las Palmas;-75.56442;6.22572;Medellin;Asomadera No. 1;09 Buenos Aires;;;14/04/2021;Activa
+532;Finca Altamira - Humedad;-75.62243;6.13846;Sabaneta;;;;Canaveralejo;19/05/2021;Activa
+533;Rio Samana - Butantan - Sonson;-74.78399;5.69556;Sonson;;;San Miguel;Butantan;25/05/2021;Inactiva
+534;Q. La Oca - Zaragoza;-74.86685;7.48318;Zaragoza;Villa Mena;;;;25/05/2021;Inactiva
+535;Rio Cauca - Caceres;-75.34867;7.58415;Caceres;Sector Central;;;;26/05/2021;Inactiva
+536;Rio Currulao - Boca Limon - Turbo;-76.54951;8.03943;Turbo;;;Nueva Antioquia;Boca Limon;1/06/2021;Inactiva
+537;Q. Santa Elena - Plaza Minorista;-75.57279;6.25812;Medellin;San Benito;10 La Candelaria;;;8/06/2021;Activa
+538;Restaurante San Ateo - Humedad;-75.59537;6.32317;Bello;;;San Felix;El Carmelo;24/06/2021;Activa
+539;Restaurante San Ateo - Pluviometro;-75.59537;6.32317;Bello;;;San Felix;El Carmelo;24/06/2021;Activa
+540;Finca Altamira - Pluviometro;-75.62236;6.13841;Sabaneta;;;;Canaveralejo;11/06/2021;Activa
+541;Vereda Potrerito - Humedad;-75.32126;6.42562;Barbosa;;;;Potrerito;23/06/2021;Activa
+542;Santa Elena - Radar - Thies;-75.52745;6.19353;Medellin;;;90 Santa Elena;El Plan;24/06/2021;Activa
+543;Potrerito - Bello - Pluviometro;-75.58243;6.33025;Bello;;;;Potrerito;29/06/2021;Activa
+544;Nivel freatico - Herrajes Gaher;-75.5923;6.19318;Medellin;Colinas del Sur;15 Guayabal;;;7/07/2021;Activa
+545;Q. La Gomez - Nivel Lidar;-75.5932;6.2739;Medellin;Robledo;07 Robledo;;;29/07/2021;Activa
+546;Q. Dona Maria - El Salado;-75.66832;6.2076;Medellin;;;80 San Antonio de Prado;El Salado;15/07/2021;Activa
+548;El Plebiscito - Pluviometro;-75.62144;6.15227;Sabaneta;Calle Larga;;;;16/07/2021;Activa
+549;Floresta - Alcantarillado Lidar;-75.59493;6.25838;Medellín;Estadio;11 Laureles - Estadio;;;25/01/2022;Activa
+550;Q. La Magdalena - Alcantarillado Lidar;-75.58181;6.2525;Medellin;Naranjal;11 Laureles - Estadio;;;19/07/2021;Activa
+551;Villatina - Pluviometro;-75.54019;6.23487;Medellin;Villatina;08 Villa Hermosa;;;2/09/2021;Activa
+552;Q. La Ortega - Potrerito;-75.58257;6.33092;Bello;;;;Potrerito;8/09/2021;Activa
+553;La Sanin - Humedad Stevens;-75.5461;6.203;Medellín;;;90 Santa Elena;Las Palmas;14/09/2021;Activa
+554;Q. Dona Ana - Nivel;-75.61044;6.13909;Sabaneta;;;;La Doctora;17/09/2021;Activa
+555;Pueblo Viejo - Humedad Stevens;-75.63792;6.14023;Caldas;;;;Pueblo Viejo;24/09/2021;Activa
+556;Pueblo Viejo - Extensometro;-75.63792;6.14023;La Estrella;;;;Pueblo Viejo;24/09/2021;Activa
+557;Pueblo Viejo - Acelerometro;-75.63792;6.14023;Caldas;;;;Pueblo Viejo;24/09/2021;Activa
+558;La Bermejala - Pluviometro;-75.55837;6.27769;Medellín;Brasilia;04 Aranjuez;;;29/09/2021;Activa
+561;Q. El Sesteadero - El Ajizal;-75.60057;6.1896;Itagüí;;;70 Altavista;El Ajizal;12/01/2022;Activa
+562;Q. San Alejo - Ceramica;-75.62087;6.1515;Sabaneta;Ceramica;;;;25/11/2021;Activa
+563;Olaya Herrera - Acelerometro 1-2;-75.61194;6.27383;Medellín;Olaya Herrera;07 Robledo;;;25/11/2021;Activa
+564;Olaya Herrera - Acelerometro 3-4;-75.61222;6.27625;Medellín;Santa Margarita;07 Robledo;;;26/11/2021;Activa
+565;San Jose - Pluviometro;-75.65045;6.17667;Medellín;;;80 San Antonio de Prado;San Jose;1/12/2021;Activa
+566;San Jose - Acelerometro ;-75.65045;6.17667;Medellín;;;80 San Antonio de Prado;San Jose;1/12/2021;Activa
+567;San Jose - Extensometro;-75.65045;6.17667;Medellín;;;80 San Antonio de Prado;San Jose;1/12/2021;Activa
+568;San Jose - Humedad Stevens;-75.65045;6.17667;Medellín;;;80 San Antonio de Prado;San Jose;1/12/2021;Activa
+570;U.R. Atavanza Rodeo Alto - Humedad;-75.60483;6.20365;Medellín;La Hondonada;16 Belen;;;2/12/2021;Inactiva
+572;Q. La Munoz - Ditaires;-75.62549;6.16682;Itagüí;Ditaires;;;;13/01/2022;Activa
+573;San Andres de Cuerquia - Nivel;-75.67605;6.90916;San Andrés de Cuerquía;;;;Pie de Cuesta;2/02/2021;Inactiva
+575;Oasis Moravia - Pluviometro;-75.56722;6.28267;Medellín;Moravia;04 Aranjuez;;;6/12/2021;Activa
+576;Oasis Moravia - Humedad;-75.56722;6.28267;Medellín;Moravia;04 Aranjuez;;;3/12/2021;Activa
+577;Parque Santa Elena - Humedad;-75.49849;6.20994;Medellín;;;90 Santa Elena;Santa Elena - Sector Central;26/01/2022;Activa
+578;Santa Elena Radar - Pluviometro;-75.52758;6.19359;Medellín;;;90 Santa Elena;El Plan;14/12/2021;Activa
+579;Pluviometro Radar Santa Elena;-75.52758;6.19359;Medellín;;;;;10/11/2021;Inactiva
+1000;Thiess Movil 1;-75.57247;6.2398;Medellin;Calle Nueva;10 La Candelaria;;;26/05/2017;Inactiva
+1004;La clara digital- Humedad;-75.61882;6.04205;Caldas;;;;La Clara;23/03/2017;Activa
+1010;Vereda San Antonio - Pluvio;-76.67252;1.18357;Mocoa;;;;San Antonio;12/04/2017;Inactiva
+1011;Policia;-76.6486;1.14705;Mocoa;;;;;13/04/2017;Inactiva
+1012;Escuela el libano - Pluvio;-76.66859;1.14552;Mocoa;;;;;12/04/2017;Inactiva
+1013;Rio Sangoyaco - Nivel;-76.64685;1.14853;Mocoa;;;;;13/04/2017;Inactiva
+1014;Rio Mulato - Nivel;-76.64522;1.14378;Mocoa;;;;;13/04/2017;Inactiva
+1018;Santa Elena-Radar - Thies;-75.5276;6.1935;Medellin;;;90 Santa Elena;El Plan;15/06/2017;Inactiva
+1019;Torre SIATA - Thies;-75.5887;6.2592;Medellin;Estadio;11 Laureles - Estadio;;;20/06/2017;Activa
+1020;Thiess Movil 2;-75.5775;6.25705;Medellin;Carlos E. Restrepo;11 Laureles - Estadio;;;7/09/2017;Inactiva
+1021;San Luis de Chontayaco;-76.68571;1.14696;Mocoa;;;;San Luis de Chontayaco;7/09/2017;Inactiva
+1051;Sistema Alarma Kilometro 6 - 1207;-75.34086;7.49944;Taraza;;;;;24/08/2019;Activa
+1052;Sistema Alarma Piedras - 1209;-75.37817;7.54594;Taraza;;;;;24/08/2019;Activa
+1054;Sistema Alarma Eduardo Correa - 1212;-75.40245;7.58946;Taraza;;;;;24/08/2019;Activa
+1055;Sistema Alarma Puente Roto - 1213;-75.40179;7.58332;Taraza;;;;;24/08/2019;Activa
+1056;Sistema Alarma El Reten - 11xx;-75.39054;7.29306;Valdivia;;;;;24/08/2019;Activa
+1057;Sistema Alarma Paletero - 11xx;-75.37959;7.30398;Valdivia;;;;;9/09/2019;Activa
+1058;Sistema Alarma El Silencio - 11xx;-75.36625;7.31879;Valdivia;;;;;9/10/2019;Activa
+1059;Sistema Alarma Paulina Esc - 11xx;-75.34793;7.33851;Valdivia;;;;;24/08/2019;Activa
+1060;Sistema Alarma Paulina Torre - 11xx;-75.34237;7.34379;Valdivia;;;;;24/08/2019;Activa
+1069;Sistema Alarma El 14 - 1318;-75.30494;7.42375;Valdivia;;;;;16/09/2019;Activa
+6001;Piranometro Torre SIATA;-75.5887;6.2592;Medellin;Estadio;11 Laureles - Estadio;;;8/03/2016;Activa
+6002;Piranometro Concejo Itagui;-75.6438;6.16826;Itagui;Ditares;;;;10/03/2016;Activa
+6003;Piranometro Joaquin Vallejo;-75.54248;6.25525;Medellin;La Ladera;08 Villa Hermosa;;;13/04/2016;Activa
+6004;Piranometro Parque de las Aguas;-75.41934;6.40661;Barbosa;;;;;21/04/2017;Activa
+6005;Piranometro AMVA;-75.57396;6.24219;Medellin;Calle Nueva;10 La Candelaria;;;21/09/2017;Activa
+100014;Camaras Torre;-75.58864;6.25922;Medellin;Estadio;11 Laureles - Estadio;;;1/07/2019;Inactiva
+100015;Camaras Radar;-75.5276;6.1935;Envigado;;;;El Plan;1/11/2012;Inactiva
+100016;Drone  DJI Inspire One V2;-75.5887;6.2592;Medellín;;;;;11/06/2020;Activa
+100018;Camara Medellin Oriente CCTV;-75.58864;6.25922;Medellin;Estadio;11 Laureles Estadio;;;20/05/2011;Activa
+100019;Camara Medellin Suroriente CCTV;-75.58864;6.25922;Medellin;Estadio;11 Laureles Estadio;;;20/05/2011;Activa
+100020;Camara Medellin noroccidente CCTV;-75.58864;6.25922;Medellin;Estadio;11 Laureles Estadio;;;25/04/2012;Activa
+100021;Camara Medellin Nororiente CCTV;-75.58864;6.25922;Medellin;Estadio;11 Laureles Estadio;;;25/04/2012;Activa
+100022;Camara Medellin Occidente CCTV;-75.58864;6.25922;Medellin;Estadio;11 Laureles Estadio;;;25/04/2012;Activa
+100023;Camara Santa Elena - Suroccidente Medellin CCTV;-75.52895;6.19076;Medellin;;;90 Santa Elena;El Plan;10/10/2012;Activa
+100024;Camara Santa Elena - Noroccidente Medellin CCTV;-75.52895;6.19076;Medellin;;;90 Santa Elena;El Plan;10/10/2012;Activa
+100025;Camara Santa Elena Nororiente - San Nicolas CCTV;-75.52895;6.19076;Medellin;;;90 Santa Elena;El Plan;30/07/2014;Activa
+100026;Camara Santa Elena Suroriente - San Nicolas CCTV;-75.52895;6.19076;Medellin;;;90 Santa Elena;El Plan;30/07/2014;Activa
+100027;Camara Termica Itagui - Monitoreo Incendios - CCTV  ;-75.6441;6.1681;Itagui;Ditaires;;;;8/09/2016;Activa
+100028;Camara Termica Bello - Monitoreo Incendios - CCTV;-75.55819;6.33717;Bello;Suarez;Comuna 04;;;8/09/2016;Activa
+100029;Camara Termica Torre SIATA - Monitoreo Incendios - CCTV;-75.58864;6.25922;Medellin;Estadio;11 Laureles Estadio;;;6/07/2017;Activa
+100030;Camara Termica Itagui - Monitoreo Incendios - IR ;-75.6441;6.1681;Itagui;Ditaires;;;;8/09/2016;Activa
+100031;Camara Termica Bello - Monitoreo Incendios - IR;-75.55819;6.33717;Bello;Suarez;Comuna 04;;;8/09/2016;Activa
+100032;Camara Termica Torre SIATA - Monitoreo Incendios - IR;-75.58864;6.25922;Medellin;Estadio;11 Laureles Estadio;;;6/07/2017;Activa
+100033;Camara Termica Itagui - Monitoreo Incendios - Posicionador;-75.6441;6.1681;Itagui;Ditaires;;;;6/07/2017;Activa
+100034;Camara Termica Bello - Monitoreo Incendios - Posicionador;-75.55819;6.33717;Bello;Suarez;Comuna 04;;;8/09/2016;Activa
+100035;Camara Termica Torre SIATA - Monitoreo Incendios - Posicionador;-75.58864;6.25922;Medellin;Estadio;11 Laureles - Estadio;;;13/07/2018;Activa
+100036;Camara Deprimido San Juan CCTV;-75.57549;6.2465;Medellin;La Alpujarra;10 La Candelaria;;;2/07/2016;Inactiva
+100037;Camara Deprimido Los Musicos CCTV;-75.58143;6.24728;Medellin;San Joaquin;11 Laureles Estadio;;;1/06/2016;Activa
+100038;Camara Deprimido Terminal de Transporte CCTV;-75.57255;6.27607;Medellin;Caribe;05 Castilla;;;4/12/2016;Activa
+100039;Camara Deslizamiento Manzanillo CCTV;-75.6069;6.2107;Medellin;;;70 Altavista;San Jose del Manzanillo;4/11/2016;Inactiva
+100040;Camara Deslizamiento Montanita - San Antonio Prado CCTV;-75.66434;6.18993;Medellin;San Antonio de Prado;;80 San Antonio de Prado;Montanita;17/10/2016;Activa
+100041;Camara Deslizamiento Serranias - San Antonio de Prado CCTV;-75.65216;6.18814;Medellin;;Serranias;80 San Antonio de Prado;;16/12/2016;Inactiva
+100042;Camara Deslizamiento El Salado - San Antonio de Prado CCTV;-75.66872;6.20969;Medellin;;;80 San Antonio de Prado;El Salado;10/04/2017;Inactiva
+100043;Camara Deslizamiento La Raya;-75.64994;6.11115;La Estrella;;;;;17/04/2017;Activa
+100044;Camara Deslizamiento La Raya 2;-75.64818;6.11386;La Estrella;;;;;;Activa
+100045;Camara rio Medellin - Aula Ambiental CCTV;-75.57242;6.26418;Medellin;El Chagualo;10 La Candelaria;;;1/12/2016;Activa
+100046;Camara rio Medellin - La Estrella -Monitoreo Color CCTV;-75.63229;6.11934;La Estrella;;;;;;Inactiva
+100047;Camara rio Medellin - Ancon Sur CCTV;-75.62808;6.15278;La Estrella;zona industrial;;;;1/12/2016;Activa
+100048;Camara - ARGOS Sabaneta - Marmolera CCTV;-75.63293;6.14104;La Estrella;Pueblo Viejo;;;;5/12/2016;Inactiva
+100049;Camara - ARGOS Sabaneta - Aguas Abajo CCTV;-75.63319;6.14254;La Estrella;Pueblo Viejo;;;;1/12/2016;Inactiva
+100050;Camara - ARGOS Sabaneta - Corona Deslizamiento CCTV;-75.63268;6.14147;Sabaneta;;;;;;Inactiva
+100051;Camara color Puente de la 33;-75.5775;6.2396;Medellin;Perpetuo Socorro;10 La Candelaria;;;1/09/2017;Activa
+100052;Camara Calidad del Aire Unal;-75.577;6.26337;Medellin;La iguana;07 Robledo;;;17/03/2017;Inactiva
+100053;Camara Torre SIATA - Fisheye Cielo;-75.58864;6.25922;Medellin;Estadio;11 Laureles - Estadio;;;;Activa
+100054;Camara Concejo de Itagui - Fisheye Cielo;-75.6441;6.1681;Itagui;Ditaires;;;;;Activa
+100055;Camara Aeroparque Juan Pablo Segundo - Fisheye Cielo;-75.5899;6.2293;Medellin;Belen Las Playas;16 Belen;;;;Activa
+100056;Camara Incendios La Estrella;-75.64162;6.15814;La Estrella;;;;;1/09/2017;Activa
+100057;Camara Rio EAFIT;-75.57954;6.19789;Medellin;Aguacatala;14 El Poblado;;;21/09/2017;Inactiva
+100058;Camara Colegio Canadiense La Estrella - Fisheye Cielo;-75.63836;6.13166;La Estrella;Sector Sierra Morena;;;;;Activa
+100059;Camara Bello - Fisheye Cielo;-75.55819;6.33717;Bello;Suarez;Comuna 04;;;;Activa
+100060;Camara Deslizamiento Pan de Azucar;-75.63152;6.13869;Sabaneta;Ancon Sur;;;;;Activa
+100068;Antena Km6 BelloTermica;-75.55841;6.33699;Bello;;;;;1/01/1999;Inactiva
+100072;Antena la raya acelerografo;-75.64701;6.11149;La Estrella;;;;;17/06/2020;Activa
+100073;Antena la raya acelerografo;-75.64784;6.11331;La Estrella;;;;;1/01/1999;Activa
+100074;Antena poste la raya a tablaza;-75.63221;6.11931;La Estrella;;;;;1/01/1999;Activa
+100075;Ant Puente Centro Empresarial Sur Dir. Poste La Raya 1;-75.63226;6.11933;La Estrella;;;;;1/01/1999;Inactiva
+100095;Antena Argos a Marmol;-75.63267;6.14151;La Estrella;Pueblo Viejo;;;;1/01/1999;Inactiva
+100100;Antena centro empresarial sur a radar;-75.63648;6.11836;La Estrella;;;;;9/05/2010;Inactiva
+100101;Antena CasaCultura a puente empresarial;-75.63648;6.11836;La Estrella;;;;;1/01/1999;Activa
+100105;Antena Directiva Acel sabaneta;-75.61084;6.15753;Sabaneta;Zona industrial;;;;1/01/1999;Activa
+100112;Antena Aire Metro la estrella;-75.62751;6.15221;La Estrella;;;;;1/01/1999;Inactiva
+100118;Antena SIATA AMAPOLITA;-75.5887;6.2592;Medellin;Estadio;11 Laureles - Estadio;;;1/01/1999;Activa
+100120;Antena AMAPOLITA PARIS;-75.5381;6.287;Medellin;Carpinelo;01 Popular;;;1/01/1999;Activa
+100121;Antena PARIS AMAPOLITA;-75.5858;6.31042;Bello;Paris;;;;1/01/1999;Activa
+100125;Antena AMVA nueva;-75.57403;6.24224;Medellin;La Alpujarra;10 La Candelaria;;;1/01/1999;Activa
+100126;Antena SIATA a Acel Aures;-75.5887;6.2592;Medellin;Estadio;11 Laureles - Estadio;;;1/01/1999;Activa
+100128;Camara - Nivel picacha aguas frias;-75.63952;6.23148;Medellin;;;70 Altavista;Aguas Frias;8/06/2020;Activa
+100130;Antena - Puente Hatillo - Poste Rio Medellin Hatillo;-75.39276;6.41212;Barbosa;;;;Hatillo;8/02/2021;Activa
+100137;Camara La Vida Copacabana - Fisheye Cielo;-75.50469;6.34542;Copacabana;Miraflores;;;;;Activa
+100138;Camara Nivel Puente Fundadores;-75.49881;6.35797;Copacabana;San Juan;;;;5/05/2017;Activa
+100139;Camara SOS Girardota - Fisheye Cielo;-75.45091;6.37904;Girardota;Juan XXIII;;;;8/03/2018;Inactiva
+100141;Antena Portachuelo Girardota;-75.47456;6.39146;Girardota;;;;Curazao;1/01/1999;Activa
+100142;Antena Portachuelo Girardota;-75.47456;6.39146;Girardota;;;;Curazao;1/01/1999;Inactiva
+100144;Camara deprimido Suramericana;-75.57854;6.25336;Medellin;Suramericana;11 Laureles - Estadio;;;22/03/2018;Activa
+100148;Camara deprimido Bulerias;-75.5899;6.2395;Medellin;Laureles;11 Laureles - Estadio;;;23/03/2018;Activa
+100149;Camara deprimido san Juan;-75.6022;6.25027;Medellin;La Alpujarra;10 La Candelaria;;;20/04/2018;Inactiva
+100152;Camara EAFIT - Fisheye Cielo;-75.581;6.203;Medellin;Poblado;;;;25/06/2018;Activa
+100153;Camara AMVA - Fisheye Cielo;-75.5743;6.24215;Medellin;La Alpujarra;10 La Candelaria;;;25/06/2018;Activa
+100154;Camara Sabaneta - Fisheye Cielo;-75.62139;6.14564;Sabaneta;;;;;25/06/2018;Activa
+100155;Camara Alcaldia la estrella - Fisheye Cielo;-75.64516;6.1608;La Estrella;Horizontes;;;;25/06/2018;Activa
+100158;Camara Aula Ambiental - Fisheye Cielo;-75.57253;6.26411;Medellin;El Chagualo;07 Robledo;;;23/07/2018;Activa
+100159;Camara Incendio Copacabana;-75.49881;6.35797;Copacabana;Cristo Rey;;;;23/07/2018;Inactiva
+100160;Camara Incendio Girardota 1;-75.4438;6.3783;Girardota;Aurelio Mejia;;;Cuchillas;23/07/2018;Inactiva
+100161;Camara Incendio Girardota 2;-75.4438;6.3783;Girardota;Aurelio Mejia;;;;23/07/2018;Inactiva
+100163;Camara Incendio Itagui;-75.6441;6.1681;Itagui;Ditaires;;;;16/08/2018;Inactiva
+100170;IRGASON Altavista CEDEPRO;-75.63624;6.21959;Medellin;;;;;14/08/2020;Activa
+100172;Ceilometro Jesus Maria Valle;-75.58216;6.30065;Medellin;;;;;19/02/2020;Activa
+100173;Camara 360 Axis;-75.58864;6.25922;Medellin;La Iguana;07 Robledo;;;13/12/2018;Activa
+100174;Camara Edificio Babilonia Interior;-75.61661;6.16889;Itagui;Las Mercedes;;;;3/08/2018;Inactiva
+100175;Camara Edificio Babilonia Exterior;-75.61636;6.16821;Itagui;Las Mercedes;;;;3/08/2018;Inactiva
+100189;Antena Sectorial Megacolegio;-75.5858;6.31042;Bello;Paris;Comuna 01;;;23/10/2018;Activa
+100190;Antena Sanin RadarMeteo;-75.54511;6.20323;Medellin;Poblado;14 El Poblado;;;21/10/2018;Activa
+100191;Antena RadarMeteo Sanin;-75.58994;6.22939;Medellin;;;;;21/10/2018;Activa
+100192;Camara deslizamiento Sanin;-75.58864;6.25923;Medellin;Poblado;14 El Poblado;;;21/10/2018;Inactiva
+100193;Camara Capa Limite La Estrella;-75.64516;6.1608;La Estrella;Pueblo viejo;;;;11/10/2017;Activa
+100194;Camara Capa Limite Santo Domingo;-75.53819;6.2871;Medellin;Carpinelo;01 Popular;;;21/01/2019;Activa
+100195;Camara Deprimido Feria de Ganado;-75.56178;6.30416;Medellin;La toscana;05 Castilla;;;21/01/2019;Activa
+100196;Camara Deprimido San Juan;-75.57549;6.2465;Medellin;La Alpujarra;10 La Candelaria;;;21/01/2019;Activa
+100197;Camara Deprimido San Juan con la 80;-75.60228;6.25056;Medellin;La america;12 La America;;;21/01/2019;Activa
+100198;Camara Deslizamiento La Sanin;-75.54517;6.20338;Medellin;poblado;14 El Poblado;;;21/01/2019;Inactiva
+100199;Camara Deslizamiento Palmitas;-75.69653;6.36045;Medellin;;;50 Palmitas;Palmitas - Sector Central;21/01/2019;Activa
+100200;Camara Ituango Descarga;-75.6558;7.1413;Ituango;;;;;21/01/2019;Activa
+100201;Camara Ituango Embalse;-75.6558;7.1413;Ituango;;;;;21/01/2019;Activa
+100202;Camara Ituango Subestacion 500;-75.6558;7.1413;Ituango;;;;;21/01/2019;Activa
+100203;Camara Color Rio PIS;-75.63229;6.11934;La Estrella;La tablaza;;;Juan XIII;21/01/2019;Activa
+100205;Antena Repetidora Yarumal Cerro Marconi;-75.40819;6.98147;Yarumal;;;;;29/03/2019;Inactiva
+100206;Camara termica FLIR Torre Siata;-75.58864;6.25922;Medellin;Estadio;11 Laureles - Estadio;;;5/04/2019;Inactiva
+100210;Camara Asuncion Copacabana;-75.51372;6.34591;Copacabana;La Asuncion;;;;22/04/2019;Activa
+100213;Alcaldia La Estrella SotanoA;-75.64168;6.15765;La Estrella;El Dorado;;;;13/11/2020;Activa
+100214;Alcaldia La Estrella Piso3B;-75.64168;6.15765;La Estrella;El Dorado;;;;13/11/2020;Activa
+100234;Camara  Nivel la raya;-75.64041;6.11199;La Estrella;;;;La Raya;30/05/2019;Activa
+100235;Camara  incendio 2 Copacabana;-75.50523;6.3458;Copacabana;;;;;4/06/2019;Activa
+100237;Antena  Casa Cultura Tablaza - Frontera Sur;-75.63651;6.11838;La Estrella;;;;;4/06/2019;Activa
+100239;Antena  Nivel la raya - Frontera Sur;-75.64113;6.11189;La Estrella;;;;;4/06/2019;Activa
+100242;Antena  Comfama Entrada - Comfama Parqueadero;-75.48223;6.37752;Copacabana;;;;El Totumo ;14/06/2019;Activa
+100245;Camara  Comfama Girardota;-75.48187;6.37332;Girardota;;;Ancon Norte;;14/06/2019;Inactiva
+100246;Camara deslizamiento Salinas caldas;-75.66264;6.04833;Caldas;;;;Salinas;18/06/2019;Inactiva
+100247;Camara termica eafit bloque 38 - IR;-75.57836;6.2017;Medellin;Aguacatala;14 El Poblado;;;18/06/2019;Activa
+100249;Antena Jorge Eliecer Gaitan - I.E Reino de Belgica;-75.5584;6.33708;Bello;;;;;21/06/2019;Activa
+100253;Camara Parque de las Aguas Sur;-75.41871;6.40661;Barbosa;;;;Filo Verde;21/06/2019;Activa
+100254;Camara Parque de las Aguas Norte;-75.41871;6.40661;Barbosa;;;;Filo Verde;21/06/2019;Activa
+100255;Camara Megacolegio Paris;-75.58497;6.31016;Bello;Paris;Comuna 01;;;21/06/2019;Activa
+100256;Camara incendio eafit bloque 38;-75.57836;6.2017;Medellin;Aguacatala;14 El Poblado;;;25/06/2019;Activa
+100257;Camara Seguridad Metro Estrella;-75.62749;6.15231;Sabaneta;Ancon Sur;;;;10/07/2019;Activa
+100258;Camara deslizamiento Sabaneta;-75.61105;6.13071;Sabaneta;;;;La Doctora;8/08/2019;Activa
+100261;Ceilometro Federico Carrasquilla;-75.54927;6.29722;Medellin;;;;;24/08/2019;Activa
+100262;Camara nivel Iguana;-75.60524;6.27631;Medellin;Fuente Clara;07 Robledo;;;14/08/2019;Activa
+100263;Antena Joaquin Vallejo - Iguana;-75.54273;6.25513;Medellin;;;;;14/08/2019;Activa
+100264;Antena Torre siata - Eafit bloque 19;-75.5889;6.2589;Medellin;;;;;16/09/2019;Activa
+100265;Antena Eafit bloque 19 - Torre siata;-75.57966;6.19797;Medellin;;;;;16/09/2019;Activa
+100266;Camara Alcaldia Estrella;-75.64162;6.15814;La Estrella;El Dorado;;;;16/09/2019;Activa
+100267;Camara Tres Aguas Noroccidente;-75.63536;6.09628;Caldas;;;;La Miel;16/09/2019;Activa
+100268;Camara Tres Aguas Este;-75.63536;6.09628;Caldas;;;;La Miel;16/09/2019;Activa
+100269;TDR Ancon 2;-75.481;6.37768;Copacabana;;;;;16/09/2019;Activa
+100271;Camara seguridad I.E Federico Carrasquilla;-75.54927;6.29722;Medellin;Popular;01 Popular;;;24/09/2019;Inactiva
+100274;Camara deslizamiento Andalucia Caldas;-75.62404;6.08964;Caldas;;;;La Corrala;10/10/2019;Activa
+100275;Antena deslizamiento Andalucia -  La Raya;-75.62392;6.08969;Caldas;;;;;10/10/2019;Activa
+100276;Antena la raya - deslizamiento andalucia;-75.63861;6.1111;La Estrella;;;;;17/09/2019;Activa
+100279;Camara deslizamiento manga arriba;-75.46113;6.3524;Girardota;;;;Manga Arriba;17/09/2019;Inactiva
+100280;Antena manga arriba - Portachuelo;-75.45114;6.35238;Girardota;;;;;11/10/2019;Activa
+100281;Antena Portachuelo - manga arriba;-75.47456;6.39146;Girardota;;;;;11/10/2019;Activa
+100282;Antena Megacolegio Paris - Laguna Quitasol ;-75.5858;6.31042;Bello;;;;;11/10/2019;Activa
+100285;Alcaldia La Estrella Piso3A;-75.64168;6.15765;La Estrella;El Dorado;;;;13/11/2020;Activa
+100294;Camara Atalaya 1;-75.60166;6.2065;Medellin;El Rincon;16 Belen;;;31/10/2019;Inactiva
+100295;Camara Atalaya 2;-75.60166;6.2065;Medellin;El Rincon;16 Belen;;;31/10/2019;Inactiva
+100296;Camara Atalaya 3;-75.60166;6.2065;Medellin;El Rincon;16 Belen;;;31/10/2019;Inactiva
+100302;Camara - Deslizamiento Ancon Norte;-75.58864;6.25922;Medellin;;;;;10/08/2020;Inactiva
+100303;Camara Jerico 2;-75.78843;5.7934;Jerico;;;;;5/11/2019;Activa
+100304;Camara Jerico 1;-75.78861;5.79293;Jerico;;;;;5/11/2019;Activa
+100305;TDR Montanita;-75.66434;6.18993;Medellin;San Antonio de Prado;;;;20/11/2019;Activa
+100309;Camara axis 360 2 ;-75.5899;6.2293;Medellin;;15 Guayabal;;;3/12/2019;Activa
+100310;Camara termica serie f;-75.5899;6.2293;Medellin;;15 Guayabal;;;3/12/2019;Activa
+100313;TDR Pueblo Viejo;-75.63797;6.14019;La Estrella;;;;;26/12/2019;Activa
+100319;Camara Termica Ciudadela Educativa La Vida - Monitoreo Incendios - Posicionador;-75.50475;6.34536;Copacabana;Cristo Rey;;;;7/01/2020;Activa
+100320;Camara Termica Ciudadela Educativa La Vida - Monitoreo Incendios - IR;-75.50475;6.34536;Copacabana;Cristo Rey;;;;7/01/2020;Activa
+100321;Camara Termica Ciudadela Educativa La Vida - Monitoreo Incendios - CCTV;-75.50475;6.34536;Copacabana;Cristo Rey;;;;7/01/2020;Activa
+100325;Camara Termica Viva Envigado - Envigado - CCTV;-75.59093;6.17665;Envigado;;;;;15/01/2020;Activa
+100326;Camara Termica Viva Envigado - Envigado - IR;-75.59093;6.17665;Envigado;;;;;15/01/2020;Activa
+100327;Camara Termica Viva Envigado - Itagui - CCTV;-75.59106;6.17687;Envigado;;;;;15/01/2020;Activa
+100328;Camara Termica Viva Envigado - Itagui - IR;-75.59106;6.17687;Envigado;;;;;15/01/2020;Activa
+100332;Antena Alcaldia estrella Acelero Tanque epm;-75.64171;6.15817;La Estrella;Centro;;;;23/12/2019;Activa
+100333;Antena Acelero Tanque epm Alcaldia estrella;-75.65087;6.15874;La Estrella;;;;;23/12/2019;Activa
+100335;Drone DJI Matrice 600 Pro ;-75.58864;6.25922;Medellin;;;;;23/12/2019;Activa
+100336;Camara termica eafit bloque 38 – CCTV;-75.57836;6.2017;Medellin;Aguacatala;14 El Poblado;;;7/01/2020;Activa
+100350;Camara Bomberos San Antonio 1;-75.64146;6.18374;Medellin;;;;;14/02/2020;Activa
+100351;Camara Bomberos San Antonio 2;-75.64146;6.18374;Medellin;;;;;14/02/2020;Activa
+100354;Camara Bomberos Sabaneta;-75.61644;6.15609;Sabaneta;;;;;23/12/2019;Activa
+100358;Antena auxiliar viva envigado;-75.59237;6.17531;Envigado;;;;;23/12/2019;Activa
+100359;Antena Viva Envigado Itagui;-75.59237;6.17531;Envigado;;;;;23/12/2019;Activa
+100360;Antena Deslizamiento Pan de Azucar Alcaldia Estrella;-75.63153;6.13862;La Estrella;;;;;23/12/2019;Activa
+100364;Antena - Acelero Ancon Sur - Sectorial Sur;-75.6349;6.14946;La Estrella;;;;;23/12/2019;Inactiva
+100365;Antena - Acelero Girardota - NONE;-75.449;6.374;Girardota;;;;;31/03/2020;Activa
+100366;Antena - Acelero Itagui - NONE;-75.622;6.164;Itagui;;;;;23/12/2019;Activa
+100370;Antena - Alcaldia Estrella - Sectorial Sur;-75.64162;6.15814;La Estrella;;;;;23/12/2019;Activa
+100373;Antena - Anemometro 3D La Candelaria - NONE;-75.54263;6.29368;Medellin;;;;;23/12/2019;Activa
+100376;Antena - Camara Ancor Sur - NONE;-75.6349;6.14946;La Estrella;;;;;23/12/2019;Activa
+100377;Antena - Camara Termica Itagui - NONE;-75.6441;6.1681;Itagui;;;;;23/12/2019;Inactiva
+100378;Antena - Casa Cultura Tablaza - Radar Meteo;-75.63679;6.11856;La Estrella;;;;;23/12/2019;Activa
+100379;Antena - Colegio CASD - La Candelaria;-75.57518;6.29764;Medellin;;;;;8/06/2020;Activa
+100386;Antena - Poste La Raya 2 - Deslizamiento Andalucia;-75.64818;6.11386;La Estrella;;;;;23/12/2019;Activa
+100397;Camara - San Cristobal;-75.65159;6.29647;Medellin;;;60 San Cristobal;El Llano;12/09/2020;Inactiva
+100398;Camara Incendio Ciudadela La Vida;-75.50475;6.34536;Copacabana;Cristo Rey;;;Cabuyal;23/12/2019;Activa
+100399;Camara Nivel Eafit Bloque 19;-75.57977;6.19778;Medellin;;;;;31/03/2020;Activa
+100401;Camara Monaco lidar eafit;-75.57883;6.19941;Medellin;La Aguacatala;14 El Poblado;;;21/02/2019;Inactiva
+100402;Camara Oriente Torre SIATA;-75.58864;6.25922;Medellin;Estadio;11 Laureles Estadio;;;23/12/2019;Activa
+100403;Camara Noroccidente Torre SIATA;-75.58864;6.25922;Medellin;Estadio;11 Laureles Estadio;;;23/12/2019;Activa
+100404;Camara Termica I.E Jorge Eliecer Gaitan - CCTV  ;-75.5584;6.33708;Bello;;;;;31/03/2020;Activa
+100405;Camara Termica I.E Jorge Eliecer Gaitan - IR;-75.5584;6.33708;Bello;;;;;23/12/2019;Activa
+100452;Antena - Depobuses - Portachuelo;-75.481;6.37768;Copacabana;;;;;19/06/2020;Activa
+100453;Antena - Portachuelo - Depobuses;-75.47456;6.39146;Girardota;;;;;19/06/2020;Activa
+100455;Camara Nivel Hatillo;-75.39381;6.41249;Barbosa;;;;Hatillo;21/07/2020;Activa
+100457;TDR Manga arriba;-75.45933;6.35192;Girardota;;;;Manga Arriba;4/08/2020;Inactiva
+100460;Antena - Ajizal - Santa Elena;-75.60488;6.19354;Itagui;;;;;14/08/2020;Activa
+100463;Camara  AnimalX ;-75.56532;6.22617;Medellin;;;;;14/08/2020;Inactiva
+100464;Camara Ajizal;-75.60502;6.19339;Itagui;;;;Ajizal;8/09/2020;Activa
+100465;Camara Jerico 3;-75.79086;5.79348;Jerico;;;;;23/09/2020;Activa
+100466;Camara nivel Argos km1 Medellin-Bogota;-75.54531;6.31734;Bello;;;;;10/10/2020;Activa
+100469;Alcaldia La Estrella SotanoB;-75.64168;6.15765;La Estrella;El Dorado;;;;13/11/2020;Activa
+100471;Alcaldia La Estrella Piso7A;-75.64168;6.15765;La Estrella;El Dorado;;;;13/11/2020;Activa
+100472;Alcaldia La Estrella Piso3C;-75.64168;6.15765;La Estrella;El Dorado;;;;13/11/2020;Activa
+100473;Alcaldia La Estrella Piso7B;-75.64168;6.15765;La Estrella;El Dorado;;;;13/11/2020;Activa
+100474;Alcaldia La Estrella Piso10A;-75.64168;6.15765;La Estrella;El Dorado;;;;13/11/2020;Activa
+100475;Alcaldia La Estrella Piso10B;-75.64168;6.15765;La Estrella;El Dorado;;;;13/11/2020;Activa
+100476;Sectorial Cabuyal;-75.61107;6.13071;Sabaneta;;;;;15/12/2020;Activa
+100485;Drone DJI Mavic 2 Enterprise dual (A);-75.58864;6.25922;Medellin;;;;;29/12/2020;Activa
+100486;CSAT3B  Bunker Fiscalía - Turbulencia;-75.57371;6.26851;Medellin;Caribe;05 Castilla;;;17/12/2020;Activa
+100487;Antena - Bunker Fiscalia - None;-75.57371;6.26851;Medellin;Caribe;05 Castilla;;;17/12/2020;Activa
+100488;Drone DJI Mavic 2 Enterprise dual (B);-75.58864;6.25922;Medellin;;;;;29/12/2020;Activa
+100489;Camara Deslizamiento Hatillo ;-75.39276;6.41212;Barbosa;;;;Hatillo;8/02/2021;Activa
+100490;Antena hatillo deslizamiento;-75.39269;6.412;Barbosa;;;;;8/02/2021;Activa
+100491;Antena hatillo deslizamiento;-75.39269;6.412;Barbosa;;;;;8/02/2021;Inactiva
+100492;Antena - Ecoparque Pan de Azucar - Torre SIATA;-75.53578;6.24965;Medellin;;;90 Santa Elena;;16/02/2021;Activa
+100493;Cámara Deslizamiento El Pacífico;-75.53577;6.24965;Medellin;;;90 Santa Elena;;16/02/2021;Activa
+100494;Camara termica FLIR Parque 3 Aguas- monitoreo de incendios-IR;-75.63523;6.09628;Caldas;;;;La Miel;17/02/2021;Activa
+100495;Camara Animal X - Palmas;-75.56507;6.22624;Medellin;San Diego;10 La Candelaria;;;5/03/2021;Activa
+100496;Camara deslizamiento La Valeria ;-75.64334;6.09161;Caldas;;;;La Valeria;12/03/2021;Activa
+100497;Antena Deslizamiento Atavanza Rodeo Alto 1;-75.60488;6.20381;Medellin;La Hondonada;16 Belen;;;26/03/2021;Activa
+100498;Camara Socavacion Metro Acevedo;-75.55783;6.3007;Medellin;La Francia;02 Santa Cruz;;;23/03/2021;Activa
+100499;Antena deslizamiento Tierra Amarilla - Sectorial Sur;-75.65849;6.15345;La Estrella;;;;Tierra Amarilla;24/03/2021;Activa
+100500;Camara Deslizamiento Tierra Amarilla;-75.65849;6.15345;La Estrella;;;;Tierra Amarilla;24/03/2021;Activa
+100501;Camara Deslizamiento Metro Acevedo ;-75.55783;6.3007;Medellin;La Francia;02 Santa Cruz;;;23/03/2021;Activa
+100502;Camara Deslizamiento Atavanza Rodeo Alto 1;-75.60488;6.20381;Medellin;La Hondonada;16 Belen;;;26/03/2021;Activa
+100503;Camara Animal X - Via Las Palmas;-75.56491;6.22619;Medellin;San Diego;10 La Candelaria;;;26/03/2021;Activa
+100504;Camara Deslizamiento Atavanza Rodeo Alto 2;-75.60415;6.20372;Medellin;La Hondonada;16 Belen;;;26/03/2021;Activa
+100505;Antena Deslizamiento Atavanza Rodeo Alto 2;-75.60415;6.20372;Medellin;La Hondonada;16 Belen;;;26/03/2021;Activa
+100506;Camara Potrerito 2;-75.58249;6.33075;Bello;;;;Potrerito;29/06/2021;Activa
+100507;Ant los Gomez a tanque la Y;-75.61034;6.18992;Medellin;;;;;23/05/2021;Activa
+100508;Ant tanques la Y a los Gomez ;-75.55071;6.18264;Envigado;;;;;23/05/2021;Activa
+100509;Antena Pluvio Jalisco - La Candelaria;-75.59703;6.3143;Bello;;;;;6/04/2021;Activa
+100510;Alcaldia  itagui ejec-piso 05B;-75.3631;6.1024;Itagui;;;;;6/04/2021;Activa
+100511;Antena la Candelaria- Paradero Jalisco;-75.5425;6.29362;Medellin;;;;;6/04/2021;Activa
+100512;Alcaldia de medellin piso 1A;-75.3425;6.14418;Medellin;;;;;6/04/2021;Activa
+100513;Alcaldia de medellin piso 1B;-75.3425;6.14418;Medellin;;;;;6/04/2021;Activa
+100514;Alcaldia  itagui jud-sotano 01A;-75.3632;6.1025;Itagui;;;;;6/04/2021;Activa
+100515;Alcaldia  itagui leg-sotano 01A;-75.3631;6.1025;Itagui;;;;;6/04/2021;Activa
+100516;Alcaldia  itagui ejec-sotano 01A;-75.3631;6.1024;Itagui;;;;;6/04/2021;Activa
+100517;Alcaldia  itagui jud-Piso 06A;-75.3631;6.1025;Itagui;;;;;6/04/2021;Activa
+100518;Alcaldia  itagui jud-Piso 06B;-75.3632;6.1025;Itagui;;;;;6/04/2021;Activa
+100519;Alcaldia  itagui leg-piso 10A;-75.3631;6.1025;Itagui;;;;;6/04/2021;Activa
+100520;Alcaldia  itagui leg-piso 10B;-75.3631;6.1025;Itagui;;;;;6/04/2021;Activa
+100521;Alcaldia  itagui ejec-piso 05A;-75.3631;6.1024;Itagui;;;;;6/04/2021;Activa
+100522;Ant radar meteo - Alcaldia itagui;-75.52877;6.19074;Medellin;;;;;16/04/2021;Activa
+100523;Alcaldia de Medellin piso 1C;-75.3426;6.144;Medellin;;;;;16/04/2021;Activa
+100524;Alcaldia de Medellin piso 7A;-75.5722;6.24474;Medellin;;;;;16/04/2021;Activa
+100525;Alcaldia de Medellin piso 7B;-75.5725;6.24373;Medellin;;;;;16/04/2021;Activa
+100526;Alcaldia de Medellin piso 14A;-75.57364;6.244;Medellin;;;;;16/04/2021;Activa
+100527;Alcaldia de Medellin piso 14B;-75.57364;6.244;Medellin;;;;;16/04/2021;Activa
+100528;Alcal Itagui - Radar;-75.60894;6.17361;Itagui;;;;;16/04/2021;Activa
+100529;Edif Concejo - Edif Alcaldia;-75.60894;6.17361;Itagui;;;;;16/04/2021;Activa
+100530;Edif Alcaldia - Edif Concejo;-75.60894;6.17361;Itagui;;;;;16/04/2021;Activa
+100531;Edif Fiscalia sur - Edif Consejo;-75.60894;6.17361;Itagui;;;;;16/04/2021;Activa
+100532;Edif Consejo - Edif Fiscalia sur;-75.60894;6.17361;Itagui;;;;;16/04/2021;Activa
+100533;Edif Consejo - Edif Fiscalia Norte;-75.60894;6.17361;Itagui;;;;;16/04/2021;Activa
+100534;Edif Fiscalia Norte - Edif Consejo;-75.60894;6.17361;Itagui;;;;;16/04/2021;Activa
+100535;Ant Shake San Antonio de prado a Radar;-75.66553;6.19249;Medellin;;;;;23/05/2021;Activa
+100536;Shake CEDEPRO ;-75.63618;6.2195;Medellin;;;70 Altavista;Buga - Patio Bonito;22/07/2021;Activa
+100537;Shake San Cristobal Travesias;-75.63656;6.29249;Medellin;;;60 San Cristobal;Travesias;23/07/2021;Activa
+100538;Edif Consejo Alc Itagui;-75.60894;6.17361;Itagui;;;;;16/04/2021;Activa
+100539;Edif Alc Itagui;-75.60894;6.17361;Itagui;;;;;16/04/2021;Activa
+100540;Antena AMVA - Edificio Plaza La Libertad;-75.57398;6.24223;Medellín;Calle Nueva;10 La Candelaria;;;15/10/2021;Activa
+100541;Antena Sectorial Torre Siata - Colegio Lusitania;-75.58867;6.25925;Medellín;Estadio;11 Laureles - Estadio;;;21/10/2021;Activa
+100542;Ant Acelero metroacevedo a Amapolita;-75.55788;6.30155;Medellin;;;;;23/05/2021;Activa
+100543;Antena Deslizamiento Primavera;-75.63264;6.06291;Caldas;;;;Primavera;5/05/2021;Activa
+100544;Camara Deslizamiento Primavera ;-75.63264;6.06291;Caldas;;;;Primavera;5/05/2021;Activa
+100545;Camara Deslizamiento Palmas Carulla;-75.56478;6.21753;Medellin;Castropol;14 El Poblado;;;30/03/2021;Activa
+100546;Ant deslizamiento palmas carulla;-75.56478;6.21753;Medellin;;;;;16/04/2021;Activa
+100547;Antena rodeo alto a Carulla palmas;-75.60461;6.2036;Medellin;;;;;23/05/2021;Activa
+100548;Antena radar a rodeo alto;-75.52876;6.19085;Medellin;;;;;23/05/2021;Activa
+100549;Antena sectorial Mega colegio;-75.58592;6.31037;Medellin;;;;;23/05/2021;Activa
+100550;Antena Sectorial sur 2;-75.52896;6.1907;Medellin;;;;;23/05/2021;Activa
+100551;Antena ITM Robledo a sectorial centro;-75.58886;6.2736;Medellin;;;;;24/05/2021;Activa
+100552;Antena Metro Estrella a Radar;-75.62741;6.15231;La Estrella;;;;;23/05/2021;Inactiva
+100553;TDR San Jose - Los Tanques;-75.66124;6.16771;La Estrella;;;80 San Antonio de Prado;San Jose;30/04/2021;Activa
+100554;Ant est policia los Gómez a Radar;-75.61035;6.18991;Itagüí;;;;;23/05/2021;Activa
+100555;TDR Oasis Moravia;-75.56722;6.28267;Medellin;Moravia;04 Aranjuez;;;18/06/2021;Activa
+100556;Ant TDR Moravía a IE Jesus Maria V;-75.34234;6.16571;Medellin;;;;;23/05/2021;Activa
+100557;Ant San José TDR  a  sectorial sur 2;-75.66124;6.1678;Medellin;;;;;23/05/2021;Activa
+100558; Ant socavacion metroacevedo a Amapolita;-75.55783;6.3007;Medellin;;;;;23/05/2021;Activa
+100559;Ant Acelero2 metroacevedo a Amapolita;-75.55788;6.30155;Medellin;;;;;23/05/2021;Activa
+100560;Ant Acelero3 metroacevedo a Amapolita;-75.55772;6.30184;Medellin;;;;;23/05/2021;Activa
+100561;Ant IE Jesus Maria V a TDR Moravia;-75.34559;6.18219;Medellin;;;;;23/05/2021;Activa
+100562;Camara Termica FLIR Lusitania;-75.61853;6.27893;Medellín;Las Flores;;60 San Cristobal;Zona Urbana;22/10/2021;Activa
+100563;Camara Visible Lusitania;-75.61853;6.27893;Medellín;Las Flores;;60 San Cristobal;Zona Urbana;22/10/2021;Activa
+100564;Antena Animal X - Cooworking El Indio;-75.56507;6.22584;Medellín;San Diego;10 La Candelaria;;;25/10/2021;Activa
+100565;Ant Potrerito Bello a Quitasol;-75.58244;6.33004;Bello;;;;Potrerito;29/06/2021;Activa
+100568;Ant Quitasol a Potrerito Bello;-75.55576;6.35791;Bello;;;;Tierradentro;29/06/2021;Activa
+100572;Camara Potrerito 1;-75.58253;6.33057;Bello;;;;Potrerito;29/06/2021;Activa
+100574;Switch Alc Estrella sismos P6;-75.64169;6.15835;La Estrella;;;;;23/07/2021;Activa
+100575;Ant Torre a Ant Shake San Cristobal;-75.58864;6.25922;Medellin;;;;;23/07/2021;Inactiva
+100576;Shake San Antonio de Prado Montanitas;-75.66546;6.19236;Medellin;;;80 San Antonio de Prado;Montanita;22/07/2021;Activa
+100577;Ant Shake San Cristobal a Torre;-75.62245;6.27949;Medellin;;;;;23/07/2021;Activa
+100578;Camara Radar Nororiente;-75.52877;6.19074;Medellin;;;90 Santa Elena;El Plan;13/08/2021;Activa
+100579;Camara Radar Noroccidente;-75.52877;6.19074;Medellin;;;90 Santa Elena;El Plan;13/08/2021;Activa
+100580;Camara Radar Suroccidente;-75.52877;6.19074;Medellin;;;90 Santa Elena;El Plan;13/08/2021;Activa
+100581;Camara Radar Suroriente;-75.52877;6.19074;Medellin;;;90 Santa Elena;El Plan;13/08/2021;Activa
+100582;Antena Raya 2 - Radar;-75.647;6.11577;La Estrella;;;;San Miguel;17/08/2021;Activa
+100583;Antena Raya 2 - Poste Andalucia;-75.647;6.11577;La Estrella;;;;San Miguel;17/08/2021;Activa
+100584;Camara Deslizamiento Villatina;-75.54019;6.23487;Medellin;Villatina;08 Villa Hermosa;;;2/09/2021;Activa
+100585;Antena Aures a Antena Villatina;-75.59878;6.29306;Medellin;Aures;;60 San Cristobal;;1/09/2021;Activa
+100586;Antena Villatina a Antena aures;-75.54001;6.23492;Medellin;Villatina;08 Villa Hermosa;;;2/09/2021;Activa
+100587;Camara Deslizamiento Bermejala;-75.55837;6.27769;Medellín;Brasilia;04 Aranjuez;;;29/09/2021;Activa
+100588;Antena Bermejala - Megacolegio;-75.55837;6.27769;Medellín;Brasilia;04 Aranjuez;;;29/09/2021;Activa
+100589;Camara Deslizamiento Copacabana Vivero;-75.50281;6.35281;Copacabana;Sector Central;;;;13/10/2021;Activa
+100590;Antena Deslizamiento Copacabana Vivero - Ciudadela Educativa La Vida;-75.50281;6.35281;Copacabana;Sector Central;;;;13/10/2021;Activa
+100594;Antena Ciudadela Educativa La Vida -  Deslizamiento Copacabana Vivero;-75.50475;6.34532;Copacabana;Cristo Rey;;;Cabuyal;13/10/2021;Activa
+100598;Antena Colegio Lusitania - Sectorial Torre Siata;-75.61853;6.27893;Medellín;Las Flores;;60 San Cristobal;;21/10/2021;Activa
+100600;Antena Cooworking El Indio - Animal X;-75.5655;6.22574;Medellín;San Diego;10 La Candelaria;;;25/10/2021;Activa
+100601;Camara Cooworking El Indio;-75.56442;6.22572;Medellín;Asomadera No. 1;09 Buenos Aires;;;26/10/2021;Inactiva
+100605;Antena Sectorial Quitasol - La Garcia Bello;-75.54455;6.34701;Bello;Altos de Quitasol;Bello Comuna 7;;;16/12/2021;Activa
+100608;Ant la Gabriela - Sectorial Quitasol;-75.56568;6.34376;Bello;Buenos Aires;Bello Comuna 6;;;16/12/2021;Activa
+100609;Ant Santa Elena Radar - Alcaldia La Estrella;-75.52872;6.19095;Medellín;;;90 Santa Elena;El Plan;5/01/2022;Activa
