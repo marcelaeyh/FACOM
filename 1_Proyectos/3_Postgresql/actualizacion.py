@@ -19,8 +19,8 @@ from datetime import date, timedelta, datetime
 cliente= Socrata("www.datos.gov.co", "iiNW2MaM6IEhc9ryL8yT2Ouz8",
                   username="luisaburitica.ruiz@gmail.com",password="Paquito_Cabrito15")
 #2.2 Base de datos de Postgresql
-#eng="postgresql://facom:usuario@localhost:5432/alejandria"  #Motor Lucy-marcela
-eng="postgresql://luisa:000000@localhost:5432/alejandria" #Luisa
+eng="postgresql://facom:usuario@localhost:5432/alejandria"  #Motor Lucy-marcela
+#eng="postgresql://luisa:000000@localhost:5432/alejandria" #Luisa
 engine = create_engine(eng) #Maquina
 conn=engine.connect()
 
@@ -115,7 +115,7 @@ def ActualizacionIngreso(codvar,codDatosAbiertos,limSUP,limINF):
 
 ActualizacionIngreso(1,"sbwg-7ju4",1.3,32.90) #Temperatura
 ActualizacionIngreso(2,"s54a-sgyg",0.0,0.8) #precipitación
-ActualizacionIngreso(3,"62tk-nxj5",1.3,32.90) #presión
+ActualizacionIngreso(3,"62tk-nxj5",115,1115) #presión
 ActualizacionIngreso(4,"kiw7-v9ta",0,360) #Dirección del viento
 ActualizacionIngreso(5,'sgfv-3yp8',0,50) #velocidad del viento
 
