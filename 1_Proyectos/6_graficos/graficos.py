@@ -31,7 +31,7 @@ print("")
 
 # 2.1 Motor y máquina de postgresql en alejandria.
 print("No olvide ingresar el motor de su base de datos, abajo está un ejemplo ")
-eng = "postgresql://luisa:000000@localhost:5432/alejandria" #Motor.
+eng = "postgresql://facom:usuario@localhost:5432/alejandria" #Motor.
 engine = create_engine(eng) #Creación de máquina.
 conn=engine.connect() #Conección con de la máquina.
 

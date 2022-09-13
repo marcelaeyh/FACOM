@@ -47,7 +47,7 @@ errores=[]
 d1   = r"direccion del csv del catalogo nacional de estaciones IDEAM"
 temp = r"direccion del csv de los datos de temperatura"
 pre  = r"direccion del csv de los datos de precipitación"
-pres = r"direccion del csv de los datos de presión"
+pres = r"/home/marcelae/Desktop/FACOM/3_csv/Presi_n_Atmosf_rica.csv"
 direV= r"direccion del csv de los datos de direccion del viento"
 veloV= r"direccion del csv de los datos de velocidad del viento"
 coor = r"direccion del archivo coordenadas_estaciones.csv"
@@ -78,7 +78,7 @@ while tqdm(cont <= (n_p-1)):
     print("contador ",cont,"paso=",dx)
     print("#------#-------#")
     dx=dx+1
-    punique=df[1].unique()
+    punique=df[vnCSV[1]].unique()
     if len(punique)==1 and punique[0]==240:
         df[vnCSV[2]]=pd.to_datetime(df[vnCSV[2]],format='%m/%d/%Y %I:%M:%S %p')
         df[vnCSV[2]] = df[vnCSV[2]].dt.floor('Min')
@@ -129,12 +129,12 @@ while tqdm(cont <= (n_t-1)):
     start= time.time()
     #Las siguientes lineas de codigo toman una porcion de los datos y solo se ingresa
     #el porcentaje que se desea cargar, esto se asigno anteriormente en el paso. 
-    df=pd.read_csv(temp,nrows=int(step),skiprows=range(1,int(cont)),usecols=[0,2,3])
+    df=pd.read_csv(temp,nrows=int(step),skiprows=range(1,int(cont)),usecols=[0,1,2,3])
     print("######################")
     print("#------#-------#")
     print("contador",cont,"paso=",dx)
     print("#------#-------#")
-    tunique=df[1].unique()
+    tunique=df[vnCSV[1]].unique()
     if len(tunique)==1 and tunique[0]==68:
         df[vnCSV[2]]=pd.to_datetime(df[vnCSV[2]],format='%m/%d/%Y %I:%M:%S %p')
         df[vnCSV[2]] = df[vnCSV[2]].dt.floor('Min')
@@ -180,9 +180,75 @@ while tqdm(cont <= (n_t-1)):
     else:
         dx=dx+1
         errores.append([1,dx])
-    
 #----------------------------------------------------------------#
-#5.9.3 DIRECCIÓN VIENTO
+#5.9.3 PRESION
+#logitud del archivo de entrada
+lpr =pd.read_csv(pres,usecols=[0])
+n_pr=len(lpr)
+del lpr
+step=math.ceil(n_pr*0.05)  #el numero es el porcentaje que se va a tomar "dx"
+cont=0 # el contador inicia desde 0, pero si es necesario se pue asignar uno diferente
+dx=0
+print("Longitud del archivo de entrada= ",n_pr)
+print("Los pasos de tiempo son de= ",step)
+print("Inicia desde= ",cont)
+while tqdm(cont <= (n_pr-1)):
+    start= time.time()
+    #Las siguientes lineas de codigo toman una porcion de los datos y solo se ingresa
+    #el porcentaje que se desea cargar, esto se asigno anteriormente en el paso. 
+    df=pd.read_csv(pres,nrows=int(step),skiprows=range(1,int(cont)),usecols=[0,1,2,3])
+    print("######################")
+    print("#------#-------#")
+    print("contador",cont,"paso=",dx)
+    print("#------#-------#")
+    prunique=df[vnCSV[1]].unique()
+    if len(prunique)==1 and prunique[0]==255:
+        df[vnCSV[2]]=pd.to_datetime(df[vnCSV[2]],format='%m/%d/%Y %I:%M:%S %p')
+        df[vnCSV[2]] = df[vnCSV[2]].dt.floor('Min')
+        df=df.sort_values(by=vnCSV[2]).reset_index(drop=True,inplace=False)
+        df[vnC[19]]= np.zeros(len(df))
+        df[vnC[20]]=np.zeros(len(df))
+        n_df=len(df)
+        print("Ingresa la categoria-",dx)
+        print("#------#-------#")
+        # Categoria del dato
+        for index, row in tqdm(df.iterrows()):
+            if row[vnCSV[3]] < 115 or row[vnCSV[3]] > 11150:
+                df[vnC[19]][index] = 1 
+        print("Ingresa a ingresar informacion-",dx)
+        print("#------#-------#")       
+        #Ingreso de la informacion
+        V=[]
+        p=0
+        for i in tqdm(range(p,n_df)):
+            ab=df["CodigoEstacion"][i]
+            if (ab==88112901 or ab==35237040 or ab==21202270 
+                or ab==35217080 or ab==35227020 or ab==23157050 or ab==52017020):
+                continue 
+            
+            if ab ==14015020:
+                df[vnCSV[0]][i] = 14015080
+            if ab==48015010:
+                df[vnCSV[0]][i] = 48015050
+                
+            v =[df[vnCSV[3]][i],df[vnCSV[2]][i],df[vnCSV[0]][i],df[vnC[19]][i],3]
+            V.append(v)
+        V=pd.DataFrame(V)
+        V.columns=[vnBD[21], vnBD[20],vnBD[22],vnBD[23],vnBD[24]]
+        V.to_sql(tablas[7], con=engine, index=False, if_exists='append',chunksize=100000)
+        cont=cont+step
+        final= time.time()
+        print("Termina-",dx)
+        print("#------#-------#")
+        dx=dx+1
+        print("Tiempo de ejecucion",final-start)
+        print("#------#-------#")
+        print("######################")
+    else:
+        dx=dx+1
+        errores.append([1,dx])    
+#----------------------------------------------------------------#
+#5.9.4 DIRECCIÓN VIENTO
 
 #logitud del archivo de entrada
 ldv =pd.read_csv(direV,usecols=[0])
@@ -199,12 +265,12 @@ while tqdm(cont <= (n_dv-1)):
     start= time.time()
     #Las siguientes lineas de codigo toman una porcion de los datos y solo se ingresa
     #el porcentaje que se desea cargar, esto se asigno anteriormente en el paso. 
-    df=pd.read_csv(direV,nrows=int(step),skiprows=range(1,int(cont)),usecols=[0,2,3])
+    df=pd.read_csv(direV,nrows=int(step),skiprows=range(1,int(cont)),usecols=[0,1,2,3])
     print("######################")
     print("#------#-------#")
     print("contador",cont,"paso=",dx)
     print("#------#-------#")
-    ddunique=df[1].unique()
+    ddunique=df[vnCSV[1]].unique()
     if len(ddunique)==1 and ddunique[0]==104:
         df[vnCSV[2]]=pd.to_datetime(df[vnCSV[2]],format='%m/%d/%Y %I:%M:%S %p')
         df[vnCSV[2]] = df[vnCSV[2]].dt.floor('Min')
@@ -249,7 +315,7 @@ while tqdm(cont <= (n_dv-1)):
         dx=dx+1
         errores.append([4,dx])
 #----------------------------------------------------------------#
-#5.9.4 VELOCIDAD DEL VIENTO
+#5.9.5 VELOCIDAD DEL VIENTO
 
 #logitud del archivo de entrada
 lvev =pd.read_csv(veloV,usecols=[0])
@@ -266,12 +332,12 @@ while tqdm(cont <= (n_vev-1)):
     start= time.time()
     #Las siguientes lineas de codigo toman una porcion de los datos y solo se ingresa
     #el porcentaje que se desea cargar, esto se asigno anteriormente en el paso. 
-    df=pd.read_csv(veloV,nrows=int(step),skiprows=range(1,int(cont)),usecols=[0,2,3])
+    df=pd.read_csv(veloV,nrows=int(step),skiprows=range(1,int(cont)),usecols=[0,1,2,3])
     print("######################")
     print("#------#-------#")
     print("contador",cont,"paso=",dx)
     print("#------#-------#")
-    vdunique=df[1].unique()
+    vdunique=df[vnCSV[1]].unique()
     if len(vdunique)==1 and vdunique[0]==103:
         df[vnCSV[2]]=pd.to_datetime(df[vnCSV[2]],format='%m/%d/%Y %I:%M:%S %p')
         df[vnCSV[2]] = df[vnCSV[2]].dt.floor('Min')

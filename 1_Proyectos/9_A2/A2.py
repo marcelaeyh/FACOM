@@ -27,7 +27,7 @@ from datetime import datetime
 el intervalo de mayor frecuencia es el intervalo de la serie de datos.'''
 def intervalo(datos,nombrecolumnafecha):
     vector=[]                                             # Vector para almacenar la diferencia en minutos. 
-    for x in tqdm(range(len(datos)-1)):
+    for x in (range(len(datos)-1)):
         fi=datos[nombrecolumnafecha][x]                   # Fecha i
         fi1=datos[nombrecolumnafecha][x+1]                # Fecha i+1
         diferencia=fi1-fi                                 # Diferencia entre ambas. 
@@ -46,7 +46,7 @@ def SThorario(variable,tipo,nombrecolumnafecha,nombrecolumnavariable):
     print("Intervalo = ", frecu)
     v=[]
     RT= (60/inter)
-    for i in tqdm(y):
+    for i in (y):
         for ii in (month):
             for iii in d:
                 for iv in h:
@@ -113,12 +113,12 @@ def SThorario(variable,tipo,nombrecolumnafecha,nombrecolumnavariable):
     v["fecha"]=v["fecha"].dt.floor('H')
     return(v)
 def STdiario(variable,tipo,nombrecolumnafecha,nombrecolumnavariable):
-    print("Inicia el proceso para acumular/promediar los datos a resolución temporal horaria")
+    print("Inicia el proceso para acumular/promediar los datos a resolución temporal diaria")
     #Primera parte hacer los scumulados horarios
     frecu,inter=intervalo(variable,nombrecolumnafecha)
     v=[]
     RT= (60/inter)*24
-    for i in tqdm(y):
+    for i in (y):
         for ii in (month):
             for iii in d:
                 acumulado=variable[variable.year==i][variable.month==ii][variable.day==iii]
@@ -184,12 +184,12 @@ def STdiario(variable,tipo,nombrecolumnafecha,nombrecolumnavariable):
     return(v)
 def STmensual(variable,tipo,nombrecolumnafecha,nombrecolumnavariable):
     #No se tiene en cuenta los años bisiestos
-    print("Inicia el proceso para acumular/promediar los datos a resolución temporal horaria")
+    print("Inicia el proceso para acumular/promediar los datos a resolución temporal mensual")
     #Primera parte hacer los scumulados horarios
     frecu,inter=intervalo(variable,nombrecolumnafecha)
     v=[]
     diameses=[31,28,31,30,31,30,31,31,30,31,30,31]
-    for i in tqdm(y):
+    for i in (y):
         for ii in (month):
             acumulado=variable[variable.year==i][variable.month==ii]
             RT= (60/inter)*24*diameses[ii-1] # se tiene en cuenta la cantidad de días por mes.
@@ -254,11 +254,11 @@ def STmensual(variable,tipo,nombrecolumnafecha,nombrecolumnavariable):
     return(v)
 ################################ 3. INFORMACION DE ENTRADA ################################
 ## 3.1 Base de datos de Postgresql ALEJANDRÍA
-eng = "postgresql://luisa:000000@localhost:5432/alejandria" #Motor.
+eng = "postgresql://facom:usuario@localhost:5432/alejandria" #Motor.
 engine = create_engine(eng)                                 #Máquina.
 conn=engine.connect() 
 ## 3.2 Base de datos de Postgresql A2
-eng1 = "postgresql://luisa:000000@localhost:5432/a2" #Motor.
+eng1 = "postgresql://facom:usuario@localhost:5432/a2" #Motor.
 engine1 = create_engine(eng1)                                 #Máquina.
 conn1=engine1.connect()   
 ################################ 4. PROCESOS ################################ 
@@ -283,8 +283,9 @@ h=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]
 month.sort()
 d.sort()
 h.sort()
-p=1
+p=2+137+15
 for j in tqdm(range(p,len(estaciones))):
+    print("PASO 1")
     #Encontrar la información de la estación
     cod=estaciones.cod_estacion[j]
     query2='''
@@ -294,27 +295,34 @@ for j in tqdm(range(p,len(estaciones))):
     '''.format(cod)
 
     datos=pd.read_sql(query2,con=eng) # Busqueda en la base de datos de alejandria.
+    
+    print("PASO2")
     #Procesos con fechas
     datos["year"]=pd.to_datetime(datos[bd[0]]).dt.year   # crea una columna con los años.
     datos["month"]=pd.to_datetime(datos[bd[0]]).dt.month # crea una columna con los meses.
     datos["day"]=pd.to_datetime(datos[bd[0]]).dt.day     # crea una columna con los dias.
     datos["hour"]=pd.to_datetime(datos[bd[0]]).dt.hour   # crea una columna con los hora.
     
-    
-
     #Separando dataframes por variables
+    print("PASO3")
     temperatura=datos[datos.cod_variable==1]
     precipitacion= datos[datos.cod_variable==2]
     presión=datos[datos.cod_variable==3]
     direcionviento=datos[datos.cod_variable==4]
     velocidadviento=datos[datos.cod_variable==5]
     
-    
     temperatura=temperatura.reset_index()
+    precipitacion=precipitacion.reset_index()
+    presión=presión.reset_index()
+    direcionviento=direcionviento.reset_index()
+    velocidadviento=velocidadviento.reset_index()
+
     #Temperatura
-    if len(temperatura) !=0:
+    print("PASO 4")
+    if len(temperatura) >1:
         y=list(temperatura["year"].unique()) 
         y.sort()
+        print("Cantidad de años a evaluar en temperatura= ",len(y))
         H,D,M,FRE,INT=0,0,0,0,0
         FRE,INT=intervalo(temperatura,bd[0])
         H=SThorario(temperatura,2,bd[0],bd[1])
@@ -324,19 +332,19 @@ for j in tqdm(range(p,len(estaciones))):
         
         #Tabla observacion horaria
         v=0
-        for i in tqdm(range(len(H))):
+        for i in (range(len(H))):
             v=[H.valor[i],H.fecha[i],cod,H.categoria[i],1]
             tH.append(v)
         tH = pd.DataFrame(tH,columns=[bd[1],bd[0],bd[2],bd[3],bd[4]])
         #Tabla observacion diaria
         v=0
-        for i in tqdm(range(len(D))):
+        for i in (range(len(D))):
             v=[D.valor[i],D.fecha[i],cod,D.categoria[i],1]
             tD.append(v)
         tD = pd.DataFrame(tD,columns=[bd[1],bd[0],bd[2],bd[3],bd[4]])
         #Tabla observacion mensual
         v=0
-        for i in tqdm(range(len(M))):
+        for i in (range(len(M))):
             v=[M.valor[i],M.fecha[i],cod,M.categoria[i],1]
             tM.append(v)
         tM = pd.DataFrame(tM,columns=[bd[1],bd[0],bd[2],bd[3],bd[4]])
@@ -349,7 +357,11 @@ for j in tqdm(range(p,len(estaciones))):
         tM.to_sql(tablas[2], con=engine1, index=False, if_exists='append',chunksize=100000)
         tInt.to_sql(tablas[3], con=engine1, index=False, if_exists='append',chunksize=100000) 
     #Precipitacion
-    if len(precipitacion) !=0:
+    print("PASO 5")
+    if len(precipitacion) >1:
+        y=list(precipitacion["year"].unique()) 
+        y.sort()
+        print("Cantidad de años a evaluar en precipitación= ",len(y))
         H,D,M,FRE,INT=0,0,0,0,0
         FRE,INT=intervalo(precipitacion,bd[0])
         H=SThorario(precipitacion,1,bd[0],bd[1])
@@ -359,19 +371,19 @@ for j in tqdm(range(p,len(estaciones))):
         
         #Tabla observacion horaria
         v=0
-        for i in tqdm(range(len(H))):
+        for i in (range(len(H))):
             v=[H.valor[i],H.fecha[i],cod,H.categoria[i],2]
             tH.append(v)
         tH = pd.DataFrame(tH,columns=[bd[1],bd[0],bd[2],bd[3],bd[4]])
         #Tabla observacion diaria
         v=0
-        for i in tqdm(range(len(D))):
+        for i in (range(len(D))):
             v=[D.valor[i],D.fecha[i],cod,D.categoria[i],2]
             tD.append(v)
         tD = pd.DataFrame(tD,columns=[bd[1],bd[0],bd[2],bd[3],bd[4]])
         #Tabla observacion mensual
         v=0
-        for i in tqdm(range(len(M))):
+        for i in (range(len(M))):
             v=[M.valor[i],M.fecha[i],cod,M.categoria[i],2]
             tM.append(v)
         tM = pd.DataFrame(tM,columns=[bd[1],bd[0],bd[2],bd[3],bd[4]])
@@ -384,7 +396,11 @@ for j in tqdm(range(p,len(estaciones))):
         tM.to_sql(tablas[2], con=engine1, index=False, if_exists='append',chunksize=100000)
         tInt.to_sql(tablas[3], con=engine1, index=False, if_exists='append',chunksize=100000) 
     #Presión
-    if len(presión) !=0:
+    print("PASO 6")
+    if len(presión) >1:
+        y=list(presión["year"].unique()) 
+        y.sort()
+        print("Cantidad de años a evaluar en presión= ",len(y))
         H,D,M,FRE,INT=0,0,0,0,0
         FRE,INT=intervalo(presión,bd[0])
         H=SThorario(presión,2,bd[0],bd[1])
@@ -394,19 +410,19 @@ for j in tqdm(range(p,len(estaciones))):
         
         #Tabla observacion horaria
         v=0
-        for i in tqdm(range(len(H))):
+        for i in (range(len(H))):
             v=[H.valor[i],H.fecha[i],cod,H.categoria[i],3]
             tH.append(v)
         tH = pd.DataFrame(tH,columns=[bd[1],bd[0],bd[2],bd[3],bd[4]])
         #Tabla observacion diaria
         v=0
-        for i in tqdm(range(len(D))):
+        for i in (range(len(D))):
             v=[D.valor[i],D.fecha[i],cod,D.categoria[i],3]
             tD.append(v)
         tD = pd.DataFrame(tD,columns=[bd[1],bd[0],bd[2],bd[3],bd[4]])
         #Tabla observacion mensual
         v=0
-        for i in tqdm(range(len(M))):
+        for i in (range(len(M))):
             v=[M.valor[i],M.fecha[i],cod,M.categoria[i],3]
             tM.append(v)
         tM = pd.DataFrame(tM,columns=[bd[1],bd[0],bd[2],bd[3],bd[4]])
@@ -419,7 +435,11 @@ for j in tqdm(range(p,len(estaciones))):
         tM.to_sql(tablas[2], con=engine1, index=False, if_exists='append',chunksize=100000)
         tInt.to_sql(tablas[3], con=engine1, index=False, if_exists='append',chunksize=100000)
     #Direción viento
-    if len(direcionviento) !=0:
+    print("PASO 7")
+    if len(direcionviento) >1:
+        y=list(direcionviento["year"].unique()) 
+        y.sort()
+        print("Cantidad de años a evaluar en direccion del viento= ",len(y))
         H,D,M,FRE,INT=0,0,0,0,0
         FRE,INT=intervalo(direcionviento,bd[0])
         H=SThorario(direcionviento,2,bd[0],bd[1])
@@ -429,19 +449,19 @@ for j in tqdm(range(p,len(estaciones))):
         
         #Tabla observacion horaria
         v=0
-        for i in tqdm(range(len(H))):
+        for i in (range(len(H))):
             v=[H.valor[i],H.fecha[i],cod,H.categoria[i],4]
             tH.append(v)
         tH = pd.DataFrame(tH,columns=[bd[1],bd[0],bd[2],bd[3],bd[4]])
         #Tabla observacion diaria
         v=0
-        for i in tqdm(range(len(D))):
+        for i in (range(len(D))):
             v=[D.valor[i],D.fecha[i],cod,D.categoria[i],4]
             tD.append(v)
         tD = pd.DataFrame(tD,columns=[bd[1],bd[0],bd[2],bd[3],bd[4]])
         #Tabla observacion mensual
         v=0
-        for i in tqdm(range(len(M))):
+        for i in (range(len(M))):
             v=[M.valor[i],M.fecha[i],cod,M.categoria[i],4]
             tM.append(v)
         tM = pd.DataFrame(tM,columns=[bd[1],bd[0],bd[2],bd[3],bd[4]])
@@ -454,7 +474,11 @@ for j in tqdm(range(p,len(estaciones))):
         tM.to_sql(tablas[2], con=engine1, index=False, if_exists='append',chunksize=100000)
         tInt.to_sql(tablas[3], con=engine1, index=False, if_exists='append',chunksize=100000)
     #Velocidad viento
-    if len(velocidadviento) !=0:
+    print("PASO 8")
+    if len(velocidadviento) >1:
+        y=list(velocidadviento["year"].unique()) 
+        y.sort()
+        print("Cantidad de años a evaluar en velocidad del viento= ",len(y))
         H,D,M,FRE,INT=0,0,0,0,0
         FRE,INT=intervalo(velocidadviento,bd[0])
         H=SThorario(velocidadviento,2,bd[0],bd[1])
@@ -464,19 +488,19 @@ for j in tqdm(range(p,len(estaciones))):
         
         #Tabla observacion horaria
         v=0
-        for i in tqdm(range(len(H))):
+        for i in (range(len(H))):
             v=[H.valor[i],H.fecha[i],cod,H.categoria[i],5]
             tH.append(v)
         tH = pd.DataFrame(tH,columns=[bd[1],bd[0],bd[2],bd[3],bd[4]])
         #Tabla observacion diaria
         v=0
-        for i in tqdm(range(len(D))):
+        for i in (range(len(D))):
             v=[D.valor[i],D.fecha[i],cod,D.categoria[i],5]
             tD.append(v)
         tD = pd.DataFrame(tD,columns=[bd[1],bd[0],bd[2],bd[3],bd[4]])
         #Tabla observacion mensual
         v=0
-        for i in tqdm(range(len(M))):
+        for i in (range(len(M))):
             v=[M.valor[i],M.fecha[i],cod,M.categoria[i],5]
             tM.append(v)
         tM = pd.DataFrame(tM,columns=[bd[1],bd[0],bd[2],bd[3],bd[4]])
@@ -488,7 +512,8 @@ for j in tqdm(range(p,len(estaciones))):
         tD.to_sql(tablas[1], con=engine1, index=False, if_exists='append',chunksize=100000)
         tM.to_sql(tablas[2], con=engine1, index=False, if_exists='append',chunksize=100000)
         tInt.to_sql(tablas[3], con=engine1, index=False, if_exists='append',chunksize=100000)
-    
+
+#Fin del codigo
         
 
 

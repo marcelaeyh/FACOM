@@ -436,7 +436,73 @@ while tqdm(cont <= (n_dv-1)):
     print("Tiempo de ejecucion",final-start)
     print("#------#-------#")
     print("######################")
-
+#----------------------------------------------------------------#
+#5.9.3 PRESION
+#logitud del archivo de entrada
+lpr =pd.read_csv(pres,usecols=[0])
+n_pr=len(lpr)
+del lpr
+step=math.ceil(n_pr*0.05)  #el numero es el porcentaje que se va a tomar "dx"
+cont=0 # el contador inicia desde 0, pero si es necesario se pue asignar uno diferente
+dx=0
+print("Longitud del archivo de entrada= ",n_pr)
+print("Los pasos de tiempo son de= ",step)
+print("Inicia desde= ",cont)
+while tqdm(cont <= (n_pr-1)):
+    start= time.time()
+    #Las siguientes lineas de codigo toman una porcion de los datos y solo se ingresa
+    #el porcentaje que se desea cargar, esto se asigno anteriormente en el paso. 
+    df=pd.read_csv(pres,nrows=int(step),skiprows=range(1,int(cont)),usecols=[0,1,2,3])
+    print("######################")
+    print("#------#-------#")
+    print("contador",cont,"paso=",dx)
+    print("#------#-------#")
+    prunique=df[vnCSV[1]].unique()
+    if len(prunique)==1 and prunique[0]==255:
+        df[vnCSV[2]]=pd.to_datetime(df[vnCSV[2]],format='%m/%d/%Y %I:%M:%S %p')
+        df[vnCSV[2]] = df[vnCSV[2]].dt.floor('Min')
+        df=df.sort_values(by=vnCSV[2]).reset_index(drop=True,inplace=False)
+        df[vnC[19]]= np.zeros(len(df))
+        df[vnC[20]]=np.zeros(len(df))
+        n_df=len(df)
+        print("Ingresa la categoria-",dx)
+        print("#------#-------#")
+        # Categoria del dato
+        for index, row in tqdm(df.iterrows()):
+            if row[vnCSV[3]] < 115 or row[vnCSV[3]] > 11150:
+                df[vnC[19]][index] = 1 
+        print("Ingresa a ingresar informacion-",dx)
+        print("#------#-------#")       
+        #Ingreso de la informacion
+        V=[]
+        p=0
+        for i in tqdm(range(p,n_df)):
+            ab=df["CodigoEstacion"][i]
+            if (ab==88112901 or ab==35237040 or ab==21202270 
+                or ab==35217080 or ab==35227020 or ab==23157050 or ab==52017020):
+                continue 
+            
+            if ab ==14015020:
+                df[vnCSV[0]][i] = 14015080
+            if ab==48015010:
+                df[vnCSV[0]][i] = 48015050
+                
+            v =[df[vnCSV[3]][i],df[vnCSV[2]][i],df[vnCSV[0]][i],df[vnC[19]][i],3]
+            V.append(v)
+        V=pd.DataFrame(V)
+        V.columns=[vnBD[21], vnBD[20],vnBD[22],vnBD[23],vnBD[24]]
+        V.to_sql(tablas[7], con=engine, index=False, if_exists='append',chunksize=100000)
+        cont=cont+step
+        final= time.time()
+        print("Termina-",dx)
+        print("#------#-------#")
+        dx=dx+1
+        print("Tiempo de ejecucion",final-start)
+        print("#------#-------#")
+        print("######################")
+    else:
+        dx=dx+1
+        errores.append([1,dx])    
 #----------------------------------------------------------------#
 #5.9.4 VELOCIDAD DEL VIENTO
 
